@@ -37,7 +37,7 @@ const Footer = () => {
                     <p className="text-base mt-2">All copyright Online Bank Of BD @ {year}</p>
 
                     <div>
-                        <a href="/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReu8fz7Jx_Za_fmVmN_QfitFgaiwfTPhqdKA&usqp=CAU" alt="" /></a>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReu8fz7Jx_Za_fmVmN_QfitFgaiwfTPhqdKA&usqp=CAU" alt="" />
                     </div>
 
                 </div>
