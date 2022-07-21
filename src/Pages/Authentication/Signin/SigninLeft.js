@@ -5,78 +5,72 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-// import {
-//   useAuthState,
-//   useSignInWithEmailAndPassword,
-//   useSignInWithFacebook,
-//   useSignInWithGithub,
-//   useSignInWithGoogle,
-// } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSignInWithEmailAndPassword,
+  useSignInWithFacebook,
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// import Loading from "../../Components/Loading";
-// import UseToken from "../../Components/UseToken";
-// import auth from "../../firebase.init";
+import UseToken from "../../../Components.Nahid/Hooks/useToken";
+import Loading from "../../../Components.Nahid/Loading";
+import auth from "../../../firebase.init";
 
 const SigninLeft = () => {
-  // const [user] = useAuthState(auth);
-  // const [signInWithEmailAndPassword, suser, sloading, serror] =
-  //   useSignInWithEmailAndPassword(auth);
-  // const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
-  // const [SignInWithGithub, gituser, gitloading, giterror] =
-  //   useSignInWithGithub(auth);
-  // const [SignInWithFacebook, fuser, floading, ferror] =
-  //   useSignInWithFacebook(auth);
+  const [signInWithEmailAndPassword, suser, sloading, serror] = useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+  const [SignInWithGithub, gituser, gitloading, giterror] = useSignInWithGithub(auth);
+  const [SignInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
 
   const { register, handleSubmit, reset, errors } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || '/';
 
-  // const [token] = UseToken(user?.email);
+  const [token] = UseToken(suser || guser || gituser || fuser);
 
   let signinError;
 
-  // if (sloading || gloading || gitloading || floading) {
-  //   return <Loading />;
-  // }
+  if (sloading || gloading || gitloading || floading) {
+      return <Loading />
+  }
 
-  // if (serror || gerror || giterror || ferror) {
-  //   signinError = (
-  //     <p className="text-red-700">
-  //       {serror?.message ||
-  //         gerror?.message ||
-  //         giterror?.message ||
-  //         ferror?.message}
-  //     </p>
-  //   );
-  // }
+  if (serror || gerror || giterror || ferror) {
+      signinError = <p className="text-red-700">{serror?.message || gerror?.message || giterror?.message || ferror?.message}</p>
+  }
 
-  // if (token) {
-  //   navigate(from, { replace: true });
-  //   toast.success("Signin User Successfully");
-  // }
+  if (token) {
+      navigate(from, { replace: true });
+      toast.success("Signin User Successfully")
+  }
 
   const handleSigninform = async (data) => {
-    const email = data.email;
-    const password = data.password;
-    // await signInWithEmailAndPassword(email, password).then(() => {
-    //   reset();
-    // });
-  };
+      const email = data.email;
+      const password = data.password;
+      await signInWithEmailAndPassword(email, password)
+          .then(() => {
+              reset();
+          })
+  }
+
 
   const handleGoogleSignin = async () => {
-    // await signInWithGoogle();
-  };
+      await signInWithGoogle()
+  }
+
 
   const handleGithubSignin = async () => {
-    // await SignInWithGithub();
-  };
+      await SignInWithGithub()
+  }
+
 
   const handleFacebookSignin = async () => {
-    // await SignInWithFacebook();
-  };
+      await SignInWithFacebook()
+  }
+
 
   return (
     <div className="w-full text-center mx-auto rounded">
