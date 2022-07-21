@@ -8,20 +8,6 @@ export const Navigation = [
     {
         name: 'About US',
         href: '/aboutus',
-        aboutDropdown: [
-            {
-                name: 'Bank News',
-                href: '/banknews',
-            },
-            {
-                name: 'News',
-                href: '/banknews',
-            },
-            {
-                name: 'Bank',
-                href: '/banknews',
-            },
-        ]
     },
     {
         name: 'Bank News',
