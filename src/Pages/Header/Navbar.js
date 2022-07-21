@@ -31,7 +31,7 @@ const Navbar = () => {
                 className={`flex rounded-full px-2 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out ${
                   location.pathname === item.href
                     ? "text-green-500"
-                    : "text-gray-600"
+                    : "text-gray-700"
                 }`}
               >
                 {item.name}
