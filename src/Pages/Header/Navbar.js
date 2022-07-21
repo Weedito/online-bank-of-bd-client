@@ -9,7 +9,11 @@ import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, Produ
 import React, { useEffect, useState } from "react";
 import { Navigation } from "../../Components.Nahid/Data";
 import { NavLink, useLocation } from "react-router-dom";
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> origin
+>>>>>>> dev
 
 const Navbar = () => {
   const [bg, setBg] = useState(false);
@@ -198,7 +202,11 @@ const Navbar = () => {
       </ul>
     </nav>
   );
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> origin
+>>>>>>> dev
 };
 
 export default Navbar;
