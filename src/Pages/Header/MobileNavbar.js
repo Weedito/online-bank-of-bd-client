@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 // import icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCaretDown, faCaretRight, faClose } from '@fortawesome/free-solid-svg-icons';
 
 // import navigation data
-import { Navigation } from '../../Components.Nahid/Data';
+import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components.Nahid/NavbarData';
 
 // import framer
 import { motion } from 'framer-motion';
@@ -62,9 +62,8 @@ const MobileNavbar = () => {
         variants={ulVariants}
         initial='hidden'
         animate={isOpen ? 'visible' : ''}
-        className={`${
-          isOpen ? 'right-0' : '-right-full'
-        } fixed top-0 bottom-0 w-full flex flex-col justify-center items-center transition-all duration-300 overflow-hidden`}
+        className={`${isOpen ? 'right-0' : '-right-full'
+          } fixed top-0 bottom-0 w-full h-full flex flex-col justify-center items-center transition-all duration-300 overflow-hidden`}
       >
         <div
           onClick={() => setIsOpen(false)}
@@ -72,21 +71,137 @@ const MobileNavbar = () => {
         >
           <FontAwesomeIcon icon={faClose} className='w-8 h-8' />
         </div>
-        {Navigation.map((item, idx) => {
-          return (
-              <li onClick={() => setIsOpen(false)} key={idx} className='mb-8 text-white'>
+
+        {
+          Navigation.map((item, idx) => {
+
+            if (item.name === 'About US') {
+              return (
+                <li className='mb-4 dropdown text-white'>
+                  <NavLink
+                    to="#"
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
+                  > About US  <FontAwesomeIcon className='pl-1' icon={faCaretDown} />  </NavLink>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 p-2 border-y-2 border-red-500 shadow menu menu-compact absolute dropdown-content gap-2 bg-base-100 text-gray-500 rounded-box w-44"
+                  >
+                    {
+                      AboutDropdown.map((item, idx) => {
+
+                        if (item.name === "Committee") {
+                          return (
+                            <li className='dropdown-hover dropdown-right dropdown'>
+                              <NavLink className="flex items-center" to="/committee">Committee <FontAwesomeIcon className='' icon={faCaretRight} /> </NavLink>
+                              <ul
+                                tabIndex={0}
+                                className="mt-3 p-2 shadow border-y-2 border-red-500 menu menu-compact absolute dropdown-content gap-2 bg-base-100 text-gray-500 rounded-box w-fit"
+                              >
+                                {
+                                  CommitteeDropdown.map((item, idx) => {
+                                    return (
+                                      <li onClick={() => setIsOpen(false)} key={idx}>
+                                        <NavLink to={item.href}>{item.name}</NavLink>
+                                      </li>
+                                    )
+                                  })
+                                }
+
+                              </ul>
+                            </li>
+                          )
+                        }
+
+                        return (
+                          <li onClick={() => setIsOpen(false)} key={idx}>
+                            <NavLink to={item.href}>{item.name}</NavLink>
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+
+                </li>
+              )
+            }
+
+
+            if (item.name === "Products") {
+              return (
+                <li  className='mb-4 dropdown text-white'>
+                  <NavLink
+                    to="#"
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
+                  > Products <FontAwesomeIcon className='pl-1' icon={faCaretDown} />  </NavLink>
+
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 p-2 shadow border-y-2 border-red-500 menu menu-compact absolute dropdown-content gap-2 bg-base-100 text-gray-500 rounded-box w-44"
+                  >
+                    {
+                      ProductsDropdown.map((item, idx) => {
+                        return (
+                          <li onClick={() => setIsOpen(false)} key={idx}>
+                            <NavLink to={item.href}>{item.name}</NavLink>
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+
+                </li>
+              )
+            }
+
+            if (item.name === "Our Banking") {
+              return (
+                <li key={idx} className='mb-4 dropdown text-white'>
+                  <NavLink
+                    to="#"
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
+                  > Our Banking <FontAwesomeIcon className='pl-1' icon={faCaretDown} />  </NavLink>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 p-2 shadow border-y-2 border-red-500 menu menu-compact absolute dropdown-content gap-2 bg-base-100 text-gray-500 rounded-box w-44"
+                  >
+                    {
+                      OurBankingDropdown.map((item, idx) => {
+                        return (
+                          <li onClick={() => setIsOpen(false)} key={idx}>
+                            <NavLink to={item.href}>{item.name}</NavLink>
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+                </li>
+              )
+            }
+
+
+            return (
+                <li onClick={() => setIsOpen(false)} key={idx} className='mb-4 text-white'>                                
               <NavLink
                 to={item.href}
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className='text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2'
-              >
-                {item.name}
-              </NavLink>
-            </li>
-          );
-        })}
+                className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
+              > {item.name} </NavLink>
+              </li>
+            )
+          })
+        }
+
       </motion.ul>
     </nav>
   );

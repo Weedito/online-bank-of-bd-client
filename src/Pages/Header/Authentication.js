@@ -6,7 +6,7 @@ import React from 'react';
 // import auth from '../../firebase.init';
 // import { toast } from 'react-toastify';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Authentication = () => {
     // const [user] = useAuthState(auth);
@@ -28,9 +28,9 @@ const Authentication = () => {
         <div>
             <button className="text-sm lg:text-lg font-bold text-white bg-green-700 hover:bg-rose-600 focus:bg-gray-800 px-5 py-2 rounded-full cursor-pointer">
                 {/* {
-                    user ? <button onClick={handleSignOut} >SignOut</button> : <Link to="/signin">SignIn</Link>
+                    user ? <button onClick={handleSignOut} >SignOut</button> : <NavLink to="/signin">SignIn</Link>
                 } */}
-                <Link to="/signin">Create an Account</Link>
+                <NavLink to="/signin">Create an Account</NavLink>
                 
             </button>
         </div>
