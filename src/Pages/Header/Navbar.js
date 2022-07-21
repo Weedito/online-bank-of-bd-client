@@ -1,7 +1,7 @@
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { Fade, Zoom } from 'react-reveal';
+import { Zoom } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
 import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components.Nahid/NavbarData';
 

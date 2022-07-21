@@ -12,7 +12,6 @@ import { motion } from 'framer-motion';
 
 // import Link
 import { NavLink } from 'react-router-dom';
-import { Zoom } from 'react-reveal';
 
 
 const MobileNavbar = () => {
