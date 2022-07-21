@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 
 // import Link
 import { NavLink } from 'react-router-dom';
+import { Zoom } from 'react-reveal';
 
 
 const MobileNavbar = () => {
@@ -71,7 +72,7 @@ const MobileNavbar = () => {
         >
           <FontAwesomeIcon icon={faClose} className='w-8 h-8' />
         </div>
-        <div className="-pt-20 w-full h-full flex flex-col justify-center items-center transition-all duration-300 overflow-y-scroll scroll-m-10">
+
         {
           Navigation.map((item, idx) => {
 
@@ -189,7 +190,7 @@ const MobileNavbar = () => {
 
 
             return (
-              <li onClick={() => setIsOpen(false)} key={idx} className='mb-4 text-white'>                                
+                <li onClick={() => setIsOpen(false)} key={idx} className='mb-4 text-white'>                                
               <NavLink
                 to={item.href}
                 smooth={true}
@@ -201,7 +202,7 @@ const MobileNavbar = () => {
             )
           })
         }
-        </div>
+
       </motion.ul>
     </nav>
   );
