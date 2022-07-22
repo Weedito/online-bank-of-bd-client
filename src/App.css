@@ -27,6 +27,21 @@
 .App-link {
   color: #61dafb;
 }
+.section-title {
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 130%;
+  left: 50%;
+  width: 30px;
+  right: 50%;
+  border-radius: 20px;
+  height: 4px;
+  background-color: green;
+}
 
 @keyframes App-logo-spin {
   from {
