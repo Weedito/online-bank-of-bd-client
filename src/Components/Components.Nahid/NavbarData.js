@@ -79,10 +79,6 @@ export const ProductsDropdown = [
         href: '/cards',
     },
     {
-        name: 'Loan',
-        href: '/loan',
-    },
-    {
         name: 'Interest Rate',
         href: '/interestrate',
     }
