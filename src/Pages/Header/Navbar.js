@@ -6,13 +6,13 @@ import { NavLink } from 'react-router-dom';
 import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components.Nahid/NavbarData';
 
 const Navbar = () => {
-  const [bg, setBg] = useState(false);
+    const [bg, setBg] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      return window.scrollY > 50 ? setBg(true) : setBg(false);
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            return window.scrollY > 50 ? setBg(true) : setBg(false);
+        });
     });
-  });
 
     return (
         <nav>

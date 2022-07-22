@@ -4,19 +4,19 @@ const BusinessSummary = () => {
   return (
     <div className="flex justify-center items-center flex-col py-20  px-2">
       <div className="title">
-        <h2 className="section-title text-center text-2xl md:text-4xl lg:text-6xl ">
+        <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
           Business <span className="text-green-700">Summary</span>
         </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12 gap-8">
         {/* partner summary  */}
         <div className="partner">
-          <div class="stats shadow-md p-6">
+          <div class="stats shadow-md hover:bg-base-200 p-10">
             <div class="stat flex justify-center items-center flex-col">
               <div className="icon my-2">
                 <svg
-                  width="41"
-                  height="41"
+                  width="45"
+                  height="45"
                   viewBox="0 0 41 41"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -28,18 +28,18 @@ const BusinessSummary = () => {
                 </svg>
               </div>
               <div class="stat-value">500+</div>
-              <div class="stat-desc">Partner</div>
+              <div class="stat-desc text-xl">Partner</div>
             </div>
           </div>
         </div>
         {/* customers summary  */}
         <div className="customers">
-          <div class="stats shadow-md p-6">
+          <div class="stats shadow-md hover:bg-base-200 p-10">
             <div class="stat flex justify-center items-center flex-col">
               <div className="icon my-2">
                 <svg
                   width="45"
-                  height="43"
+                  height="45"
                   viewBox="0 0 45 43"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -51,19 +51,19 @@ const BusinessSummary = () => {
                 </svg>
               </div>
 
-              <div class="stat-value">4500+</div>
-              <div class="stat-desc">Customers</div>
+              <div class="stat-value">450+</div>
+              <div class="stat-desc text-xl">Customers</div>
             </div>
           </div>
         </div>
         {/* community summary   */}
         <div className="community">
-          <div class="stats shadow-md p-6">
+          <div class="stats shadow-md hover:bg-base-200 p-10">
             <div class="stat flex justify-center items-center flex-col">
               <div className="icon my-2">
                 <svg
-                  width="52"
-                  height="34"
+                  width="45"
+                  height="45"
                   viewBox="0 0 52 34"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -75,19 +75,19 @@ const BusinessSummary = () => {
                 </svg>
               </div>
 
-              <div class="stat-value">300</div>
-              <div class="stat-desc">Community</div>
+              <div class="stat-value">300+</div>
+              <div class="stat-desc text-xl">Community</div>
             </div>
           </div>
         </div>
         {/* positive feedback summary  */}
         <div className="feedback">
-          <div class="stats shadow-md p-6">
+          <div class="stats shadow-md hover:bg-base-200 p-10">
             <div class="stat flex justify-center items-center flex-col">
               <div className="icon my-2">
                 <svg
-                  width="43"
-                  height="43"
+                  width="45"
+                  height="45"
                   viewBox="0 0 43 43"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ const BusinessSummary = () => {
               </div>
 
               <div class="stat-value">460+</div>
-              <div class="stat-desc">Partner</div>
+              <div class="stat-desc text-xl">Partner</div>
             </div>
           </div>
         </div>
