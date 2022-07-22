@@ -1,103 +1,73 @@
-import {
-  faFacebook,
-  faGithub,
-  faGoogle,
-} from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGithub, faGoogle, } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useEffect } from "react";
-// import {
-//   useAuthState,
-//   useCreateUserWithEmailAndPassword,
-//   useSignInWithFacebook,
-//   useSignInWithGithub,
-//   useSignInWithGoogle,
-//   useUpdateProfile,
-// } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword,useSignInWithFacebook,useSignInWithGithub,useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// import Loading from "../../Components/Loading";
-// import UseToken from "../../Components/UseToken";
-// import auth from "../../firebase.init";
+import UseToken from "../../../Components.Nahid/Hooks/useToken";
+import Loading from "../../../Components.Nahid/Loading";
+import auth from "../../../firebase.init";
 
-const SignupRight = () => {
-  // const [user] = useAuthState(auth);
-  // const [createUserWithEmailAndPassword, cuser, cloading, cerror] =
-  //   useCreateUserWithEmailAndPassword(auth);
-  // const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
-  // const [SignInWithGithub, gituser, gitloading, giterror] =
-  //   useSignInWithGithub(auth);
-  // const [SignInWithFacebook, fuser, floading, ferror] =
-  //   useSignInWithFacebook(auth);
-  // const [updateProfile] = useUpdateProfile(auth);
 
-  const { register, handleSubmit, reset } = useForm();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const SignupRight = () => {
+    const [createUserWithEmailAndPassword, cuser, cloading, cerror] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [SignInWithGithub, gituser, gitloading, giterror] = useSignInWithGithub(auth);
+    const [SignInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
+    const [updateProfile] = useUpdateProfile(auth);
 
-  let signupError;
 
-  // const [token] = UseToken(user?.email);
-  // console.log(token);
+    const { register, handleSubmit, reset } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
-  // useEffect(() => {
-  //   if (user) {
-  //     fetch("http://localhost:5500/api/v1/user/add-user", {
-  //       method: "POST",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         name: user?.displayName,
-  //         email: user?.email,
-  //       }),
-  //     });
-  //   }
-  // }, [user]);
+    let signupError;
 
-  // if (cloading || gloading || gitloading || floading) {
-  //   return <Loading />;
-  // }
+    const [token] = UseToken(cuser || guser || gituser || fuser);
 
-  // if (cerror || gerror || giterror || ferror) {
-  //   signupError = (
-  //     <p className="text-red-700">
-  //       {cerror?.message ||
-  //         gerror?.message ||
-  //         giterror?.message ||
-  //         ferror?.message}
-  //     </p>
-  //   );
-  // }
+    if (cloading || gloading || gitloading || floading) {
+        return <Loading />
+    };
 
-  // if (token) {
-  //   navigate(from, { replace: true });
-  //   toast.success("Signin User Successfully");
-  // }
+    if (cerror || gerror || giterror || ferror) {
+        signupError = <p className="text-red-700">{cerror?.message || gerror?.message || giterror?.message || ferror?.message}</p>
+    };
 
-  const handleSignupform = async (data) => {
-    const displayName = data.displayName;
-    const email = data.email;
-    const password = data.password;
-    // await createUserWithEmailAndPassword(email, password);
-    // await updateProfile({ displayName }).then(() => {
-    //   reset();
-    // });
-  };
 
-  const handleGoogleSignin = async () => {
-    // await signInWithGoogle();
-  };
+    if (token) {
+        navigate(from, { replace: true });
+        toast.success("Signin User Successfully")
+    };
 
-  const handleGithubSignin = async () => {
-    // await SignInWithGithub();
-  };
 
-  const handleFacebookSignin = async () => {
-    // await SignInWithFacebook();
-  };
+    const handleSignupform = async (data) => {
+        const displayName = data.displayName;
+        const email = data.email;
+        const password = data.password;
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName: displayName })
+            .then(() => {
+                reset();
+            })
+    }
+
+
+    const handleGoogleSignin = async () => {
+        await signInWithGoogle()
+    }
+
+
+    const handleGithubSignin = async () => {
+        await SignInWithGithub()
+    }
+
+
+    const handleFacebookSignin = async () => {
+        await SignInWithFacebook()
+    }
+
 
   return (
     <div className="w-full text-center mx-auto rounded">
