@@ -9,7 +9,7 @@ const UseAdmin = () => {
 
     useEffect( () => {
         const email = user?.email;
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://bank-of-bd.herokuapp.com/user/admin/${email}`, {
             method: 'GET',
             headers: {
                 'content-type' : 'application/json',
