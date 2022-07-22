@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Zoom } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
-import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components.Nahid/NavbarData';
+import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components/Components.Nahid/NavbarData';
 
 const Navbar = () => {
     const [bg, setBg] = useState(false);

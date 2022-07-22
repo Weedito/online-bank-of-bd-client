@@ -5,8 +5,8 @@ import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGith
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import UseToken from "../../../Components.Nahid/Hooks/useToken";
-import Loading from "../../../Components.Nahid/Loading";
+import UseToken from "../../../Components/Components.Nahid/Hooks/useToken";
+import Loading from "../../../Components/Components.Nahid/Loading";
 import auth from "../../../firebase.init";
 
 const SigninLeft = () => {

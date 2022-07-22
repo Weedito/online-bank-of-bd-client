@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCaretDown, faCaretRight, faClose } from '@fortawesome/free-solid-svg-icons';
 
 // import navigation data
-import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components.Nahid/NavbarData';
+import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components/Components.Nahid/NavbarData';
 
 // import framer
 import { motion } from 'framer-motion';
