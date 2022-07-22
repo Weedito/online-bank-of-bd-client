@@ -1,16 +1,7 @@
-import {
-  faFacebook,
-  faGithub,
-  faGoogle,
-} from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGithub, faGoogle, } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import {
-  useSignInWithEmailAndPassword,
-  useSignInWithFacebook,
-  useSignInWithGithub,
-  useSignInWithGoogle,
-} from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
