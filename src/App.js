@@ -6,6 +6,7 @@ import Signup from "./Pages/Authentication/Signup/Signup";
 import Header from "./Pages/Header/Header";
 import Home from "./Pages/Home/Home";
 import Footer from "./Pages/Footer/Footer";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/signin" element={<Signin/>} />
         <Route path="/signup" element={<Signup/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
       <Footer/>
       <ToastContainer/>
