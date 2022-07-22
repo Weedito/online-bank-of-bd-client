@@ -16,7 +16,7 @@ const Navbar = () => {
 
     return (
         <nav>
-            <ul className='flex space-x-8 capitalize text-[15px]'>
+            <ul className='flex space-x-2 capitalize text-[15px]'>
 
                 {
                     Navigation.map((item, idx) => {
