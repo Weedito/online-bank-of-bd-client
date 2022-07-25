@@ -11,11 +11,11 @@ const ContactUs = () => {
                 backgroundSize: 'cover'
             }}
         >
-            <div className='my-auto'>
-                <h3 className="text-4xl">Contact US...</h3>
-                <h3 className='text-3xl mt-10'>+88 01785-748248</h3>
+            <div className='my-0'>
+                <h3 className="text-4xl font-bold text-black">Contact US...</h3>
+                <h3 className='text-3xl mt-5 font-semibold text-black'>+88 01785-748248</h3>
                 <p className='text-white mt-2'>Mon - Fri 10:00 AM - 08-00 PM BDT</p>
-                <p className='text-xs text-teal-900 link mt-2'>uniquecoders007@gmail.com</p>
+                <p className='text-sm text-teal-900 link mt-2'>uniquecoders007@gmail.com</p>
                 <button class="btn btn-primary mt-8">Call Us <span className='pl-2'><FontAwesomeIcon icon={faPhone} /></span> </button>
             </div>
 
