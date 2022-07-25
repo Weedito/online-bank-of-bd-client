@@ -7,6 +7,7 @@ import Header from "./Pages/Header/Header";
 import Home from "./Pages/Home/Home";
 import Footer from "./Pages/Footer/Footer";
 import About from "./Pages/AboutUs/About/About";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 import Shareholders from "./Pages/AboutUs/Shareholders/Shareholders";
 import BoardOfDirectors from "./Pages/AboutUs/BoardOfDirectors/BoardOfDirectors";
 import ExecutiveCommittee from "./Pages/AboutUs/Committee/ExecutiveCommittee/ExecutiveCommittee";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* About Us Routes */}
         <Route path="/about" element={<About />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/shareholders" element={<Shareholders />} />
         <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
         <Route path="/executivecommittee" element={<ExecutiveCommittee />} />

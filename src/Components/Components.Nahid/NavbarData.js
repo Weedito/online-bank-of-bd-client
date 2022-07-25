@@ -20,6 +20,10 @@ export const Navigation = [
     {
         name: 'Contact US',
         href: '/contactus',
+    },
+    {
+        name: 'Dashboard',
+        href: '/dashboard',
     }
 ];
 
