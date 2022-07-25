@@ -35,8 +35,8 @@ export const AboutDropdown = [
         href: '/shareholders',
     },
     {
-        name: 'Board of Derectors',
-        href: '/boardofderectors',
+        name: 'Board of Directors',
+        href: '/boardofdirectors',
     },
     {
         name: 'Committee',
