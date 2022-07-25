@@ -1,5 +1,4 @@
 
-
 export const TrustedPartnersData = [
     {
         imageURL: 'https://i.ibb.co/Wvz9WvH/cocacola-PNG14.png',
@@ -30,3 +29,33 @@ export const TrustedCFeedbackData = [
         stars: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/5_stars.svg/2560px-5_stars.svg.png'
     },
 ]
+
+
+export const AboutCounterData = [
+    {
+        title: 'Authorized Capital',
+        count: '10000000000'
+    },
+    {
+        title: 'Paid up Capital',
+        count: '8933413560'
+    },
+    {
+        title: 'Credit Rating Agency',
+        count: '3'
+    },
+    {
+        title: 'Number of Employees',
+        count: '5000'
+    },
+    {
+        title: 'Number of Branches',
+        count: '172'
+    },
+    {
+        title: 'Number of Shares',
+        count: '893341356'
+    },
+]
+
+

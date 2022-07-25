@@ -1,9 +1,14 @@
 import React from 'react';
+import AboutCounter from './AboutCounter';
+import AboutTopSection from './AboutTopSection';
+import Milestone from './Milestone';
 
 const About = () => {
     return (
         <div>
-            <h3 className="text-3xl">This is About Page</h3>
+            <AboutTopSection/>
+            <AboutCounter/>
+            <Milestone/>
         </div>
     );
 };
