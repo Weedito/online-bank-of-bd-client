@@ -15,7 +15,6 @@ import AuditCommittee from "./Pages/AboutUs/Committee/AuditCommittee/AuditCommit
 import RiskManagementCommittee from "./Pages/AboutUs/Committee/RiskManagementCommittee/RiskManagementCommittee";
 import NotFound from "./Pages/NotFound/NotFound";
 import HeadOffice from "./Pages/AboutUs/HeadOffice/HeadOffice";
-import Deposit from "./Pages/Products/Deposit/Deposit";
 import Loan from "./Pages/Products/Loan/Loan";
 import Cards from "./Pages/Products/Cards/Cards";
 import RetailBanking from "./Pages/OurBanking/RetailBanking/RetailBanking";
@@ -23,6 +22,12 @@ import CorporateBanking from "./Pages/OurBanking/CorporateBanking/CorporateBanki
 import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
+import Withdraw from "./Components/Components.Arif/Withdraw";
+import Statement from "./Components/Components.Arif/Statement";
+import UpdateInfo from "./Components/Components.Arif/UpdateInfo";
+import SendMoney from "./Components/Components.Arif/SendMoney";
+import TransactionHistory from "./Components/Components.Arif/TransactionHistory";
+import Deposit from "./Components/Components.Arif/Deposit";
 
 function App() {
   return (
@@ -31,8 +36,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* About Us Routes */}
-        <Route path="/about" element={<About />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/about" element={<About />} />\
+
+        <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+          <Route path="deposit" element={<Deposit/>}></Route>
+          <Route path="withdraw" element={<Withdraw/>}></Route>
+          <Route path="statement" element={<Statement/>}></Route>
+          <Route path="updateInfo" element={<UpdateInfo/>}></Route>
+          <Route path="sendMoney" element={<SendMoney/>}></Route>
+          <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
+        </Route>
+        
         <Route path="/shareholders" element={<Shareholders />} />
         <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
         <Route path="/executivecommittee" element={<ExecutiveCommittee />} />

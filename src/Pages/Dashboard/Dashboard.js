@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import TransactionHistory from '../../Components/Components.Arif/TransactionHistory';
 
 const Dashboard = () => {
     return (
@@ -7,12 +8,15 @@ const Dashboard = () => {
       <h1 className="text-xl font-bold text-green-500 text-center mt-4">
         Well Come To Dashboard    
       </h1>
+
+
+
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           <label
             htmlFor="my-drawer-2"
-            className="btn bg-green-600 drawer-button lg:hidden mb-56 -mt-96 mr-60"
+            className="btn bg-green-600 drawer-button lg:hidden lg:mb-60 -mt-96 mr-60"
           >
             Open Drawer
           </label>
