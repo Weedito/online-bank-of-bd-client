@@ -18,9 +18,7 @@ const AboutCounter = () => {
                             <div className="partner cursor-pointer">
                             <div class="stats shadow-md bg-green-700 text-white hover:bg-base-100 hover:text-green-700 p-10">
                                 <div class="stat flex justify-center  items-center w-40 flex-col">
-                                    {/* <div className="icon text-green-700 text-3xl md:text-4xl lg:text-6xl my-2">
-                                        <FontAwesomeIcon icon={data?.icon}/>
-                                    </div> */}
+
                                     <div class="stat-value"><CountUp delay={2} end={data?.count} /></div>
                                     <div class="stat-desc text-xl">{data?.title}</div>
                                 </div>
@@ -32,7 +30,7 @@ const AboutCounter = () => {
 
             </div>
         </div>
-    );
+    );   
 };
 
 export default AboutCounter;
