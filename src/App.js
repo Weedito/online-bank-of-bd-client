@@ -32,7 +32,9 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* About Us Routes  */}
         <Route path="/about" element={<About />} />
+        {/* Dashboard Routing */}
         <Route path="/dashboard" element={<Dashboard />} />
+        {/* Dashboard Routing End*/}
         <Route path="/shareholders" element={<Shareholders />} />
         <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
         <Route path="/executivecommittee" element={<ExecutiveCommittee />} />
