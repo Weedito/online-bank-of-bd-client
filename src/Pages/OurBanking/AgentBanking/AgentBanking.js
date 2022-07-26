@@ -16,7 +16,7 @@ const AgentBanking = () => {
                 </div>
             </div>
 
-            <div className='mx-10 justify-center'>
+            <div className='mx-10 justify-center mt-5'>
                 <h3 className="text-3xl font-bold">WHERE WE ARE TODAY</h3>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12 gap-8'>
@@ -55,11 +55,11 @@ const AgentBanking = () => {
                     <p className='font-semibold'>The following permissible services from Central Bank will be covered under Bank of bd Agent Banking.</p>
                     <br />
                     <p>1. <span>Cash deposits and cash withdrawals (ceiling should be determined by the Bank in line with the guideline of central bank)</span></p>
-                    <p>1. <span>Inward Foreign Remittance disbursement</span></p>
-                    <p>1. <span>	Disbursement and recovery/repayments of investments, installments;(as per regular banking procedure)</span></p>
-                    <p>1. <span>Utility Bills payment and ticketing (air, bus and train)</span></p>
-                    <p>1. <span>Payment of social safety net program</span></p>
-                    <p>1. <span>Fund transfer
+                    <p>2. <span>Inward Foreign Remittance disbursement</span></p>
+                    <p>3. <span>	Disbursement and recovery/repayments of investments, installments;(as per regular banking procedure)</span></p>
+                    <p>4. <span>Utility Bills payment and ticketing (air, bus and train)</span></p>
+                    <p>5. <span>Payment of social safety net program</span></p>
+                    <p>6. <span>Fund transfer
                         [Person to Person (P2P), Person to Business (P2B), Business to Person (B2P), Person to Government (P2G), Government to Person (G2P), Business to Government (B2G), Government to Business (G2B)]</span></p>
                 </div>
             </div>
