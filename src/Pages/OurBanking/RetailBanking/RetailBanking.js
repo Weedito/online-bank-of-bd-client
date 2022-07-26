@@ -4,7 +4,7 @@ import retailBankingIMG from '../../../Assets/Images/retail-Banking-img/61+oIVFF
 const RetailBanking = () => {
     return (
         <div className='bg-slate-100'>
-            <h3 className="text-3xl">Retail <span className='text-green-700 font-bold'>Banking</span></h3>
+            <h3 className="text-3xl pt-10">Retail <span className='text-green-700 font-bold'>Banking</span></h3>
             <section style={{
                 backgroundImage: `url(${retailBankingIMG})`,
                 backgroundRepeat: 'no-repeat',
