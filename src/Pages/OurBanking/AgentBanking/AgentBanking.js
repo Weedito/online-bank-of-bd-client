@@ -64,6 +64,12 @@ const AgentBanking = () => {
                 </div>
             </div>
 
+            <div className='space-x-10 my-10'>
+                <button className='btn btn-accent'>Agent Banking Faq</button>
+                <button className='btn btn-accent'>Our Contact Details</button>
+                <button className='btn btn-accent'>SOC</button>
+            </div>
+
         </div>
     );
 };
