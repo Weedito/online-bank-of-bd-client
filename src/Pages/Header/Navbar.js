@@ -42,7 +42,7 @@ const Navbar = () => {
                                                     if (item.name === "Committee") {
                                                         return (
                                                             <li className='dropdown-hover dropdown-right'>
-                                                                <NavLink className="flex items-center" to="/committee"><Zoom>Committee <FontAwesomeIcon className='' icon={faCaretRight} /> </Zoom></NavLink>
+                                                                <NavLink className="flex items-center" to="#"><Zoom>Committee <FontAwesomeIcon className='' icon={faCaretRight} /> </Zoom></NavLink>
                                                                 <Zoom>
                                                                     <ul
                                                                         tabIndex={0}

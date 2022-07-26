@@ -23,6 +23,7 @@ import CorporateBanking from "./Pages/OurBanking/CorporateBanking/CorporateBanki
 import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
+import ContactUs from "./Pages/ContactUs/ContactUs";
 
 function App() {
   return (
@@ -57,6 +58,10 @@ function App() {
         <Route path="/agentbanking" element={<AgentBanking />} />
         <Route path="/smsbanking" element={<SMSBanking />} />
         {/* Our Banking Routes End*/}
+
+        {/* Contact Routes End*/}
+        <Route path="/contactus" element={<ContactUs />} />
+        {/* Contact Routes End*/}
 
         {/* Authentication Routes End*/}
         <Route path="/signin" element={<Signin />} />
