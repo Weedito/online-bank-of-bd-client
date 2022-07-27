@@ -36,9 +36,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* About Us Routes */}
-        <Route path="/about" element={<About />} />\
-
+        
+        {/* Dashboard Routes */}
         <Route path="/dashboard" element={<Dashboard></Dashboard>}>
           <Route path="deposit" element={<Deposit/>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
@@ -47,7 +46,10 @@ function App() {
           <Route path="sendMoney" element={<SendMoney/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
         </Route>
-        
+        {/* Dashboard Routes End*/}
+
+        {/* About Us Routes */}
+        <Route path="/about" element={<About />} />\ 
         <Route path="/shareholders" element={<Shareholders />} />
         <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
         <Route path="/executivecommittee" element={<ExecutiveCommittee />} />
