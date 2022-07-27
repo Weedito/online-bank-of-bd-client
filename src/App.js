@@ -29,6 +29,8 @@ import SendMoney from "./Components/Components.Arif/SendMoney";
 import TransactionHistory from "./Components/Components.Arif/TransactionHistory";
 import Deposit from "./Components/Components.Arif/Deposit";
 import ContactUs from "./Pages/ContactUs/ContactUs";
+import InterestRate from "./Pages/Products/InterestRate/InterestRate";
+import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
 
 function App() {
   return (
@@ -59,10 +61,10 @@ function App() {
         {/* About Us Routes End*/}
 
         {/* Products Routes */}
-        <Route path="/deposit" element={<Deposit />} />
+        <Route path="/deposit" element={<DepositDetails />} />
         <Route path="/loan" element={<Loan />} />
         <Route path="/cards" element={<Cards />} />
-        <Route path="/interestrate" element={<ExecutiveCommittee />} />
+        <Route path="/interestrate" element={<InterestRate />} />
         {/* Products Routes End*/}
 
         {/* Our Banking Routes */}
