@@ -44,7 +44,7 @@ const Loan = () => {
                     <div class="hero-content flex-col lg:flex-row">
                         <img src="https://allaboutturkish.com/wp-content/uploads/2021/09/bank-customer-getting-loan-man-wheeling-cart-with-cash-flat-vector-illustration-finance-money-banking-service_74855-8233.jpg" class="max-w-sm rounded-lg shadow-2xl" />
                         <div>
-                            <h1 class="text-5xl font-bold">We are always with you.</h1>
+                            <h1 className="text-4xl font-bold">We are always <span className='text-green-700 font-bold'>with you</span> .</h1>
                             <p class="py-6">Make your dream home a reality with easy home loans from Online Bank BD. Our wide range of options are designed to cater your every home financing need, be it purchasing a new flat, constructing a house or renovating your existing home. Allow us to be the finance partner of one of the biggest investments of your lifetime and give you a delightful experience of banking.</p>
 
                         </div>
@@ -52,7 +52,7 @@ const Loan = () => {
                 </div>
             </div>
 
-            {/* box-text */}
+            {/* box-text-new-start */}
 
             <div className='mx-10 justify-center mt-5'>
                 <h3 className="text-3xl font-bold">Loan <span className='text-green-700 '>Informations</span></h3>
@@ -126,7 +126,7 @@ const Loan = () => {
                                     <input type="text" placeholder="Interest Rate % here" class="input input-bordered" />
                                 </div>
                                 <div class="form-control mt-6">
-                                    <button class="btn btn-primary">Calculate</button>
+                                    <button class="btn btn-primary  bg-green-700 border-0">Calculate</button>
                                 </div>
                             </div>
                         </div>
@@ -140,9 +140,9 @@ const Loan = () => {
             {/* collaps */}
             <section>
                 <div className='md:px-40 lg:px-96 px-12 py-3'>
-                    
-                        <h2 className="text-center text-3xl">Overview</h2>
-                
+
+                    <h2 className="text-center text-3xl">Overview</h2>
+
                     <div>
                         <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                             <input type="checkbox" />
@@ -211,6 +211,7 @@ const Loan = () => {
 
                 </div>
             </section>
+            {/* collaps-end */}
         </div>
 
     );

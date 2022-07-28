@@ -3,7 +3,8 @@ import interestImages from '../../../Assets/Images/products/interest1.jpg'
 const InterestRate = () => {
     
     return (
-        <div>{/* new-banner-start */}
+        <div>
+            {/* new-banner-start */}
             <section style={{
                 backgroundImage: `url(${interestImages})`,
                 backgroundRepeat: 'no-repeat',
