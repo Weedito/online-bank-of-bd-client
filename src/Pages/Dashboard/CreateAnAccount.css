@@ -1,0 +1,3 @@
+input:checked + label {
+    background-color: LightSeaGreen;
+  }
