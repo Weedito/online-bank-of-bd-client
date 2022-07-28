@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import Loading from '../../../../Components/Components.Nahid/Loading';
 import UserDetails from './UserDetails';
 
 
@@ -14,11 +13,6 @@ const ManageUsers = () => {
         .then(res => res.json())
         .then(data => setUsers(data))
     }, [users]);
-
-
-    // if(isLoading){
-    //     return <Loading/>
-    // }
 
 
     return (
