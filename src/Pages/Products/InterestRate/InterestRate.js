@@ -4,7 +4,7 @@ const InterestRate = () => {
 
     return (
         <div>
-            <h3 className="text-3xl">This is Interest Rate Page</h3>
+
             <div>
                 {/* table */}
                 <div class="overflow-x-auto px-20 py-16">

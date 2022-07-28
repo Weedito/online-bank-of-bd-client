@@ -3,6 +3,7 @@ import React from 'react';
 const Loan = () => {
     return (
         <div>
+           
             {/* Top-part-start */}
             <div>
                 <div class="carousel w-full">
