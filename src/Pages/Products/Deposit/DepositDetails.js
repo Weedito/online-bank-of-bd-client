@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Deposit = () => {
+const DepositDetails = () => {
     return (
         <div className=''>
             {/* banner-start */}
@@ -165,4 +165,4 @@ const Deposit = () => {
     );
 };
 
-export default Deposit;
+export default DepositDetails;
