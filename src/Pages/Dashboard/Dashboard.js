@@ -1,12 +1,11 @@
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import TransactionHistory from '../../Components/Components.Arif/TransactionHistory';
 
 const Dashboard = () => {
     return (
         <div>
-      <h1 className="text-xl font-bold text-green-500 text-center mt-4">
-        Well Come To Dashboard    
+      <h1 className="text-xl justify-end container font-bold text-green-500 text-end mt-4 ">
+         
+        <span className='m-6'>MD:Tariqul bashar </span><img className='w-8 h-8 display: inline rounded-full' src="https://i.ibb.co/sgLL5kd/show.jpg" alt="" />
       </h1>
 
 
@@ -30,19 +29,19 @@ const Dashboard = () => {
                  <Link to="/dashboard/deposit">Deposit</Link>
                 </li>
                 <li>
-                 <Link to="/dashboard/withdraw">Withdraw</Link>
+                 <Link className='my-2' to="/dashboard/withdraw">Withdraw</Link>
                 </li>
                 <li>
                  <Link to="/dashboard/statement">Statement</Link>
                 </li>
                 <li>
-                 <Link to="/dashboard/updateInfo">Update Info</Link>
+                 <Link className='my-2' to="/dashboard/updateInfo">Update Info</Link>
                 </li>
                 <li>
                  <Link to="/dashboard/sendMoney">Send Money</Link>
                 </li>
                 <li>
-                 <Link to="/dashboard/transactionHistory">Transaction History</Link>
+                 <Link className='mt-2' to="/dashboard/transactionHistory">Transaction History</Link>
                 </li>
             
           </ul>

@@ -6,7 +6,7 @@ const UpdateInfo = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
     return (
-        <div className="w-full p-12">
+        <div className="w-full h-1/3 lg:h-full lg:mt-8">
       <div className="card w-96 bg-base-100 shadow-2xl mx-auto">
         <div className="card-body">
           <h1 className="text-green-400 text-2xl font-bold">Update Profile</h1>
