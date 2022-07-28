@@ -3,26 +3,162 @@ import React from 'react';
 const DepositDetails = () => {
     return (
         <div className=''>
-            <h3 className="text-3xl">Term-deposit Products</h3>
-            <ul className='grid items-center justify-center list-disc px-12 text-left'>
-                <li>Monthly term deposit</li>
-                <li>Term deposit 3 months</li>
-                <li>Term deposit 6 months</li>
-                <li>Term deposit 12 months</li>
-                <li>Term deposit 24 months</li>
-                <li>Term deposit 24 months 1 year PAYOUT</li>
-                <li>Term deposit 36 months</li>
-                <li>Term deposit 36 months 6 month PAYOUT</li>
-                <li>Term deposit 36 months 1 year PAYOUT</li>
-                <li>Term deposit abobe 36 months</li>
-                <li>Monthly term deposit banks</li>
-                <li>Term deposit 3 months banks</li>
-                <li>Term deposit 6 months banks</li>
-                <li>Term deposit 12 months banks</li>
-                <li>1 month TD NFCD</li>
-                <li>6 month TD NFCD</li>
-                <li>6 month TD NFCD</li>
-            </ul>
+            {/* banner-start */}
+            <div class="carousel w-full">
+                <div id="slide1" class="carousel-item relative w-full">
+                    <img src="https://thumbs.dreamstime.com/b/bank-account-concept-banner-header-customer-sitting-laptop-bank-credit-card-financial-savings-personal-bank-162415195.jpg" class="w-full" />
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide4" class="btn btn-circle">❮</a>
+                        <a href="#slide2" class="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="slide2" class="carousel-item relative w-full">
+                    <img src="https://img.pikbest.com/backgrounds/20190808/financial-information-online-banking-payment-currency-gold-coin-banner-background_1901186.jpg!bw700" class="w-full" />
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide1" class="btn btn-circle">❮</a>
+                        <a href="#slide3" class="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="slide3" class="carousel-item relative w-full">
+                    <img src="https://thumbs.dreamstime.com/b/online-banking-banner-website-internet-mobile-phone-orange-background-electronic-bank-payment-copy-space-illustration-204929155.jpg" class="w-full" />
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide2" class="btn btn-circle">❮</a>
+                        <a href="#slide4" class="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="slide4" class="carousel-item relative w-full">
+                    <img src="https://www.indusind.com/content/dam/indusind-platform-images/product/productdetails/fixedDeposit/feature_banner_01.jpg" class="w-full" />
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide3" class="btn btn-circle">❮</a>
+                        <a href="#slide1" class="btn btn-circle">❯</a>
+                    </div>
+                </div>
+            </div>
+            {/* banner-end */}
+
+            {/* deposit details-start */}
+            <h3 className="text-3xl my-10">Term-deposit Products</h3>
+            <div class="overflow-x-auto my-5">
+                <table class="table w-full">
+                    {/* <!-- head --> */}
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Time</th>
+                            <th>PAYOUT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* <!-- row 1 --> */}
+                        <tr>
+                            <th>1</th>
+                            <td>Monthly term deposit</td>
+                            <td>Monthy</td>
+                            <td>No</td>
+                        </tr>
+
+                        <tr>
+                            <th>2</th>
+                            <td>Term deposit </td>
+                            <td>3 Months</td>
+                            <td>No</td>
+                        </tr>
+
+                        <tr>
+                            <th>3</th>
+                            <td>Term deposit </td>
+                            <td>6 Months</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Term deposit </td>
+                            <td>12 Months</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>Term deposit </td>
+                            <td>6 Months</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>Term deposit </td>
+                            <td>24 Months</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>Term deposit</td>
+                            <td>24 Months</td>
+                            <td>1 year </td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td>Term deposit </td>
+                            <td>36 Months</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Term deposit</td>
+                            <td>36  Months</td>
+                            <td>6 Month</td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td>Term deposit </td>
+                            <td>36 Months</td>
+                            <td>1 year</td>
+                        </tr>
+                        <tr>
+                            <th>11</th>
+                            <td>Term deposit </td>
+                            <td>36 Months abobe</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>12</th>
+                            <td>Term deposit </td>
+                            <td>3 Months banks</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>13</th>
+                            <td>Term deposit </td>
+                            <td>6 Months banks</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>14</th>
+                            <td>Term deposit </td>
+                            <td>12 Months banks</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>15</th>
+                            <td>TD NFCD </td>
+                            <td>3 Months</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>16</th>
+                            <td>TD NFCD </td>
+                            <td>6 Months</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th>17</th>
+                            <td>TD NFCD </td>
+                            <td>12 Months</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {/* deposit details-end */}
 
             
         </div>

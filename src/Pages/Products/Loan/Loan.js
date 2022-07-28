@@ -3,7 +3,54 @@ import React from 'react';
 const Loan = () => {
     return (
         <div>
-            <h3 className=" px-20 py-3 text-3xl text-justify">Make your dream home a reality with easy home loans from Online Bank BD. Our wide range of options are designed to cater your every home financing need, be it purchasing a new flat, constructing a house or renovating your existing home. Allow us to be the finance partner of one of the biggest investments of your lifetime and give you a delightful experience of banking.</h3>
+            {/* Top-part-start */}
+            <div>
+                <div class="carousel w-full">
+                    <div id="slide1" class="carousel-item relative w-full">
+                        <img src="https://previews.123rf.com/images/rastudio/rastudio2005/rastudio200500843/146663193-bank-credit-finance-management-loan-agreement-signing-mortgage-money-credit-loan-disbursement-quick-.jpg" class="w-full" />
+
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide4" class="btn btn-circle">❮</a>
+                            <a href="#slide2" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide2" class="carousel-item relative w-full">
+                        <img src="https://thumbs.dreamstime.com/b/mortgage-loan-concept-banner-header-borrower-making-payment-real-estate-agreement-home-bank-credit-services-footer-141200536.jpg" class="w-full" />
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide1" class="btn btn-circle">❮</a>
+                            <a href="#slide3" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide3" class="carousel-item relative w-full">
+                        <img src="http://vsvbank.com/wp-content/uploads/2016/11/ask-money-banner-3-1.png" class="w-full" />
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide2" class="btn btn-circle">❮</a>
+                            <a href="#slide4" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide4" class="carousel-item relative w-full">
+                        <img src="https://www.bankofbaroda.in/-/media/project/bob/countrywebsites/india/personal-banking/loans/education-loan/baroda-scholar/spotlight/baroda-scholar-spotlightbanner.jpg" class="w-full" />
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide3" class="btn btn-circle">❮</a>
+                            <a href="#slide1" class="btn btn-circle">❯</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* Top-part-end */}
+            <div>
+                <div class="hero min-h-screen bg-base-200">
+                    <div class="hero-content flex-col lg:flex-row">
+                        <img src="https://allaboutturkish.com/wp-content/uploads/2021/09/bank-customer-getting-loan-man-wheeling-cart-with-cash-flat-vector-illustration-finance-money-banking-service_74855-8233.jpg" class="max-w-sm rounded-lg shadow-2xl" />
+                        <div>
+                            <h1 class="text-5xl font-bold">We are always with you.</h1>
+                            <p class="py-6">Make your dream home a reality with easy home loans from Online Bank BD. Our wide range of options are designed to cater your every home financing need, be it purchasing a new flat, constructing a house or renovating your existing home. Allow us to be the finance partner of one of the biggest investments of your lifetime and give you a delightful experience of banking.</p>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
             <div className='py-12 '>
                 <div className="stats stats-vertical lg:stats-horizontal shadow bg-gradient-to-r from-cyan-300 to-blue-200 border-2 border-green-600">
 
@@ -27,15 +74,47 @@ const Loan = () => {
 
                 </div>
             </div>
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 md:px-8 lg:px-12 px-3 my-8 w-full gap-3 items-center justify-center ">
+            {/* Calculate Emi-start */}
+            <div>
+                <div class="hero min-h-screen bg-base-200">
+                    <div class="hero-content flex-col lg:flex-row-reverse">
+                        <div class="text-center lg:text-left">
+                            <h1 class="text-5xl font-bold">Calculate Emi</h1>
+                            <p class="py-6">You can easily calculate your emi here.</p>
+                        </div>
+                        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <div class="card-body">
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Ammount</span>
+                                    </label>
+                                    <input type="text" placeholder="Input ammount here" class="input input-bordered" />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Tenure</span>
+                                    </label>
+                                    <input type="text" placeholder="Tenure" class="input input-bordered" />
 
-                {/* emi calculator */}
-                <input type="text" placeholder="Loan Ammount" className="input border-1 border-gray-700 w-full " />
-                <input type="text" placeholder="Tenure" className="input border-1 border-gray-700  w-full " />
-                <input type="text" placeholder="Interest Rate" className="input w-full  border-1 border-gray-700" />
-                <button className='btn btn-primary max-w-lg'>Calculate</button>
-
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Interest Rate</span>
+                                    </label>
+                                    <input type="text" placeholder="Interest Rate % here" class="input input-bordered" />
+                                </div>
+                                <div class="form-control mt-6">
+                                    <button class="btn btn-primary">Calculate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
+
             {/* collaps */}
             <div className='md:px-40 lg:px-96 px-12 py-3'>
                 <div>
