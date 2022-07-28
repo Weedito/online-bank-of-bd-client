@@ -33,7 +33,7 @@ import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
 import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
-import ManageUsers from "./Pages/Dashboard/AdminSection/ManageUsers/ManageUsers";
+import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 
 function App() {
   return (
