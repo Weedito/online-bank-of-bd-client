@@ -22,10 +22,10 @@ const UpdateInfo = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-email">Email</span>
             </label>
             <input
-              type="text"
+              type="email"
               value={email}
               className="input input-bordered"
             />
@@ -52,11 +52,11 @@ const UpdateInfo = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Your phone</span>
+              <span className="label-number">Your phone</span>
             </label>
             <input
               type="number"
-              placeholder="Number"
+              placeholder="Phone"
               className="input input-bordered"
             />
           </div>

@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
+  
     return (
         <div>
       <h1 className="text-xl justify-end container font-bold text-green-500 text-end mt-4 ">
