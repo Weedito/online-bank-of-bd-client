@@ -28,6 +28,9 @@ import UpdateInfo from "./Components/Components.Arif/UpdateInfo";
 import SendMoney from "./Components/Components.Arif/SendMoney";
 import TransactionHistory from "./Components/Components.Arif/TransactionHistory";
 import Deposit from "./Components/Components.Arif/Deposit";
+import ContactUs from "./Pages/ContactUs/ContactUs";
+import InterestRate from "./Pages/Products/InterestRate/InterestRate";
+import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
 
 function App() {
   return (
@@ -35,9 +38,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* About Us Routes */}
-        <Route path="/about" element={<About />} />\
-
+        
+        {/* Dashboard Routes */}
         <Route path="/dashboard" element={<Dashboard></Dashboard>}>
           <Route path="deposit" element={<Deposit/>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
@@ -46,7 +48,10 @@ function App() {
           <Route path="sendMoney" element={<SendMoney/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
         </Route>
-        
+        {/* Dashboard Routes End*/}
+
+        {/* About Us Routes */}
+        <Route path="/about" element={<About />} />\ 
         <Route path="/shareholders" element={<Shareholders />} />
         <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
         <Route path="/executivecommittee" element={<ExecutiveCommittee />} />
@@ -56,10 +61,10 @@ function App() {
         {/* About Us Routes End*/}
 
         {/* Products Routes */}
-        <Route path="/deposit" element={<Deposit />} />
+        <Route path="/deposit" element={<DepositDetails />} />
         <Route path="/loan" element={<Loan />} />
         <Route path="/cards" element={<Cards />} />
-        <Route path="/interestrate" element={<ExecutiveCommittee />} />
+        <Route path="/interestrate" element={<InterestRate />} />
         {/* Products Routes End*/}
 
         {/* Our Banking Routes */}
@@ -69,6 +74,10 @@ function App() {
         <Route path="/agentbanking" element={<AgentBanking />} />
         <Route path="/smsbanking" element={<SMSBanking />} />
         {/* Our Banking Routes End*/}
+
+        {/* Contact Routes End*/}
+        <Route path="/contactus" element={<ContactUs />} />
+        {/* Contact Routes End*/}
 
         {/* Authentication Routes End*/}
         <Route path="/signin" element={<Signin />} />
