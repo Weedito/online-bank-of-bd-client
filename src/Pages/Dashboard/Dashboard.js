@@ -4,7 +4,7 @@ const Dashboard = () => {
   
     return (
         <div>
-      <h1 className="text-xl justify-end container font-bold text-green-500 text-end mt-4 ">
+      <h1 className="text-xl z-0 justify-end container font-bold text-green-500 text-end mt-4 ">
          
         <span className='m-6'>MD:Tariqul bashar </span><img className='w-8 h-8 display: inline rounded-full' src="https://i.ibb.co/sgLL5kd/show.jpg" alt="" />
       </h1>
@@ -40,6 +40,9 @@ const Dashboard = () => {
                 </li>
                 <li>
                  <Link to="/dashboard/sendMoney">Send Money</Link>
+                </li>
+                <li>
+                 <Link to="/dashboard/manageusers">Manage Users</Link>
                 </li>
                 <li>
                  <Link className='mt-2' to="/dashboard/transactionHistory">Transaction History</Link>

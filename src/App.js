@@ -31,6 +31,8 @@ import Deposit from "./Components/Components.Arif/Deposit";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import InterestRate from "./Pages/Products/InterestRate/InterestRate";
 import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
+import RequireAuth from "./Components/Components.Nahid/RequireAuth";
+import ManageUsers from "./Pages/Dashboard/AdminSection/ManageUsers/ManageUsers";
 
 function App() {
   return (
@@ -40,13 +42,14 @@ function App() {
         <Route path="/" element={<Home />} />
         
         {/* Dashboard Routes */}
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
           <Route path="deposit" element={<Deposit/>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
           <Route path="statement" element={<Statement/>}></Route>
           <Route path="updateInfo" element={<UpdateInfo/>}></Route>
           <Route path="sendMoney" element={<SendMoney/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
+          <Route path="manageusers" element={<ManageUsers/>}></Route>
         </Route>
         {/* Dashboard Routes End*/}
 
