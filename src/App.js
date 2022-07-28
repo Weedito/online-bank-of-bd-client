@@ -32,6 +32,8 @@ import InterestRate from "./Pages/Products/InterestRate/InterestRate";
 import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
 import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
+import RequireAuth from "./Components/Components.Nahid/RequireAuth";
+import ManageUsers from "./Pages/Dashboard/AdminSection/ManageUsers/ManageUsers";
 
 function App() {
   return (
@@ -41,7 +43,7 @@ function App() {
         <Route path="/" element={<Home />} />
         
         {/* Dashboard Routes */}
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
           <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>
           <Route path="deposit" element={<Deposit/>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
@@ -49,6 +51,7 @@ function App() {
           <Route path="updateInfo" element={<UpdateInfo/>}></Route>
           <Route path="sendMoney" element={<SendMoney/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
+          <Route path="manageusers" element={<ManageUsers/>}></Route>
         </Route>
         {/* Dashboard Routes End*/}
 

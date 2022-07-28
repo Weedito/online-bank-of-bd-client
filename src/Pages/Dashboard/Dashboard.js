@@ -68,6 +68,9 @@ const Dashboard = () => {
                  <Link to="/dashboard/sendMoney">Send Money</Link>
                 </li>
                 <li>
+                 <Link to="/dashboard/manageusers">Manage Users</Link>
+                </li>
+                <li>
                  <Link className='mt-2' to="/dashboard/transactionHistory">Transaction History</Link>
                 </li>
                   </>

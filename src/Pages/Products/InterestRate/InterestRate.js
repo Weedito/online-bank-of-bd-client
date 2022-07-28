@@ -1,10 +1,25 @@
 import React from 'react';
-
+import interestImages from '../../../Assets/Images/products/interest1.jpg'
 const InterestRate = () => {
-
+    
     return (
         <div>
-            <h3 className="text-3xl">This is Interest Rate Page</h3>
+            {/* new-banner-start */}
+            <section style={{
+                backgroundImage: `url(${interestImages})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+            }}
+                className='flex justify-center items-center  bg-cover pt-24 px-10 mt-8' >
+                <div className='flex-1 hidden lg:block '>
+                    <img className='mt-[-130px]' src='https://www.freeiconspng.com/thumbs/bank-icon/blue-bank-icon-in-flat-style-with-the-building-facade-with-three--26.png' alt="" />
+
+                </div>
+             
+
+            </section>
+
             <div>
                 {/* table */}
                 <div class="overflow-x-auto px-20 py-16">

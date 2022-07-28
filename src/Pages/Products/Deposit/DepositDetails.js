@@ -1,5 +1,5 @@
 import React from 'react';
-
+import depositImages from '../../../Assets/Images/products/deposit.jpg'
 const DepositDetails = () => {
     return (
         <div className=''>
@@ -35,13 +35,27 @@ const DepositDetails = () => {
                 </div>
             </div>
             {/* banner-end */}
+            {/* new-banner-start */}
+            <section style={{
+                backgroundImage: `url(${depositImages})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+            }}
+                className='flex justify-center items-center  bg-cover pt-24 px-10 mt-8' >
+                <div className='flex-1 hidden lg:block '>
+                    <img className='mt-[-130px]' src='https://www.freeiconspng.com/thumbs/bank-icon/blue-bank-icon-in-flat-style-with-the-building-facade-with-three--26.png' alt="" />
 
+                </div>
+               
+            </section>
             {/* deposit details-start */}
-            <h3 className="text-3xl my-10">Term-deposit Products</h3>
+            <h3 className="text-3xl pt-10">Term-deposit <span className='text-green-700 font-bold'>Products</span></h3>
+           
             <div class="overflow-x-auto my-5">
                 <table class="table w-full">
                     {/* <!-- head --> */}
-                    <thead>
+                    <thead >
                         <tr>
                             <th></th>
                             <th>Name</th>
