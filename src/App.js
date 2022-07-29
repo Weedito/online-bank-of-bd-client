@@ -22,7 +22,6 @@ import CorporateBanking from "./Pages/OurBanking/CorporateBanking/CorporateBanki
 import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
-import Statement from "./Pages/Dashboard/UserDashboard/SendMoney/Statement";
 import UpdateInfo from "./Pages/Dashboard/UserDashboard/UserProfile/UpdateInfo";
 import SendMoney from "./Pages/Dashboard/UserDashboard/SendMoney/SendMoney";
 import TransactionHistory from "./Pages/Dashboard/UserDashboard/Transaction/TransactionHistory";
@@ -34,6 +33,7 @@ import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
+import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
 
 function App() {
   return (
