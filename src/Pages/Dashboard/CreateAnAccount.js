@@ -1,8 +1,13 @@
 import React, { useRef } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 import "./CreateAnAccount.css";
 
 const CreateAnAccount = () => {
 
+  const [user, loading, error] = useAuthState(auth);
+
+  
 
   const legaleNameRef = useRef('');
   const phoneRef = useRef('');
@@ -14,8 +19,9 @@ const CreateAnAccount = () => {
     const name = legaleNameRef.current.value;
     const phone = phoneRef.current.value;
     const nid = nidRef.current.value;
+    const email = user.email;
 
-    console.log(name, phone);
+    
 
     const accoutnDetails = {
       name: name,
@@ -23,7 +29,7 @@ const CreateAnAccount = () => {
       NID: nid,
       AccNo: Math.floor(Math.random() * 10000000000),
       balance: 0,
-
+      email: email,
     }
 
     fetch('http://localhost:5000/account', {
@@ -108,7 +114,6 @@ const CreateAnAccount = () => {
                 <span className="label-text">Your Country</span>
               </label>
               <input
-
                 type="text"
                 placeholder="Country"
                 className="input input-bordered"
