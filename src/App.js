@@ -22,18 +22,18 @@ import CorporateBanking from "./Pages/OurBanking/CorporateBanking/CorporateBanki
 import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
-import Statement from "./Pages/Dashboard/UserDashboard/Statement";
-import UpdateInfo from "./Pages/Dashboard/UserDashboard/UpdateInfo";
-import SendMoney from "./Pages/Dashboard/UserDashboard/SendMoney";
-import TransactionHistory from "./Pages/Dashboard/UserDashboard/TransactionHistory";
-import Deposit from "./Pages/Dashboard/UserDashboard/Deposit";
+import Statement from "./Pages/Dashboard/UserDashboard/SendMoney/Statement";
+import UpdateInfo from "./Pages/Dashboard/UserDashboard/UserProfile/UpdateInfo";
+import SendMoney from "./Pages/Dashboard/UserDashboard/SendMoney/SendMoney";
+import TransactionHistory from "./Pages/Dashboard/UserDashboard/Transaction/TransactionHistory";
+import Deposit from "./Pages/Dashboard/UserDashboard/Deposit/Deposit";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import InterestRate from "./Pages/Products/InterestRate/InterestRate";
 import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
-import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw";
+import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
-import ManageUsers from "./Pages/Dashboard/AdminSection/ManageUsers/ManageUsers";
+import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 
 function App() {
   return (
