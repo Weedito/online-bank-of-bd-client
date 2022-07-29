@@ -9,7 +9,7 @@ const ManageUsers = () => {
     const [users, setUsers] = useState([]);
 
     useEffect( () => {
-        fetch('http://localhost:5000/users')
+        fetch('https://bank-of-bd.herokuapp.com/users')
         .then(res => res.json())
         .then(data => setUsers(data))
     }, [users]);
