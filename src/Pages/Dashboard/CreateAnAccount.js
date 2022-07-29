@@ -16,19 +16,49 @@ const CreateAnAccount = () => {
           <h1 className="text-green-400 text-2xl font-bold">
             Create An Bank Account
           </h1>
-
-          <form action="" onSubmit={createAccount}>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">First Name</span>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">First Name</span>
+            </label>
+            <input
+              required
+              type="text"
+              placeholder="Enter your First Name"
+              className="input input-bordered"
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Last Name</span>
+            </label>
+            <input
+              required
+              type="text"
+              placeholder="Enter your Last Name"
+              className="input input-bordered"
+            />
+          </div>
+          <div className="form-control text-left">
+            <span class="text-gray-700">Gender</span>
+            <div class="mt-2">
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  class="form-radio"
+                  name="accountType"
+                  value="personal"
+                />
+                <span class="ml-2">Male</span>
               </label>
-              <input
-                required
-                type="text"
-                placeholder="Legal Name"
-                className="input input-bordered"
-                ref={legaleNameRef}
-              />
+              <label class="inline-flex items-center ml-6">
+                <input
+                  type="radio"
+                  class="form-radio"
+                  name="accountType"
+                  value="busines"
+                />
+                <span class="ml-2">Female</span>
+              </label>
             </div>
             <label className="mt-4" for="birthday">Birthday</label>
             <input required type="date" id="birthday" name="birthday" className="input input-bordered"/>
@@ -89,7 +119,6 @@ const CreateAnAccount = () => {
               value="Create Account"
             />
           </div>
-          <form/>
         </div>
       </div>
     </div>
