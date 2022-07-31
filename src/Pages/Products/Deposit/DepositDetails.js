@@ -54,7 +54,7 @@ const DepositDetails = () => {
            
             <div class="overflow-x-auto my-5">
                 <table class="table w-full">
-                    {/* <!-- head --> */}
+                    {/* {/* <!-- head --> */} */}
                     <thead >
                         <tr>
                             <th></th>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const masud = () => {
+const SendMoneyModal = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const masud = () => {
     );
 };
 
-export default masud;
+export default SendMoneyModal;
