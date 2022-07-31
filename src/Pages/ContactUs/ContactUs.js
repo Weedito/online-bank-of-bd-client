@@ -15,7 +15,7 @@ const ContactUs = () => {
                     <div class="">
                         <img width={'600px'} src="https://img.freepik.com/free-vector/road-navigation-poster_1284-22441.jpg?size=338&ext=jpg&ga=GA1.2.1544255835.1642770529" alt="" />
                     </div>
-                    <div class="card flex-shrink-0 w-full max-w-sm bg-base-100">
+                    <div class="flex-shrink-0 w-full max-w-sm bg-base-100">
                         <div class="card-body">
                             <div class="form-control">
                                 <h2 className='text-3xl text-start font-bold'>Contact Us</h2>
