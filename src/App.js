@@ -34,6 +34,9 @@ import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
+import Dashboardm from "./Components/Components.Masud/Dashboardm";
+import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
+import MyAccounts from "./Components/Components.Masud/MyAccounts";
 
 function App() {
   return (
@@ -43,9 +46,14 @@ function App() {
         <Route path="/" element={<Home />} />
         
         {/* Dashboard Routes */}
-        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
+        <Route path="/dashboardm" element={<RequireAuth> <Dashboardm></Dashboardm></RequireAuth>}>
+          <Route path="allusersaccount" element={<AllUsersAccounts></AllUsersAccounts>}></Route>
+        </Route>
+
+        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>
-          <Route path="deposit" element={<Deposit/>}></Route>
+          <Route path="alluseraccounts" element={<AllUsersAccounts/>}></Route>
+          <Route path="myaccounts" element={<MyAccounts></MyAccounts>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
           <Route path="statement" element={<Statement/>}></Route>
           <Route path="updateInfo" element={<UpdateInfo/>}></Route>
