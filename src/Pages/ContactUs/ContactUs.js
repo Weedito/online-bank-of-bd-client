@@ -56,7 +56,7 @@ const ContactUs = () => {
                     <div class="card w-96 h-24 bg-base-100">
                         <div className='flex mt-5 px-10'>
                             <div>
-                                <FontAwesomeIcon className='mt-3 text-3xl mx-5' icon={faMapLocation} />
+                                <FontAwesomeIcon className='mt-3 text-3xl text-blue-500 mx-5' icon={faMapLocation} />
                             </div>
                             <div>
                                 <h2 className='text-xl text-start'>Location:</h2>
@@ -69,7 +69,7 @@ const ContactUs = () => {
                     <div class="card w-96 h-24 bg-base-100">
                         <div className='flex mt-5 px-10'>
                             <div>
-                                <FontAwesomeIcon className='mt-3 text-3xl mx-5' icon={faMessage} />
+                                <FontAwesomeIcon className='mt-3 text-3xl text-blue-500 mx-5' icon={faMessage} />
                             </div>
                             <div>
                                 <h2 className='text-xl text-start'>Email:</h2>
@@ -82,7 +82,7 @@ const ContactUs = () => {
                     <div class="card w-96 h-24 bg-base-100">
                         <div className='flex mt-5 px-10'>
                             <div>
-                                <FontAwesomeIcon className='mt-3 text-3xl mx-5' icon={faPhone} />
+                                <FontAwesomeIcon className='mt-3 text-3xl text-blue-500 mx-5' icon={faPhone} />
                             </div>
                             <div>
                                 <h2 className='text-xl text-start'>Phone:</h2>
