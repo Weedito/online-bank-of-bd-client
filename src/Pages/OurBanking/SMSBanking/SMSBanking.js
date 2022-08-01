@@ -3,7 +3,7 @@ import React from 'react';
 const SMSBanking = () => {
     return (
         <div className=''>
-            <h3 className="text-3xl font-bold">Our SMS Banking</h3>
+            <h3 className="text-3xl font-bold">SMS <span className='text-primary'>Banking</span></h3>
             <p className='mt-2'>Dare coustomer,The sms banking page. That's use for any our banking issue verifications</p>
 
             <div className='flex flex-col md:flex-row gap-x-20 justify-center items-center py-10 px-2 bg-orange-200'>
@@ -27,7 +27,7 @@ const SMSBanking = () => {
                             <div className='mt-3 px-10'>
                                 <div>
                                     <h2 className='text-xl text-start link text-primary'>Recharge</h2>
-                                    <p className='text-xs text-start text-gray-400 mt-2'>With Bank of bd recharge service over SMS, you can recharge any prepaid phone, broadband and DTH account instantly. This service is available 24X7.</p>
+                                    <p className='text-xs text-start mt-2'>With Bank of bd recharge service over SMS, you can recharge any prepaid phone, broadband and DTH account instantly. This service is available 24X7.</p>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@ const SMSBanking = () => {
                             <div className='mt-3 px-10'>
                                 <div>
                                     <h2 className='text-xl text-start link text-primary'>Postpaid Bill Pay</h2>
-                                    <p className='text-xs text-start text-gray-400 mt-2'>We have made paying your post-paid Telecom bill payments even more convenient. Now pay your postpaid bill through just an SMS.</p>
+                                    <p className='text-xs text-start mt-2'>We have made paying your post-paid Telecom bill payments even more convenient. Now pay your postpaid bill through just an SMS.</p>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@ const SMSBanking = () => {
                             <div className='mt-3 px-10'>
                                 <div>
                                     <h2 className='text-xl text-start link text-primary'>DMRC card recharge</h2>
-                                    <p className='text-xs text-start text-gray-400 mt-2'>With just 1 SMS , now Delhi Metro commuters, who have an account with ICICI Bank with a registered mobile number, can top-up their Delhi Metro smart cards. So, travel with ease without running short of recharge!</p>
+                                    <p className='text-xs text-start mt-2'>With just 1 SMS , now All Metro commuters, who have an account with Bank of bd with a registered mobile number, can top-up their All Metro smart cards. So, travel with ease without running short of recharge!</p>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@ const SMSBanking = () => {
                             <div className='mt-3 px-10'>
                                 <div>
                                     <h2 className='text-xl text-start link text-primary'>Alerts & Request</h2>
-                                    <p className='text-xs text-start text-gray-400 mt-2'>Now you can access your account information any time 24X7 using our alerts and requests services. Our services include checking your balance, viewing last 5 transactions, viewing payment due date of credit card, and many more. To view a complete list of Enquiry / Request Services on SMS Banking <span><button className='link text-xs text-black pl-2'>Click Here</button></span> </p>
+                                    <p className='text-xs text-start mt-2'>Now you can access your account information any time 24X7 using our alerts and requests services. Our services include checking your balance, viewing last 5 transactions, viewing payment due date of credit card, and many more. To view a complete list of Enquiry / Request Services on SMS Banking <span><button className='link text-xs text-black pl-2'>Click Here</button></span> </p>
                                 </div>
                             </div>
                         </div>
