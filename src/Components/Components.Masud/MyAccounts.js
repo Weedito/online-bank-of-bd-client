@@ -3,6 +3,8 @@ import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import DepositModal from './DepositModal';
 import WidthdrawModal from './WidthdrawModal';
+import SendMoneyModal from './SendMoneyModal';
+
 
 const MyAccounts = () => {
 
@@ -11,6 +13,7 @@ const MyAccounts = () => {
 
     const [deposit, setDeposit] = useState(null);    
     const [withdraw, setWithdraw] = useState(null);
+    const [sendMoney, setSendMoney] = useState(null);
 
 
     useEffect(() => {
@@ -54,7 +57,7 @@ const MyAccounts = () => {
 
                                 <label for="withdraw-modal" onClick={() => setWithdraw(account)} class="btn btn-info btn-xs mx-4">Withdraw</label>
 
-                                <label for="send-money-modal" class="btn btn-success btn-xs">Send Money</label>
+                                <label for="send-money-modal" onClick={() => setSendMoney(account)} class="btn btn-success btn-xs">Send Money</label>
                             </td>
                         </tr>
                         )
@@ -64,9 +67,11 @@ const MyAccounts = () => {
             {
                 deposit && <DepositModal deposit={deposit} ></DepositModal>
             }
-
             {
                 withdraw && <WidthdrawModal withdraw={withdraw} ></WidthdrawModal>
+            }
+            {
+                sendMoney && <SendMoneyModal sendMoney={sendMoney} ></SendMoneyModal>
             }
         </div>
     );
