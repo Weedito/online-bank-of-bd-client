@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CreateAnAccount.css";
 
 const CreateAnAccount = () => {
+  const [country, setCountry] = useState([]);
+  useEffect(() =>{
+    fetch("https://restcountries.com/v2/all")
+  .then(res => res.json())
+  .then(data => setCountry(data));
+  }, []);
+  console.log(country)
   return (
     <div className="h-auto lg:h-auto mt-96 lg:mt-12 w-full">
       <div className="card w-auto bg-green-50 shadow-2xl lg:my-8 mx-auto lg:w-1/2 h-full lg:h-auto py-10 lg:py-0 ">
@@ -66,12 +73,11 @@ const CreateAnAccount = () => {
             <label className="label">
               <span className="label-text">Your Country</span>
             </label>
-            <input
-              required
-              type="text"
-              placeholder="Country"
-              className="input input-bordered"
-            />
+            <select className="input input-bordered">
+              {
+                country.map(c => <option>{c.name}</option>)
+              }
+            </select>
           </div>
           <div className="form-control">
             <label className="label">

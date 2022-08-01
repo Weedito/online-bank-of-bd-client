@@ -19,7 +19,7 @@ const AboutCounter = () => {
                             <div class="stats shadow-md bg-green-700 text-white hover:bg-base-100 hover:text-green-700 p-10">
                                 <div class="stat flex justify-center  items-center w-40 flex-col">
 
-                                    <div class="stat-value"><CountUp delay={2} end={data?.count} /></div>
+                                    <div class="stat-value text-2xl"><CountUp delay={2} end={data?.count} /></div>
                                     <div class="stat-desc text-xl">{data?.title}</div>
                                 </div>
                             </div>
