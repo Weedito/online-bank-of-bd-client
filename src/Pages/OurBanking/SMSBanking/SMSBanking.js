@@ -6,7 +6,7 @@ const SMSBanking = () => {
             <h3 className="text-3xl font-bold">Our SMS Banking</h3>
             <p className='mt-2'>Dare coustomer,The sms banking page. That's use for any our banking issue verifications</p>
 
-            <div className='flex flex-col md:flex-row gap-x-20 justify-center items-center py-10 px-2 bg-base-200'>
+            <div className='flex flex-col md:flex-row gap-x-20 justify-center items-center py-10 px-2 bg-orange-200'>
                 <div className='text-start'>
                     <h2 className='text-2xl font-bold'>SMS Banking Services</h2>
                     <p className=' mt-2 w-96'>You do not need a smart phone or a data plan activated on your mobile phone to avail our SMS Banking services. Our SMS Banking services allow you to pay bills, recharge prepaid services and avail banking services by sending a simple SMS.</p>
@@ -67,7 +67,7 @@ const SMSBanking = () => {
             </div>
 
 
-            <div className='text-start p-10 pl-10 bg-orange-100'>
+            <div className='text-start p-10 pl-10 bg-orange-200'>
                 <h2 className='text-2xl font-bold text-primary'>SMS BANKING</h2>
                 <p className='w-3/4 mt-2'>Through SMS banking, Bank clients can get different types of information like account balance, card payment, loan installment & other information by mobile SMS. SMS Banking provides both Push & Pull SMS. Push SMS are those that the bank chooses to send to a customer’s mobile phone without customer’s request. Pull SMS are those that are initiated by the customer by sending SMS to bank to get specific information like account balance enquiry, mini statement, currency exchange rates, deposit interest rates, etc. <span><button className='link text-xs text-black pl-2'>See more</button></span></p>
             </div>
