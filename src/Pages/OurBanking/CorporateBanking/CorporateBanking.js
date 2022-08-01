@@ -29,7 +29,7 @@ const CorporateBanking = () => {
                         <figure><img src="https://ghalibzahirinvestmentholdings.com/public/uploads/service-6.jpg" alt="Corporate Finance img" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Corporate Finance</h2>
-                            <p>We provide credit facility and services to all general corporate houses to finance current assets.</p>
+                            <p className='text-left'>We provide credit facility and services to all general corporate houses to finance current assets.</p>
                             <div className="card-actions justify-end">
 
                                 <label for="corporateFinance" className='btn btn-xs bg-green-700 border-0'>Read More</label>
@@ -41,7 +41,7 @@ const CorporateBanking = () => {
                         <figure><img className="" src='https://i.ibb.co/JKZPbh3/New-Project.jpg' alt="Locker Service img" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Syndications & Structured Finance</h2>
-                            <p>We have an impressive track record of syndication financing both as a member bank and a lead arranger.</p>
+                            <p className='text-left'>We have an impressive track record of syndication financing both as a member bank and a lead arranger.</p>
                             <div className="card-actions justify-end">
                                 <label for="structuredFinance" className='btn btn-xs bg-green-700 border-0'>Read More</label>
 
@@ -53,7 +53,7 @@ const CorporateBanking = () => {
                         <figure><img className="" src='https://i.ibb.co/CBcVtbk/New-Project-1.jpg' alt="Cash Management Solution" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Cash Management Solution</h2>
-                            <p>Online Bank BD offers a wide range of cash management services to meet the specific requirements of the clients.</p>
+                            <p className='text-left'>Online Bank BD offers a wide range of cash management services to meet the specific requirements of the clients.</p>
                             <div className="card-actions justify-end">
                                 <label for="cashManagementSolution" className='btn btn-xs bg-green-700 border-0'>Read More</label>
 
@@ -64,7 +64,7 @@ const CorporateBanking = () => {
                 </div>
             </section>
 
-
+            {/* Modal  */}
             {/* corporateFinance Information */}
             <input type="checkbox" id="corporateFinance" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">

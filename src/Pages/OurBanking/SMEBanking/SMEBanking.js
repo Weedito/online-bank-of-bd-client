@@ -2,7 +2,7 @@ import React from 'react';
 
 const SMEBanking = () => {
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
 
 
             <div class="hero bg-slate-100">
@@ -25,7 +25,7 @@ const SMEBanking = () => {
                     <figure><img src="https://www.thefinancialexpress.com.bd/uploads/1601092496.jpg" alt="agriculture img" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Agriculture Loans </h2>
-                        <p>To help farmers financially, we have arranged agriculture loans. Through these loans, farmers can easily overcome the financial crisis.</p>
+                        <p className='text-left'>To help farmers financially, we have arranged agriculture loans. Through these loans, farmers can easily overcome the financial crisis.</p>
                         <div className="card-actions justify-end">
                             <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
 
@@ -36,7 +36,7 @@ const SMEBanking = () => {
                     <figure><img className="" src='https://tearsheet.co/wp-content/uploads/2017/11/operational-efficiency.jpeg' alt="engineering img" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Engineering Loans</h2>
-                        <p>Learning engineering requires a lot of money. We have arranged this loan for becoming an engineer.</p>
+                        <p className='text-left'>Learning engineering requires a lot of money. We have arranged this loan for becoming an engineer.</p>
                         <div className="card-actions justify-end">
                             <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
 
@@ -48,7 +48,7 @@ const SMEBanking = () => {
                     <figure><img className="" src='https://images.business.com/app/uploads/2022/03/23023458/loandulko-3.jpg' alt="review icon" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Entrepreneur Loans</h2>
-                        <p>New small-business owners can also access financing through personal business loans, such as those offered by online or other lenders.</p>
+                        <p className='text-left'>New small-business owners can also access financing through personal business loans, such as those offered by online or other lenders.</p>
                         <div className="card-actions justify-end">
                             <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
 
@@ -59,7 +59,7 @@ const SMEBanking = () => {
                     <figure><img className="" src='https://www.unwomen.org/sites/default/files/Headquarters/Images/Sections/News/Stories/2019/10/Bangladesh_IELD_Oct2019_12_960x640.JPG' alt="review icon" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">Women Entrepreneur Loans</h2>
-                        <p>Online Bank BD offers specialized services to Women Entrepreneurs through dedicated service desks. Our dedicated proficient Relationship Managers with highly tailored made products are always by the side of women entrepreneurs to fulfill all their banking needs.</p>
+                        <p className='text-left'>Online Bank BD offers specialized services to Women Entrepreneurs through dedicated service desks. </p>
                         <div className="card-actions justify-end">
                             <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
 
