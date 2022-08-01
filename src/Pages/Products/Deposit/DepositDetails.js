@@ -52,9 +52,9 @@ const DepositDetails = () => {
             {/* deposit details-start */}
             <h3 className="text-3xl pt-10">Term-deposit <span className='text-green-700 font-bold'>Products</span></h3>
            
-            <div class="overflow-x-auto my-5">
+            <div class="overflow-x-auto my-5 z-0">
                 <table class="table w-full">
-                    {/* <!-- head --> */}
+                    {/* <!-- head start --> */}
                     <thead >
                         <tr>
                             <th></th>

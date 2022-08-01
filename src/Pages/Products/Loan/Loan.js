@@ -143,7 +143,7 @@ const Loan = () => {
 
                     <h2 className="text-center text-3xl">Overview</h2>
 
-                    <div>
+                    
                         <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
                             <input type="checkbox" />
                             <div class="collapse-title text-xl font-medium">
@@ -167,7 +167,7 @@ const Loan = () => {
 
                             </div>
                         </div>
-                    </div>
+                    
 
                     <div>
                         <div tabindex="0" className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
