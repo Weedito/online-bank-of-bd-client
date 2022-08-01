@@ -37,7 +37,7 @@ const RetailBanking = () => {
                         </div>
                     </div>
                     <div className="card card-compact max-w-max bg-base-100 shadow-xl">
-                        <figure><img className="" src='https://media.istockphoto.com/photos/self-service-automated-delivery-machine-picture-id1338373369?b=1&k=20&m=1338373369&s=170667a&w=0&h=fELOxG5FzpmpIeE0yWV6VrH1eSeiZwcbhdLLWjnNQuA=' alt="Locker Service img" /></figure>
+                        <figure><img src='https://media.istockphoto.com/photos/self-service-automated-delivery-machine-picture-id1338373369?b=1&k=20&m=1338373369&s=170667a&w=0&h=fELOxG5FzpmpIeE0yWV6VrH1eSeiZwcbhdLLWjnNQuA=' alt="Locker Service img" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Locker Service</h2>
                             <p>Locker service offered by the online Bank BD provides customers a completely secured facility for safekeeping of his/her valuable items, confidential documents and other valuables.</p>
