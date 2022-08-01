@@ -23,9 +23,7 @@ import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
 import UpdateInfo from "./Pages/Dashboard/UserDashboard/UserProfile/UpdateInfo";
-import SendMoney from "./Pages/Dashboard/UserDashboard/SendMoney/SendMoney";
 import TransactionHistory from "./Pages/Dashboard/UserDashboard/Transaction/TransactionHistory";
-import Deposit from "./Pages/Dashboard/UserDashboard/Deposit/Deposit";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import InterestRate from "./Pages/Products/InterestRate/InterestRate";
 import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
@@ -57,7 +55,6 @@ function App() {
           <Route path="withdraw" element={<Withdraw/>}></Route>
           <Route path="statement" element={<Statement/>}></Route>
           <Route path="updateInfo" element={<UpdateInfo/>}></Route>
-          <Route path="sendmoney/:id" element={<SendMoney/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
           <Route path="manageusers" element={<ManageUsers/>}></Route>
         </Route>

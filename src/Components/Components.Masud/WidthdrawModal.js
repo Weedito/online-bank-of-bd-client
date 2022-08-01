@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
 const WidthdrawModal = ({ withdraw }) => {
-    const { name, AccNo, balance, email, phone, country, actype, _id } = withdraw;
+    const { name, AccNo, balance, _id } = withdraw;
+
 
     const inputBalRef = useRef('');
 

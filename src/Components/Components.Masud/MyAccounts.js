@@ -3,17 +3,17 @@ import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import DepositModal from './DepositModal';
 import WidthdrawModal from './WidthdrawModal';
-import SendMoneyModal from './SendMoneyModal';
+import TransferMoneyModal from './TransferMoneyModal.js';
 
 
 const MyAccounts = () => {
 
     const [myAccounts, setMyAccounts] = useState([]);
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     const [deposit, setDeposit] = useState(null);    
     const [withdraw, setWithdraw] = useState(null);
-    const [sendMoney, setSendMoney] = useState(null);
+    const [transferMoney, setTransferMoney] = useState(null);
 
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const MyAccounts = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setMyAccounts(data))
-    }, [myAccounts])
+    }, [user])
 
     if (loading) {
         return <p>Loading....</p>
@@ -57,7 +57,7 @@ const MyAccounts = () => {
 
                                 <label for="withdraw-modal" onClick={() => setWithdraw(account)} class="btn btn-info btn-xs mx-4">Withdraw</label>
 
-                                <label for="send-money-modal" onClick={() => setSendMoney(account)} class="btn btn-success btn-xs">Send Money</label>
+                                <label for="transfer-money-modal" onClick={() => setTransferMoney(account)} class="btn btn-success btn-xs">Send Money</label>
                             </td>
                         </tr>
                         )
@@ -71,7 +71,7 @@ const MyAccounts = () => {
                 withdraw && <WidthdrawModal withdraw={withdraw} ></WidthdrawModal>
             }
             {
-                sendMoney && <SendMoneyModal sendMoney={sendMoney} ></SendMoneyModal>
+                transferMoney && <TransferMoneyModal transferMoney={transferMoney} ></TransferMoneyModal>
             }
         </div>
     );
