@@ -11,7 +11,7 @@ const DepositModal = ({ deposit }) => {
 
         const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance + inputBalance);
-        const updateBalance = { depositBalance };
+        const updateBalance = { depositBalance,  name, AccNo, balance, email, phone, country, actype};
 
         if (depositBalance < 0) {
             return setError("Please Input more then 0");
