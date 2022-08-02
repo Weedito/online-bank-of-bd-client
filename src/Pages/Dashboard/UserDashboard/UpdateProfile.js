@@ -1,13 +1,9 @@
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase.init';
+import React from "react";
 
-const UpdateInfo = () => {
-    const [user] = useAuthState(auth);
-    const email = user?.email;
-    return (
-        <div className="w-full h-1/3 lg:h-full lg:mt-8">
-      <div className="card w-96 bg-base-100 shadow-2xl mx-auto">
+const UpdateProfile = () => {
+  return (
+    <div>
+      <div className="card max:w-7xl bg-base-200 shadow-2xl mx-auto">
         <div className="card-body">
           <h1 className="text-green-400 text-2xl font-bold">Update Profile</h1>
           <div className="form-control">
@@ -26,7 +22,7 @@ const UpdateInfo = () => {
             </label>
             <input
               type="email"
-              value={email}
+              value="Email"
               className="input input-bordered"
             />
           </div>
@@ -61,12 +57,16 @@ const UpdateInfo = () => {
             />
           </div>
           <div className="form-control mt-6">
-            <input type="submit" className="btn bg-green-700" value="Update Profile"/>
+            <input
+              type="submit"
+              className="btn bg-green-700"
+              value="Update Profile"
+            />
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
-export default UpdateInfo;
+export default UpdateProfile;

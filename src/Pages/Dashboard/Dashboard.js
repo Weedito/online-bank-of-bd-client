@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 const Dashboard = () => {
   const [user] = useAuthState(auth);
     return (
-        <div>
+        <div className='max:w-7xl'>
       {
         user &&
         <h1 className="text-xl container font-bold text-green-500 text-center mt-4 ">
@@ -35,9 +35,9 @@ const Dashboard = () => {
           </label>
           <Outlet></Outlet>
         </div>
-        <div className="drawer-side z-0">
+        <div className="drawer-side lg:z-0 z-1">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 font-bold text-base-content">
+          <ul className="menu p-4 overflow-y-auto w-50 bg-base-100 font-bold text-base-content">
             
 
             {
@@ -61,8 +61,12 @@ const Dashboard = () => {
                 <li>
                  <Link to="/dashboard/statement">Statement</Link>
                 </li>
+                <li> 
+                 <Link className='my-2' to="/dashboard/UserAccount"><i class="fa-solid fa-user z-20 text-base-400"></i></Link>
+                </li>
+                
                 <li>
-                 <Link className='my-2' to="/dashboard/updateInfo">Update Info</Link>
+                 <Link to="/dashboard/userDashboard">User Dashboard</Link>
                 </li>
                 <li>
                  <Link to="/dashboard/sendMoney">Send Money</Link>

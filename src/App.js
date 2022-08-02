@@ -23,7 +23,6 @@ import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
 import Statement from "./Pages/Dashboard/UserDashboard/Statement";
-import UpdateInfo from "./Pages/Dashboard/UserDashboard/UpdateInfo";
 import SendMoney from "./Pages/Dashboard/UserDashboard/SendMoney";
 import TransactionHistory from "./Pages/Dashboard/UserDashboard/TransactionHistory";
 import Deposit from "./Pages/Dashboard/UserDashboard/Deposit";
@@ -34,6 +33,8 @@ import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
 import ManageUsers from "./Pages/Dashboard/AdminSection/ManageUsers/ManageUsers";
+import UserAccount from "./Pages/Dashboard/UserDashboard/UserAccount";
+import UserDashboard from "./Pages/Dashboard/UserDashboard/UserDashboard";
 
 function App() {
   return (
@@ -48,7 +49,8 @@ function App() {
           <Route path="deposit" element={<Deposit/>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
           <Route path="statement" element={<Statement/>}></Route>
-          <Route path="updateInfo" element={<UpdateInfo/>}></Route>
+          <Route path="userAccount" element={<UserAccount/>}></Route>
+          <Route path="userDashboard" element={<UserDashboard/>}></Route>
           <Route path="sendMoney" element={<SendMoney/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
           <Route path="manageusers" element={<ManageUsers/>}></Route>

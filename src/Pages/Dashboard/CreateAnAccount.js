@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./CreateAnAccount.css";
 
 const CreateAnAccount = () => {
   const [country, setCountry] = useState([]);
@@ -10,8 +9,8 @@ const CreateAnAccount = () => {
   }, []);
   console.log(country)
   return (
-    <div className="h-auto lg:h-auto mt-96 lg:mt-12 w-full">
-      <div className="card w-auto bg-green-50 shadow-2xl lg:my-8 mx-auto lg:w-1/2 h-full lg:h-auto py-10 lg:py-0 ">
+    <div className="h-full mt-96 lg:mt-12 w-full">
+      <div className="card w-1/2 bg-green-50 shadow-2xl lg:my-8 mx-auto h-full lg:h-auto py-10 lg:py-0">
         <div className="card-body">
           <h1 className="text-green-400 text-2xl font-bold">
             Create An Bank Account
