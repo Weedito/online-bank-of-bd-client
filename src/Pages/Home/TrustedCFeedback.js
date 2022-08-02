@@ -17,6 +17,7 @@ const TrustedCFeedback = () => {
 
   const handleClick = value => {
     setCurrentValue(value)
+    console.log(value)
   }
 
   const handleMouseOver = newHoverValue => {
