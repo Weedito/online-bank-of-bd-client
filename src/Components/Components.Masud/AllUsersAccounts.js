@@ -12,11 +12,10 @@ const AllUsersAccounts = () => {
     const [deleteAccount, setDeleteAccount] = useState(null);   
     
     useEffect(()=> {        
-
          fetch('http://localhost:5000/allaccounts')
         .then(res => res.json())
         .then( data =>  setAccounts(data))
-    }, [accounts])
+    }, [])
 
 
 

@@ -32,7 +32,6 @@ import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
-import Dashboardm from "./Components/Components.Masud/Dashboardm";
 import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
 import MyAccounts from "./Components/Components.Masud/MyAccounts";
 
@@ -44,9 +43,6 @@ function App() {
         <Route path="/" element={<Home />} />
         
         {/* Dashboard Routes */}
-        <Route path="/dashboardm" element={<RequireAuth> <Dashboardm></Dashboardm></RequireAuth>}>
-          <Route path="allusersaccount" element={<AllUsersAccounts></AllUsersAccounts>}></Route>
-        </Route>
 
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>

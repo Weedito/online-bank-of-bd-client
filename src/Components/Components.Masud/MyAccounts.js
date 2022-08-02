@@ -3,7 +3,7 @@ import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import DepositModal from './DepositModal';
 import WidthdrawModal from './WidthdrawModal';
-import TransferMoneyModal from './TransferMoneyModal.js';
+import TransferMoneyModal from './TransferMoneyModal';
 
 
 const MyAccounts = () => {

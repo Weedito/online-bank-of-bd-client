@@ -2,7 +2,7 @@ import React from 'react';
 
 const AccountsRow = ({ account, setDeposit, setWithdraw, setDeleteAccount }) => {
 
-    const { name, AccNo, balance, email, phone, country, actype } = account;
+    const { name, AccNo, balance, phone, country, actype } = account;
 
     return (
         <tr>
@@ -36,8 +36,8 @@ const AccountsRow = ({ account, setDeposit, setWithdraw, setDeleteAccount }) => 
 
                 <label for="withdraw-modal" onClick={() => setWithdraw(account)} class="btn btn-info btn-xs mx-4">Withdraw</label>
 
-                <label for="delete-account-modal" onClick={() => setDeleteAccount(account)} class="btn btn-secondary btn-xs">Delete Account</label>                
-               
+                <label for="delete-account-modal" onClick={() => setDeleteAccount(account)} class="btn btn-secondary btn-xs">Delete Account</label>
+
             </th>
         </tr>
     );

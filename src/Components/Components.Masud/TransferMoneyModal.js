@@ -12,7 +12,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
     const [previousBalance, setpreviousBalance] = useState();
 
 
-    console.log(balance);
+    // console.log(balance);
 
     const handleAccountBlur = (e) => {
         const tccAcc = e.target.value;
@@ -24,7 +24,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
         })
     }
 
-    console.log(previousBalance);
+    // console.log(previousBalance);
 
 
     // Reciver info
@@ -62,7 +62,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
                 })
     
             // Receiver        
-            const addBalance = { transferAmount };
+            const addBalance = {transferAmount};
     
             const senderUrl = `http://localhost:5000/accountno/${transferAccountNo}`;
     
@@ -139,7 +139,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
                 </div>
             </div>
         </div>
-    );
+    );   
 };
 
 export default TransferMoneyModal;
