@@ -142,7 +142,134 @@ const DepositDetails = () => {
                 </table>
             </div>
             {/* deposit details-end */}
+            {/* deposit-new */}
+            <h3 className="text-3xl pt-10">Fixed <span className='text-green-700 font-bold'>Deposit </span></h3>
+            <div className="overflow-x-auto my-5 z-0">
+                <table class="table w-full">
+                    {/* <!-- head start --> */}
+                    <thead >
+                        <tr>
+                            <th></th>
+                            <th>Fixed Deposit</th>
+                            <th>Individuals/Pension Fund/ Provident Fund/Gratuity Fund</th>
+                            <th>Non individuals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* <!-- row 1 --> */}
+                        <tr>
+                            <th>1</th>
+                            <td>1 (one) Month</td>
+                            <td>1.50%</td>
+                            <td>1.50%</td>
+                        </tr>
 
+                        <tr>
+                            <th>2</th>
+                            <td>90 Days </td>
+                            <td>6.00%</td>
+                            <td>2.50%</td>
+                        </tr>
+
+                        <tr>
+                            <th>3</th>
+                            <td>91 Days (Below 50 Crore) </td>
+                            <td>6.00%</td>
+                            <td>5.50%</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>91 Days (50 Crore and Above) </td>
+                            <td>6.00%</td>
+                            <td>6.00%</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>92 Days (Below 5 Crore) </td>
+                            <td>6.00%</td>
+                            <td>4.00%</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>92 Days (5 Crore to Below 20 Crore) </td>
+                            <td>6.00%</td>
+                            <td>6.00%</td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>92 Days (20 Crore and Above)</td>
+                            <td>6.00%</td>
+                            <td>6.25% </td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td>3 (Three) Months </td>
+                            <td>6.00%</td>
+                            <td>2.50%</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>3 (Three) Months</td>
+                            <td>6.00%</td>
+                            <td>2.50%</td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td>180 Days </td>
+                            <td>6.00%</td>
+                            <td>3.00%</td>
+                        </tr>
+                        <tr>
+                            <th>11</th>
+                            <td>182 Days (Below 1 Crore) </td>
+                            <td>6.00%</td>
+                            <td>4.00%</td>
+                        </tr>
+                        <tr>
+                            <th>12</th>
+                            <td>182 Days (1 Crore to Below 5 Crore) </td>
+                            <td>6.00%</td>
+                            <td>6.00%</td>
+                        </tr>
+                        <tr>
+                            <th>13</th>
+                            <td>182 Days (5 Crore to Below 20 Crore) </td>
+                            <td>6.25%</td>
+                            <td>6.25%</td>
+                        </tr>
+                        <tr>
+                            <th>14</th>
+                            <td>182 Days (20 Crore and Above) </td>
+                            <td>6.25%</td>
+                            <td>6.50%</td>
+                        </tr>
+                        <tr>
+                            <th>15</th>
+                            <td>6 (Six) Months </td>
+                            <td>6.00%</td>
+                            <td>5.75%</td>
+                        </tr>
+                        <tr>
+                            <th>16</th>
+                            <td>1 (One) Year </td>
+                            <td>6.00%</td>
+                            <td>3.50%</td>
+                        </tr>
+                        <tr>
+                            <th>17</th>
+                            <td>02 (Two) Years </td>
+                            <td>6.00%</td>
+                            <td>4.00%</td>
+                        </tr>
+                        <tr>
+                            <th>18</th>
+                            <td>03 (Three) Years </td>
+                            <td>6.00%</td>
+                            <td>4.00%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     );
