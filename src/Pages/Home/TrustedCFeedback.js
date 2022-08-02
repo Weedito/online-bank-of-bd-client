@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { TrustedCFeedbackData } from '../../Components/Components.Nahid/Data';
 import { FaStar } from "react-icons/fa";
+import auth from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const colors = {
   orange: "#FFBA5A",
@@ -10,6 +12,7 @@ const colors = {
 
 const TrustedCFeedback = () => {
 
+  const [user] = useAuthState(auth);
 
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
@@ -17,7 +20,6 @@ const TrustedCFeedback = () => {
 
   const handleClick = value => {
     setCurrentValue(value)
-    console.log(value)
   }
 
   const handleMouseOver = newHoverValue => {
@@ -27,6 +29,38 @@ const TrustedCFeedback = () => {
   const handleMouseLeave = () => {
     setHoverValue(undefined)
   }
+
+  const feedbackRef = useRef('');
+
+  const sendFeedback = () => {
+    const feedback = feedbackRef.current.value
+    const userName = user.displayName
+    const userImg = user?.photoURL
+    console.log(currentValue, feedback, userName, userImg);
+
+
+    const feedbackDetails = {
+      name: userName,
+      img: userImg,
+      feedbackStarts: currentValue,
+      feedbackComment: feedback
+    }
+    console.log(feedbackDetails)
+
+    fetch('http://localhost:5000/feedback', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(feedbackDetails)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        window.alert('feedback send successfully')
+      })
+  }
+
 
 
   return (
@@ -85,9 +119,9 @@ const TrustedCFeedback = () => {
                     )
                   })}
                 </div>
-                <textarea placeholder="What's your experience?" style={styles.textarea} />
+                <textarea placeholder="What's your experience?" ref={feedbackRef} style={styles.textarea} />
                 <div class="modal-action">
-                  <label for="my-modal-6" class="btn">Submit</label>
+                  <label for="my-modal-6" class="btn" onClick={sendFeedback}>Submit</label>
                 </div>
               </div>
             </div>
