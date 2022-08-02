@@ -7,7 +7,7 @@ const WhyChooseOBB = () => {
   return (
     <div className='bg-slate-100 py-10 px-2'>
       <div className='py-10 px-2'>
-      <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
+        <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
           Why Choose <span className="text-green-700">Online Bank BD</span>
         </h2>
       </div>

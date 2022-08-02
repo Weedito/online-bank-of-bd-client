@@ -1,12 +1,15 @@
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Zoom } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
 import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components/Components.Nahid/NavbarData';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
     const [bg, setBg] = useState(false);
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -42,7 +45,7 @@ const Navbar = () => {
                                                     if (item.name === "Committee") {
                                                         return (
                                                             <li className='dropdown-hover dropdown-right'>
-                                                                <NavLink className="flex items-center" to="/committee"><Zoom>Committee <FontAwesomeIcon className='' icon={faCaretRight} /> </Zoom></NavLink>
+                                                                <NavLink className="flex items-center" to="#"><Zoom>Committee <FontAwesomeIcon className='' icon={faCaretRight} /> </Zoom></NavLink>
                                                                 <Zoom>
                                                                     <ul
                                                                         tabIndex={0}
@@ -142,8 +145,25 @@ const Navbar = () => {
                         }
 
 
+                            if(item.name === 'Dashboard'){
+                                return (
+                                    user && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
+                                        
+                                        <NavLink
+                                            to={item.href}
+                                            smooth={true}
+                                            duration={500}
+                                            offset={-70}
+                                            className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
+                                        > {item.name} </NavLink>
+                                    </li>
+                                )
+                            }
+
+
                         return (
                             <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
+                                
                                 <NavLink
                                     to={item.href}
                                     smooth={true}

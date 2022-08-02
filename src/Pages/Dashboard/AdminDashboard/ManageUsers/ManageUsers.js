@@ -1,0 +1,49 @@
+import React, { useEffect, useState } from 'react';
+
+import UserDetails from './UserDetails';
+
+
+const ManageUsers = () => {
+   
+    
+    const [users, setUsers] = useState([]);
+
+    useEffect( () => {
+        fetch('https://bank-of-bd.herokuapp.com/users')
+        .then(res => res.json())
+        .then(data => setUsers(data))
+    }, [users]);
+
+
+    return (
+        <div className=" text-left h-full w-full">
+
+        <div className="w-full flex items-center justify-center my-12">
+            <div className="bg-white shadow rounded py-12 lg:px-28 px-8">
+                <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">Total Users: {users?.length}</p>
+                <div className="">
+                    <table class="border-collapse w-full bg-slate-200">
+                        <thead>
+                            <tr className='text-center'>
+                                <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Index</th>
+                                <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Users</th>
+                                <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Status</th>
+                                <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {
+                                users?.map((user, index) => <UserDetails key={user._id} user={user} index={index} />)
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    );
+};
+
+export default ManageUsers;

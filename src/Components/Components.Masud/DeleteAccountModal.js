@@ -1,0 +1,41 @@
+import React from 'react';
+import { toast } from 'react-toastify';
+
+const DeleteAccountModal = ({deleteAccount}) => {
+
+    const {name, AccNo, balance, _id} = deleteAccount;
+
+
+
+    const handleDelete = id =>{
+        const url = `http://localhost:5000/account/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            toast.success(`${name} account has been deleted.`)            
+        })
+    }
+
+    return (
+        <div>
+            <input type="checkbox" id="delete-account-modal" class="modal-toggle" />
+            <div class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <label for="delete-account-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h1 className='mb-4 badge  badge-error text-2xl badge-lg p-4'>Delete Account</h1>
+                    <h3 class="font-bold text-lg">{name}</h3>
+                    <p className='my-4'>Ac. No: {AccNo}</p>                                       
+                    <p className='my-4'>Balance: {balance}</p>                                       
+                    <div class="modal-action">
+                        <label for="delete-account-modal" onClick={() => handleDelete(_id)} class="btn">Delete</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    );
+};
+
+export default DeleteAccountModal;

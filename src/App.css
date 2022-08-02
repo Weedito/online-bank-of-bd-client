@@ -1,10 +1,7 @@
 .App {
-  text-align: center;
-}
-
-body{
   font-family: 'Poppins';
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -38,7 +35,7 @@ body{
   content: "";
   position: absolute;
   bottom: 0;
-  top: 130%;
+  top: 120%;
   left: 50%;
   width: 30px;
   right: 50%;
