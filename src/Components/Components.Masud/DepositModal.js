@@ -2,10 +2,12 @@ import React, { useRef, useState } from 'react';
 import { toast } from "react-toastify";
 
 const DepositModal = ({ deposit }) => {
-    const { name, AccNo, balance, _id } = deposit;
+    const { name, AccNo, balance, _id, authemail } = deposit;
 
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
+    let today = new Date();
+    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     const handleDeposit = () => {
 
@@ -30,6 +32,30 @@ const DepositModal = ({ deposit }) => {
                 .then(data => {
                     toast("Deposited Successfully!");
                     inputBalRef.current.value = 0;
+                })
+
+            // Deposit Statement Creator
+
+            const receiverStatementData = {
+                senderAccount: AccNo,
+                statement: "Deposit Money",
+                deposit: inputBalance,
+                withdraw: 0,
+                balance: parseFloat(updateBalance?.depositBalance),
+                date: date,
+                email: authemail,
+            }
+
+            fetch('https://bank-of-bd.herokuapp.com/statement', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(receiverStatementData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast("Deposited")
                 })
         }
     }

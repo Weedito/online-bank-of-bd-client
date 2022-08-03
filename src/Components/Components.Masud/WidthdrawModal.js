@@ -2,7 +2,9 @@ import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
 const WidthdrawModal = ({ withdraw }) => {
-    const { name, AccNo, balance, _id } = withdraw;
+    const { name, AccNo, balance, _id, authemail } = withdraw;
+    let today = new Date();
+    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
 
     const inputBalRef = useRef('');
@@ -26,7 +28,31 @@ const WidthdrawModal = ({ withdraw }) => {
                 .then(data => {
                     toast.success(`${inputBalance} withdrawal successful`)
                     inputBalRef.current.value = 0;
-            })        
+            })
+            
+            // withdraw Statement Creator
+
+            const receiverStatementData = {
+                senderAccount: AccNo,
+                statement: "Withdraw Money",
+                deposit: 0,
+                withdraw: inputBalance,
+                balance: parseFloat(updateBalance?.depositBalance),
+                date: date,
+                email: authemail,
+            }            
+
+            fetch('https://bank-of-bd.herokuapp.com/statement', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(receiverStatementData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    
+                })
     }
 
     return (

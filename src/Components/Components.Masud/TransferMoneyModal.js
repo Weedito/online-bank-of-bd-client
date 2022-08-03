@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const TransferMoneyModal = ({ transferMoney }) => {
-    const { name, AccNo, balance, _id, email } = transferMoney;
+    const { name, AccNo, balance, _id, email, authemail } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
 
@@ -19,8 +19,6 @@ const TransferMoneyModal = ({ transferMoney }) => {
         const tccAcc = e.target.value;
         axios.get(`https://bank-of-bd.herokuapp.com/accountno?accountno=${tccAcc}`)
             .then(function (data) {
-                // handle success
-                // console.log(data);
                 setTransAcc(data?.data);
             })
     }
@@ -28,6 +26,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
     const previousBalance = transAcc?.balance;
     const AccName = transAcc?.name;
     const AccNumber = transAcc?.AccNo;
+    const AccEmail = transAcc?.authemail;
 
 
     // Reciver info
@@ -93,14 +92,14 @@ const TransferMoneyModal = ({ transferMoney }) => {
 
             // Post Data for Statemant
 
-            const statementData = {
-                senderAccount: transAccNo,
+            const senderStatementData = {
+                senderAccount: AccNo,
                 statement: "Transfer Money",
                 deposit: transBalance ? parseFloat(transBalance) : 0,
-                widthdraw: 0,
+                withdraw: 0,
                 balance: depositBalance,
-                data: date,
-                email: email
+                date: date,
+                email: authemail,
             }
 
             fetch('https://bank-of-bd.herokuapp.com/statement', {
@@ -108,13 +107,38 @@ const TransferMoneyModal = ({ transferMoney }) => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(statementData)
+                body: JSON.stringify(senderStatementData)
             })
                 .then(res => res.json())
                 .then(data => {
                     toast("Statemant Created Successfully!")
                 })
 
+            // Receiver data
+
+
+            const receiverStatementData = {
+                senderAccount: transAccNo,
+                statement: "Received Money",
+                deposit: transBalance ? parseFloat(transBalance) : 0,
+                withdraw: 0,
+                balance: transferAmount,
+                date: date,
+                email: AccEmail,
+            }
+
+
+            fetch('https://bank-of-bd.herokuapp.com/statement', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(receiverStatementData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast("Money Received")
+                })
         }
 
     }
