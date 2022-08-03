@@ -15,7 +15,7 @@ const ContactUs = () => {
                     <div className=''>
                         {/* Map */}
 
-                        <iframe title='map' style={{ width: "400px" }} className='Ig:w-[200px] h-[300px] mx-auto' id="gmap_canvas" src="https://maps.google.com/maps?q=maniknagarbangladesh&t=&z=13&ie=UTF8& iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                        <iframe title='map' className='Ig:w-[200px] lg:h-[500px] mx-auto' id="gmap_canvas" src="https://maps.google.com/maps?q=uttarabangladesh&t=&z=13&ie=UTF8& iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                     </div>
 
                     {/* From */}

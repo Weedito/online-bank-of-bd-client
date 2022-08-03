@@ -19,7 +19,7 @@ const ManageUsers = () => {
         <div className=" text-left h-full w-full">
 
         <div className="w-full flex items-center justify-center my-12">
-            <div className="bg-white shadow rounded py-12 lg:px-28 px-8">
+            <div className="bg-white shadow rounded py-12 px-8">
                 <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">Total Users: {users?.length}</p>
                 <div className="">
                     <table class="border-collapse w-full bg-slate-200">

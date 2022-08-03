@@ -7,24 +7,27 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const TransferMoneyModal = ({ transferMoney }) => {
-    const { name, AccNo, balance, _id } = transferMoney;
+    const { name, AccNo, balance, _id, email } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
-    const [previousBalance, setpreviousBalance] = useState();
+    const [transAcc, setTransAcc] = useState();
 
 
     // console.log(balance);
 
+
     const handleAccountBlur = (e) => {
         const tccAcc = e.target.value;
         axios.get(`http://localhost:5000/accountno?accountno=${tccAcc}`)
-        .then(function (data) {
-            // handle success
-            // console.log(data);
-            setpreviousBalance(data?.data?.balance);
-        })
+            .then(function (data) {
+                // handle success
+                // console.log(data);
+                setTransAcc(data?.data);
+            })
     }
 
-    // console.log(previousBalance);
+    const previousBalance = transAcc?.balance;
+    const AccName = transAcc?.name;
+    const AccNumber = transAcc?.AccNo;
 
 
     // Reciver info
@@ -34,6 +37,9 @@ const TransferMoneyModal = ({ transferMoney }) => {
         const transName = data.name;
         const transAccNo = data.AccNo;
         const transBalance = data.balance;
+        let today = new Date();
+
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
 
         // Receiver 
@@ -45,6 +51,12 @@ const TransferMoneyModal = ({ transferMoney }) => {
         const depositBalance = balance - parseFloat(transBalance);
         const updateBalance = { depositBalance };
 
+
+        if (AccName !== transName && AccNumber !== transAccNo) {
+            return (
+                toast.error("Account Name & Number Doesn't Match")
+            )
+        } else {
 
             // Sender
             const url = `http://localhost:5000/account/${_id}`;
@@ -58,14 +70,14 @@ const TransferMoneyModal = ({ transferMoney }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-    
+                    reset();
                 })
-    
+
             // Receiver        
-            const addBalance = {transferAmount};
-    
+            const addBalance = { transferAmount };
+
             const senderUrl = `http://localhost:5000/accountno/${transferAccountNo}`;
-    
+
             fetch(senderUrl, {
                 method: 'PUT',
                 headers: {
@@ -75,9 +87,35 @@ const TransferMoneyModal = ({ transferMoney }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    toast.success("Money Successfully Sent")
+                    toast.success("Transfer Money Successfully")
+                    reset();
                 })
 
+            // Post Data for Statemant
+
+            const statementData = {
+                senderAccount: transAccNo,
+                statement: "Transfer Money",
+                deposit: transBalance ? parseFloat(transBalance) : 0,
+                widthdraw: 0,
+                balance: depositBalance,
+                data: date,
+                email: email
+            }
+
+            fetch('http://localhost:5000/statement', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(statementData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast("Statemant Created Successfully!")
+                })
+
+        }
 
     }
 
@@ -139,7 +177,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
                 </div>
             </div>
         </div>
-    );   
+    );
 };
 
 export default TransferMoneyModal;

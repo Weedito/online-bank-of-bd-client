@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { toast } from "react-toastify";
 
 const DepositModal = ({ deposit }) => {
-    const { name, AccNo, balance, email, phone, country, actype, _id } = deposit;
+    const { name, AccNo, balance, _id } = deposit;
 
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
