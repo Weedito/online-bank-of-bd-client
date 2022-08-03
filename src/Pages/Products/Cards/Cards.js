@@ -26,41 +26,41 @@ const Cards = () => {
 
 
                     {/* Card-1 */}
-                    <div class="card card-compact max-w-max bg-base-100 shadow-xl">
+                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
                         <figure>
-                            <img src="https://ck-content.imgix.net/pcm/content/c591eff40c74098ad56e-da9c50dd3e30c3572f9f-CDP_Card_Art_12_11.png?auto=compress%2Cformat" alt="cradit" class="rounded-xl" />
+                            <img src="https://ck-content.imgix.net/pcm/content/c591eff40c74098ad56e-da9c50dd3e30c3572f9f-CDP_Card_Art_12_11.png?auto=compress%2Cformat" alt="cradit" className="rounded-xl" />
                         </figure>
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title">Platinum Cradit Card</h2>
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title">Platinum Cradit Card</h2>
                             <p>Online Bank BD Platinum Cradit </p>
-                            <div class="cardCard-actions">
+                            <div className="cardCard-actions">
                                 <button className='btn btn-xs bg-green-700 border-0'>Show Details</button>
                             </div>
                         </div>
                     </div>
 
                     {/*Card-2 */}
-                    <div class="card card-compact max-w-max bg-base-100 shadow-xl">
+                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
                         <figure >
-                            <img src="https://freepngimg.com/save/26058-credit-card-transparent/1102x688" alt="maaster" class="rounded-xl" />
+                            <img src="https://freepngimg.com/save/26058-credit-card-transparent/1102x688" alt="maaster" className="rounded-xl" />
                         </figure>
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title">Master Card</h2>
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title">Master Card</h2>
                             <p>Online Bank BD Master Card</p>
-                            <div class="card-actions">
+                            <div className="card-actions">
                                 <button className='btn btn-xs bg-green-700 border-0'>Show Details</button>
                             </div>
                         </div>
                     </div>
                     {/* Card-3 */}
-                    <div class="card card-compact max-w-max bg-base-100 shadow-xl">
+                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
                         <figure >
-                            <img src="https://cdn.gobankingrates.com/wp-content/uploads/2016/02/2_Visa-Infinite-Eurasian-Diamond-Card.jpg" alt="student" class="rounded-xl" />
+                            <img src="https://cdn.gobankingrates.com/wp-content/uploads/2016/02/2_Visa-Infinite-Eurasian-Diamond-Card.jpg" alt="student" className="rounded-xl" />
                         </figure>
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title">Student Card</h2>
+                        <div className="card-body items-center text-center">
+                            <h2 className="card-title">Student Card</h2>
                             <p>Online Bank BD Student Card</p>
-                            <div class="card-actions">
+                            <div className="card-actions">
                                 <button className='btn btn-xs bg-green-700 border-0'>Show Details</button>
                             </div>
                         </div>

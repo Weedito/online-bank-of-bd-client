@@ -23,7 +23,7 @@ const SMSBanking = () => {
             <div className='bg-orange-100 py-10'>
                 <div className='grid lg:grid-cols-2 mx-24 gap-5'>
                     <div className='mt-5 mx-auto'>
-                        <div class="card h-28 bg-base-100">
+                        <div className="card h-28 bg-base-100">
                             <div className='mt-3 px-10'>
                                 <div>
                                     <h2 className='text-xl text-start link text-primary'>Recharge</h2>
@@ -33,7 +33,7 @@ const SMSBanking = () => {
                         </div>
                     </div>
                     <div className='mt-5 mx-auto'>
-                        <div class="card h-28 bg-base-100">
+                        <div className="card h-28 bg-base-100">
                             <div className='mt-3 px-10'>
                                 <div>
                                     <h2 className='text-xl text-start link text-primary'>Postpaid Bill Pay</h2>
@@ -43,7 +43,7 @@ const SMSBanking = () => {
                         </div>
                     </div>
                     <div className='mt-5 mx-auto'>
-                        <div class="card h-28 bg-base-100">
+                        <div className="card h-28 bg-base-100">
                             <div className='mt-3 px-10'>
                                 <div>
                                     <h2 className='text-xl text-start link text-primary'>DMRC card recharge</h2>
@@ -53,7 +53,7 @@ const SMSBanking = () => {
                         </div>
                     </div>
                     <div className='mt-5 mx-auto'>
-                        <div class="card h-32 bg-base-100">
+                        <div className="card h-32 bg-base-100">
                             <div className='mt-3 px-10'>
                                 <div>
                                     <h2 className='text-xl text-start link text-primary'>Alerts & Request</h2>

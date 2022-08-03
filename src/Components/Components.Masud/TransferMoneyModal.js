@@ -17,7 +17,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
 
     const handleAccountBlur = (e) => {
         const tccAcc = e.target.value;
-        axios.get(`http://localhost:5000/accountno?accountno=${tccAcc}`)
+        axios.get(`https://bank-of-bd.herokuapp.com/accountno?accountno=${tccAcc}`)
             .then(function (data) {
                 // handle success
                 // console.log(data);
@@ -59,7 +59,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
         } else {
 
             // Sender
-            const url = `http://localhost:5000/account/${_id}`;
+            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
 
             fetch(url, {
                 method: 'PUT',
@@ -76,7 +76,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
             // Receiver        
             const addBalance = { transferAmount };
 
-            const senderUrl = `http://localhost:5000/accountno/${transferAccountNo}`;
+            const senderUrl = `https://bank-of-bd.herokuapp.com/accountno/${transferAccountNo}`;
 
             fetch(senderUrl, {
                 method: 'PUT',
@@ -103,7 +103,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
                 email: email
             }
 
-            fetch('http://localhost:5000/statement', {
+            fetch('https://bank-of-bd.herokuapp.com/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -121,14 +121,14 @@ const TransferMoneyModal = ({ transferMoney }) => {
 
     return (
         <div className=''>
-            <input type="checkbox" id="transfer-money-modal" class="modal-toggle" />
-            <div class="modal modal-bottom md:modal-middle">
-                <div class="modal-box w-full">
-                    <label for="transfer-money-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="transfer-money-modal" className="modal-toggle" />
+            <div className="modal modal-bottom md:modal-middle">
+                <div className="modal-box w-full">
+                    <label for="transfer-money-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     <h1 className="font-bold text-2xl pb-4 text-green-500">Transfer Money</h1>
-                    <div class="flex flex-col w-full mx-auto justify-center lg:flex-row">
-                        <div class="grid flex-grow h-full w-full  py-5 card bg-base-300 rounded-box place-items-center">
+                    <div className="flex flex-col w-full mx-auto justify-center lg:flex-row">
+                        <div className="grid flex-grow h-full w-full  py-5 card bg-base-300 rounded-box place-items-center">
                             <h3 className="text-center font-semibold py-3 text-green-700">My Account</h3>
                             <div className="w-2/3 mx-auto text-left">
                                 <div className="my-2">
@@ -149,26 +149,26 @@ const TransferMoneyModal = ({ transferMoney }) => {
                             </div>
 
                         </div>
-                        <div class="divider lg:divider-horizontal"></div>
-                        <div class="grid flex-grow h-full w-full py-5 card bg-base-300 rounded-box place-items-center">
+                        <div className="divider lg:divider-horizontal"></div>
+                        <div className="grid flex-grow h-full w-full py-5 card bg-base-300 rounded-box place-items-center">
                             <h3 className="text-center font-semibold text-green-700 py-3">Transfer Account</h3>
                             <form onSubmit={handleSubmit(handleTransferMoney)} action="">
-                                <div class="relative z-0 my-2">
-                                    <input {...register("name")} type="text" id="floating_standard" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
-                                    <label for="floating_standard" class="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Account Holder Name</label>
+                                <div className="relative z-0 my-2">
+                                    <input {...register("name")} type="text" id="floating_standard" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+                                    <label for="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Account Holder Name</label>
                                 </div>
-                                <div onBlur={handleAccountBlur} class="relative z-0 my-2">
+                                <div onBlur={handleAccountBlur} className="relative z-0 my-2">
                                     {/* onBlur={accountNumber} */}
 
-                                    <input {...register("AccNo")} type="number" id="floating_standard" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
-                                    <label for="floating_standard" class="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Account Number</label>
+                                    <input {...register("AccNo")} type="number" id="floating_standard" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+                                    <label for="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Account Number</label>
                                 </div>
-                                <div class="relative z-0 my-2">
-                                    <input {...register("balance")} type="number" id="floating_standard" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
-                                    <label for="floating_standard" class="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Transfer Amount</label>
+                                <div className="relative z-0 my-2">
+                                    <input {...register("balance")} type="number" id="floating_standard" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
+                                    <label for="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Transfer Amount</label>
                                 </div>
                                 <div className="py-10 w-full flex justify-center mx-auto">
-                                    <input class="inline-block px-7 py-2.5 border-2 border-green-700 text-green-700 font-medium text-xs leading-tight uppercase rounded hover:bg-gray-700 hover:text-white hover:border-rose-700 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                    <input className="inline-block px-7 py-2.5 border-2 border-green-700 text-green-700 font-medium text-xs leading-tight uppercase rounded hover:bg-gray-700 hover:text-white hover:border-rose-700 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                                         data-mdb-ripple="true" data-mdb-ripple-color="light" type="submit" value="Transfer" />
                                 </div>
                             </form>

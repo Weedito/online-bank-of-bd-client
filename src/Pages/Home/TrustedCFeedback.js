@@ -47,7 +47,7 @@ const TrustedCFeedback = () => {
     }
     console.log(feedbackDetails)
 
-    fetch('http://localhost:5000/feedback', {
+    fetch('https://bank-of-bd.herokuapp.com/feedback', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -92,12 +92,12 @@ const TrustedCFeedback = () => {
       </div>
 
       <section>
-        <div><label for="my-modal-6" class="link modal-button">Review Us</label></div>
+        <div><label for="my-modal-6" className="link modal-button">Review Us</label></div>
         <div>
-          <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-          <div class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-              <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+          <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+          <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+              <label for="my-modal-6" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
               <div style={styles.container}>
                 <h2> Feedback Ratings </h2>
@@ -120,8 +120,8 @@ const TrustedCFeedback = () => {
                   })}
                 </div>
                 <textarea placeholder="What's your experience?" ref={feedbackRef} style={styles.textarea} />
-                <div class="modal-action">
-                  <label for="my-modal-6" class="btn" onClick={sendFeedback}>Submit</label>
+                <div className="modal-action">
+                  <label for="my-modal-6" className="btn" onClick={sendFeedback}>Submit</label>
                 </div>
               </div>
             </div>

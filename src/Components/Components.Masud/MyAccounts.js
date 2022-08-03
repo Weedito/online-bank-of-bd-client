@@ -17,7 +17,7 @@ const MyAccounts = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/accounts?email=${user.email}`
+        const url = `https://bank-of-bd.herokuapp.com/accounts?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setMyAccounts(data))
@@ -29,8 +29,8 @@ const MyAccounts = () => {
 
 
     return (
-        <div class="overflow-x-auto">
-            <table class="table table-zebra w-full">
+        <div className="overflow-x-auto">
+            <table className="table table-zebra w-full">
 
                 <thead>
                     <tr>
@@ -53,11 +53,11 @@ const MyAccounts = () => {
                             <td>{account?.actype}</td>
 
                             <td>
-                                <label for="deposit-modal" onClick={() => setDeposit(account)} class="btn btn-primary btn-xs">Deposit</label>
+                                <label for="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
 
-                                <label for="withdraw-modal" onClick={() => setWithdraw(account)} class="btn btn-info btn-xs mx-4">Withdraw</label>
+                                <label for="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
 
-                                <label for="transfer-money-modal" onClick={() => setTransferMoney(account)} class="btn btn-success btn-xs">Send Money</label>
+                                <label for="transfer-money-modal" onClick={() => setTransferMoney(account)} className="btn btn-success btn-xs">Send Money</label>
                             </td>
                         </tr>
                         )

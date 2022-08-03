@@ -12,7 +12,7 @@ const AllUsersAccounts = () => {
     const [deleteAccount, setDeleteAccount] = useState(null);   
     
     useEffect(()=> {        
-         fetch('http://localhost:5000/allaccounts')
+         fetch('https://bank-of-bd.herokuapp.com/allaccounts')
         .then(res => res.json())
         .then( data =>  setAccounts(data))
     }, [])
@@ -22,14 +22,14 @@ const AllUsersAccounts = () => {
 
     return (
         <div>
-            <div class="overflow-x-auto w-full">
-                <table class="table w-full">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
                             <th>
                                 <label>
-                                    <input type="checkbox" class="checkbox" />
+                                    <input type="checkbox" className="checkbox" />
                                 </label>
                             </th>
                             <th>Name</th>

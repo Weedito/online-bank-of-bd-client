@@ -22,8 +22,8 @@ const InterestRate = () => {
 
             <div>
                 {/* table */}
-                <div class="overflow-x-auto px-20 py-16">
-                    <table class="table z-0 table-zebra w-full">
+                <div className="overflow-x-auto px-20 py-16">
+                    <table className="table z-0 table-zebra w-full">
 
                         <thead>
 

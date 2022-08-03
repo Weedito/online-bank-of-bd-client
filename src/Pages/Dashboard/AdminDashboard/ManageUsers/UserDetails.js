@@ -56,22 +56,22 @@ const UserDetails = ({ user, index }) => {
 
     return (
 
-        <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block font-semibold lg:table-cell relative lg:static">
-                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Index</span>
+        <tr className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block font-semibold lg:table-cell relative lg:static">
+                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Index</span>
                 {index + 1}
             </td>
-            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Email</span>
+            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Email</span>
                 {email}
             </td>
-            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                {role === 'admin' ? <div class="badge text-blue-700 badge-outline">Admin</div> : <button onClick={handleMakeAdmin} class="btn btn-xs btn-outline btn-primary">Make Admin</button>}
+            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
+                {role === 'admin' ? <div className="badge text-blue-700 badge-outline">Admin</div> : <button onClick={handleMakeAdmin} className="btn btn-xs btn-outline btn-primary">Make Admin</button>}
             </td>
-            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-                {role !== 'admin' ? <button onClick={() => handleRemoveUser(_id)} class="btn btn-xs btn-outline btn-natural">Remove User</button> : <button onClick={handleRemoveAdmin} class="btn btn-xs btn-outline btn-secondary">Remove Admin</button>}
+            <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
+                {role !== 'admin' ? <button onClick={() => handleRemoveUser(_id)} className="btn btn-xs btn-outline btn-natural">Remove User</button> : <button onClick={handleRemoveAdmin} className="btn btn-xs btn-outline btn-secondary">Remove Admin</button>}
             </td>
         </tr>
 
