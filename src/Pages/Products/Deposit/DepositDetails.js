@@ -21,7 +21,7 @@ const DepositDetails = () => {
             {/* deposit details-start */}
             <h3 className="text-3xl pt-10">Term-deposit <span className='text-green-700 font-bold'>Products</span></h3>
 
-            <div class="overflow-x-auto my-5 z-0">
+            <div class="my-5 lg:px-15 lg:py-10">
                 <table class="table w-full">
                     {/* <!-- head start --> */}
                     <thead >
@@ -144,7 +144,7 @@ const DepositDetails = () => {
             {/* deposit details-end */}
             {/* deposit-new */}
             <h3 className="text-3xl pt-10">Fixed <span className='text-green-700 font-bold'>Deposit </span></h3>
-            <div className="overflow-x-auto my-5 z-0">
+            <div className=" my-5 lg:px-15 lg:py-10">
                 <table class="table w-full">
                     {/* <!-- head start --> */}
                     <thead >

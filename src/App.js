@@ -34,6 +34,7 @@ import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
 import ManageUsers from "./Pages/Dashboard/AdminSection/ManageUsers/ManageUsers";
+import CardDetails from "./Pages/Products/Cards/CardDetails";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
         <Route path="/deposit" element={<DepositDetails />} />
         <Route path="/loan" element={<Loan />} />
         <Route path="/cards" element={<Cards />} />
+        <Route path="/card/:id" element={<CardDetails />} />
         <Route path="/interestrate" element={<InterestRate />} />
         {/* Products Routes End*/}
 

@@ -23,19 +23,19 @@ const Loan = () => {
                     <h3 className="text-3xl font-bold">Loan <span className='text-green-700 '>Informations</span></h3>
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-8'>
-                        <div class="card w-72 bg-warning shadow-xl">
+                        <div class="card w-72 bg-green-500 hover:bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <h2 className='text-2xl'>BDT 5 lac - BDT 2 Crore</h2>
                                 <p className='text-2xl'>Loan Amount</p>
                             </div>
                         </div>
-                        <div class="card w-72 bg-warning shadow-xl">
+                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <h2 className='text-2xl'>1 - 25 years</h2>
                                 <p className='text-2xl'>Loan Tenure</p>
                             </div>
                         </div>
-                        <div class="card w-72 bg-warning shadow-xl">
+                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <h2 className='text-2xl'>Competitive</h2>
                                 <p className='text-2xl'>Interest Rate</p>
@@ -45,7 +45,7 @@ const Loan = () => {
                     </div>
                 </div>
             </section>
-            
+
 
             {/* home-loan-part */}
             <div class="hero min-h-screen bg-base-200 my-5">
@@ -68,19 +68,19 @@ const Loan = () => {
                     <h3 className="text-3xl font-bold">Loan <span className='text-green-700 '>Informations</span></h3>
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-8'>
-                        <div class="card w-72 bg-warning shadow-xl">
+                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <h2 className='text-2xl'>BDT 1 Lac - BDT 20 Lac</h2>
                                 <p className='text-2xl'>Loan Amount</p>
                             </div>
                         </div>
-                        <div class="card w-72 bg-warning shadow-xl">
+                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <h2 className='text-2xl'>12 - 60 months</h2>
                                 <p className='text-2xl'>Loan Tenure</p>
                             </div>
                         </div>
-                        <div class="card w-72 bg-warning shadow-xl">
+                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
                             <div class="card-body">
                                 <h2 className='text-2xl'>Competitive</h2>
                                 <p className='text-2xl'>Interest Rate</p>
@@ -90,7 +90,7 @@ const Loan = () => {
                     </div>
                 </div>
             </section>
-            
+
             {/* personal-loan-start */}
             <div class="hero min-h-screen bg-base-200 my-5">
                 <div class="hero-content flex-col lg:flex-row">
@@ -153,7 +153,7 @@ const Loan = () => {
 
             <h2 className="text-center text-3xl">Overview</h2>
 
-            
+
 
 
 

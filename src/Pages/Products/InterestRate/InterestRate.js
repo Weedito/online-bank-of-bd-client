@@ -22,8 +22,8 @@ const InterestRate = () => {
 
             <div>
                 {/* table */}
-                <div class="overflow-x-auto px-20 py-16">
-                    <table class="table table-zebra w-full">
+                <div class="lg:px-20 lg:py-16 my-5">
+                    <table class="table table-zebra w-full m-auto">
 
                         <thead>
 
@@ -35,7 +35,7 @@ const InterestRate = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className='text-center justify-center'>
+                            <tr className='text-center font-bold text-blue-600  justify-center'>
                                 <th></th>
                                 <td> General Savings Account</td>
                                 <td></td>
@@ -82,7 +82,7 @@ const InterestRate = () => {
                                 <td>0.00%</td>
 
                             </tr>
-                            <tr className='text-center justify-center'>
+                            <tr className='text-center font-bold text-blue-600 justify-center'>
                                 <th></th>
                                 <td>Alo General Savings Account</td>
                                 <td></td>
@@ -106,7 +106,7 @@ const InterestRate = () => {
                                 <td>1.00%</td>
 
                             </tr>
-                            <tr className='text-center justify-center'>
+                            <tr className='text-center font-bold text-blue-600 justify-center'>
                                 <th></th>
                                 <td>Alo High Value Savings Account</td>
                                 <td></td>
@@ -148,7 +148,7 @@ const InterestRate = () => {
                                 <td>1.50%</td>
 
                             </tr>
-                            <tr className='text-center justify-center'>
+                            <tr className='text-center font-bold text-blue-600 justify-center'>
                                 <th></th>
                                 <td>Student Savings Account</td>
                                 <td></td>
@@ -178,7 +178,7 @@ const InterestRate = () => {
                                 <td>1.50%</td>
 
                             </tr>
-                            <tr className='text-center justify-center'>
+                            <tr className='text-center font-bold text-blue-600 justify-center'>
                                 <th></th>
                                 <td>Seniors’ Savings Account </td>
                                 <td></td>
@@ -214,7 +214,7 @@ const InterestRate = () => {
                                 <td>1.50%</td>
 
                             </tr>
-                            <tr className='text-center justify-center'>
+                            <tr className='text-center font-bold text-blue-600 justify-center'>
                                 <th></th>
                                 <td>Savings Delight Account </td>
                                 <td></td>
@@ -250,7 +250,7 @@ const InterestRate = () => {
                                 <td>1.75%</td>
 
                             </tr>
-                            <tr className='text-center justify-center'>
+                            <tr className='text-center font-bold text-blue-600 justify-center'>
                                 <th></th>
                                 <td>Corporate Transactional Account</td>
                                 <td></td>
