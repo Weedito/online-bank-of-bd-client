@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { TrustedCFeedbackData } from '../../Components/Components.Nahid/Data';
 import { FaStar } from "react-icons/fa";
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 
 const colors = {
   orange: "#FFBA5A",
@@ -18,6 +19,18 @@ const TrustedCFeedback = () => {
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0)
 
+  const [ourFeedback, setOurFeedback] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/feedback')
+      .then(res => res.json())
+      .then(result => {
+        console.log(result)
+        setOurFeedback(result)
+      })
+  }, []);
+
+
   const handleClick = value => {
     setCurrentValue(value)
   }
@@ -32,11 +45,19 @@ const TrustedCFeedback = () => {
 
   const feedbackRef = useRef('');
 
+  let newImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlLhGXqNvuYnsiYsH4yExdezxz3ePUS0t7dg&usqp=CAU'
+
+
   const sendFeedback = () => {
     const feedback = feedbackRef.current.value
     const userName = user.displayName
-    const userImg = user?.photoURL
+    let userImg = user?.photoURL
     console.log(currentValue, feedback, userName, userImg);
+
+
+    if (!userImg) {
+      userImg = newImg;
+    }
 
 
     const feedbackDetails = {
@@ -57,7 +78,12 @@ const TrustedCFeedback = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        window.alert('feedback send successfully')
+        if (data.acknowledged) {
+          toast.success('feedback submited')
+        }
+        else {
+          toast.error('Something Wrong')
+        }
       })
   }
 
@@ -73,16 +99,21 @@ const TrustedCFeedback = () => {
       <div className="grid grid-cols-1 items-center justify-center p-10 md:grid-cols-2 mt-12 gap-8">
         {/* partner summary  */}
         {
-          TrustedCFeedbackData.map((item, idx) => {
+          ourFeedback.map((feedback, index) => {
             return (
-              <div key={idx} className="flex flex-col md:flex-row justify-center items-center">
+              <div key={feedback._id} className="flex flex-col md:flex-row justify-center items-center">
                 <div className="w-2/5 mx-auto">
-                  <img src={item?.imageURL} alt="Customrs" className="object-cover w-32 h-32 rounded-full mx-auto" />
+                  <img src={feedback.img} alt="Customrs" className="object-cover w-32 h-32 rounded-full mx-auto" />
                 </div>
                 <div className="w-3/5 text-center md:text-left">
-                  <h2 className="text-2xl font-semibold text-gray-700">{item?.name}</h2>
-                  <p className="py-3">{item?.desc}</p>
-                  <img src={item?.stars} alt="stars" className="object-cover w-32 mx-auto md:mx-0" />
+                  <h2 className="text-2xl font-semibold text-gray-700">{feedback.name}</h2>
+                  <p className="py-3">{feedback.feedbackComment}</p>
+                  {/* <img src="" alt="stars" className="object-cover w-32 mx-auto md:mx-0" /> */}
+                  <div className='flex gap-2'>
+                    <FaStar
+                      color={feedback.feedbackStarts >= index ? colors.orange : colors.grey}
+                      className='' /> <p>{feedback.feedbackStarts} Stars</p>
+                  </div>
                 </div>
               </div>
             )
@@ -92,7 +123,7 @@ const TrustedCFeedback = () => {
       </div>
 
       <section>
-        <div><label for="my-modal-6" class="link modal-button">Review Us</label></div>
+        <div><label for="my-modal-6" class="btn btn-primary animate-bounce w-26 h-6 modal-button">Review Us</label></div>
         <div>
           <input type="checkbox" id="my-modal-6" class="modal-toggle" />
           <div class="modal modal-bottom sm:modal-middle">
