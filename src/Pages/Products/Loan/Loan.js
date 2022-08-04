@@ -1,6 +1,48 @@
 import React from 'react';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState, useEffect } from "react";
+import { ShareHolderData } from '../../../Components/Components.Nahidul/Data';
 
 const Loan = () => {
+    //calculator
+    const [loan, setLoan] = useState(10000);
+    const [duration, setDuration] = useState(1);
+    const [interest, setInterest] = useState(0);
+    const [dates, setDates] = useState([]);
+
+    const getInterest = (month) => {
+        let amountRepaid = loan - getPrincipal(month);
+        let interestedAmount = (amountRepaid * interest) / 100;
+        return Math.round((interestedAmount + Number.EPSILON) * 100) / 100;
+    };
+
+    const getPrincipal = (month) => {
+        let dividedAmount = (loan / duration) * month;
+        return Math.round((dividedAmount + Number.EPSILON) * 100) / 100;
+    };
+
+    const getTotalRepayment = (month) => {
+        return (
+            Math.round((getInterest(month) + getPrincipal(month) + Number.EPSILON) * 100) / 100
+        );
+    };
+
+    useEffect(() => {
+        let datesArray = [];
+
+        for (let i = 1; i <= duration; i++) {
+            let date = new Date();
+            date = new Date(date.setMonth(date.getMonth() + 1 + i));
+            datesArray.push({
+                date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
+                month: i
+            });
+        }
+
+        setDates(datesArray);
+    }, [duration]);
+    //loan end
     return (
         <div>
             {/* Top-part-end */}
@@ -104,45 +146,98 @@ const Loan = () => {
             </div>
             {/* statup-loan-end */}
 
-            {/* Calculate Emi-start */}
-            <div className='my-10'>
-                <div class="hero min-h-screen bg-base-200 ">
-                    <div class="hero-content flex-col lg:flex-row-reverse">
-                        <div class="text-center lg:text-left">
-                            <h1 class="text-5xl font-bold">Calculate Emi</h1>
-                            <p class="py-6">You can easily calculate your emi here.</p>
-                        </div>
-                        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <div class="card-body">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Ammount</span>
-                                    </label>
-                                    <input type="text" placeholder="Input ammount here" class="input input-bordered" />
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Tenure</span>
-                                    </label>
-                                    <input type="text" placeholder="Tenure" class="input input-bordered" />
-
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Interest Rate</span>
-                                    </label>
-                                    <input type="text" placeholder="Interest Rate % here" class="input input-bordered" />
-                                </div>
-                                <div class="form-control mt-6">
-                                    <button class="btn btn-primary  bg-green-700 border-0">Calculate</button>
-                                </div>
+          
+            {/* new calculator-start */}
+            <h1 class="text-5xl font-bold my-5">Emi <span className='text-green-700 '>Calculator</span></h1>
+            <React.Fragment>
+                <header>
+                    <h1>Your Loan</h1>
+                </header>
+                <main>
+                    <form>
+                        <div className="row g-3 align-items-center">
+                            <div className="col-auto">
+                                <label htmlFor="loan-input" className="form-label">
+                                    Loan Amount (Tk)
+                                </label>
+                            </div>
+                            <div className="col-auto">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="loan-input"
+                                    value={loan}
+                                    onChange={(e) => setLoan(e.target.value)}
+                                />
                             </div>
                         </div>
+                        <div className="row g-3 align-items-center">
+                            <div className="col-auto">
+                                <label htmlFor="duration-input" className="form-label">
+                                    Duration (in Months)
+                                </label>
+                            </div>
+                            <div className="col-auto">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="duration-input"
+                                    value={duration}
+                                    onChange={(e) => setDuration(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                    </form>
+                    <div className="row g-3 align-items-center">
+                        <div className="col-auto">
+                            <label htmlFor="interest-range" className="form-label">
+                                Interest Rate (%) : {interest}
+                            </label>
+                        </div>
+                        <div className="col-auto">
+                            <input
+                                type="range"
+                                value={interest}
+                                onChange={(e) => setInterest(e.target.value)}
+                                min="0"
+                                max="10"
+                                step="1"
+                                className="form-range"
+                                id="interest-range"
+                            />
+                        </div>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Repayment Date</th>
+                                    <th scope="col">Principal</th>
+                                    <th scope="col">Interest</th>
+                                    <th scope="col">Total Repayment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {dates.map((emi, index) => {
+                                    const { date, month } = emi;
+                                    return (
+                                        <tr key={index}>
+                                            <td>{date}</td>
+                                            <td>{getPrincipal(month)}</td>
+                                            <td>{getInterest(month)}</td>
+                                            <td>{getTotalRepayment(month)}</td>
+                                        </tr>
+                                    );
+                                })}
+                                <tr>
+                                    <td>Total</td>
+                                    <td>{loan}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-
-            </div>
-
+                </main>
+            </React.Fragment>
+            {/* new calculator-end */}
 
 
 
@@ -153,12 +248,64 @@ const Loan = () => {
 
             <h2 className="text-center text-3xl">Overview</h2>
 
+            <div className="w-full md:w-4/5 mx-auto py-10">
+                <div class="accordion" id="accordionExample">
+                    {
+                        ShareHolderData.map((item, idx) => {
+                            return (
+                                <div key={idx} class="accordion-item bg-white border border-gray-200">
+                                    <h2 class="accordion-header mb-0" id="headingOne">
+                                        <button class=" accordion-button relative flex items-center w-full py-4 px-5 text-base text-gray-800 text-left  bg-white border-0 rounded-none transition focus:outline-none marker:"
+                                            type="button" data-bs-toggle="collapse" data-bs-target={`#${item?.index}`} aria-expanded="true"
+                                            aria-controls={item?.index}>
+                                            <span className="text-green-700 font-bold"> <span className="font-bold text-md"><FontAwesomeIcon icon={faPlus} /></span> {item?.name} </span>
+                                        </button>
+                                    </h2>
+                                    <div id={item?.index} class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body py-4 px-5 flex justify-around items-center">
+                                            <div className="w-3/6">
+
+                                                <h3 className="text-2xl md:text-3xl py-5 text-gray-800 font-semibold text-left">{item?.name}</h3>
+                                                <p className="text-xl text-left">{item?.discriptions}</p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+
+                </div>
+            </div>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* collaps new-start */}
             <div className='md:px-40 lg:px-96 px-12 py-3'>
-                {/* collaps new-start */}
+
                 <div class="collapse">
                     <input type="checkbox" />
                     <div class="collapse-title text-xl font-medium">

@@ -50,14 +50,8 @@ const Cards = () => {
                             </div>
                         )
                     })}
-
-
-
                 </div>
             </section>
-
-
-
         </div>
 
     );

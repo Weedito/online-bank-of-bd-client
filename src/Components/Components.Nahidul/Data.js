@@ -23,3 +23,43 @@ export const cardData = [
     }
 
 ];
+
+export const ShareHolderData = [
+    {
+        index: 'collapseOne',
+        name: ' Features',
+        discriptions: [
+        'Loan amount ranging from BDT 5 lac to BDT 200 lac.',
+        'Repayment tenure 1 year to 25 years.',
+        'Financing up to 70% of property value.',
+        'Semi-pucca financing facility.',
+        'Financing to Non Resident Bangladeshi (NRB).',
+        'Home loan with overdraft (OD) facility.',
+        'No hidden cost.',
+        'Early settlement facility.',
+        'Loan across the country'
+        ]
+        ,
+        img: 'https://www.nrbcommercialbank.com//assets/img/sponsor/farasath_ali.jpg'
+    },
+    {
+        index: 'collapseTwo',
+        name: 'Processing Fee',
+        discriptions: `Please see the Schedule of Charges.`,
+        img: 'https://www.nrbcommercialbank.com//assets/img/sponsor/toufique_rahman.jpg'
+    },
+    {
+        index: 'collapseThree',
+        name: 'Eligibility',
+        discriptions: `1.BDT 50,000 and above
+                    2.BDT 30,000 (Government officials only)`,
+        img: 'https://www.nrbcommercialbank.com//assets/img/sponsor/loquit_ullah.jpg'
+    },
+    {
+        index: 'collapseFour',
+        name: 'Required Documents',
+        discriptions: `Download basic required documents for Home Loan, please Click here.`,
+        img: 'https://www.nrbcommercialbank.com//assets/img/sponsor/abdul_mannan.jpg'
+    },
+    
+]
