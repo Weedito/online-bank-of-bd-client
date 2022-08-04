@@ -1,19 +1,9 @@
-import { faBattleNet } from "@fortawesome/free-brands-svg-icons";
-import { faContactBook } from "@fortawesome/free-regular-svg-icons";
 import {
-  faAddressBook,
   faBook,
-  faBookBookmark,
-  faBookDead,
-  faBookOpen,
-  faBookSkull,
   faMoneyBillTransfer,
   faMoneyBillTrendUp,
   faMoneyCheck,
   faMoneyCheckDollar,
-  faNotEqual,
-  faNotesMedical,
-  faSwatchbook,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -82,9 +72,10 @@ const UserDashboard = () => {
         </p>
       </div>
 
-      <div className="transactions m-4 lg:mx-20 max:w-3xl h-2xl bg-white">
+      <div className="transactions m-4 lg:mx-20 max:w-3xl max-h-96 lg:py-60
+       bg-white flex align-center justify-center">
           <div className="show-transaction">
-            <div className="transaction-icon w-10 h-10 justify-center text-center align-center rounded-full border border-green-200 bg-green-100">
+            <div className="transaction-icon ml-14 w-10 h-10 align-center align-center justify-center rounded-full border border-green-200 bg-green-100">
             <FontAwesomeIcon icon={faBook} className="text-green-600 mt-3" />
             </div>
             <p className="text-slate-400">No Transactions Found</p>
