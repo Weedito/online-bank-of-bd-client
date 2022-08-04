@@ -30,13 +30,15 @@ import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
 import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
-import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
+import UserAccount from "./Pages/Dashboard/UserDashboard/UserAccount";
+import UserDashboard from "./Pages/Dashboard/UserDashboard/UserDashboard";
 import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
 import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
 import MyAccounts from "./Components/Components.Masud/MyAccounts";
 import AdminPanel from "./Pages/Dashboard/AdminDashboard/Admin/AdminPanel";
 import ManageAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/ManageAccounts";
 import CardDetails from "./Pages/Products/Cards/CardDetails";
+import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 
 function App() {
   return (
@@ -58,6 +60,8 @@ function App() {
           <Route path="myaccounts" element={<MyAccounts></MyAccounts>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
           <Route path="statement" element={<Statement/>}></Route>
+          <Route path="userAccount" element={<UserAccount/>}></Route>
+          <Route path="userDashboard" element={<UserDashboard/>}></Route>
           <Route path="updateInfo" element={<UpdateInfo/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
           <Route path="manageusers" element={<ManageUsers/>}></Route>
