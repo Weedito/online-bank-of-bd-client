@@ -39,7 +39,7 @@ import ManageAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/Mana
 
 function App() {
   return (
-    <div className="pt-16 text-center">
+    <div className="pt-16">
       {window.location.pathname !== '/adminpanel' ? <Header /> : null}
       {/* <Header /> */}
       <Routes>
