@@ -1,90 +1,84 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import UseAdmin from '../../Components/Components.Nahid/Hooks/useAdmin';
 import auth from '../../firebase.init';
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
-    return (
-        <div className='max:w-7xl'>
-      {
-        user &&
-        <h1 className="text-xl container font-bold text-green-500 text-center mt-4 ">
-         
-        <span className='mx-auto'>Create A Bank Account</span>
-      </h1>
-      }
-
-      {
-        user &&
-        <h1 className="text-xl justify-end container font-bold text-green-500 text-end mt-4 ">
-         
-        <span className='m-6'>MD:Tariqul bashar </span><img className='w-8 h-8 display: inline rounded-full' src="https://i.ibb.co/sgLL5kd/show.jpg" alt="" />
-      </h1>
-      }
-
-
-
+  const [admin] = UseAdmin();
+  return (
+    <div>
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
-          <label
-            htmlFor="my-drawer-2"
-            className="btn bg-green-600 drawer-button lg:hidden lg:mb-60 -mt-96 mr-60"
-          >
-            Open Drawer
-          </label>
+        <div className="drawer-content flex flex-col p-10">
+          <label htmlFor="my-drawer-2" className="btn bg-green-600 drawer-button lg:hidden lg:mb-60 -mt-96 mr-60"
+          >Open Dashboard </label>
+
+          {/* Dashboard Navbar */}
+          <div class="navbar bg-slate-100 mb-5 rounded-md">
+            <div class="flex-1">
+              <a class="btn btn-ghost normal-case text-xl">Dashboard</a>
+            </div>
+            <div class="flex-none gap-2">
+              <h1>{user?.displayName}</h1>
+              <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                  <div class="w-10 rounded-full">
+                    <img src={user?.photoURL} />
+                  </div>
+                </label>
+                <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                  <li>
+                    <a class="justify-between">
+                      Profile
+                      <span class="badge">New</span>
+                    </a>
+                  </li>
+                  <li><a>Settings</a></li>
+                  <li><a>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          {/* Dashboard End */}
+
           <Outlet></Outlet>
         </div>
         <div className="drawer-side lg:z-0 z-1">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 overflow-y-auto w-50 bg-base-100 font-bold text-base-content">
-            
-
+          <ul className="menu p-4 overflow-y-auto w-80 bg-slate-100 font-bold text-base-content">
             {
               user &&
               <>
                 <li>
-                 <Link to="/dashboard/createAnAccount">Create an Account</Link>
+                  <Link to="/dashboard/createAnAccount">Create an Account</Link>
                 </li>
               </>
             }
 
+            {
+              user &&
+              <>
+                <li><Link to="/dashboard/alluseraccounts">Users Accounts</Link></li>
+                <li><Link className='my-2' to="/dashboard/myaccounts">My Accounts</Link></li>
+                <li><Link to="/dashboard/statement">Statement</Link></li>
+                <li><Link className='my-2' to="/dashboard/UserAccount"><i class="fa-solid fa-user z-20 text-base-400"></i></Link></li>
+                <li><Link to="/dashboard/userDashboard">User Dashboard</Link></li>
+                <li><Link className='my-2' to="/dashboard/updateInfo">Update Info</Link></li>
+                <li><Link to="/dashboard/sendMoney">Send Money</Link></li>
                 {
-                  user &&
-                  <>
-                  <li>
-                 <Link to="/dashboard/deposit">Deposit</Link>
-                </li>
-                <li>
-                 <Link className='my-2' to="/dashboard/withdraw">Withdraw</Link>
-                </li>
-                <li>
-                 <Link to="/dashboard/statement">Statement</Link>
-                </li>
-                <li> 
-                 <Link className='my-2' to="/dashboard/UserAccount"><i class="fa-solid fa-user z-20 text-base-400"></i></Link>
-                </li>
-                
-                <li>
-                 <Link to="/dashboard/userDashboard">User Dashboard</Link>
-                </li>
-                <li>
-                 <Link to="/dashboard/sendMoney">Send Money</Link>
-                </li>
-                <li>
-                 <Link to="/dashboard/manageusers">Manage Users</Link>
-                </li>
-                <li>
-                 <Link className='mt-2' to="/dashboard/transactionHistory">Transaction History</Link>
-                </li>
-                  </>
+                  admin &&
+                  <li><Link to="/dashboard/manageusers">Manage Users</Link></li>
                 }
-            
+                <li><Link className='mt-2' to="/dashboard/transactionHistory">Transaction History</Link></li>
+              </>
+            }
+
           </ul>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Dashboard;
