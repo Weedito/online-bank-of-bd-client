@@ -1,12 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { StatemantData } from '../../../../Components/Components.Nahid/Data';
-import auth from '../../../../firebase.init';
+
 
 const Statement = () => {
 
-    const [user, loading] = useAuthState(auth);
     const [statements, setStatement] = useState([]);
 
     axios.get(`http://localhost:5000/statements`)

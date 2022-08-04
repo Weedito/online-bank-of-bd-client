@@ -55,7 +55,15 @@ const TransferMoneyModal = ({ transferMoney }) => {
             return (
                 toast.error("Account Name & Number Doesn't Match")
             )
-        } else {
+        }else if(balance < 0 || balance < transBalance){
+            return (
+                toast.error("You Dont Have Enoung Balance for Transfer")
+            )
+        }else if(transBalance < 20){
+            return (
+                toast.error("You Connot Transfer Less Than $20")
+            )
+        }else {
 
             // Sender
             const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;

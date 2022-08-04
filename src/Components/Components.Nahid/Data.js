@@ -1,4 +1,7 @@
 
+import { faBank, faDashboard, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
+
+
 export const TrustedPartnersData = [
     {
         imageURL: 'https://i.ibb.co/Wvz9WvH/cocacola-PNG14.png',
@@ -249,3 +252,27 @@ export const StatemantData = [
         balance: '36, 050'
     },
 ]
+
+
+export const SidebarData = [
+    {
+        title: "Dashboard",
+        href: "dashboard",
+        icon: faDashboard,
+    },
+    {
+        title: "Manage Users",
+        href: "musers",
+        icon: faUsers,
+    },
+    {
+        title: "Manage Accounts",
+        href: "maccounts",
+        icon: faBank,
+    },
+    {
+        title: "Manage Reviews",
+        href: "mreviews",
+        icon: faStreetView,
+    },
+];

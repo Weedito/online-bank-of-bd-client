@@ -34,15 +34,22 @@ import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUser
 import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
 import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
 import MyAccounts from "./Components/Components.Masud/MyAccounts";
+import AdminPanel from "./Pages/Dashboard/AdminDashboard/Admin/AdminPanel";
+import ManageAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/ManageAccounts";
 
 function App() {
   return (
     <div className="pt-16 text-center">
-      <Header />
+      {window.location.pathname !== '/adminpanel' ? <Header /> : null}
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         
         {/* Dashboard Routes */}
+        <Route path="/adminpanel" element={<RequireAuth><AdminPanel/></RequireAuth>}>
+          <Route path="musers" element={<ManageUsers/>} />
+          <Route path="maccounts" element={<ManageAccounts/>} />
+        </Route>    
 
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>
@@ -91,7 +98,8 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {window.location.pathname !== '/adminpanel' ? <Footer /> : null}
+      {/* <Footer /> */}
       <ToastContainer />
     </div>
   );
