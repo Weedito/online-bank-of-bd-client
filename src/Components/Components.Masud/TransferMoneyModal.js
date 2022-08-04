@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const TransferMoneyModal = ({ transferMoney }) => {
-    const { name, AccNo, balance, _id, email, authemail } = transferMoney;
+    const { name, AccNo, balance, _id, authemail } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
 
