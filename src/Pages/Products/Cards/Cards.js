@@ -1,6 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import cardsImages from '../../../Assets/Images/products/bankCardbanner.jpg'
+import { cardData } from '../../../Components/Components.Nahidul/Data';
+
 const Cards = () => {
+
+    const navigate = useNavigate();
+
+
+
     return (
         <div className='bg-slate-100'>
             <section style={{
@@ -22,55 +30,30 @@ const Cards = () => {
 
             <h3 className="text-3xl pt-10">Cards <span className='text-green-700 font-bold'>Services</span></h3>
             <section className='pb-8'>
-                <div className=" grid grid-cols-1 lg:grid-cols-3 pt-8 gap-5 bg-slate-100 px-8">
+                <div className=" grid grid-cols-1 lg:grid-cols-3 pt-8 gap-5 bg-slate-100 px-8 ">
 
 
                     {/* Card-1 */}
-                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
-                        <figure>
-                            <img src="https://ck-content.imgix.net/pcm/content/c591eff40c74098ad56e-da9c50dd3e30c3572f9f-CDP_Card_Art_12_11.png?auto=compress%2Cformat" alt="cradit" className="rounded-xl" />
-                        </figure>
-                        <div className="card-body items-center text-center">
-                            <h2 className="card-title">Platinum Cradit Card</h2>
-                            <p>Online Bank BD Platinum Cradit </p>
-                            <div className="cardCard-actions">
-                                <button className='btn btn-xs bg-green-700 border-0'>Show Details</button>
+                    {cardData.map(item => {
+                        return (
+                            <div key={item.id} class="card card-compact max-w-max bg-base-300 shadow-xl hover:bg-base-100">
+                                <figure>
+                                    <img src={item.img} alt="cradit" class="rounded-xl" />
+                                </figure>
+                                <div class="card-body items-center text-center">
+                                    <h2 class="card-title">{item.cardTitle}</h2>
+                                    <p>{item.description} </p>
+                                    <div class="cardCard-actions">
+                                        <button onClick={() => navigate(`/card/:${item.id}`)} className='btn btn-xs bg-green-700 border-0'>Show Details</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    {/*Card-2 */}
-                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
-                        <figure >
-                            <img src="https://freepngimg.com/save/26058-credit-card-transparent/1102x688" alt="maaster" className="rounded-xl" />
-                        </figure>
-                        <div className="card-body items-center text-center">
-                            <h2 className="card-title">Master Card</h2>
-                            <p>Online Bank BD Master Card</p>
-                            <div className="card-actions">
-                                <button className='btn btn-xs bg-green-700 border-0'>Show Details</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Card-3 */}
-                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
-                        <figure >
-                            <img src="https://cdn.gobankingrates.com/wp-content/uploads/2016/02/2_Visa-Infinite-Eurasian-Diamond-Card.jpg" alt="student" className="rounded-xl" />
-                        </figure>
-                        <div className="card-body items-center text-center">
-                            <h2 className="card-title">Student Card</h2>
-                            <p>Online Bank BD Student Card</p>
-                            <div className="card-actions">
-                                <button className='btn btn-xs bg-green-700 border-0'>Show Details</button>
-                            </div>
-                        </div>
-                    </div>
+                        )
+                    })}
                 </div>
             </section>
-
-
-
         </div>
+
     );
 };
 

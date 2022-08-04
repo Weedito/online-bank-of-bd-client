@@ -36,6 +36,7 @@ import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
 import MyAccounts from "./Components/Components.Masud/MyAccounts";
 import AdminPanel from "./Pages/Dashboard/AdminDashboard/Admin/AdminPanel";
 import ManageAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/ManageAccounts";
+import CardDetails from "./Pages/Products/Cards/CardDetails";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
         <Route path="/deposit" element={<DepositDetails />} />
         <Route path="/loan" element={<Loan />} />
         <Route path="/cards" element={<Cards />} />
+        <Route path="/card/:id" element={<CardDetails />} />
         <Route path="/interestrate" element={<InterestRate />} />
         {/* Products Routes End*/}
 
