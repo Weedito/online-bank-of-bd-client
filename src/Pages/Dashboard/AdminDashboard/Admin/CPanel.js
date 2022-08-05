@@ -1,12 +1,12 @@
 import React from 'react';
 import Sidebar from './Sidebar/Sidebar';
 
-const AdminPanel = () => {
+const CPanel = () => {
     return (
-        <div>
+        <div className=''>
             <Sidebar/>
         </div>
     );
 };
 
-export default AdminPanel;
+export default CPanel;

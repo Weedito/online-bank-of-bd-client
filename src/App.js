@@ -23,7 +23,6 @@ import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
 import UpdateInfo from "./Pages/Dashboard/UserDashboard/UserProfile/UpdateInfo";
-import TransactionHistory from "./Pages/Dashboard/UserDashboard/Transaction/TransactionHistory";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import InterestRate from "./Pages/Products/InterestRate/InterestRate";
 import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
@@ -34,22 +33,32 @@ import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUser
 import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
 import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
 import MyAccounts from "./Components/Components.Masud/MyAccounts";
-import AdminPanel from "./Pages/Dashboard/AdminDashboard/Admin/AdminPanel";
+import CPanel from "./Pages/Dashboard/AdminDashboard/Admin/CPanel";
 import ManageAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/ManageAccounts";
+import TransactionHistory from "./Pages/Dashboard/AdminDashboard/TransactionHistory/TransactionHistory";
+import AdDashboard from "./Pages/Dashboard/AdminDashboard/Dashboard/AdDashboard";
+import ManageFeedbacks from "./Pages/Dashboard/AdminDashboard/ManageFeedbacks/ManageFeedbacks";
 
 function App() {
   return (
-    <div className="pt-16 text-center">
-      {window.location.pathname !== '/adminpanel' ? <Header /> : null}
+    <div className="pt-16">
+      {window.location.pathname !== '/cpanel' ? <Header /> : null}
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         
-        {/* Dashboard Routes */}
-        <Route path="/adminpanel" element={<RequireAuth><AdminPanel/></RequireAuth>}>
+        {/* Control Panel Routes */}
+        <Route path="/cpanel" element={<RequireAuth><CPanel/></RequireAuth>}>
+          <Route index element={<AdDashboard/>} />
+          <Route path="addashboard" element={<AdDashboard/>} />
           <Route path="musers" element={<ManageUsers/>} />
           <Route path="maccounts" element={<ManageAccounts/>} />
+          <Route path="thistory" element={<TransactionHistory/>} />
+          <Route path="mfeedbacks" element={<ManageFeedbacks/>} />
         </Route>    
+        {/* Control Panel Routes */}
+
+        {/* User Dashboard Routes */}
 
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>
@@ -61,7 +70,7 @@ function App() {
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
           <Route path="manageusers" element={<ManageUsers/>}></Route>
         </Route>
-        {/* Dashboard Routes End*/}
+        {/* User Dashboard Routes End*/}
 
         {/* About Us Routes */}
         <Route path="/about" element={<About />} />\ 
@@ -98,7 +107,7 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {window.location.pathname !== '/adminpanel' ? <Footer /> : null}
+      {window.location.pathname !== '/cpanel' ? <Footer /> : null}
       {/* <Footer /> */}
       <ToastContainer />
     </div>

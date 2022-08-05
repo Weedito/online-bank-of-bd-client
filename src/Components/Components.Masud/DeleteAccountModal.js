@@ -8,7 +8,7 @@ const DeleteAccountModal = ({deleteAccount}) => {
 
 
     const handleDelete = id =>{
-        const url = `https://bank-of-bd.herokuapp.com/account/${id}`;
+        const url = `http://localhost:5000/account/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

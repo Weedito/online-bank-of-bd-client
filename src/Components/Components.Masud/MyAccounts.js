@@ -17,7 +17,7 @@ const MyAccounts = () => {
 
 
     useEffect(() => {
-        const url = `https://bank-of-bd.herokuapp.com/accounts?email=${user.email}`
+        const url = `http://localhost:5000/accounts?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setMyAccounts(data))

@@ -16,7 +16,7 @@ const WidthdrawModal = ({ withdraw }) => {
         const updateBalance = { depositBalance };        
 
         
-        const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+        const url = `http://localhost:5000/account/${_id}`;
         fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -42,7 +42,7 @@ const WidthdrawModal = ({ withdraw }) => {
                 email: authemail,
             }            
 
-            fetch('https://bank-of-bd.herokuapp.com/statement', {
+            fetch('http://localhost:5000/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

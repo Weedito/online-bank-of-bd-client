@@ -1,0 +1,49 @@
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+
+const FeedbackDetails = ({feedback, index}) => {
+    const {_id, name, img, feedbackComment} = feedback;
+
+    const editFeedback = (id) => {
+
+    }
+
+    const removeFeedback = (id) => {
+
+    }
+
+    return (
+        <div key={index} class="w-full h-64 flex flex-col mx-auto justify-between dark:bg-gray-800 bg-white dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4">
+            <div>
+                <h3 class="text-gray-800 text-sm dark:text-gray-100 leading-7 font-semibold w-11/12">{feedbackComment}</h3>
+            </div>
+            <div>
+                <div class="mb-3 flex items-center flex-no-wrap">
+                    <div class="w-6 h-6 bg-cover bg-center rounded-md">
+                        <img src="https://tuk-cdn.s3.amazonaws.com/assets/components/avatars/a_4_0.png" alt="read by Alia" class="h-full w-full overflow-hidden object-cover rounded-full border-2 border-white dark:border-gray-700 shadow" />
+                    </div>
+                    <div class="w-6 h-6 bg-cover rounded-md -ml-2">
+                        <img src="https://tuk-cdn.s3.amazonaws.com/assets/components/avatars/a_4_1.png" alt="read by jason" class="h-full w-full overflow-hidden object-cover rounded-full border-2 border-white dark:border-gray-700 shadow" />
+                    </div>
+                    <div class="w-6 h-6 bg-cover rounded-md bg-center -ml-2">
+                        <img src="https://tuk-cdn.s3.amazonaws.com/assets/components/avatars/a_4_2.png" alt="read by Kane" class="h-full w-full overflow-hidden object-cover rounded-full border-2 border-white dark:border-gray-700 shadow" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between text-gray-800">
+                    <p class="dark:text-gray-100 text-sm">March 28, 2020</p>
+                    <div className="flex items-center justify-center gap-3">
+                        <div onClick={() => editFeedback(_id)} className="cursor-pointer">
+                            <FontAwesomeIcon className='text-xl hover:text-green-700 hover:scale-125 ease-in-out duration-200' icon={faEdit} />
+                        </div>
+                        <div onClick={() => removeFeedback(_id)} className="cursor-pointer">
+                            <FontAwesomeIcon className='text-xl hover:text-red-700 hover:scale-125 ease-in-out duration-200' icon={faTrashAlt} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default FeedbackDetails;
