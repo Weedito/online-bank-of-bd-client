@@ -28,7 +28,6 @@ const TrustedCFeedback = () => {
     fetch('http://localhost:5000/feedback')
       .then(res => res.json())
       .then(result => {
-        console.log(result)
         setOurFeedback(result)
       })
   }, []);
@@ -45,6 +44,25 @@ const TrustedCFeedback = () => {
   const handleMouseLeave = () => {
     setHoverValue(undefined)
   }
+
+  // const url = `http://localhost:5000/feedback/:${feedbackId}`;
+
+  const handleDelete = id => {
+
+    const procced = window.alert('Are you Sure ?');
+
+    if (procced) {
+      const url = `http://localhost:5000/feedback/${id}`;
+      fetch(url, {
+        method: 'DELETE'
+      })
+        .then(res => res.json())
+        .then(result => {
+          console.log(result)
+        })
+    }
+  }
+
 
   const feedbackRef = useRef('');
 
@@ -104,7 +122,7 @@ const TrustedCFeedback = () => {
                     <img src={feedback.img} alt="Customrs" className="object-cover w-32 h-32 rounded-full lg:mr-40" />
                   </div>
                   <div className="text-center md:text-left">
-                    <button className='btn btn-sm btn-square absolute right-2 top-2'>X</button>
+                    <button onClick={() => handleDelete(feedback._id)} className='btn btn-sm btn-square absolute right-2 top-2'>X</button>
                     <h2 className="text-2xl font-semibold text-gray-700">{feedback.name}</h2>
                     <p className="py-3 w-96">{feedback.feedbackComment}</p>
                     {/* <img src="" alt="stars" className="object-cover w-32 mx-auto md:mx-0" /> */}
