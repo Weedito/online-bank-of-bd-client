@@ -1,74 +1,97 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faMapLocation, faMessage, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const ContactUs = () => {
     return (
-        <div
-            style={{
-                backgroundImage: `url('https://img.freepik.com/free-vector/realistic-handset-concept_1284-34781.jpg?size=626&ext=jpg&ga=GA1.2.1544255835.1642770529')`,
-                backgroundPosition: 'center',
-                backgroundSize: 'cover'
-            }}
-        >
-            <div className='my-0'>
-                <h3 className="text-4xl font-bold text-black">Contact US...</h3>
-                <h3 className='text-3xl mt-5 font-semibold text-black'>+88 01785-748248</h3>
-                <p className='text-white mt-2'>Mon - Fri 10:00 AM - 08-00 PM BDT</p>
-                <p className='text-sm text-teal-900 link mt-2'>uniquecoders007@gmail.com</p>
-                <button class="btn btn-primary mt-8">Call Us <span className='pl-2'><FontAwesomeIcon icon={faPhone} /></span> </button>
+        <div style={{
+            backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6-iU1bgrA5n_3bQFx4UHi50nOvLkF0gNlpg&usqp=CAU')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover'
+        }} className='max-w-7xl mx-auto'>
+
+            <div className="hero min-h-screen">
+                <div className="hero-content flex-col lg:flex-row-reverse gap-x-16">
+                    <div className=''>
+                        {/* Map */}
+
+                        <iframe title='map' className='Ig:w-[200px] lg:h-[500px] mx-auto' id="gmap_canvas" src="https://maps.google.com/maps?q=uttarabangladesh&t=&z=13&ie=UTF8& iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </div>
+
+                    {/* From */}
+
+                    <div className="flex-shrink-0 w-full max-w-sm bg-base-100">
+                        <div className="card-body">
+                            <div className="form-control">
+                                <h2 className='text-3xl text-start font-bold'>Contact Us</h2>
+                                <div className='pr-52 my-2'><span className='section-title'></span></div>
+                                <p className='text-2xs text-start mt-2'>Reach out to us for any inquiry</p>
+                                <label className="label">
+                                    <span className="label-text mt-2">Your Name</span>
+                                </label>
+                                <input type="text" placeholder="name" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="text" placeholder="email" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Message</span>
+                                </label>
+                                <textarea className="textarea textarea-bordered" placeholder="Message"></textarea>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="divider mx-10"></div>
-
-            <div className='mx-20'>
-                <h3 className="text-4xl">Or Fill out this form, we'll quickly get back tou you</h3>
-
-                <div class="form-control w-48">
-                    <label class="label">
-                        <span class="label-text">* Subject</span>
-                    </label>
-                    <input type="text" placeholder="Subject" class="input input-bordered" />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-12 gap-8">
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">* Full Name</span>
-                        </label>
-                        <input type="text" placeholder="name" class="input input-bordered" />
-                    </div>
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">* Email</span>
-                        </label>
-                        <input type="text" placeholder="email" class="input input-bordered" />
-                    </div>
-
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">* Account Number.</span>
-                        </label>
-                        <input type="text" placeholder="* Account Number." class="input input-bordered" />
-                    </div>
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text">* Phone Number</span>
-                        </label>
-                        <input type="number" placeholder="Number" class="input input-bordered" />
+            {/* cards */}
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mx-auto my-5 p-5'>
+                <div className='mt-5 mx-auto'>
+                    <div className="card w-96 h-24 bg-base-100">
+                        <div className='flex mt-5 px-10'>
+                            <div>
+                                <FontAwesomeIcon className='mt-3 text-3xl text-blue-500 mx-5' icon={faMapLocation} />
+                            </div>
+                            <div>
+                                <h2 className='text-xl text-start'>Location:</h2>
+                                <p className='text-2xs text-gray-400'>Mirpur, Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">* Your Message</span>
-                    </label>
-                    <textarea class="textarea textarea-bordered w-80" placeholder="Your Message"></textarea>
+                <div className='mt-5 mx-auto'>
+                    <div className="card w-96 h-24 bg-base-100">
+                        <div className='flex mt-5 px-10'>
+                            <div>
+                                <FontAwesomeIcon className='mt-3 text-3xl text-blue-500 mx-5' icon={faMessage} />
+                            </div>
+                            <div>
+                                <h2 className='text-xl text-start'>Email:</h2>
+                                <p className='text-2xs text-gray-400'>uniquecoders007@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
+                <div className='mt-5 mx-auto'>
+                    <div className="card w-96 h-24 bg-base-100">
+                        <div className='flex mt-5 px-10'>
+                            <div>
+                                <FontAwesomeIcon className='mt-3 text-3xl text-blue-500 mx-5' icon={faPhone} />
+                            </div>
+                            <div>
+                                <h2 className='text-xl text-start'>Phone:</h2>
+                                <p className='text-2xs text-gray-400'>Call US: +880 1785748248</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <input type="submit" value="Send Message" class="btn btn-primary my-5" />
 
         </div>
     );

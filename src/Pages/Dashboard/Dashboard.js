@@ -15,23 +15,23 @@ const Dashboard = () => {
           >Open Dashboard </label>
 
           {/* Dashboard Navbar */}
-          <div class="navbar bg-slate-100 mb-5 rounded-md">
-            <div class="flex-1">
-              <a class="btn btn-ghost normal-case text-xl">Dashboard</a>
+          <div className="navbar bg-slate-100 mb-5 rounded-md">
+            <div className="flex-1">
+              <a className="btn btn-ghost normal-case text-xl">Dashboard</a>
             </div>
-            <div class="flex-none gap-2">
+            <div className="flex-none gap-2">
               <h1>{user?.displayName}</h1>
-              <div class="dropdown dropdown-end">
-                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                  <div class="w-10 rounded-full">
+              <div className="dropdown dropdown-end">
+                <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
                     <img src={user?.photoURL} />
                   </div>
                 </label>
-                <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                <ul tabindex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                   <li>
-                    <a class="justify-between">
+                    <a className="justify-between">
                       Profile
-                      <span class="badge">New</span>
+                      <span className="badge">New</span>
                     </a>
                   </li>
                   <li><a>Settings</a></li>
@@ -46,29 +46,21 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side z-0">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 overflow-y-auto w-80 bg-slate-100 font-bold text-base-content">
-            {
-              user &&
-              <>
-                <li>
-                  <Link to="/dashboard/createAnAccount">Create an Account</Link>
-                </li>
-              </>
-            }
+          <ul className="menu p-4 gap-2 overflow-y-auto w-80 bg-slate-100 font-bold text-base-content">
 
             {
               user &&
               <>
                 <li><Link to="/dashboard/alluseraccounts">Users Accounts</Link></li>
-                <li><Link className='my-2' to="/dashboard/myaccounts">My Accounts</Link></li>
+                <li><Link to="/dashboard/createAnAccount">Create an Account</Link></li>
+                <li><Link to="/dashboard/myaccounts">My Accounts</Link></li>
                 <li><Link to="/dashboard/statement">Statement</Link></li>
-                <li><Link className='my-2' to="/dashboard/updateInfo">Update Info</Link></li>
-                <li><Link to="/dashboard/sendMoney">Send Money</Link></li>
+                <li><Link to="/dashboard/updateInfo">Update Info</Link></li>
                 {
                   admin &&
                   <li><Link to="/dashboard/manageusers">Manage Users</Link></li>
                 }
-                <li><Link className='mt-2' to="/dashboard/transactionHistory">Transaction History</Link></li>
+                <li><Link to="/dashboard/transactionHistory">Transaction History</Link></li>
               </>
             }
 

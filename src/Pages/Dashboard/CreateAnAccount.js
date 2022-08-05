@@ -56,7 +56,7 @@ const CreateAnAccount = () => {
       authemail: user.email,
     }
 
-    fetch('http://localhost:5000/account', {
+    fetch('https://bank-of-bd.herokuapp.com/account', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -109,16 +109,6 @@ const CreateAnAccount = () => {
 
 
               <div className="form-control text-left flex-1 mr-2">
-                {/* <span class="text-gray-700">Gender</span>
-              <div class="mt-2">
-                <label class="inline-flex items-center">
-                  <input type="radio" class="form-radio" name="accountType" value="personal" />
-                  <span class="ml-2">Male</span>
-                </label>
-                <label class="inline-flex items-center ml-6">
-                  <input type="radio" class="form-radio" name="accountType" value="busines" />               <span class="ml-2">Female</span>
-                </label>
-              </div> */}
                 <label className="label">
                   <span className="label-text">Birthday</span>
                 </label>
@@ -131,26 +121,27 @@ const CreateAnAccount = () => {
                   <span className="label-text">Gender</span>
                 </label>
 
-                <select ref={genderRef} class="select w-full max-w-xs">
+                <select ref={genderRef} className="select w-full max-w-xs">
                   <option>Male</option>
                   <option>Female</option>
                   <option>Other</option>
                 </select>
               </div>
 
-              <div className="form-control flex-1">
+            </div>
+
+            
+            <div className="form-control flex-1">
                 <label className="label">
                   <span className="label-text">Your Country</span>
                 </label>
 
-                <select ref={countryRef} class="select w-full max-w-xs">
+                <select ref={countryRef} className="select w-full max-w-xs">
                   {
                     allCountry.map(country => <option>{country?.name?.common}</option> )
                   }                  
                 </select>                
               </div>
-
-            </div>
 
             <div className="flex flex-wrap justify-between items-center">
               <div className="form-control">

@@ -6,8 +6,8 @@ const TransactionHistory = () => {
     return (
         <div className='w-full lg:h-full p-12'>
             <h1 className='font-bold text-2xl pb-4 text-green-500'>Transaction history</h1>
-            <div class="overflow-x-auto">
-              <table class="table w-full mb-4 shadow-xl">
+            <div className="overflow-x-auto">
+              <table className="table w-full mb-4 shadow-xl">
                 
                 <thead>
                   <tr>

@@ -20,26 +20,26 @@ const AgentBanking = () => {
                 <h3 className="text-3xl font-bold">WHERE WE ARE TODAY</h3>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12 gap-8'>
-                    <div class="card w-72 bg-warning shadow-xl">
-                        <div class="card-body">
+                    <div className="card w-72 bg-warning shadow-xl">
+                        <div className="card-body">
                             <h2 className='text-2xl'>5,129</h2>
                             <p className='text-2xl'>Money Exchange</p>
                         </div>
                     </div>
-                    <div class="card w-72 bg-warning shadow-xl">
-                        <div class="card-body">
+                    <div className="card w-72 bg-warning shadow-xl">
+                        <div className="card-body">
                             <h2 className='text-2xl'>70</h2>
                             <p className='text-2xl'>Partners</p>
                         </div>
                     </div>
-                    <div class="card w-72 bg-warning shadow-xl">
-                        <div class="card-body">
+                    <div className="card w-72 bg-warning shadow-xl">
+                        <div className="card-body">
                             <h2 className='text-2xl'>64</h2>
                             <p className='text-2xl'>Districs</p>
                         </div>
                     </div>
-                    <div class="card w-72 bg-warning shadow-xl">
-                        <div class="card-body">
+                    <div className="card w-72 bg-warning shadow-xl">
+                        <div className="card-body">
                             <h2 className='text-2xl'>532</h2>
                             <p className='text-2xl'>Upazila</p>
                         </div>

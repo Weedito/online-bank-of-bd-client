@@ -23,9 +23,7 @@ import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
 import UpdateInfo from "./Pages/Dashboard/UserDashboard/UserProfile/UpdateInfo";
-import SendMoney from "./Pages/Dashboard/UserDashboard/SendMoney/SendMoney";
 import TransactionHistory from "./Pages/Dashboard/UserDashboard/Transaction/TransactionHistory";
-import Deposit from "./Pages/Dashboard/UserDashboard/Deposit/Deposit";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import InterestRate from "./Pages/Products/InterestRate/InterestRate";
 import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
@@ -34,7 +32,6 @@ import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
-import Dashboardm from "./Components/Components.Masud/Dashboardm";
 import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
 import MyAccounts from "./Components/Components.Masud/MyAccounts";
 
@@ -46,9 +43,6 @@ function App() {
         <Route path="/" element={<Home />} />
         
         {/* Dashboard Routes */}
-        <Route path="/dashboardm" element={<RequireAuth> <Dashboardm></Dashboardm></RequireAuth>}>
-          <Route path="allusersaccount" element={<AllUsersAccounts></AllUsersAccounts>}></Route>
-        </Route>
 
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>
@@ -57,7 +51,6 @@ function App() {
           <Route path="withdraw" element={<Withdraw/>}></Route>
           <Route path="statement" element={<Statement/>}></Route>
           <Route path="updateInfo" element={<UpdateInfo/>}></Route>
-          <Route path="sendmoney/:id" element={<SendMoney/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
           <Route path="manageusers" element={<ManageUsers/>}></Route>
         </Route>

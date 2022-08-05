@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
 const WidthdrawModal = ({ withdraw }) => {
-    const { name, AccNo, balance, email, phone, country, actype, _id } = withdraw;
+    const { name, AccNo, balance, _id } = withdraw;
+
 
     const inputBalRef = useRef('');
 
@@ -13,7 +14,7 @@ const WidthdrawModal = ({ withdraw }) => {
         const updateBalance = { depositBalance };        
 
         
-        const url = `http://localhost:5000/account/${_id}`;
+        const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
         fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -30,19 +31,19 @@ const WidthdrawModal = ({ withdraw }) => {
 
     return (
         <div>
-            <input type="checkbox" id="withdraw-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="withdraw-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="withdraw-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <label for="withdraw-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     <h1 className='mb-4 badge badge-info text-2xl badge-lg p-4'>Withdraw Money</h1>
 
-                    <h3 class="font-bold text-lg">{name}</h3>
+                    <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>
 
-                    <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" class="input input-bordered input-primary w-full max-w-xs" />
-                    <div class="modal-action">
-                        <label for="withdraw-modal" onClick={hadleWithdraw} class="btn">Withdraw</label>
+                    <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
+                    <div className="modal-action">
+                        <label for="withdraw-modal" onClick={hadleWithdraw} className="btn">Withdraw</label>
                     </div>
                 </div>
             </div>
