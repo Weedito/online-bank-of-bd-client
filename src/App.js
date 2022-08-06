@@ -22,34 +22,42 @@ import CorporateBanking from "./Pages/OurBanking/CorporateBanking/CorporateBanki
 import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
-import Statement from "./Pages/Dashboard/UserDashboard/Statement";
-import UpdateInfo from "./Pages/Dashboard/UserDashboard/UpdateInfo";
-import SendMoney from "./Pages/Dashboard/UserDashboard/SendMoney";
-import TransactionHistory from "./Pages/Dashboard/UserDashboard/TransactionHistory";
-import Deposit from "./Pages/Dashboard/UserDashboard/Deposit";
+import UpdateInfo from "./Pages/Dashboard/UserDashboard/UserProfile/UpdateInfo";
+import TransactionHistory from "./Pages/Dashboard/UserDashboard/Transaction/TransactionHistory";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import InterestRate from "./Pages/Products/InterestRate/InterestRate";
 import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
-import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw";
+import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
-import ManageUsers from "./Pages/Dashboard/AdminSection/ManageUsers/ManageUsers";
+import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
+import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
+import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
+import MyAccounts from "./Components/Components.Masud/MyAccounts";
+import AdminPanel from "./Pages/Dashboard/AdminDashboard/Admin/AdminPanel";
+import ManageAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/ManageAccounts";
 
 function App() {
   return (
     <div className="pt-16 text-center">
-      <Header />
+      {window.location.pathname !== '/adminpanel' ? <Header /> : null}
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         
         {/* Dashboard Routes */}
-        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
+        <Route path="/adminpanel" element={<RequireAuth><AdminPanel/></RequireAuth>}>
+          <Route path="musers" element={<ManageUsers/>} />
+          <Route path="maccounts" element={<ManageAccounts/>} />
+        </Route>    
+
+        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>
-          <Route path="deposit" element={<Deposit/>}></Route>
+          <Route path="alluseraccounts" element={<AllUsersAccounts/>}></Route>
+          <Route path="myaccounts" element={<MyAccounts></MyAccounts>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
           <Route path="statement" element={<Statement/>}></Route>
           <Route path="updateInfo" element={<UpdateInfo/>}></Route>
-          <Route path="sendMoney" element={<SendMoney/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
           <Route path="manageusers" element={<ManageUsers/>}></Route>
         </Route>
@@ -90,7 +98,8 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {window.location.pathname !== '/adminpanel' ? <Footer /> : null}
+      {/* <Footer /> */}
       <ToastContainer />
     </div>
   );

@@ -22,13 +22,13 @@ const InterestRate = () => {
 
             <div>
                 {/* table */}
-                <div class="overflow-x-auto px-20 py-16">
-                    <table class="table table-zebra w-full">
+                <div className="overflow-x-auto px-20 py-16">
+                    <table className="table z-0 table-zebra w-full">
 
                         <thead>
 
                             <tr>
-                                <th></th>
+                                <th>SL.NO</th>
                                 <th>Deposit Products</th>
                                 <th>Interest  Rate</th>
 

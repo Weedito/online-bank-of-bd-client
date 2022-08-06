@@ -4,33 +4,33 @@ const DepositDetails = () => {
     return (
         <div className=''>
             {/* banner-start */}
-            <div class="carousel w-full">
-                <div id="slide1" class="carousel-item relative w-full">
-                    <img src="https://thumbs.dreamstime.com/b/bank-account-concept-banner-header-customer-sitting-laptop-bank-credit-card-financial-savings-personal-bank-162415195.jpg" class="w-full" />
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide4" class="btn btn-circle">❮</a>
-                        <a href="#slide2" class="btn btn-circle">❯</a>
+            <div className="carousel w-full">
+                <div id="slide1" className="carousel-item relative w-full">
+                    <img src="https://thumbs.dreamstime.com/b/bank-account-concept-banner-header-customer-sitting-laptop-bank-credit-card-financial-savings-personal-bank-162415195.jpg" className="w-full" />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide4" className="btn btn-circle">❮</a>
+                        <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
                 </div>
-                <div id="slide2" class="carousel-item relative w-full">
-                    <img src="https://img.pikbest.com/backgrounds/20190808/financial-information-online-banking-payment-currency-gold-coin-banner-background_1901186.jpg!bw700" class="w-full" />
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide1" class="btn btn-circle">❮</a>
-                        <a href="#slide3" class="btn btn-circle">❯</a>
+                <div id="slide2" className="carousel-item relative w-full">
+                    <img src="https://img.pikbest.com/backgrounds/20190808/financial-information-online-banking-payment-currency-gold-coin-banner-background_1901186.jpg!bw700" className="w-full" />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide1" className="btn btn-circle">❮</a>
+                        <a href="#slide3" className="btn btn-circle">❯</a>
                     </div>
                 </div>
-                <div id="slide3" class="carousel-item relative w-full">
-                    <img src="https://thumbs.dreamstime.com/b/online-banking-banner-website-internet-mobile-phone-orange-background-electronic-bank-payment-copy-space-illustration-204929155.jpg" class="w-full" />
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide2" class="btn btn-circle">❮</a>
-                        <a href="#slide4" class="btn btn-circle">❯</a>
+                <div id="slide3" className="carousel-item relative w-full">
+                    <img src="https://thumbs.dreamstime.com/b/online-banking-banner-website-internet-mobile-phone-orange-background-electronic-bank-payment-copy-space-illustration-204929155.jpg" className="w-full" />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide2" className="btn btn-circle">❮</a>
+                        <a href="#slide4" className="btn btn-circle">❯</a>
                     </div>
                 </div>
-                <div id="slide4" class="carousel-item relative w-full">
-                    <img src="https://www.indusind.com/content/dam/indusind-platform-images/product/productdetails/fixedDeposit/feature_banner_01.jpg" class="w-full" />
-                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide3" class="btn btn-circle">❮</a>
-                        <a href="#slide1" class="btn btn-circle">❯</a>
+                <div id="slide4" className="carousel-item relative w-full">
+                    <img src="https://www.indusind.com/content/dam/indusind-platform-images/product/productdetails/fixedDeposit/feature_banner_01.jpg" className="w-full" />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide3" className="btn btn-circle">❮</a>
+                        <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                 </div>
             </div>
@@ -52,12 +52,12 @@ const DepositDetails = () => {
             {/* deposit details-start */}
             <h3 className="text-3xl pt-10">Term-deposit <span className='text-green-700 font-bold'>Products</span></h3>
            
-            <div class="overflow-x-auto my-5">
-                <table class="table w-full">
-                    {/* <!-- head --> */}
+            <div className="overflow-auto my-5">
+                <table className="table z-0 w-full">
+                    {/* <!-- head --> */} 
                     <thead >
                         <tr>
-                            <th></th>
+                            <th>SL.NO</th>
                             <th>Name</th>
                             <th>Time</th>
                             <th>PAYOUT</th>

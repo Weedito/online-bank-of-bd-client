@@ -11,8 +11,8 @@ const BusinessSummary = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12 gap-8">
         {/* partner summary  */}
         <div className="partner">
-          <div class="stats shadow-md hover:bg-base-200 p-10">
-            <div class="stat flex justify-center items-center flex-col">
+          <div className="stats shadow-md hover:bg-base-200 p-10">
+            <div className="stat flex justify-center items-center flex-col">
               <div className="icon my-2">
                 <svg
                   width="45"
@@ -27,15 +27,15 @@ const BusinessSummary = () => {
                   />
                 </svg>
               </div>
-              <div class="stat-value">500+</div>
-              <div class="stat-desc text-xl">Partner</div>
+              <div className="stat-value">500+</div>
+              <div className="stat-desc text-xl">Partner</div>
             </div>
           </div>
         </div>
         {/* customers summary  */}
         <div className="customers">
-          <div class="stats shadow-md hover:bg-base-200 p-10">
-            <div class="stat flex justify-center items-center flex-col">
+          <div className="stats shadow-md hover:bg-base-200 p-10">
+            <div className="stat flex justify-center items-center flex-col">
               <div className="icon my-2">
                 <svg
                   width="45"
@@ -51,15 +51,15 @@ const BusinessSummary = () => {
                 </svg>
               </div>
 
-              <div class="stat-value">450+</div>
-              <div class="stat-desc text-xl">Customers</div>
+              <div className="stat-value">450+</div>
+              <div className="stat-desc text-xl">Customers</div>
             </div>
           </div>
         </div>
         {/* community summary   */}
         <div className="community">
-          <div class="stats shadow-md hover:bg-base-200 p-10">
-            <div class="stat flex justify-center items-center flex-col">
+          <div className="stats shadow-md hover:bg-base-200 p-10">
+            <div className="stat flex justify-center items-center flex-col">
               <div className="icon my-2">
                 <svg
                   width="45"
@@ -75,15 +75,15 @@ const BusinessSummary = () => {
                 </svg>
               </div>
 
-              <div class="stat-value">300+</div>
-              <div class="stat-desc text-xl">Community</div>
+              <div className="stat-value">300+</div>
+              <div className="stat-desc text-xl">Community</div>
             </div>
           </div>
         </div>
         {/* positive feedback summary  */}
         <div className="feedback">
-          <div class="stats shadow-md hover:bg-base-200 p-10">
-            <div class="stat flex justify-center items-center flex-col">
+          <div className="stats shadow-md hover:bg-base-200 p-10">
+            <div className="stat flex justify-center items-center flex-col">
               <div className="icon my-2">
                 <svg
                   width="45"
@@ -99,8 +99,8 @@ const BusinessSummary = () => {
                 </svg>
               </div>
 
-              <div class="stat-value">460+</div>
-              <div class="stat-desc text-xl">Partner</div>
+              <div className="stat-value">460+</div>
+              <div className="stat-desc text-xl">Partner</div>
             </div>
           </div>
         </div>

@@ -1,4 +1,7 @@
 
+import { faBank, faDashboard, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
+
+
 export const TrustedPartnersData = [
     {
         imageURL: 'https://i.ibb.co/Wvz9WvH/cocacola-PNG14.png',
@@ -210,3 +213,66 @@ export const RiskMCData = [
         img: 'https://www.nrbcommercialbank.com//assets/img/bod/sm_tamal.jpg'
     },
 ]
+
+
+export const StatemantData = [
+    {
+        date: '01 Mar 2022',
+        particulars: 'Cash Deposit',
+        deposit: '50,000',
+        withdraw: '0.00',
+        balance: '50, 000'
+    },
+    {
+        date: '05 Mar 2022',
+        particulars: 'ATM Withdrawal',
+        deposit: '0.00',
+        withdraw: '5,000',
+        balance: '45, 000'
+    },
+    {
+        date: '11 Mar 2022',
+        particulars: 'ATM Withdrawal',
+        deposit: '0.00',
+        withdraw: '7,000',
+        balance: '38, 000'
+    },
+    {
+        date: '20 Mar 2022',
+        particulars: 'Send Money',
+        deposit: '0.00',
+        withdraw: '3,000',
+        balance: '35, 000'
+    },
+    {
+        date: '26 Mar 2022',
+        particulars: 'Provissional Profit @3%',
+        deposit: '1,050',
+        withdraw: '0.00',
+        balance: '36, 050'
+    },
+]
+
+
+export const SidebarData = [
+    {
+        title: "Dashboard",
+        href: "dashboard",
+        icon: faDashboard,
+    },
+    {
+        title: "Manage Users",
+        href: "musers",
+        icon: faUsers,
+    },
+    {
+        title: "Manage Accounts",
+        href: "maccounts",
+        icon: faBank,
+    },
+    {
+        title: "Manage Reviews",
+        href: "mreviews",
+        icon: faStreetView,
+    },
+];
