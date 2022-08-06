@@ -20,7 +20,7 @@ const ManageFeedbacks = () => {
                     <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">Total Feedbacks: {feedbacks?.length}</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 mx-auto">
                         {
-                            feedbacks.map((feedback, index) =><FeedbackDetails feedback={feedback} index={index} />)
+                            feedbacks.map((feedback, index) =><FeedbackDetails feedback={feedback} setFeedbacks={setFeedbacks} index={index} />)
                         }
                     </div>
                 </div>

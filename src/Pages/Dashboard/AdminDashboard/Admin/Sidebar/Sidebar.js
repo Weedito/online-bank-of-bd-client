@@ -32,6 +32,7 @@ const Sidebar = () => {
         </ul>
         <div className={`flex rounded-md p-2 mt-20 cursor-pointer hover:bg-gray-300 hover:text-rose-700 hover:bg-light-white text-white text-sm items-center gap-x-4  `}>
         <a href='/' className={`${!open && "hidden"} text-md flex items-center font-semibold origin-left duration-200`}> <FontAwesomeIcon className='text-2xl pr-2' icon={faHomeAlt}/>  Back to Homepage </a>
+        <a href='/' className={`${open && "hidden"} text-md flex items-center font-semibold origin-left duration-200`}> <FontAwesomeIcon className='text-2xl pr-2' icon={faHomeAlt}/></a>
         </div>
       </div>
       <div className="h-screen flex-1 p-7">
