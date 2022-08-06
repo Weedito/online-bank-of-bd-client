@@ -1,9 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { toast } from "react-toastify";
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth  from "../../firebase.init"
 const DepositModal = ({ deposit }) => {
-    const { name, AccNo, balance, _id } = deposit;
-
+    const [user, loading] = useAuthState(auth);
+    const email= user.email
+    const { name, AccNo, balance, _id,phone, } = deposit;
+console.log(deposit,email);
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
 
@@ -11,7 +14,7 @@ const DepositModal = ({ deposit }) => {
 
         const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance + inputBalance);
-        const updateBalance = { depositBalance,  name, AccNo, balance, email, phone, country, actype};
+        const updateBalance = { depositBalance,  name, AccNo, balance, email, phone};
 
         if (depositBalance < 0) {
             return setError("Please Input more then 0");
