@@ -6,6 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
+import Swal from 'sweetalert2';
 
 
 const colors = {
@@ -49,18 +50,36 @@ const TrustedCFeedback = () => {
 
   const handleDelete = id => {
 
-    const procced = window.alert('Are you Sure ?');
-
-    if (procced) {
-      const url = `http://localhost:5000/feedback/${id}`;
-      fetch(url, {
-        method: 'DELETE'
-      })
-        .then(res => res.json())
-        .then(result => {
-          console.log(result)
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/feedback/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'content-type': 'application/json'
+          }
         })
-    }
+          .then(res => res.json())
+          .then(data => {
+            if (data.deletedCount > 0) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+
+          })
+      }
+    })
+
   }
 
 
