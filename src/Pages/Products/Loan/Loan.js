@@ -3,6 +3,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect } from "react";
 import { ShareHolderData } from '../../../Components/Components.Nahidul/Data';
+import { Fade, Slide } from 'react-reveal';
 
 const Loan = () => {
     //calculator
@@ -49,43 +50,49 @@ const Loan = () => {
             <div>
                 <div className="hero min-h-screen bg-slate-100">
                     <div className="hero-content flex-col lg:flex-row">
-                        <img src="https://allaboutturkish.com/wp-content/uploads/2021/09/bank-customer-getting-loan-man-wheeling-cart-with-cash-flat-vector-illustration-finance-money-banking-service_74855-8233.jpg" className="max-w-sm rounded-lg shadow-2xl" />
-                        <div>
-                            <h1 className="text-4xl font-bold">We are always <span className='text-green-700 font-bold'>with you</span> .</h1>
-                            <p className="py-6">Make your dream home a reality with easy home loans from Online Bank BD. Our wide range of options are designed to cater your every home financing need, be it purchasing a new flat, constructing a house or renovating your existing home. Allow us to be the finance partner of one of the biggest investments of your lifetime and give you a delightful experience of banking.</p>
+                        <Slide left>
+                            <img src="https://allaboutturkish.com/wp-content/uploads/2021/09/bank-customer-getting-loan-man-wheeling-cart-with-cash-flat-vector-illustration-finance-money-banking-service_74855-8233.jpg" className="max-w-sm rounded-lg shadow-2xl" />
+                        </Slide>
+                        <Slide right>
+                            <div>
+                                <h1 className="text-4xl font-bold">We are always <span className='text-green-700 font-bold'>with you</span> .</h1>
+                                <p className="py-6">Make your dream home a reality with easy home loans from Online Bank BD. Our wide range of options are designed to cater your every home financing need, be it purchasing a new flat, constructing a house or renovating your existing home. Allow us to be the finance partner of one of the biggest investments of your lifetime and give you a delightful experience of banking.</p>
 
-                        </div>
+                            </div>
+                        </Slide>
                     </div>
                 </div>
             </div>
 
             {/* box-text-new-start */}
             <section>
-                <div className='mx-10 justify-center mt-5'>
-                    <h3 className="text-3xl font-bold">Loan <span className='text-green-700 '>Informations</span></h3>
+                <Fade>
+                    <div className='mx-10 justify-center mt-5'>
+                        <h3 className="text-3xl font-bold">Loan <span className='text-green-700 '>Informations</span></h3>
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-8'>
-                        <div class="card w-72 bg-green-500 hover:bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 className='text-2xl'>BDT 5 lac - BDT 2 Crore</h2>
-                                <p className='text-2xl'>Loan Amount</p>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-8'>
+                            <div class="card w-72 bg-green-500 hover:bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 className='text-2xl'>BDT 5 lac - BDT 2 Crore</h2>
+                                    <p className='text-2xl'>Loan Amount</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 className='text-2xl'>1 - 25 years</h2>
-                                <p className='text-2xl'>Loan Tenure</p>
+                            <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 className='text-2xl'>1 - 25 years</h2>
+                                    <p className='text-2xl'>Loan Tenure</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 className='text-2xl'>Competitive</h2>
-                                <p className='text-2xl'>Interest Rate</p>
+                            <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 className='text-2xl'>Competitive</h2>
+                                    <p className='text-2xl'>Interest Rate</p>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
+                </Fade>
             </section>
 
 
@@ -106,31 +113,33 @@ const Loan = () => {
 
             {/* box-text-new-start */}
             <section>
-                <div className='mx-10 justify-center mt-5'>
-                    <h3 className="text-3xl font-bold">Loan <span className='text-green-700 '>Informations</span></h3>
+                <Fade>
+                    <div className='mx-10 justify-center mt-5'>
+                        <h3 className="text-3xl font-bold">Loan <span className='text-green-700 '>Informations</span></h3>
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-8'>
-                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 className='text-2xl'>BDT 1 Lac - BDT 20 Lac</h2>
-                                <p className='text-2xl'>Loan Amount</p>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-8'>
+                            <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 className='text-2xl'>BDT 1 Lac - BDT 20 Lac</h2>
+                                    <p className='text-2xl'>Loan Amount</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 className='text-2xl'>12 - 60 months</h2>
-                                <p className='text-2xl'>Loan Tenure</p>
+                            <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 className='text-2xl'>12 - 60 months</h2>
+                                    <p className='text-2xl'>Loan Tenure</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
-                            <div class="card-body">
-                                <h2 className='text-2xl'>Competitive</h2>
-                                <p className='text-2xl'>Interest Rate</p>
+                            <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
+                                <div class="card-body">
+                                    <h2 className='text-2xl'>Competitive</h2>
+                                    <p className='text-2xl'>Interest Rate</p>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
+                </Fade>
             </section>
 
             {/* personal-loan-start */}
@@ -146,7 +155,7 @@ const Loan = () => {
             </div>
             {/* statup-loan-end */}
 
-          
+
             {/* new calculator-start */}
             <h1 class="text-5xl text-center font-bold my-5">Emi <span className='text-green-700 '>Calculator</span></h1>
             <React.Fragment>
