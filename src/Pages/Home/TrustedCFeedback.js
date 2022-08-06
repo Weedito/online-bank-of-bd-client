@@ -74,6 +74,8 @@ const TrustedCFeedback = () => {
                 'Your file has been deleted.',
                 'success'
               )
+              const remaining = ourFeedback.filter(feedback => feedback._id !== id)
+              setOurFeedback(remaining)
             }
 
           })
@@ -160,7 +162,7 @@ const TrustedCFeedback = () => {
 
 
       <section>
-        <div><label for="my-modal-6" class="btn btn-primary animate-bounce w-26 h-6 modal-button">Review Us</label></div>
+        <div className='text-center'><label for="my-modal-6" class="btn btn-primary animate-bounce w-26 h-6 modal-button">Review Us</label></div>
         <div>
           <input type="checkbox" id="my-modal-6" class="modal-toggle" />
           <div class="modal modal-bottom sm:modal-middle">
