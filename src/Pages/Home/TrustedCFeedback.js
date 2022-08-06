@@ -25,7 +25,7 @@ const TrustedCFeedback = () => {
   const [ourFeedback, setOurFeedback] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/feedback')
+    fetch('http://localhost:5000/feedbacks')
       .then(res => res.json())
       .then(result => {
         setOurFeedback(result)
