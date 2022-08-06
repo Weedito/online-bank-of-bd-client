@@ -17,7 +17,7 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Acc No</span>
                 {AccNo} <br />
-                <span className="badge badge-sm badge-primary">{actype}</span>
+                <span className="text-xs bg-rose-700 text-white rounded-full">{actype}</span>
             </td>
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Balance</span>
@@ -31,12 +31,16 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
                 {country}
             </td>
-            <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                <label for="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
+            <td className="w-full lg:w-auto text-xs p-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+                <div className="flex justify-between px-3 pb-1 items-center">
+                    <label for="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
 
-                <label for="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
+                    <label for="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
+                </div>
 
+                <div className="flex justify-center items-center px-3 pt-1">
                 <label for="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs">Delete Account</label>
+                </div>
 
             </td>
         </tr>

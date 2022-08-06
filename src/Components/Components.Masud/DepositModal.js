@@ -20,7 +20,7 @@ const DepositModal = ({ deposit }) => {
         }
 
         else {
-            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+            const url = `http://localhost:5000/account/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -46,7 +46,7 @@ const DepositModal = ({ deposit }) => {
                 email: authemail,
             }
 
-            fetch('https://bank-of-bd.herokuapp.com/statement', {
+            fetch('http://localhost:5000/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -64,12 +64,13 @@ const DepositModal = ({ deposit }) => {
     return (
         <div>
             <input type="checkbox" id="deposit-modal" className="modal-toggle" />
-            <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal modal-bottom sm:modal-middle text-center">
                 <div className="modal-box">
                     <label for="deposit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='mb-4 badge badge-success text-2xl badge-lg p-4'>Deposit Money</h1>
                     <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>
+                    <p className='my-4'>Balance: {balance}</p>
                     <p className=' text-primary'>{error}</p>
                     <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
                     <div className="modal-action">

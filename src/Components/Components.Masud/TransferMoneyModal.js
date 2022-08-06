@@ -17,7 +17,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
 
     const handleAccountBlur = (e) => {
         const tccAcc = e.target.value;
-        axios.get(`https://bank-of-bd.herokuapp.com/accountno?accountno=${tccAcc}`)
+        axios.get(`http://localhost:5000/accountno?accountno=${tccAcc}`)
             .then(function (data) {
                 setTransAcc(data?.data);
             })
@@ -66,7 +66,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
         }else {
 
             // Sender
-            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+            const url = `http://localhost:5000/account/${_id}`;
 
             fetch(url, {
                 method: 'PUT',
@@ -83,7 +83,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
             // Receiver        
             const addBalance = { transferAmount };
 
-            const senderUrl = `https://bank-of-bd.herokuapp.com/accountno/${transferAccountNo}`;
+            const senderUrl = `http://localhost:5000/accountno/${transferAccountNo}`;
 
             fetch(senderUrl, {
                 method: 'PUT',
@@ -110,7 +110,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
                 email: authemail,
             }
 
-            fetch('https://bank-of-bd.herokuapp.com/statement', {
+            fetch('http://localhost:5000/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -136,7 +136,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
             }
 
 
-            fetch('https://bank-of-bd.herokuapp.com/statement', {
+            fetch('http://localhost:5000/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
