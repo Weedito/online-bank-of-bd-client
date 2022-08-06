@@ -29,7 +29,8 @@ import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
 import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw/Withdraw";
 import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
-import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
+import UserAccount from "./Pages/Dashboard/UserDashboard/UserAccount";
+import UserDashboard from "./Pages/Dashboard/UserDashboard/UserDashboard";
 import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
 import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
 import MyAccounts from "./Components/Components.Masud/MyAccounts";
@@ -38,11 +39,15 @@ import ManageAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/Mana
 import TransactionHistory from "./Pages/Dashboard/AdminDashboard/TransactionHistory/TransactionHistory";
 import AdDashboard from "./Pages/Dashboard/AdminDashboard/Dashboard/AdDashboard";
 import ManageFeedbacks from "./Pages/Dashboard/AdminDashboard/ManageFeedbacks/ManageFeedbacks";
+import CardDetails from "./Pages/Products/Cards/CardDetails";
+import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
+import WebcamCapture from "./Components/Components.Nahid/Webcam";
 
 function App() {
   return (
     <div className="pt-16">
       {window.location.pathname !== '/cpanel' ? <Header /> : null}
+
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -66,6 +71,8 @@ function App() {
           <Route path="myaccounts" element={<MyAccounts></MyAccounts>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
           <Route path="statement" element={<Statement/>}></Route>
+          <Route path="userAccount" element={<UserAccount/>}></Route>
+          <Route path="userDashboard" element={<UserDashboard/>}></Route>
           <Route path="updateInfo" element={<UpdateInfo/>}></Route>
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
           <Route path="manageusers" element={<ManageUsers/>}></Route>
@@ -86,6 +93,7 @@ function App() {
         <Route path="/deposit" element={<DepositDetails />} />
         <Route path="/loan" element={<Loan />} />
         <Route path="/cards" element={<Cards />} />
+        <Route path="/card/:id" element={<CardDetails />} />
         <Route path="/interestrate" element={<InterestRate />} />
         {/* Products Routes End*/}
 
@@ -99,6 +107,7 @@ function App() {
 
         {/* Contact Routes End*/}
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/webcam" element={<WebcamCapture />} />
         {/* Contact Routes End*/}
 
         {/* Authentication Routes End*/}
