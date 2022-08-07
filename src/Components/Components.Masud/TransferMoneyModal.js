@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const TransferMoneyModal = ({ transferMoney }) => {
-    const { name, AccNo, balance, _id, email } = transferMoney;
+    const { name, AccNo, balance, _id, authemail } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
 
@@ -17,10 +17,8 @@ const TransferMoneyModal = ({ transferMoney }) => {
 
     const handleAccountBlur = (e) => {
         const tccAcc = e.target.value;
-        axios.get(`https://bank-of-bd.herokuapp.com/accountno?accountno=${tccAcc}`)
+        axios.get(`http://localhost:5000/accountno?accountno=${tccAcc}`)
             .then(function (data) {
-                // handle success
-                // console.log(data);
                 setTransAcc(data?.data);
             })
     }
@@ -28,6 +26,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
     const previousBalance = transAcc?.balance;
     const AccName = transAcc?.name;
     const AccNumber = transAcc?.AccNo;
+    const AccEmail = transAcc?.authemail;
 
 
     // Reciver info
@@ -56,10 +55,18 @@ const TransferMoneyModal = ({ transferMoney }) => {
             return (
                 toast.error("Account Name & Number Doesn't Match")
             )
-        } else {
+        }else if(balance < 0 || balance < transBalance){
+            return (
+                toast.error("You Dont Have Enoung Balance for Transfer")
+            )
+        }else if(transBalance < 20){
+            return (
+                toast.error("You Connot Transfer Less Than $20")
+            )
+        }else {
 
             // Sender
-            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+            const url = `http://localhost:5000/account/${_id}`;
 
             fetch(url, {
                 method: 'PUT',
@@ -76,7 +83,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
             // Receiver        
             const addBalance = { transferAmount };
 
-            const senderUrl = `https://bank-of-bd.herokuapp.com/accountno/${transferAccountNo}`;
+            const senderUrl = `http://localhost:5000/accountno/${transferAccountNo}`;
 
             fetch(senderUrl, {
                 method: 'PUT',
@@ -93,28 +100,53 @@ const TransferMoneyModal = ({ transferMoney }) => {
 
             // Post Data for Statemant
 
-            const statementData = {
-                senderAccount: transAccNo,
+            const senderStatementData = {
+                senderAccount: AccNo,
                 statement: "Transfer Money",
                 deposit: transBalance ? parseFloat(transBalance) : 0,
-                widthdraw: 0,
+                withdraw: 0,
                 balance: depositBalance,
-                data: date,
-                email: email
+                date: date,
+                email: authemail,
             }
 
-            fetch('https://bank-of-bd.herokuapp.com/statement', {
+            fetch('http://localhost:5000/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(statementData)
+                body: JSON.stringify(senderStatementData)
             })
                 .then(res => res.json())
                 .then(data => {
                     toast("Statemant Created Successfully!")
                 })
 
+            // Receiver data
+
+
+            const receiverStatementData = {
+                senderAccount: transAccNo,
+                statement: "Received Money",
+                deposit: transBalance ? parseFloat(transBalance) : 0,
+                withdraw: 0,
+                balance: transferAmount,
+                date: date,
+                email: AccEmail,
+            }
+
+
+            fetch('http://localhost:5000/statement', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(receiverStatementData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast("Money Received")
+                })
         }
 
     }

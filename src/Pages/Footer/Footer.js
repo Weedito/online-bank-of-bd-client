@@ -39,7 +39,7 @@ const Footer = () => {
                 <a className="link link-hover"><span className="text-green-700">Email US:</span> uniquecoders007@gmail.com</a>
             </div>
             </div>
-            <div className="bg-gray-900 py-5 px-3">
+            <div className="bg-gray-900 py-5 text-center px-3">
                 <h3 className="text-sm md:text-base font-semibold text-green-700">© {year} Copyright, <span className="text-white">All rights reserved by</span> The Unique Coders</h3>
             </div>
         </footer>

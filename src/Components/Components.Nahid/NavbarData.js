@@ -24,7 +24,11 @@ export const Navigation = [
     {
         name: 'Dashboard',
         href: '/dashboard',
-    }
+    },
+    {
+        name: 'Control Panel',
+        href: '/cpanel',
+    },
 ];
 
 

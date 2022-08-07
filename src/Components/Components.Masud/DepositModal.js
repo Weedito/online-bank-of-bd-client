@@ -3,12 +3,19 @@ import { toast } from "react-toastify";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth  from "../../firebase.init"
 const DepositModal = ({ deposit }) => {
+<<<<<<< HEAD
     const [user, loading] = useAuthState(auth);
     const email= user.email
     const { name, AccNo, balance, _id,phone, } = deposit;
 console.log(deposit,email);
+=======
+    const { name, AccNo, balance, _id, authemail } = deposit;
+
+>>>>>>> a52e2595f76dee0f0fa570fbe1008c49bc1018ab
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
+    let today = new Date();
+    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     const handleDeposit = () => {
 
@@ -21,7 +28,7 @@ console.log(deposit,email);
         }
 
         else {
-            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+            const url = `http://localhost:5000/account/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -34,6 +41,30 @@ console.log(deposit,email);
                     toast("Deposited Successfully!");
                     inputBalRef.current.value = 0;
                 })
+
+            // Deposit Statement Creator
+
+            const receiverStatementData = {
+                senderAccount: AccNo,
+                statement: "Deposit Money",
+                deposit: inputBalance,
+                withdraw: 0,
+                balance: parseFloat(updateBalance?.depositBalance),
+                date: date,
+                email: authemail,
+            }
+
+            fetch('http://localhost:5000/statement', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(receiverStatementData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast("Deposited")
+                })
         }
     }
 
@@ -41,12 +72,13 @@ console.log(deposit,email);
     return (
         <div>
             <input type="checkbox" id="deposit-modal" className="modal-toggle" />
-            <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal modal-bottom sm:modal-middle text-center">
                 <div className="modal-box">
                     <label for="deposit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='mb-4 badge badge-success text-2xl badge-lg p-4'>Deposit Money</h1>
                     <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>
+                    <p className='my-4'>Balance: {balance}</p>
                     <p className=' text-primary'>{error}</p>
                     <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
                     <div className="modal-action">

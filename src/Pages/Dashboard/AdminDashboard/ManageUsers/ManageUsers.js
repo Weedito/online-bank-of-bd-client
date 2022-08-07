@@ -9,7 +9,7 @@ const ManageUsers = () => {
     const [users, setUsers] = useState([]);
 
     useEffect( () => {
-        fetch('https://bank-of-bd.herokuapp.com/users')
+        fetch('http://localhost:5000/users')
         .then(res => res.json())
         .then(data => setUsers(data))
     }, [users]);
@@ -19,9 +19,9 @@ const ManageUsers = () => {
         <div className=" text-left h-full w-full">
 
         <div className="w-full flex items-center justify-center my-12">
-            <div className="bg-white shadow rounded py-12 px-8">
+            <div className="bg-white shadow rounded py-12 px-8 mb-20">
                 <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">Total Users: {users?.length}</p>
-                <div className="">
+                <div className="w-full">
                     <table className="border-collapse w-full bg-slate-200">
                         <thead>
                             <tr className='text-center'>
