@@ -63,11 +63,11 @@ const DBCards = () => {
                 <div className="">
                     <div className="flex items-center justify-between bg-yellow-300 p-3 rounded-t-xl">
                         <div className="">
-                            <h3 className="text-4xl font-bold py-2 text-white">{users?.length}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">{users?.length}</h3>
                             <h3 className="text-md font-bold text-white">Registered Users</h3>
                         </div>
                         <div className="">
-                            <FontAwesomeIcon className='text-[#42424281] text-4xl' icon={faUserPlus} />
+                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faUserPlus} />
                         </div>
                     </div>
                     <div onClick={() => navigate('/cpanel/musers')} className="bg-yellow-400 cursor-pointer py-2 text-center rounded-b-xl">
@@ -78,11 +78,11 @@ const DBCards = () => {
                 <div className="">
                     <div className="flex items-center justify-between bg-[#17A2BB] p-3 rounded-t-xl">
                         <div className="">
-                            <h3 className="text-4xl font-bold py-2 text-white">{accounts?.length}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">{accounts?.length}</h3>
                             <h3 className="text-md font-bold text-white">Customers Accounts</h3>
                         </div>
                         <div className="">
-                            <FontAwesomeIcon className='text-[#42424281] text-4xl' icon={faBank} />
+                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faBank} />
                         </div>
                     </div>
                     <div onClick={() => navigate('/cpanel/maccounts')} className="bg-[#0c93ab] cursor-pointer py-2 text-center rounded-b-xl">
@@ -93,11 +93,11 @@ const DBCards = () => {
                 <div className="">
                     <div className="flex items-center justify-between bg-[#28A745] p-3 rounded-t-xl">
                         <div className="">
-                            <h3 className="text-4xl font-bold py-2 text-white">$ {TotalBalance}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {TotalBalance}</h3>
                             <h3 className="text-md font-bold text-white">Our Balance</h3>
                         </div>
                         <div className="">
-                            <FontAwesomeIcon className='text-[#42424281] text-4xl' icon={faMoneyCheckAlt} />
+                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faMoneyCheckAlt} />
                         </div>
                     </div>
                     <div onClick={() => navigate('/cpanel/maccounts')} className="bg-[#0f9c30] cursor-pointer py-2 text-center rounded-b-xl">
@@ -108,11 +108,11 @@ const DBCards = () => {
                 <div className="">
                     <div className="flex items-center justify-between bg-[#DC3545] p-3 rounded-t-xl">
                         <div className="">
-                            <h3 className="text-4xl font-bold py-2 text-white">$ {todayTrnsaction}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {todayTrnsaction}</h3>
                             <h3 className="text-md font-bold text-white">Todays Transactions</h3>
                         </div>
                         <div className="">
-                            <FontAwesomeIcon className='text-[#42424281] text-4xl' icon={faReceipt} />
+                            <FontAwesomeIcon className='text-[#42424281] text-3xl md:text-4xl' icon={faReceipt} />
                         </div>
                     </div>
                     <div onClick={() => navigate('/cpanel/thistory')} className="bg-[#bd1122] cursor-pointer py-2 text-center rounded-b-xl">

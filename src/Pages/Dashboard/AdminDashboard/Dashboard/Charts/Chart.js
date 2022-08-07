@@ -63,8 +63,8 @@ const data02 = [
 
 const Chart = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-around items-center gap-5 w-full mx-auto">
-      <div className='flex justify-center items-center w-full mx-auto' style={{ width: '100%', height: 300 }}>
+    <div className="flex flex-col lg:flex-row justify-center items-center gap-5 w-full mx-auto">
+      <div className='hidden lg:block w-full md:w-3/6 mx-auto ' style={{ width: 400, height: 300 }}>
         <ResponsiveContainer width="100%" height="100%">
           <PieChart width={400} height={400}>
             <Pie data={data01} dataKey="value" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" Legend />
@@ -73,10 +73,10 @@ const Chart = () => {
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <div style={{ width: '100%', height: 300 }} className="mx-auto p-5">
+      <div style={{ width: 400, height: 300 }} className="hidden lg:block w-full md:w-3/6 mx-auto p-5">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          width={500}
+          width={400}
           height={300}
           data={data}
           margin={{

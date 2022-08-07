@@ -31,23 +31,32 @@ export const WebcamCapture = () => {
                 {image === '' ? <Webcam
                     audio={false}
                     height={250}
-                    className={`rounded border-2 border-rose-700 flex mx-auto`}
+                    width={250}
+                    className={`rounded-xl border-2 border-rose-700 flex mx-auto`}
                     ref={webcamRef}
                     screenshotFormat="image/jpeg"
-                    width={250}
                     videoConstraints={videoConstraints}
-                /> : <img src={image} alt="" />}
+                /> : <img className={`rounded-xl border-2 border-rose-700 flex mx-auto`} src={image} alt="" />}
             </div>
 
             <div className="ImageCam text-center">
                  
                 {image !== '' ?
-                    <button variant="contained"  color="secondary" size="small" onClick={(e) => {
+                    <div className="flex gap-2 justify-center">
+                        <button variant="contained"  color="secondary" size="small" onClick={(e) => {
                         e.preventDefault();
                         setImage('')
                     }}
                         className="webcam-btn btn btn-accent">
-                        Retake Image</button> :
+                        Retake Image</button>
+                        <button variant="contained"  color="secondary" size="small" onClick={(e) => {
+                        e.preventDefault();
+                        setImage('')
+                    }}
+                        className="webcam-btn btn btn-accent">
+                        Upload Image</button>
+                    </div>
+                         :
                     <button variant="contained" color="secondary" size="small" onClick={(e) => {
                         e.preventDefault();
                         capture();

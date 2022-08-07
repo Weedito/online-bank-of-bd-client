@@ -46,7 +46,7 @@ import WebcamCapture from "./Components/Components.Nahid/Webcam";
 function App() {
   return (
     <div className="pt-16">
-      {window.location.pathname !== '/cpanel' ? <Header /> : null}
+      {window.location.pathname !== '/cpanel' && <Header /> }
 
       {/* <Header /> */}
       <Routes>
