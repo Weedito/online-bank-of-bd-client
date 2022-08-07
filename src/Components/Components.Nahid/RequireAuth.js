@@ -6,19 +6,26 @@ import auth from '../../firebase.init';
 import Loading from './Loading';
 
 
-const RequireAuth = ({children}) => {
+const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
 
-    if(loading){
-        return <Loading/>
+    if (loading) {
+        return <Loading />
     }
 
-    if(!user){
+    if (!user) {
         signOut(auth);
-        return <Navigate to='/signin' state={{from: location}} replace />
+        return <Navigate to='/signin' state={{ from: location }} replace />
     }
 
+    if (!user.emailVerified) {
+        return <div>
+            <h1 className='text-3xl text-red-600'>Email not verified!!</h1>
+            <h2 className='text-xl text-green-600'>Please verifyEmail!!</h2>
+            <button className='btn btn-success'>Send email</button>
+        </div>
+    }
 
     return children;
 };

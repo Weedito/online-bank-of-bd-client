@@ -49,7 +49,7 @@ const SignupRight = () => {
     const password = data.password;
     await createUserWithEmailAndPassword(email, password)
     await updateProfile({ displayName: displayName })
-      // verifyEmail()
+    verifyEmail()
       .then(() => {
         reset();
       })
@@ -70,12 +70,12 @@ const SignupRight = () => {
     await SignInWithFacebook()
   }
 
-  // const verifyEmail = () => {
-  //   sendEmailVerification(auth.currentUser)
-  //     .then(() => {
-  //       toast.success('email sent')
-  //     })
-  // }
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser)
+      .then(() => {
+        toast.success('email sent')
+      })
+  }
 
 
   return (
