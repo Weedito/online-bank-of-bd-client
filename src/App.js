@@ -22,18 +22,10 @@ import CorporateBanking from "./Pages/OurBanking/CorporateBanking/CorporateBanki
 import SMEBanking from "./Pages/OurBanking/SMEBanking/SMEBanking";
 import AgentBanking from "./Pages/OurBanking/AgentBanking/AgentBanking";
 import SMSBanking from "./Pages/OurBanking/SMSBanking/SMSBanking";
-import UpdateInfo from "./Pages/Dashboard/UserDashboard/UserProfile/UpdateInfo";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import InterestRate from "./Pages/Products/InterestRate/InterestRate";
 import DepositDetails from "./Pages/Products/Deposit/DepositDetails";
-import Withdraw from "./Pages/Dashboard/UserDashboard/Withdraw/Withdraw";
-import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
-import UserAccount from "./Pages/Dashboard/UserDashboard/UserAccount";
-import UserDashboard from "./Pages/Dashboard/UserDashboard/UserDashboard";
-import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
-import AllUsersAccounts from "./Components/Components.Masud/AllUsersAccounts";
-import MyAccounts from "./Components/Components.Masud/MyAccounts";
 import CPanel from "./Pages/Dashboard/AdminDashboard/Admin/CPanel";
 import ManageAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/ManageAccounts";
 import TransactionHistory from "./Pages/Dashboard/AdminDashboard/TransactionHistory/TransactionHistory";
@@ -43,6 +35,7 @@ import CardDetails from "./Pages/Products/Cards/CardDetails";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
 import Overview from "./Pages/Dashboard/UserDashboard/Overview/Overview";
+import MyAccounts from "./Pages/Dashboard/UserDashboard/MyAccounts/MyAccounts";
 
 function App() {
   return (
@@ -69,15 +62,8 @@ function App() {
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route index element={<Overview/>}></Route>
           <Route path="overview" element={<Overview/>}></Route>
-          <Route path="alluseraccounts" element={<AllUsersAccounts/>}></Route>
-          <Route path="myaccounts" element={<MyAccounts></MyAccounts>}></Route>
-          <Route path="withdraw" element={<Withdraw/>}></Route>
-          <Route path="statement" element={<Statement/>}></Route>
-          <Route path="userAccount" element={<UserAccount/>}></Route>
-          <Route path="userDashboard" element={<UserDashboard/>}></Route>
-          <Route path="updateInfo" element={<UpdateInfo/>}></Route>
-          <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
-          <Route path="manageusers" element={<ManageUsers/>}></Route>
+          <Route path="myaccounts" element={<MyAccounts/>}></Route>
+          <Route path="myfeedbacks" element={<ManageUsers/>}></Route>
         </Route>
         {/* User Dashboard Routes End*/}
 
