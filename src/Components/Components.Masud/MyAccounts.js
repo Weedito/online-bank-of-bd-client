@@ -4,8 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import DepositModal from './DepositModal';
 import WidthdrawModal from './WidthdrawModal';
 import TransferMoneyModal from './TransferMoneyModal';
-
-
+import { useSelector,useDispatch } from 'react-redux';
+import { getUserAccount } from '../Components.Tanvir/ReduxStateManagement/Actions';
 const MyAccounts = () => {
 
     const [myAccounts, setMyAccounts] = useState([]);
@@ -14,22 +14,30 @@ const MyAccounts = () => {
     const [deposit, setDeposit] = useState(null);
     const [withdraw, setWithdraw] = useState(null);
     const [transferMoney, setTransferMoney] = useState(null);
+    const dispatch = useDispatch();
 
+    //////
+    const {isLoading,account,error} = useSelector(state=>state)
+    useEffect(()=>{
+    dispatch(getUserAccount(user.email))
+    },[user])
+    //////
 
-    useEffect(() => {
-        const url = `http://localhost:5000/accounts?email=${user.email}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setMyAccounts(data))
-    }, [user])
+    // useEffect(() => {
+    //     const url = `http://localhost:5000/accounts?email=${user.email}`
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => setMyAccounts(data))
+    // }, [user])
 
-    if (loading) {
+    if (loading, isLoading) {
         return <p>Loading....</p>
     }
 
 
     return (
         <div className="overflow-x-auto">
+            {error&& <h2>{error.message}</h2>}
             <table className="table table-zebra w-full">
 
                 <thead>
@@ -46,7 +54,7 @@ const MyAccounts = () => {
                 <tbody>
 
                     {
-                        myAccounts.map((account, index) => {
+                        account.map((account, index) => {
                             const { name, AccNo, balance, email, actype } = account;
                             return (
 
