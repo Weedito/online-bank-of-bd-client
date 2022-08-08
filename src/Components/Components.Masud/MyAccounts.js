@@ -26,7 +26,7 @@ const MyAccounts = () => {
 
 
     if (loading, isLoading) {
-        return <p>Loading....</p>
+        return <p className='text-center text-green-800 text-xl'>Loading....</p>
     }
 
 
