@@ -58,7 +58,7 @@ const WidthdrawModal = ({ withdraw }) => {
     return (
         <div>
             <input type="checkbox" id="withdraw-modal" className="modal-toggle" />
-            <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal modal-bottom sm:modal-middle text-center">
                 <div className="modal-box">
                     <label for="withdraw-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
@@ -66,6 +66,7 @@ const WidthdrawModal = ({ withdraw }) => {
 
                     <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>
+                    <p className='my-4'>Balance: {balance}</p>
 
                     <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
                     <div className="modal-action">

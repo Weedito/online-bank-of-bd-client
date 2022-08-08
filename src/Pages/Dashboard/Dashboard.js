@@ -35,7 +35,7 @@ const Dashboard = () => {
                     </a>
                   </li>
                   <li><a>Settings</a></li>
-                  <li><a>Logout</a></li>
+                  <a href="/adminpanel">Admin Panel</a>
                 </ul>
               </div>
             </div>

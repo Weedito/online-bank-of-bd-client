@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Zoom } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
+import UseAdmin from '../../Components/Components.Nahid/Hooks/useAdmin';
 import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components/Components.Nahid/NavbarData';
 import auth from '../../firebase.init';
 
 const Navbar = () => {
     const [bg, setBg] = useState(false);
     const [user] = useAuthState(auth);
+    const [admin] = UseAdmin();
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -147,7 +149,7 @@ const Navbar = () => {
 
                             if(item.name === 'Dashboard'){
                                 return (
-                                    user && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
+                                    (user && !admin) && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
                                         
                                         <NavLink
                                             to={item.href}
@@ -156,6 +158,21 @@ const Navbar = () => {
                                             offset={-70}
                                             className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
                                         > {item.name} </NavLink>
+                                    </li> 
+                                )
+                            }
+
+
+                            if(item.name === 'Control Panel'){
+                                return (
+                                    (user && admin) && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
+                                        
+                                        <a href={item.href}
+                                            smooth={true}
+                                            duration={500}
+                                            offset={-70}
+                                            className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
+                                        > {item.name} </a>
                                     </li>
                                 )
                             }

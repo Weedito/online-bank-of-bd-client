@@ -21,10 +21,12 @@ const ManageAccounts = () => {
 
 
     return (
-        <div>
-            <div className="overflow-x-auto w-full">
+        <div className=" text-left h-full w-full">
+
+        <div className="w-full flex items-center justify-center my-12">
+            <div className="bg-white shadow rounded py-12 px-8 mb-20">
             <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">Total Accounts: {accounts?.length}</p>
-                <table className="table w-full">
+                <table className="border-collapse w-full bg-slate-200">
                     {/* <!-- head --> */}
                     <thead>
                         <tr className='text-center'>
@@ -68,6 +70,7 @@ const ManageAccounts = () => {
                 deleteAccount && <DeleteAccountModal deleteAccount={deleteAccount} ></DeleteAccountModal>
             }
 
+        </div>
         </div>
     );
 };
