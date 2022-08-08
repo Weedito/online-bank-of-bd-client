@@ -4,32 +4,35 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import DepositModal from './DepositModal';
 import WidthdrawModal from './WidthdrawModal';
 import TransferMoneyModal from './TransferMoneyModal';
-
-
+import { useSelector,useDispatch } from 'react-redux';
+import { getUserAccount } from '../Components.Tanvir/ReduxStateManagement/Actions/action';
 const MyAccounts = () => {
 
-    const [myAccounts, setMyAccounts] = useState([]);
+    
     const [user, loading] = useAuthState(auth);
 
     const [deposit, setDeposit] = useState(null);
     const [withdraw, setWithdraw] = useState(null);
     const [transferMoney, setTransferMoney] = useState(null);
+    const [refresh,setRefresh]=useState(false)
+    const dispatch = useDispatch();
+
+    //////  load user account
+    const {isLoading,myAccount,error} = useSelector(state=>state)
+    useEffect(()=>{
+    dispatch(getUserAccount(user.email))
+    },[user, refresh])
+    //////
 
 
-    useEffect(() => {
-        const url = `http://localhost:5000/accounts?email=${user.email}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setMyAccounts(data))
-    }, [user])
-
-    if (loading) {
-        return <p>Loading....</p>
+    if (loading, isLoading) {
+        return <p className='text-center text-green-800 text-xl'>Loading....</p>
     }
 
 
     return (
         <div className="overflow-x-auto">
+            {error&& <h2>{error.message}</h2>}
             <table className="table table-zebra w-full">
 
                 <thead>
@@ -46,7 +49,7 @@ const MyAccounts = () => {
                 <tbody>
 
                     {
-                        myAccounts.map((account, index) => {
+                        myAccount.map((account, index) => {
                             const { name, AccNo, balance, email, actype } = account;
                             return (
 
@@ -91,13 +94,13 @@ const MyAccounts = () => {
                 </tbody>
             </table>
             {
-                deposit && <DepositModal deposit={deposit} ></DepositModal>
+                deposit && <DepositModal deposit={deposit} setRefresh={setRefresh} refresh={refresh}  ></DepositModal>
             }
             {
-                withdraw && <WidthdrawModal withdraw={withdraw} ></WidthdrawModal>
+                withdraw && <WidthdrawModal withdraw={withdraw} setRefresh={setRefresh} refresh={refresh} ></WidthdrawModal>
             }
             {
-                transferMoney && <TransferMoneyModal transferMoney={transferMoney} ></TransferMoneyModal>
+                transferMoney && <TransferMoneyModal transferMoney={transferMoney} setRefresh={setRefresh} refresh={refresh} ></TransferMoneyModal>
             }
         </div>
     );

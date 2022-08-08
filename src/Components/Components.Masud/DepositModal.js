@@ -1,9 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { toast } from "react-toastify";
-
-const DepositModal = ({ deposit }) => {
+const DepositModal = ({ deposit, refresh,setRefresh }) => {
     const { name, AccNo, balance, _id, authemail } = deposit;
-
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
     let today = new Date();
@@ -13,7 +11,7 @@ const DepositModal = ({ deposit }) => {
 
         const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance + inputBalance);
-        const updateBalance = { depositBalance };
+        const updateBalance = { depositBalance,  name, AccNo, balance};
 
         if (depositBalance < 0) {
             return setError("Please Input more then 0");
@@ -32,6 +30,7 @@ const DepositModal = ({ deposit }) => {
                 .then(data => {
                     toast("Deposited Successfully!");
                     inputBalRef.current.value = 0;
+                    setRefresh(!refresh)
                 })
 
             // Deposit Statement Creator

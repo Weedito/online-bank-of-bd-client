@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
-const OVCards = () => {
+const OVCards = ({currentAccount}) => {
+    const crAccount = currentAccount[0];
     return (
         <div className='w-full md:w-3/5 lg:w-full mx-auto'>
             <h3 className="text-2xl text-gray-700 font-semibold py-7">Cards</h3>
@@ -15,18 +16,18 @@ const OVCards = () => {
                 </div>
                 <div className="">
                     <h3 className="text-2xl py-2 text-white font-bold">
-                        <FontAwesomeIcon className='' icon={faDollarSign} /> <span className="">500</span>
+                        <FontAwesomeIcon className='' icon={faDollarSign} /> <span className="">{crAccount?.balance}</span>
                     </h3>
                 </div>
                 <div className="">
                     <h3 className="text-xl py-2 text-white font-medium">
-                        <span className="">4255 0102 3476 8940</span>
+                        <span className="">{crAccount?.AccNo}</span>
                     </h3>
                 </div>
                 <div className="flex justify-between">
                     <div className="">
                     <h2 className="text-mx text-white"> Valid Thru </h2>
-                    <h2 className="text-mx text-white"> 04/12 </h2>
+                    <h2 className="text-mx text-white"> 04/24 </h2>
                     </div>
                     <img className=' w-20' src="https://i.ibb.co/wQ9vZsp/visa-1.png" alt="" />
                 </div>

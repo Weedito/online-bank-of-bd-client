@@ -48,25 +48,26 @@ const data = [
 ];
 
 
-const ACOverview = () => {
+const ACOverview = ({currentAccount}) => {
+    const crAccount = currentAccount[0];
     return (
         <div className='w-full bg-gray-300 rounded-md p-5'>
             <div className="">
-                <h3 className="text-xl font-semibold">Overview of <span className="text-green-700">63746873 763765</span></h3>
+                <h3 className="text-xl font-semibold">Overview of <span className="text-green-700">{crAccount?.AccNo}</span></h3>
             </div>
 
             <div className="flex items-center justify-between py-3 gap-3">
                 <div className="">
                     <h3 className="text-md font-semibold">Balance</h3>
-                    <h3 className="flex items-center font-semibold text-gray-700 gap-2"> $ <span className="">500</span> </h3>
+                    <h3 className="flex items-center font-semibold text-gray-700 gap-2"> $ <span className="">{crAccount?.balance}</span> </h3>
                 </div>
                 <div className="">
                     <h3 className="text-md font-semibold">Deposit</h3>
-                    <h3 className="flex items-center font-semibold text-green-700 gap-2"> $ <span className="">500</span> </h3>
+                    <h3 className="flex items-center font-semibold text-green-700 gap-2"> $ <span className="">{crAccount?.deposit}</span> </h3>
                 </div>
                 <div className="">
                     <h3 className="text-md font-semibold">Withdraw</h3>
-                    <h3 className="flex items-center font-semibold text-red-700 gap-2"> $ <span className="">500</span> </h3>
+                    <h3 className="flex items-center font-semibold text-red-700 gap-2"> $ <span className="">{crAccount?.withdraw}</span> </h3>
                 </div>
             </div>
 
