@@ -3,7 +3,7 @@ import { USER_ACCOUNT_FAILED, USER_ACCOUNT_REQUEST, USER_ACCOUNT_SUCCESS } from 
 
  const initailsUserAccount = {
     isLoading: false,
-    account: [],
+    myAccount:[],
     error: null
 }
 const BalanceReducer = (state=initailsUserAccount,action)=>{
@@ -17,14 +17,14 @@ const BalanceReducer = (state=initailsUserAccount,action)=>{
         case USER_ACCOUNT_SUCCESS:
             return{
                 isLoading:false,
-                account:action.payload,
+                myAccount:action.payload,
                 error:null
             }
         case USER_ACCOUNT_FAILED:
             return{
                 isLoading:false,
-                account:[],
-                error:action.payload
+                error:action.payload,
+                myAccount:[],
             }
     
         default:

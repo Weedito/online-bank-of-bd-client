@@ -5,10 +5,10 @@ import DepositModal from './DepositModal';
 import WidthdrawModal from './WidthdrawModal';
 import TransferMoneyModal from './TransferMoneyModal';
 import { useSelector,useDispatch } from 'react-redux';
-import { getUserAccount } from '../Components.Tanvir/ReduxStateManagement/Actions';
+import { getUserAccount } from '../Components.Tanvir/ReduxStateManagement/Actions/action';
 const MyAccounts = () => {
 
-    const [myAccounts, setMyAccounts] = useState([]);
+    
     const [user, loading] = useAuthState(auth);
 
     const [deposit, setDeposit] = useState(null);
@@ -16,19 +16,13 @@ const MyAccounts = () => {
     const [transferMoney, setTransferMoney] = useState(null);
     const dispatch = useDispatch();
 
-    //////
-    const {isLoading,account,error} = useSelector(state=>state)
+    //////  load user account
+    const {isLoading,myAccount,error} = useSelector(state=>state)
     useEffect(()=>{
     dispatch(getUserAccount(user.email))
     },[user])
     //////
 
-    // useEffect(() => {
-    //     const url = `http://localhost:5000/accounts?email=${user.email}`
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setMyAccounts(data))
-    // }, [user])
 
     if (loading, isLoading) {
         return <p>Loading....</p>
@@ -54,7 +48,7 @@ const MyAccounts = () => {
                 <tbody>
 
                     {
-                        account.map((account, index) => {
+                        myAccount.map((account, index) => {
                             const { name, AccNo, balance, email, actype } = account;
                             return (
 
@@ -99,7 +93,7 @@ const MyAccounts = () => {
                 </tbody>
             </table>
             {
-                deposit && <DepositModal deposit={deposit} ></DepositModal>
+                deposit && <DepositModal deposit={deposit}  ></DepositModal>
             }
             {
                 withdraw && <WidthdrawModal withdraw={withdraw} ></WidthdrawModal>
