@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SMEBanking = () => {
     const [smeLoans, setSmeLoans] = useState([]);
 
+
     useEffect(() => {
-        fetch('http://localhost:5000/smeBanking')
+        fetch('http://localhost:5000/smebanking')
             .then(res => res.json())
             .then(data => setSmeLoans(data))
     }, [])
+
+
+    const navigate = useNavigate();
+
+    const handleBtnUpdate = id => {
+        navigate('/smebanking/' + id)
+
+    }
 
 
     return (
@@ -38,7 +48,7 @@ const SMEBanking = () => {
                             <h2 className="card-title">{smeLoan.loan_name} </h2>
                             <p className='text-left'>{smeLoan.loan_description}</p>
                             <div className="card-actions justify-end">
-                                <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
+                                <button onClick={() => handleBtnUpdate(smeLoan._id)} className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
 
                             </div>
                         </div>

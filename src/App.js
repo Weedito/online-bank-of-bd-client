@@ -34,6 +34,7 @@ import CreateAnAccount from "./Pages/Dashboard/CreateAnAccount";
 import RequireAuth from "./Components/Components.Nahid/RequireAuth";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import Statement from "./Pages/Dashboard/UserDashboard/Statement/Statement";
+import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 
 function App() {
   return (
@@ -41,22 +42,22 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        
+
         {/* Dashboard Routes */}
-        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
-          <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>
-          <Route path="deposit" element={<Deposit/>}></Route>
-          <Route path="withdraw" element={<Withdraw/>}></Route>
-          <Route path="statement" element={<Statement/>}></Route>
-          <Route path="updateInfo" element={<UpdateInfo/>}></Route>
-          <Route path="sendMoney" element={<SendMoney/>}></Route>
-          <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
-          <Route path="manageusers" element={<ManageUsers/>}></Route>
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route path="createAnAccount" element={<CreateAnAccount />}></Route>
+          <Route path="deposit" element={<Deposit />}></Route>
+          <Route path="withdraw" element={<Withdraw />}></Route>
+          <Route path="statement" element={<Statement />}></Route>
+          <Route path="updateInfo" element={<UpdateInfo />}></Route>
+          <Route path="sendMoney" element={<SendMoney />}></Route>
+          <Route path="transactionHistory" element={<TransactionHistory />}></Route>
+          <Route path="manageusers" element={<ManageUsers />}></Route>
         </Route>
         {/* Dashboard Routes End*/}
 
         {/* About Us Routes */}
-        <Route path="/about" element={<About />} />\ 
+        <Route path="/about" element={<About />} />\
         <Route path="/shareholders" element={<Shareholders />} />
         <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
         <Route path="/executivecommittee" element={<ExecutiveCommittee />} />
@@ -76,6 +77,7 @@ function App() {
         <Route path="/retailbanking" element={<RetailBanking />} />
         <Route path="/corporatebanking" element={<CorporateBanking />} />
         <Route path="/smebanking" element={<SMEBanking />} />
+        <Route path='/smebanking/:loanId' element={<SmeLoan />}></Route>
         <Route path="/agentbanking" element={<AgentBanking />} />
         <Route path="/smsbanking" element={<SMSBanking />} />
         {/* Our Banking Routes End*/}
