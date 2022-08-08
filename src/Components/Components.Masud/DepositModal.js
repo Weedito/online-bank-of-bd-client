@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { toast } from "react-toastify";
-const DepositModal = ({ deposit }) => {
+const DepositModal = ({ deposit, refresh,setRefresh }) => {
     const { name, AccNo, balance, _id, authemail } = deposit;
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
@@ -30,6 +30,7 @@ const DepositModal = ({ deposit }) => {
                 .then(data => {
                     toast("Deposited Successfully!");
                     inputBalRef.current.value = 0;
+                    setRefresh(!refresh)
                 })
 
             // Deposit Statement Creator

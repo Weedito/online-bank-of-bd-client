@@ -14,13 +14,14 @@ const MyAccounts = () => {
     const [deposit, setDeposit] = useState(null);
     const [withdraw, setWithdraw] = useState(null);
     const [transferMoney, setTransferMoney] = useState(null);
+    const [refresh,setRefresh]=useState(false)
     const dispatch = useDispatch();
 
     //////  load user account
     const {isLoading,myAccount,error} = useSelector(state=>state)
     useEffect(()=>{
     dispatch(getUserAccount(user.email))
-    },[user])
+    },[user, refresh])
     //////
 
 
@@ -93,13 +94,13 @@ const MyAccounts = () => {
                 </tbody>
             </table>
             {
-                deposit && <DepositModal deposit={deposit}  ></DepositModal>
+                deposit && <DepositModal deposit={deposit} setRefresh={setRefresh} refresh={refresh}  ></DepositModal>
             }
             {
-                withdraw && <WidthdrawModal withdraw={withdraw} ></WidthdrawModal>
+                withdraw && <WidthdrawModal withdraw={withdraw} setRefresh={setRefresh} refresh={refresh} ></WidthdrawModal>
             }
             {
-                transferMoney && <TransferMoneyModal transferMoney={transferMoney} ></TransferMoneyModal>
+                transferMoney && <TransferMoneyModal transferMoney={transferMoney} setRefresh={setRefresh} refresh={refresh} ></TransferMoneyModal>
             }
         </div>
     );
