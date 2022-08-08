@@ -281,3 +281,21 @@ export const SidebarData = [
         icon: faStreetView,
     },
 ];
+
+export const UserSidebarData = [
+    {
+        title: "Overview",
+        href: "overview",
+        icon: faDashboard,
+    },
+    {
+        title: "My Accounts",
+        href: "myaccounts",
+        icon: faBank,
+    },
+    {
+        title: "My Feedbacks",
+        href: "myfeedbacks",
+        icon: faStreetView,
+    },
+];

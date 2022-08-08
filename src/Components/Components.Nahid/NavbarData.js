@@ -22,6 +22,10 @@ export const Navigation = [
         href: '/contactus',
     },
     {
+        name: 'Blogs',
+        href: '/blogs',
+    },
+    {
         name: 'Dashboard',
         href: '/dashboard',
     },

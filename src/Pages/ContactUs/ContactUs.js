@@ -9,7 +9,6 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 
-
 const ContactUs = () => {
 
     const [pending, setPending] = useState(false);
@@ -79,27 +78,28 @@ const ContactUs = () => {
                                 </div>
                             </Flash>
                         </div>
+
+                        <Zoom top>
+                            <form ref={form} onSubmit={sendEmail} className='space-y-8 w-full mx-auto lg:w-3/6' >
+                                <div className='flex gap-8'>
+                                    <input required name='name' className='input w-full px-5' type='text' placeholder='Your name' />
+                                    <input required name='email' className='input w-full px-5' type='email' placeholder='Your email' />
+                                </div>
+                                <div className="">
+                                    <input required name='subject' className='input w-full px-5' type='text' placeholder='Subject' />
+                                </div>
+                                <div className="">
+                                    <textarea required name='message' className='textarea w-full px-5 resize-none' placeholder='Your message'></textarea>
+                                </div>
+                                <input disabled={pending ? true : false} type='submit' value="Send Message" className='btn btn-lg bg-accent text-white hover:bg-secondary-hover' />
+                            </form>
+                        </Zoom>
                     </div>
-
-
-                    <Zoom top>
-                        <form ref={form} onSubmit={sendEmail} className='space-y-8 w-full mx-auto lg:w-3/6' >
-                            <div className='flex gap-8'>
-                                <input required name='name' className='input w-full px-5' type='text' placeholder='Your name' />
-                                <input required name='email' className='input w-full px-5' type='email' placeholder='Your email' />
-                            </div>
-                            <div className="">
-                                <input required name='subject' className='input w-full px-5' type='text' placeholder='Subject' />
-                            </div>
-                            <div className="">
-                                <textarea required name='message' className='textarea w-full px-5 resize-none' placeholder='Your message'></textarea>
-                            </div>
-                            <input disabled={pending ? true : false} type='submit' value="Send Message" className='btn btn-lg bg-accent text-white hover:bg-secondary-hover'/>
-                        </form>
-                    </Zoom>
                 </div>
             </div>
         </section>
+
+
     );
 };
 

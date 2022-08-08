@@ -4,13 +4,15 @@ import MobileNavbar from './MobileNavbar';
 import Navbar from './Navbar';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
+import { faBattleNet } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
 
 
     return (
         <header style={{ background: '#FCFAFA' }}
-            className={` h-16 flex items-center fixed top-0 w-full text-dark z-10 px-3 shadow transition-all duration-300`}
+            className={` h-16 flex items-center fixed top-0 w-full text-dark z-50 px-3 shadow transition-all duration-300`}
         >
             <div className='container mx-auto h-full flex items-center justify-between lg:px-10'>
                 {/* logo */}
@@ -26,6 +28,8 @@ const Header = () => {
                         <Navbar />
                     </Fade>
                 </div>
+                {/* Dashboard Icon */}
+                <label for="my-drawer-2" class="btn btn-primary drawer-button btn-sm m-3 lg:hidden"><FontAwesomeIcon icon={faBattleNet} /></label>
                 {/* Authentication */}
                 <div className="">
                     <Zoom>

@@ -42,11 +42,12 @@ import ManageFeedbacks from "./Pages/Dashboard/AdminDashboard/ManageFeedbacks/Ma
 import CardDetails from "./Pages/Products/Cards/CardDetails";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
+import Overview from "./Pages/Dashboard/UserDashboard/Overview/Overview";
 
 function App() {
   return (
     <div className="pt-16">
-      {window.location.pathname !== '/cpanel' && <Header /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header /> }
 
       {/* <Header /> */}
       <Routes>
@@ -66,7 +67,8 @@ function App() {
         {/* User Dashboard Routes */}
 
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
-          <Route path="createAnAccount" element={<CreateAnAccount/>}></Route>
+          <Route index element={<Overview/>}></Route>
+          <Route path="overview" element={<Overview/>}></Route>
           <Route path="alluseraccounts" element={<AllUsersAccounts/>}></Route>
           <Route path="myaccounts" element={<MyAccounts></MyAccounts>}></Route>
           <Route path="withdraw" element={<Withdraw/>}></Route>
@@ -116,7 +118,7 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {window.location.pathname !== '/cpanel' ? <Footer /> : null}
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Footer /> }
       {/* <Footer /> */}
       <ToastContainer />
     </div>
