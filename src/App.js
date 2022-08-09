@@ -62,11 +62,8 @@ function App() {
           <Route path="maccounts" element={<ManageAccounts/>} />
           <Route path="thistory" element={<TransactionHistory/>} />
           <Route path="mfeedbacks" element={<ManageFeedbacks/>} />
-          <Route path="manageBlogs" element={<ManageBlogs/>}>
-
-            <Route path="addBlog" element={<AddBlog/>}/>
-
-          </Route>
+          <Route path="manageBlogs" element={<ManageBlogs/>}/>
+          <Route path="addBlog" element={<AddBlog/>}/>
         </Route>    
         {/* Control Panel Routes */}
 
