@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import BlogsRow from './BlogsRow';
 
 const AllBlogs = () => {
+    const [blogs,setBlogs]=useState([])
+    useEffect(()=>{
+        const url = 'http://localhost:5000/blogs'
+        fetch(url).then(res=>res.json()).then(data=>{
+            const reversBlog = data.reverse()
+            setBlogs(reversBlog)
+        })
+    },[])
+    console.log(blogs);
     return (
         <div className=" text-left h-full w-full">
 
@@ -20,26 +30,9 @@ const AllBlogs = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    <tr className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                        <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block font-semibold lg:table-cell relative lg:static">
-                            1
-                        </td>
-                        <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                        img
-                        </td>
-                        <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                            This our New Blogs
-                        </td>
-                        <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                        45-4-2022
-                        </td>
-                        <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                            <button className="btn btn-xs btn-outline btn-secondary">Update</button>
-                        </td>
-                        <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                        <button className="btn btn-xs btn-outline btn-secondary">Delete</button>
-                        </td>
-                    </tr>
+                   {
+                    blogs?.map((blog,index)=><BlogsRow key={blog._id} blog={blog} index={index+1} />)
+                   }
                 </tbody>
                 </table>
             </div>
