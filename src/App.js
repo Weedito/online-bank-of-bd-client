@@ -42,6 +42,8 @@ import ManageFeedbacks from "./Pages/Dashboard/AdminDashboard/ManageFeedbacks/Ma
 import CardDetails from "./Pages/Products/Cards/CardDetails";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
+import ManageBlogs from "./Pages/Dashboard/AdminDashboard/ManageBlogs/ManageBlogs";
+import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 
 function App() {
   return (
@@ -60,6 +62,11 @@ function App() {
           <Route path="maccounts" element={<ManageAccounts/>} />
           <Route path="thistory" element={<TransactionHistory/>} />
           <Route path="mfeedbacks" element={<ManageFeedbacks/>} />
+          <Route path="manageBlogs" element={<ManageBlogs/>}>
+
+            <Route path="addBlog" element={<AddBlog/>}/>
+
+          </Route>
         </Route>    
         {/* Control Panel Routes */}
 

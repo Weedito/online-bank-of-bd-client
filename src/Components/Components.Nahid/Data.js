@@ -280,4 +280,9 @@ export const SidebarData = [
         href: "mfeedbacks",
         icon: faStreetView,
     },
+    {
+        title: "Manage Blogs",
+        href: "manageBlogs",
+        icon: faStreetView,
+    },
 ];
