@@ -3,13 +3,18 @@ import BlogsRow from './BlogsRow';
 
 const AllBlogs = () => {
     const [blogs,setBlogs]=useState([])
+    const [smSpinner,setSmSpinner ]=useState(true)
     useEffect(()=>{
         const url = 'http://localhost:5000/blogs'
         fetch(url).then(res=>res.json()).then(data=>{
             const reversBlog = data.reverse()
             setBlogs(reversBlog)
+            setSmSpinner(false)
         })
     },[])
+    if(smSpinner){
+        return <p className='text-green text-xl my-12 text-center'>Loading...</p>
+    }
     console.log(blogs);
     return (
         <div className=" text-left h-full w-full">

@@ -44,6 +44,7 @@ import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUser
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
 import ManageBlogs from "./Pages/Dashboard/AdminDashboard/ManageBlogs/ManageBlogs";
 import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
+import UpdateBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/UpdateBlog";
 
 function App() {
   return (
@@ -81,6 +82,7 @@ function App() {
           <Route path="transactionHistory" element={<TransactionHistory/>}></Route>
           <Route path="manageusers" element={<ManageUsers/>}></Route>
         </Route>
+        <Route path="/blog/:id" element={<UpdateBlog/>}/>
         {/* User Dashboard Routes End*/}
 
         {/* About Us Routes */}
