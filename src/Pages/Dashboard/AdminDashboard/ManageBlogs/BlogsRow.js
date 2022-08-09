@@ -23,7 +23,7 @@ const BlogsRow = ({blog,index,setRefresh,refresh}) => {
                 {index}
             </td>
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-            <img src={picture} alt="blog-img" className='h-12 rounded-3xl'/>
+            <img src={picture} alt="blog-img" className='h-12 rounded-xl'/>
             </td>
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className='text-xl text-start'>{title}</span>
