@@ -42,6 +42,7 @@ import ManageFeedbacks from "./Pages/Dashboard/AdminDashboard/ManageFeedbacks/Ma
 import CardDetails from "./Pages/Products/Cards/CardDetails";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
+import BlogDetails from "./Pages/Home/BlogDetails"
 
 function App() {
   return (
@@ -51,7 +52,8 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        
+        {/* Blog Details */}
+        <Route path="/blog/:id" element={<BlogDetails />} />
         {/* Control Panel Routes */}
         <Route path="/cpanel" element={<RequireAuth><CPanel/></RequireAuth>}>
           <Route index element={<AdDashboard/>} />

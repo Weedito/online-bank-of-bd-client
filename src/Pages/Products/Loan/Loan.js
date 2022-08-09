@@ -71,7 +71,7 @@ const Loan = () => {
                                 <p className='text-2xl'>Loan Amount</p>
                             </div>
                         </div>
-                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl">
+                        <div class="card w-72 bg-green-500  hover:bg-base-100 shadow-xl ">
                             <div class="card-body">
                                 <h2 className='text-2xl'>1 - 25 years</h2>
                                 <p className='text-2xl'>Loan Tenure</p>
@@ -97,7 +97,7 @@ const Loan = () => {
                         <h1 class="text-5xl font-bold">Make your <span className='text-green-700 '>Own Home</span></h1>
                         <p class="py-6">Make your dream home a reality with easy home loans from Online Bank BD. Our wide range of options are designed to cater your every home financing need, be it purchasing a new flat, constructing a house or renovating your existing home. Allow us to be the finance partner of one of the biggest investments of your lifetime and give you a delightful experience of banking.</p>
 
-                        <button class="btn btn-primary">Get Started</button>
+                        <button class="btn btn-primary rounded-[31.64px]">Get Started</button>
 
                     </div>
                 </div>
@@ -140,7 +140,7 @@ const Loan = () => {
                     <div>
                         <h1 class="text-5xl font-bold">Personal <span className='text-green-700 '>Loan</span></h1>
                         <p class="py-6">Whatever the occasion or requirement, make smart financial choice with Online Bank BD Personal Loan to fulfill all your dreams, reach to new heights and make your day to day journey of life joyful.</p>
-                        <button class="btn btn-primary">Get Started</button>
+                        <button class="btn btn-primary rounded-[31.64px]">Get Started</button>
                     </div>
                 </div>
             </div>

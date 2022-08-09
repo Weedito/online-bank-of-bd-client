@@ -18,7 +18,7 @@ export const cardData = [
         id: 3,
         cardTitle: 'Student Card',
         description: 'Online Bank BD Platinum Cradit',
-        fullDescription:'lorem30',
+        fullDescription: 'lorem30',
         img: 'https://cdn.gobankingrates.com/wp-content/uploads/2016/02/2_Visa-Infinite-Eurasian-Diamond-Card.jpg'
     }
 
@@ -29,15 +29,15 @@ export const ShareHolderData = [
         index: 'collapseOne',
         name: ' Features',
         discriptions: [
-        'Loan amount ranging from BDT 5 lac to BDT 200 lac.',
-        'Repayment tenure 1 year to 25 years.',
-        'Financing up to 70% of property value.',
-        'Semi-pucca financing facility.',
-        'Financing to Non Resident Bangladeshi (NRB).',
-        'Home loan with overdraft (OD) facility.',
-        'No hidden cost.',
-        'Early settlement facility.',
-        'Loan across the country'
+            'Loan amount ranging from BDT 5 lac to BDT 200 lac.',
+            'Repayment tenure 1 year to 25 years.',
+            'Financing up to 70% of property value.',
+            'Semi-pucca financing facility.',
+            'Financing to Non Resident Bangladeshi (NRB).',
+            'Home loan with overdraft (OD) facility.',
+            'No hidden cost.',
+            'Early settlement facility.',
+            'Loan across the country'
         ]
         ,
         img: 'https://www.nrbcommercialbank.com//assets/img/sponsor/farasath_ali.jpg'
@@ -61,5 +61,31 @@ export const ShareHolderData = [
         discriptions: `Download basic required documents for Home Loan, please Click here.`,
         img: 'https://www.nrbcommercialbank.com//assets/img/sponsor/abdul_mannan.jpg'
     },
-    
+
+];
+export const blogData = [
+    {
+        id: 1,
+        blogTitle: 'Worlds Economy Changing So Fast.',
+        description: 'Charting the global economy: GDP declines in US, rises in Europe',
+
+
+        fullDescription: 'lorem30',
+        img: 'https://blogs.worldbank.org/sites/default/files/styles/card/public/2022-07/shutterstock_1494272252_card2.jpg'
+    },
+    {
+        id: 2,
+        blogTitle: 'Digital Card security',
+        description: 'Online Bank BD Platinum Cradit',
+        fullDescription: 'lorem30',
+        img: 'https://www.techfunnel.com/wp-content/uploads/2019/07/12-Digital-Banking-Challenges-and-Opportunities-For-the-Banking-Industry-1.png'
+    },
+    {
+        id: 3,
+        blogTitle: 'Crypto Currency News',
+        description: 'Online Bank BD Platinum Cradit',
+        fullDescription: 'lorem30',
+        img: 'https://blogs.imf.org/wp-content/uploads/2018/03/BLOG-1024x600-cryto-currency-bitcoins-yesfoto-getty-images-iStock-886016628.jpg'
+    }
+
 ]
