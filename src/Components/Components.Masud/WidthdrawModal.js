@@ -13,46 +13,46 @@ const WidthdrawModal = ({ withdraw }) => {
 
         const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance - inputBalance);
-        const updateBalance = { depositBalance };        
+        const updateBalance = { depositBalance };
 
-        
+
         const url = `http://localhost:5000/account/${_id}`;
         fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(updateBalance)
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateBalance)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success(`${inputBalance} withdrawal successful`)
+                inputBalRef.current.value = 0;
             })
-                .then(res => res.json())
-                .then(data => {
-                    toast.success(`${inputBalance} withdrawal successful`)
-                    inputBalRef.current.value = 0;
-            })
-            
-            // withdraw Statement Creator
 
-            const receiverStatementData = {
-                senderAccount: AccNo,
-                statement: "Withdraw Money",
-                deposit: 0,
-                withdraw: inputBalance,
-                balance: parseFloat(updateBalance?.depositBalance),
-                date: date,
-                email: authemail,
-            }            
+        // withdraw Statement Creator
 
-            fetch('http://localhost:5000/statement', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(receiverStatementData)
+        const receiverStatementData = {
+            senderAccount: AccNo,
+            statement: "Withdraw Money",
+            deposit: 0,
+            withdraw: inputBalance,
+            balance: parseFloat(updateBalance?.depositBalance),
+            date: date,
+            email: authemail,
+        }
+
+        fetch('http://localhost:5000/statement', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(receiverStatementData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
             })
-                .then(res => res.json())
-                .then(data => {
-                    
-                })
     }
 
     return (
