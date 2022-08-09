@@ -3,10 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
 
-const TopOverview = ({ handleSelect }) => {
+const TopOverview = ({ handleSelect, frstacc }) => {
 
     const { myAccount } = useAccount();
-    const crAcc = myAccount && myAccount[0];
 
 
     return (
@@ -17,7 +16,6 @@ const TopOverview = ({ handleSelect }) => {
                 <div className="">
 
                     <select onChange={handleSelect} class="select focus:outline-none select-ghost w-full text-md">
-                        <option selected >Select Account</option>
                         {
                             myAccount?.map(account => <option >{account?.AccNo}</option>)
                         }

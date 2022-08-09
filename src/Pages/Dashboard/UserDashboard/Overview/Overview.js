@@ -9,10 +9,12 @@ import TransacOverview from './TransacOverview';
 
 const Overview = () => {
     const { myAccount, isLoading } = useAccount();
-    const [selectAcc, setSelectAcc] = useState('');
     const [currentAccount, setCurrentAccount] = useState();
+    const frstacc = myAccount && myAccount[0]?.AccNo;
+    const [selectAcc = frstacc, setSelectAcc] = useState();
     const [transactions, setTransactions] = useState([]);
-    const [myTransactions, setMyTransactions] = useState([]);
+    const myTrc = transactions && transactions[0]?.senderAccount;
+    const [myTransactions = myTrc, setMyTransactions] = useState([]);
     const [todayTrnsaction, setTodayTransaction] = useState(0)
     const [tdDeposit, setTdDeposit] = useState(0)
     const [tdWithdraw, setTdWithdraw] = useState(0)
@@ -55,7 +57,9 @@ const Overview = () => {
         setMyTransactions(trc);
     }, [transactions, trAcc]);
 
-    // console.log(transactions);
+
+
+    // console.log(frstacc);
 
     if (isLoading) {
         return <Loading />
@@ -74,7 +78,7 @@ const Overview = () => {
 
     return (
         <section className="w-full p-5">
-            <TopOverview handleSelect={handleSelect} setSelectAcc={setSelectAcc} />
+            <TopOverview handleSelect={handleSelect} frstacc={frstacc} setSelectAcc={setSelectAcc} />
             {
                 currentAccount && <div className='flex flex-col lg:flex-row justify-center items-center gap-5 w-full mx-auto'>
                     <div className="w-full lg:w-2/5 mx-auto">

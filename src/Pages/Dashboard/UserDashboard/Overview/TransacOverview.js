@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const TransacOverview = ({ myTransactions }) => {
     const navigate = useNavigate();
+    const trTranc = myTransactions?.slice().reverse();
 
     return (
         <div className='w-full bg-gray-300 rounded-md p-5'>
@@ -16,7 +17,8 @@ const TransacOverview = ({ myTransactions }) => {
 
             <div className=" w-full md:w-3/5 py-2 mx-auto">
                 {
-                    myTransactions.slice(0,3)?.map(transaction => {
+                    trTranc?.slice(0,3)
+                    .map(transaction => {
                         return (
                             <div className="flex w-full items-center justify-between">
                                 <h3 className="text-sm w-2/6">{transaction?.date}</h3>

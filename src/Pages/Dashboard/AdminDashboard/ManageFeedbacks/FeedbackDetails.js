@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import Swal from 'sweetalert2';
 
-const FeedbackDetails = ({ feedback, index, setFeedbacks }) => {
+const FeedbackDetails = ({ feedback, index, refetch }) => {
     const { _id, name, img, feedbackComment } = feedback;
 
     const editFeedback = (id) => {
@@ -66,7 +66,8 @@ const FeedbackDetails = ({ feedback, index, setFeedbacks }) => {
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
-                            )
+                                )
+                                refetch();
                         }
 
                     })

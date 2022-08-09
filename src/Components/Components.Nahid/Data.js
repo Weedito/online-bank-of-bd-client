@@ -36,28 +36,19 @@ export const TrustedCFeedbackData = [
 
 export const AboutCounterData = [
     {
+        icon: 'https://i.ibb.co/gSB4Bdf/Frame.png',
         title: 'Authorized Capital',
-        count: '10000000000'
+        count: 125632569
     },
     {
-        title: 'Paid up Capital',
-        count: '8933413560'
+        icon: 'https://i.ibb.co/gSB4Bdf/Frame.png',
+        title: 'Number of Branch',
+        count: '10'
     },
     {
-        title: 'Credit Rating Agency',
-        count: '3'
-    },
-    {
-        title: 'Number of Employees',
-        count: '5000'
-    },
-    {
-        title: 'Number of Branches',
-        count: '172'
-    },
-    {
-        title: 'Number of Shares',
-        count: '893341356'
+        icon: 'https://i.ibb.co/gSB4Bdf/Frame.png',
+        title: 'Number of Employee',
+        count: '170'
     },
 ]
 

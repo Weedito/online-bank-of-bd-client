@@ -59,7 +59,7 @@ const ACOverview = ({currentAccount, tdDeposit, tdWithdraw}) => {
             <div className="flex items-center justify-between py-3 gap-3">
                 <div className="">
                     <h3 className="text-md font-semibold">Balance</h3>
-                    <h3 className="flex items-center font-semibold text-gray-700 gap-2"> $ <span className="">{crAccount?.balance}</span> </h3>
+                    <h3 className="flex items-center font-semibold text-gray-700 gap-2"> $ <span className="">{crAccount?.balance ? crAccount?.balance : 0.00}</span> </h3>
                 </div>
                 <div className="">
                     <h3 className="text-md font-semibold">Deposit</h3>

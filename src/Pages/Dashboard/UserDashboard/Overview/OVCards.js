@@ -16,12 +16,12 @@ const OVCards = ({currentAccount}) => {
                 </div>
                 <div className="">
                     <h3 className="text-2xl py-2 text-white font-bold">
-                        <FontAwesomeIcon className='' icon={faDollarSign} /> <span className="">{crAccount?.balance}</span>
+                        <FontAwesomeIcon className='' icon={faDollarSign} /> <span className="">{crAccount?.balance ? crAccount?.balance : '0.00'}</span>
                     </h3>
                 </div>
                 <div className="">
                     <h3 className="text-xl py-2 text-white font-medium">
-                        <span className="">{crAccount?.AccNo}</span>
+                        <span className="">{crAccount?.AccNo ? crAccount?.AccNo : '0000 0000 0000'}</span>
                     </h3>
                 </div>
                 <div className="flex justify-between">

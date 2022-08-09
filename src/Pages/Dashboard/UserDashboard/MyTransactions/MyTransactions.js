@@ -8,7 +8,8 @@ const MyTransactions = () => {
     const [currentAccount, setCurrentAccount] = useState();
     const [transactions, setTransactions] = useState([]);
     const [myTransactions, setMyTransactions] = useState([]);
-    const [selectAcc, setSelectAcc] = useState('');
+    const frstacc = myAccount && myAccount[0]?.AccNo;
+    const [selectAcc, setSelectAcc] = useState(frstacc);
 
     const trAcc = currentAccount && currentAccount[0];
 
@@ -28,15 +29,18 @@ const MyTransactions = () => {
         setMyTransactions(trc);
     }, [transactions, trAcc]);
 
-    if (isLoading) {
-        return <Loading />
-    }
 
     const handleSelect = (e) => {
         const acc = e.target.value;
         setSelectAcc(acc);
     }
 
+
+    if (isLoading) {
+        return <Loading />
+    }
+
+    // myTransactions.sort((a, b) => (a.date < b.date) ? 1 : -1)
 
 
     return (
@@ -49,7 +53,6 @@ const MyTransactions = () => {
                         <div className="">
 
                             <select onChange={handleSelect} class="select focus:outline-none select-ghost w-full text-md md:text-xl">
-                                <option selected disabled >Select</option>
                                 {
                                     myAccount?.map(account => <option >{account?.AccNo}</option>)
                                 }
@@ -70,7 +73,9 @@ const MyTransactions = () => {
                             <tbody>
 
                                 {
-                                    myTransactions?.map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
+                                    myTransactions.slice().reverse()
+                                    .map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
+                                    // myTransactions?.reverse().map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
                                 }
 
                             </tbody>

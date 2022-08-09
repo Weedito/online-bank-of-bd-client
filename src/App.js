@@ -37,6 +37,9 @@ import WebcamCapture from "./Components/Components.Nahid/Webcam";
 import Overview from "./Pages/Dashboard/UserDashboard/Overview/Overview";
 import MyAccounts from "./Pages/Dashboard/UserDashboard/MyAccounts/MyAccounts";
 import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
+import MyFeedbacks from "./Pages/Dashboard/UserDashboard/MyFeedbacks/MyFeedbacks";
+import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/SingleAccountDetails";
+import CreateAccount from "./Pages/Dashboard/UserDashboard/CreateAccount/CreateAccount";
 
 function App() {
   return (
@@ -63,9 +66,11 @@ function App() {
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route index element={<Overview/>}></Route>
           <Route path="overview" element={<Overview/>}></Route>
+          <Route path="createaccount" element={<CreateAccount/>}></Route>
           <Route path="myaccounts" element={<MyAccounts/>}></Route>
+          <Route path="myaccounts/:id" element={<SingleAccountDetails/>}></Route>
           <Route path="mytransactions" element={<MyTransactions/>}></Route>
-          <Route path="myfeedbacks" element={<ManageUsers/>}></Route>
+          <Route path="myfeedbacks" element={<MyFeedbacks/>}></Route>
         </Route>
         {/* User Dashboard Routes End*/}
 
