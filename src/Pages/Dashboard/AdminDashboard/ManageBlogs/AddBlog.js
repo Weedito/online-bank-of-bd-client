@@ -1,9 +1,11 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 const AddBlog = () => {
     const { register, handleSubmit,reset } = useForm();
     const date = new Date().toLocaleDateString()
+    const navigate = useNavigate()
     const onSubmit = (data) => {
         const blogData= {...data, date,}
         
@@ -17,6 +19,7 @@ const AddBlog = () => {
         }).then(res=>res.json()).then(result=>{
             toast.success("Successfully Your Blog Post!")
             reset()
+            navigate("/cpanel/manageBlogs")
         })
     }
     return (
@@ -50,7 +53,7 @@ const AddBlog = () => {
                         required
                     />
                     <input
-                        className="px-5 py-2 my-2 bg-green-700 rounded-full hover:bg-green-400 transition text-white"
+                        className="px-5 py-2 my-2 bg-green-700 rounded-full cursor-pointer hover:bg-green-400 transition text-white"
                         type="submit"
                         value="POST"
                     />

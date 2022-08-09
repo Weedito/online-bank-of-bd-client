@@ -4,6 +4,7 @@ import BlogsRow from './BlogsRow';
 const AllBlogs = () => {
     const [blogs,setBlogs]=useState([])
     const [smSpinner,setSmSpinner ]=useState(true)
+    const [refresh,setRefresh]=useState(false)
     useEffect(()=>{
         const url = 'http://localhost:5000/blogs'
         fetch(url).then(res=>res.json()).then(data=>{
@@ -11,7 +12,7 @@ const AllBlogs = () => {
             setBlogs(reversBlog)
             setSmSpinner(false)
         })
-    },[])
+    },[refresh])
     if(smSpinner){
         return <p className='text-green text-xl my-12 text-center'>Loading...</p>
     }
@@ -36,7 +37,7 @@ const AllBlogs = () => {
                     </thead>
                     <tbody>
                    {
-                    blogs?.map((blog,index)=><BlogsRow key={blog._id} blog={blog} index={index+1} />)
+                    blogs?.map((blog,index)=><BlogsRow key={blog._id} blog={blog} index={index+1} refresh={refresh} setRefresh={setRefresh} />)
                    }
                 </tbody>
                 </table>
