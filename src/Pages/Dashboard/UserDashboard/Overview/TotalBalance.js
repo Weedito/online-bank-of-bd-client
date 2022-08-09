@@ -1,8 +1,6 @@
 import React from 'react';
-import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
-import Loading from '../../../../Components/Components.Nahid/Loading';
 
-const TotalBalance = ({currentAccount}) => {
+const TotalBalance = ({currentAccount, todayTrnsaction}) => {
     const crAccount = currentAccount[0];
 
 
@@ -15,7 +13,7 @@ const TotalBalance = ({currentAccount}) => {
             </div>
             <div className="bg-gradient-to-l from-yellow-500 to-orange-700 px-7 py-3 w-full text-center rounded-xl">
                 <h3 className="text-xl text-white py-2">Total Transactions</h3>
-                <h2 className="text-3xl font-semibold text-white"> $ 500  </h2>
+                <h2 className="text-3xl font-semibold text-white"> $ {todayTrnsaction}  </h2>
             </div>
         </div>
     );

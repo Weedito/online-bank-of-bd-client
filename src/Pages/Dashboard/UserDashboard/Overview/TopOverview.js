@@ -1,16 +1,12 @@
 import { faBell, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React from 'react';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
-import CreateAnAccount from '../../CreateAnAccount';
 
 const TopOverview = ({ handleSelect }) => {
 
     const { myAccount } = useAccount();
-
-
-
-
+    const crAcc = myAccount && myAccount[0];
 
 
     return (
@@ -21,7 +17,7 @@ const TopOverview = ({ handleSelect }) => {
                 <div className="">
 
                     <select onChange={handleSelect} class="select focus:outline-none select-ghost w-full text-md">
-                        <option selected disabled >Select</option>
+                        <option selected >Select Account</option>
                         {
                             myAccount?.map(account => <option >{account?.AccNo}</option>)
                         }

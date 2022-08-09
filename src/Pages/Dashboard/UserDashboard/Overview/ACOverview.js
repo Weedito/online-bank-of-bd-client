@@ -48,7 +48,7 @@ const data = [
 ];
 
 
-const ACOverview = ({currentAccount}) => {
+const ACOverview = ({currentAccount, tdDeposit, tdWithdraw}) => {
     const crAccount = currentAccount[0];
     return (
         <div className='w-full bg-gray-300 rounded-md p-5'>
@@ -63,11 +63,11 @@ const ACOverview = ({currentAccount}) => {
                 </div>
                 <div className="">
                     <h3 className="text-md font-semibold">Deposit</h3>
-                    <h3 className="flex items-center font-semibold text-green-700 gap-2"> $ <span className="">{crAccount?.deposit}</span> </h3>
+                    <h3 className="flex items-center font-semibold text-green-700 gap-2"> $ <span className="">{tdDeposit}</span> </h3>
                 </div>
                 <div className="">
                     <h3 className="text-md font-semibold">Withdraw</h3>
-                    <h3 className="flex items-center font-semibold text-red-700 gap-2"> $ <span className="">{crAccount?.withdraw}</span> </h3>
+                    <h3 className="flex items-center font-semibold text-red-700 gap-2"> $ <span className="">{tdWithdraw}</span> </h3>
                 </div>
             </div>
 

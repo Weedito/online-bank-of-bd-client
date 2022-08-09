@@ -1,5 +1,5 @@
 
-import { faBank, faDashboard, faHistory, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBank, faDashboard, faHistory, faReceipt, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 
 export const TrustedPartnersData = [
@@ -292,6 +292,11 @@ export const UserSidebarData = [
         title: "My Accounts",
         href: "myaccounts",
         icon: faBank,
+    },
+    {
+        title: "My Transactions",
+        href: "mytransactions",
+        icon: faReceipt,
     },
     {
         title: "My Feedbacks",

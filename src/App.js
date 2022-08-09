@@ -36,6 +36,7 @@ import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUser
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
 import Overview from "./Pages/Dashboard/UserDashboard/Overview/Overview";
 import MyAccounts from "./Pages/Dashboard/UserDashboard/MyAccounts/MyAccounts";
+import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
           <Route index element={<Overview/>}></Route>
           <Route path="overview" element={<Overview/>}></Route>
           <Route path="myaccounts" element={<MyAccounts/>}></Route>
+          <Route path="mytransactions" element={<MyTransactions/>}></Route>
           <Route path="myfeedbacks" element={<ManageUsers/>}></Route>
         </Route>
         {/* User Dashboard Routes End*/}
