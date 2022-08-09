@@ -7,7 +7,7 @@ import HomePageSlider from '../../Components/Components.Arif/HomePageSlider';
 
 const Banner = () => {
     return (
-        <div className='flex flex-col md:flex-row gap-2 justify-center items-center px-2 w-full h-full'>
+        <div className='flex flex-col md:flex-row gap-2 justify-center items-center px-2 w-full'>
             
             {/* <Slide left>
               <div className="text-left">

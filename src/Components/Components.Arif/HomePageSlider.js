@@ -37,7 +37,7 @@ const HomePageSlider = () => {
         <div class="carousel-inner relative w-full overflow-hidden">
           {/* Single item */}
           <div class="carousel-item active relative float-left w-full">
-              <div className='sliderBg overflow-x-hidden flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
+              <div className='sliderBg lg:py-60 overflow-x-hidden flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
                 
                 <Slide left>
                   <div className="text-left">
@@ -77,7 +77,7 @@ const HomePageSlider = () => {
           
               {/* Single item */}
           <div class="carousel-item relative float-left w-full">
-          <div className='sliderBg flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
+          <div className='sliderBg lg:py-60 flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
                 
                 <Slide left>
                   <div className="text-left">
@@ -117,7 +117,7 @@ const HomePageSlider = () => {
 
            {/* Single item */}
            <div class="carousel-item relative float-left w-full">
-          <div className='sliderBg flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
+          <div className='sliderBg lg:py-60 flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
                 
                 <Slide left>
                   <div className="text-left">
