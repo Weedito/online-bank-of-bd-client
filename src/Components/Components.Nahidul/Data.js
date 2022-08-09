@@ -66,26 +66,25 @@ export const ShareHolderData = [
 export const blogData = [
     {
         id: 1,
-        blogTitle: 'Worlds Economy Changing So Fast.',
+        blogTitle: 'CATAGORY-1!',
         description: 'Charting the global economy: GDP declines in US, rises in Europe',
 
-
         fullDescription: 'lorem30',
-        img: 'https://blogs.worldbank.org/sites/default/files/styles/card/public/2022-07/shutterstock_1494272252_card2.jpg'
+        img: 'https://i.ibb.co/N3XWhrR/blog1.jpg'
     },
     {
         id: 2,
-        blogTitle: 'Digital Card security',
-        description: 'Online Bank BD Platinum Cradit',
+        blogTitle: 'CATAGORY-2!',
+        description: 'Digital Card  security Now days.Ctypto currency Changing world Today.',
         fullDescription: 'lorem30',
-        img: 'https://www.techfunnel.com/wp-content/uploads/2019/07/12-Digital-Banking-Challenges-and-Opportunities-For-the-Banking-Industry-1.png'
+        img: 'https://i.ibb.co/N3XWhrR/blog1.jpg'
     },
     {
         id: 3,
-        blogTitle: 'Crypto Currency News',
-        description: 'Online Bank BD Platinum Cradit',
+        blogTitle: 'CATAGORY-3!',
+        description: 'Digital Card  security Now days.Ctypto currency Changing world Today.',
         fullDescription: 'lorem30',
-        img: 'https://blogs.imf.org/wp-content/uploads/2018/03/BLOG-1024x600-cryto-currency-bitcoins-yesfoto-getty-images-iStock-886016628.jpg'
+        img: 'https://i.ibb.co/N3XWhrR/blog1.jpg'
     }
 
 ]
