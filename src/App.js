@@ -45,6 +45,7 @@ import WebcamCapture from "./Components/Components.Nahid/Webcam";
 import ManageBlogs from "./Pages/Dashboard/AdminDashboard/ManageBlogs/ManageBlogs";
 import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 import UpdateBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/UpdateBlog";
+import BlogsDetails from "./Pages/Home/BlogsDetails";
 
 function App() {
   return (
@@ -83,6 +84,7 @@ function App() {
           <Route path="manageusers" element={<ManageUsers/>}></Route>
         </Route>
         <Route path="/blog/:id" element={<UpdateBlog/>}/>
+        <Route path="/blogDetails/:id" element={<BlogsDetails/>}/>
         {/* User Dashboard Routes End*/}
 
         {/* About Us Routes */}

@@ -1,29 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import BgImage from "../../Assets/Images/blog/blog-bg.jpg"
+import React from 'react';
+import useBlogs from '../../Hook/useBlogs';
 import Blog from './Blog';
 import "./Blogs.css";
 const Blogs = () => {
-    const navigate =useNavigate()
-    const[blogData,setBlogDate]=useState([])
-    const [spnnier,setSpinner]=useState(true)
-    useEffect(()=>{
-        const url = "http://localhost:5000/blogs"
-        fetch(url).then(res=>res.json()).then(data=>{
-            const blogreverse= data.reverse()
-            const blogslice = blogreverse.slice(0,3)
-            setBlogDate(blogslice)
-        })
-
-    },[])
+    const {blogData,spinner}=useBlogs()
+    
+if(spinner){
+    return <p>Loading.....</p>
+}
    
     return (
-        <div
-         className=' blog-container  py-10 px-2 ' >
-
+        <div className=' blog-container  py-10 px-2 ' >
         <div className='py-10 px-2'>
-
             <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl text-white ">
                 Read Our Blogs
             </h2>
@@ -33,7 +21,6 @@ const Blogs = () => {
                 {
                     blogData?.map(blog=> <Blog key={blog._id} blog={blog}/>)
                 } 
-
         </div>
 
 

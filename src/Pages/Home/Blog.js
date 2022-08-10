@@ -2,11 +2,13 @@ import React from 'react';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 const Blog = ({blog}) => {
-    const {title,picture, description}=blog
+    const {title,picture, description, _id}=blog;
+    const  navigate = useNavigate()
     return (
         <div  class="card card-compact w-96 bg-base-100 shadow-xl rounded-[27px] cursor-pointer "
-                            // onClick={() => navigate(`/blog/${blog.id}`)}
+                            onClick={() => navigate(`/blogDetails/${_id}`)}
                     
                     >
                         <figure>
@@ -17,8 +19,6 @@ const Blog = ({blog}) => {
                             <a
                             href='https://www.facebook.com/groups/programmingHero'
                              className='font-semibold text-lg hover:text-[#569601] hover:underline' target='_blank'>{title} </a>
-                           
-
                             <div class="card-actions justify-end text-black ">
                                 <FontAwesomeIcon icon={faHeart} />
                                 <FontAwesomeIcon icon={faShare} />
