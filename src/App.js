@@ -39,8 +39,7 @@ import MyAccounts from "./Pages/Dashboard/UserDashboard/MyAccounts/MyAccounts";
 import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
 import MyFeedbacks from "./Pages/Dashboard/UserDashboard/MyFeedbacks/MyFeedbacks";
 import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/SingleAccountDetails";
-import CreateAccount from "./Pages/Dashboard/UserDashboard/CreateAccount/CreateAccount";
-
+import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 function App() {
   return (
     <div className="pt-16">
@@ -66,7 +65,6 @@ function App() {
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
           <Route index element={<Overview/>}></Route>
           <Route path="overview" element={<Overview/>}></Route>
-          <Route path="createaccount" element={<CreateAccount/>}></Route>
           <Route path="myaccounts" element={<MyAccounts/>}></Route>
           <Route path="myaccounts/:id" element={<SingleAccountDetails/>}></Route>
           <Route path="mytransactions" element={<MyTransactions/>}></Route>
@@ -102,6 +100,7 @@ function App() {
 
         {/* Contact Routes End*/}
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/createaccount" element={<RequireAuth><CreateAccount/></RequireAuth>}/>
         <Route path="/webcam" element={<WebcamCapture />} />
         {/* Contact Routes End*/}
 

@@ -1,4 +1,5 @@
 
+import { faAccusoft } from "@fortawesome/free-brands-svg-icons";
 import { faBank, faDashboard, faHistory, faReceipt, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -295,3 +296,17 @@ export const UserSidebarData = [
         icon: faStreetView,
     },
 ];
+
+
+export const allCountry = [
+    {country:'Bangladesh'},
+    {country:'India'},
+    {country:'USA'},
+    {country:'Saudi Arabia'},
+    {country:'Nepal'},
+    {country:'Mizoram'},
+    {country:'Uganda'},
+    {country:'Qater'},
+    {country:'South Africa'},
+    {country:'Lebanon'},
+]

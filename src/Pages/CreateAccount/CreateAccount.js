@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { UseContextProvider } from "../../../../Components/Components.Nahid/StepperContext";
+import { UseContextProvider } from "../../Components/Components.Nahid/StepperContext";
 import Stepper from "./Controls/Stepper";
 import StepperControl from "./Controls/StepperControl";
-import Account from "./Steps/Account";
-import Details from "./Steps/Details";
-import Final from "./Steps/Final";
-import Payment from "./Steps/Payment";
+import Complete from "./Steps/Complete";
+import ContactInfo from "./Steps/ContactInfo";
+import AccountInfo from "./Steps/AccountInfo";
+import PersonalDetails from "./Steps/PersonalDetails";
+import ApplicantPhoto from "./Steps/ApplicantPhoto";
+import ApplicationPreview from "./Steps/ApplicationPreview";
 // import { useAuthState } from "react-firebase-hooks/auth";
 // import { toast } from "react-toastify";
 // import Loading from "../../../../Components/Components.Nahid/Loading";
@@ -15,98 +17,30 @@ import Payment from "./Steps/Payment";
 
 
 const CreateAccount = () => {
-    // const [allCountry] = AllCountry();
 
-    // const [user, loading] = useAuthState(auth);
-
-    // const legaleNameRef = useRef('');
-    // const phoneRef = useRef('');
-    // const nidRef = useRef('');
-    // const dateOfBirthRef = useRef('');
-    // const addressRef = useRef('');
-    // const genderRef = useRef('');
-    // const countryRef = useRef('');
-    // const emailRef = useRef('');
-
-
-
-    // if (loading) {
-    //     return <Loading />
-    // }
-
-
-    // const createAccount = e => {
-    //     e.preventDefault();
-    //     const name = legaleNameRef.current.value;
-    //     const phone = phoneRef.current.value;
-    //     const nid = nidRef.current.value;
-    //     const dateOfBirth = dateOfBirthRef.current.value;
-    //     const gender = genderRef.current.value;
-    //     const country = countryRef.current.value;
-    //     const address = addressRef.current.value;
-    //     const email = emailRef.current.value;
-
-    //     console.log(name, phone, nid, dateOfBirth, gender, country, address, country, email);
-
-    //     const accoutnDetails = {
-    //         name: name,
-    //         phone: phone,
-    //         NID: nid,
-    //         dateOfBirth: dateOfBirth,
-    //         gender: gender,
-    //         country: country,
-    //         address: address,
-    //         AccNo: Math.floor(Math.random() * 10000000000),
-    //         balance: 0,
-    //         email: email,
-    //         actype: "Savings Account",
-    //         authemail: user.email,
-    //     }
-
-    //     fetch('http://localhost:5000/account', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(accoutnDetails)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-
-    //             legaleNameRef.current.value = '';
-    //             nidRef.current.value = '';
-    //             phoneRef.current.value = '';
-    //             dateOfBirthRef.current.value = '';
-    //             genderRef.current.value = '';
-    //             legaleNameRef.current.value = '';
-    //             emailRef.current.value = '';
-    //             addressRef.current.value = '';
-
-    //             toast("Account Created Successfully!")
-    //         })
-    // }
-
-    const [currentStep, setCurrentStep] = useState(1);
 
     const steps = [
         "Contact Information",
         "Account Information",
         "Personal Details",
         "Applicant Photo",
-        "Application Preview",
         "Complete",
     ];
+
+    const [currentStep, setCurrentStep] = useState(1);
 
     const displayStep = (step) => {
         switch (step) {
             case 1:
-                return <Account />;
+                return <ContactInfo />;
             case 2:
-                return <Details />;
+                return <AccountInfo />;
             case 3:
-                return <Payment />;
+                return <PersonalDetails />;
             case 4:
-                return <Final />;
+                return <ApplicantPhoto />;
+            case 5:
+                return <Complete />;
             default:
         }
     };
@@ -120,10 +54,10 @@ const CreateAccount = () => {
     };
 
     return (
-        <div>
+        <div className="bg-slate-100">
             <div className="h-full w-full">
                 <div className="card-body w-full">
-                    <h1 className="text-primary text-2xl pb-5 font-bold text-center">
+                    <h1 className="text-primary text-2xl font-bold text-center">
                         Application for Account Opening
                     </h1>
 
@@ -226,11 +160,12 @@ const CreateAccount = () => {
                         <input type='submit' value="Create Account" className='btn btn-lg bg-green-700 text-white hover:bg-secondary-hover' />
                     </form> */}
 
+                    {/* Stepper */}
                     <div className="pb-5 px-5 lg:px-0 w-full lg:w-4/5 mx-auto">
                         <Stepper steps={steps} currentStep={currentStep} />
                     </div>
                     <div className="mx-auto rounded-2xl bg-white pb-2 shadow-xl md:w-4/5">
-                        {/* Stepper */}
+                        {/* Display Step */}
                         <div className="horizontal container mt-5 ">
 
                             <div className="my-10 p-10 ">
@@ -240,11 +175,7 @@ const CreateAccount = () => {
 
                         {/* navigation button */}
                         {currentStep !== steps.length && (
-                            <StepperControl
-                                handleClick={handleClick}
-                                currentStep={currentStep}
-                                steps={steps}
-                            />
+                            <StepperControl handleClick={handleClick} currentStep={currentStep} steps={steps} />
                         )}
                     </div>
 

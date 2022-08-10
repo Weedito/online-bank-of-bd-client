@@ -22,8 +22,8 @@ export const Navigation = [
         href: '/contactus',
     },
     {
-        name: 'Blogs',
-        href: '/blogs',
+        name: 'Create Account',
+        href: '/createaccount',
     },
     {
         name: 'Dashboard',
