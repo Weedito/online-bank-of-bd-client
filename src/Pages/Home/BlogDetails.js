@@ -1,74 +1,76 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
-import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { blogData } from '../../Components/Components.Nahidul/Data';
 const BlogDetails = () => {
-    const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    const url = `https://localhost:5000/`;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        toast("Blog added successfully");
-        data.target.reset();
-      });
-  };
+    const navigate = useNavigate();
     return (
-        <div className=" mx-5">
-            {/* <PageTitle title={"Add Inventory"}></PageTitle> */}
+        <section className='w-full mx-auto py-5  my-5  justify-center rounded-[27px]'>
+            
+            <figure><img className='' src="https://i.ibb.co/N3XWhrR/blog1.jpg" alt="Shoes" /></figure>
+        <div class="bg-base-100 shadow-xl  ">
            
-
-            <div className="grid max-w-6xl w-full mx-auto">
-                <h2 className="font-bold text-4xl text-center text-gray-700 my-5">
-                    Add a Blog
+            <div class="  text-center text-gray-700 my-5">
+                <h2 class="font-bold text-4xl">
+                    CATAGORI-1!
+                    
                 </h2>
-                <form
-                    className="grid grid-cols-1 gap-4"
-                    onSubmit={handleSubmit(onSubmit)}
-                >
-                    <input
-                        type="text"
-                        {...register("picture")}
-                        placeholder="Add Image URL"
-                        className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
-                        required
-                    />
-                    <input
-                        {...register("name", { required: true, maxLength: 50 })}
-                        className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
-                        placeholder="Add Title"
-                        required
-                    />
-                    <textarea
-                        className="h-48 border-2 border-gray-500 rounded mb-2 py-3 px-5 " maxLength='4000'
-                        {...register("description")}
-                        placeholder="Add Text Here (Max Character 4000) "
-                        required
-                    />
-                
-                 
-                
-                    <input
-                        type="text"
-                        {...register("supplier")}
-                        placeholder={new Date().toLocaleDateString()}
-                        className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
-                        disabled
-                    />
-                    <input
-                        className="px-5 py-2 my-2 bg-green-700 rounded-full hover:bg-green-400 transition text-white"
-                        type="submit"
-                        value="POST"
-                    />
-                </form>
+                <p>If a dog chews shoes whose shoes does he choose?
+                    If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?</p>
+                    <div class="card-actions justify-end text-black ">
+                    <FontAwesomeIcon icon={faHeart} />
+                    <FontAwesomeIcon icon={faShare} />
+                </div>
             </div>
         </div>
+        </section>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        // <div className=" mx-5">
+        //     {blogData.map(item => {
+        //         return (
+        //             <div key={item.id} class="card card-compact w-96 bg-base-100 shadow-xl rounded-[27px] ">
+        //                 <figure>
+        //                     <img src={item.img} alt="blogs" class="rounded-[27px]" />
+        //                 </figure>
+        //                 <div class="card-body text-center">
+        //                     <h2 class="card-title text-[#027358] text-xl">{item.blogTitle}</h2>
+        //                     <a  onClick={() => navigate(`/blog/:${item.id}`)} className='font-semibold text-lg '>{item.description} </a>
+
+
+        //                     <div class="card-actions justify-end text-black ">
+        //                         <FontAwesomeIcon icon={faHeart} />
+        //                         <FontAwesomeIcon icon={faShare} />
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         )
+        //     })}
+
+        // </div>
+
+
+        
     );
 };
 
