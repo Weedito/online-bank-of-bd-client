@@ -5,6 +5,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./HomePageSlider.css";
 
 const HomePageSlider = () => {
+  
   return (
     <div className="w-full">
       <div
@@ -35,29 +36,29 @@ const HomePageSlider = () => {
           {/* Inner */}
 
         <div class="carousel-inner relative w-full overflow-hidden">
-          {/* Single item */}
+          {/* Single item 1*/}
           <div class="carousel-item active relative float-left w-full">
-              <div className='sliderBg lg:py-60 overflow-x-hidden flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
+              <div className='sliderBg lg:py-40 overflow-x-hidden flex flex-col md:flex-row lg:gap-80 justify-center items-center py-4 px-2'>
                 
-                <Slide left>
-                  <div className="text-left">
-                    <h3 className="text-3xl lg:text-5xl mb-8 text-white">
+                <Slide left className="">
+                  <div className="text-left lg:ml-2">
+                    <h3 className="text-3xl lg:text-7xl mb-16 text-white">
                       Welcome To
                     </h3>
-                    <h3 className="text-3xl lg:text-5xl text-white font-serif font-bold mb-6">
+                    <h3 className="text-3xl lg:text-7xl text-white font-serif font-bold mb-6">
                       Online Bank BD
                     </h3>
-                    <p className="text-slate-300 text-sm">
+                    <p className="text-slate-300 text-xl">
                       Our Online banking system project's aim is to automate
                       transactions of <br /> the bank and provide better and faster
                       service to the customers by using the internet.
                     </p>
-                    <div className="flex justify-left items-center py-10">
-                      <button className="px-5 py-2 bg-green-200 rounded-full">
+                    <div className="flex justify-left items-center pt-20 ml-16 lg:ml-0">
+                      <button className="bannerBtn px-5 p-3 bg-green-200 rounded-full text-2xl">
                         Get Started
                       </button>
-                      <button className="px-5 py-2 text-white text-sm">
-                        Learn More <FontAwesomeIcon icon={faArrowRight} />{" "}
+                      <button className="moreBtn px-5 py-2 text-white text-lg ml-6">
+                        Learn More <FontAwesomeIcon className="" icon={faArrowRight} />{" "}
                       </button>
                     </div>
                   </div>
@@ -65,9 +66,9 @@ const HomePageSlider = () => {
                 <Slide right>
                   <div className="">
                     <img
-                      className="object-cover"
-                      src="https://i.ibb.co/CQMr5Mr/online-payments.png"
-                      alt=""
+                      className="object-cover h-96"
+                      src="https://i.ibb.co/8zhtLf0/Vector.png"
+                      alt="img"
                     />
                   </div>
                 </Slide>
@@ -75,29 +76,29 @@ const HomePageSlider = () => {
             </div>
           </div>
           
-              {/* Single item */}
-          <div class="carousel-item relative float-left w-full">
-          <div className='sliderBg lg:py-60 flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
+              {/* Single item 2 */}
+              <div class="carousel-item relative float-left w-full">
+              <div className='sliderBg lg:py-40 overflow-x-hidden flex flex-col md:flex-row lg:gap-80 justify-center items-center py-4 px-2'>
                 
-                <Slide left>
-                  <div className="text-left">
-                    <h3 className="text-3xl lg:text-5xl mb-8 text-white">
+                <Slide left className="">
+                  <div className="text-left lg:mr-2">
+                    <h3 className="text-3xl lg:text-7xl mb-16 text-white">
                       Welcome To
                     </h3>
-                    <h3 className="text-3xl lg:text-5xl text-white font-serif font-bold mb-6">
+                    <h3 className="text-3xl lg:text-7xl text-white font-serif font-bold mb-6">
                       Online Bank BD
                     </h3>
-                    <p className="text-slate-300 text-sm">
+                    <p className="text-slate-300 text-xl">
                       Our Online banking system project's aim is to automate
                       transactions of <br /> the bank and provide better and faster
                       service to the customers by using the internet.
                     </p>
-                    <div className="flex justify-left items-center py-10">
-                      <button className="px-5 py-2 bg-green-200 rounded-full">
+                    <div className="flex justify-left items-center pt-20 ml-16 lg:ml-0">
+                      <button className="bannerBtn px-5 p-3 bg-green-200 rounded-full text-2xl">
                         Get Started
                       </button>
-                      <button className="px-5 py-2 text-white text-sm">
-                        Learn More <FontAwesomeIcon icon={faArrowRight} />{" "}
+                      <button className="moreBtn px-5 py-2 text-white text-lg ml-6">
+                        Learn More <FontAwesomeIcon className="" icon={faArrowRight} />{" "}
                       </button>
                     </div>
                   </div>
@@ -105,9 +106,9 @@ const HomePageSlider = () => {
                 <Slide right>
                   <div className="">
                     <img
-                      className="object-cover"
-                      src="https://i.ibb.co/CQMr5Mr/online-payments.png"
-                      alt=""
+                      className="object-cover h-96"
+                      src="https://i.ibb.co/8zhtLf0/Vector.png"
+                      alt="img"
                     />
                   </div>
                 </Slide>
@@ -115,29 +116,29 @@ const HomePageSlider = () => {
             </div>
           </div>
 
-           {/* Single item */}
+           {/* Single item 3*/}
            <div class="carousel-item relative float-left w-full">
-          <div className='sliderBg lg:py-60 flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
+           <div className='sliderBg lg:py-40 overflow-x-hidden flex flex-col md:flex-row lg:gap-80 justify-center items-center py-4 px-2'>
                 
-                <Slide left>
-                  <div className="text-left">
-                    <h3 className="text-3xl lg:text-5xl font-serif mb-8 text-white">
+                <Slide left className="">
+                  <div className="text-left lg:mr-2">
+                    <h3 className="text-3xl lg:text-7xl mb-16 text-white">
                       Welcome To
                     </h3>
-                    <h3 className="text-3xl lg:text-5xl text-white font-serif font-bold mb-6">
+                    <h3 className="text-3xl lg:text-7xl text-white font-serif font-bold mb-6">
                       Online Bank BD
                     </h3>
-                    <p className="text-slate-300 text-sm">
+                    <p className="text-slate-300 text-xl">
                       Our Online banking system project's aim is to automate
                       transactions of <br /> the bank and provide better and faster
                       service to the customers by using the internet.
                     </p>
-                    <div className="flex justify-left items-center py-10">
-                      <button className="px-5 py-2 bg-green-200 rounded-full">
+                    <div className="flex justify-left items-center pt-20 ml-16 lg:ml-0">
+                      <button className="bannerBtn px-5 p-3 bg-green-200 rounded-full text-2xl">
                         Get Started
                       </button>
-                      <button className="px-5 py-2 text-white text-sm">
-                        Learn More <FontAwesomeIcon icon={faArrowRight} />{" "}
+                      <button className="moreBtn px-5 py-2 text-white text-lg ml-6">
+                        Learn More <FontAwesomeIcon className="" icon={faArrowRight} />{" "}
                       </button>
                     </div>
                   </div>
@@ -145,9 +146,9 @@ const HomePageSlider = () => {
                 <Slide right>
                   <div className="">
                     <img
-                      className="object-cover"
-                      src="https://i.ibb.co/CQMr5Mr/online-payments.png"
-                      alt=""
+                      className="object-cover h-96"
+                      src="https://i.ibb.co/8zhtLf0/Vector.png"
+                      alt="img"
                     />
                   </div>
                 </Slide>

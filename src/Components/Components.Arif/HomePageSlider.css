@@ -3,3 +3,18 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.customFont{
+    font-family: 'Poppins', sans-serif;
+}
+
+.bannerBtn:hover{
+    background-color: rgb(12, 187, 65);
+    color: white;
+
+}
+
+.moreBtn:hover{
+    color:rgb(10, 238, 78);
+    text-decoration: underline;
+}
