@@ -40,6 +40,14 @@ const AddBlog = () => {
                         className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
                         required
                     />
+                     <input
+                        type="url"
+                        {...register("blogLink")}
+                        placeholder="Blogs Details Link"
+
+                        className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
+                        required
+                    />
                     <input
                         {...register("title", { required: true, maxLength: 200 })}
                         className="border-2 border-gray-500 rounded mb-2 py-3 px-5"

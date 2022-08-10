@@ -22,7 +22,7 @@ const BlogsDetails = () => {
         console.log(blog);
     }
     return (
-        <section className='w-full mx-auto py-5  my-5  justify-center rounded-[27px] relative'>
+        <section className='w-full mx-auto pb-5  mb-5  justify-center rounded-[27px] relative'>
         <div className='blogDetailsBanner'>
         </div>
         <div class="bg-base-100 shadow-xl mt-[80px] mx-auto max-w-[1280px] p-4 ">
@@ -35,13 +35,19 @@ const BlogsDetails = () => {
                         <FontAwesomeIcon icon={faHeart} className="mr-2 hover:text-red-500 cursor-pointer" />
                         <FontAwesomeIcon icon={faShare} className="hover:text-green-500 cursor-pointer" />
                     </div>
-                    <div className='blog-descriptio md:mx-12 mx-2 mt-[80px]'>
-                        <h4 className='text-4xl font-medium mb-2 '>{blog?.title}</h4>
-                        <blockquote>
-                            <p className='text-justify text-xl'>
+                    <div>
+                        <h2 className='text-center text-2xl tracking-wide '>{blog.date}</h2>
+                    </div>
+                    <div className='blog-descriptio md:mx-12 mx-2 mt-[80px] flex flex-col justify-start'>
+                        <h4 className='md:text-4xl text-xl font-medium text-start '>{blog?.title}</h4>
+                        <hr/>
+                        <blockquote className='mt-4'>
+                            <p className='text-justify md:text-xl text-sm'>
                                 {blog?.description}
                             </p>
                         </blockquote>
+
+                        
                     </div>
                 
             </div>
