@@ -1,0 +1,5 @@
+.blog-container{
+    background-image: linear-gradient( to right, rgba(63, 167, 106, 0.358),rgba(75, 162, 113, 0.392)),url("../../Assets/Images//blog/blog-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
