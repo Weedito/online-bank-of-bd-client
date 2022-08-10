@@ -22,11 +22,6 @@ if(spinner){
                     blogData?.map(blog=> <Blog key={blog._id} blog={blog}/>)
                 } 
         </div>
-
-
-
-
-
     </div>
     );
 };

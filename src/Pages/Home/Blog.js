@@ -9,7 +9,6 @@ const Blog = ({blog}) => {
     return (
         <div  class="card card-compact w-96 bg-base-100 shadow-xl rounded-[27px] cursor-pointer "
                             onClick={() => navigate(`/blogDetails/${_id}`)}
-                    
                     >
                         <figure>
                             <img src={picture} alt="blogs" class="rounded-[27px]" />
@@ -20,7 +19,7 @@ const Blog = ({blog}) => {
                             href='https://www.facebook.com/groups/programmingHero'
                              className='font-semibold text-lg hover:text-[#569601] hover:underline' target='_blank'>{title} </a>
                             <div class="card-actions justify-end text-black ">
-                                <FontAwesomeIcon icon={faHeart} />
+                                <FontAwesomeIcon icon={faHeart} className="hover:text-red-600" />
                                 <FontAwesomeIcon icon={faShare} />
                             </div>
                         </div>
