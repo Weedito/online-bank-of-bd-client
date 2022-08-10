@@ -1,8 +1,10 @@
 import React from 'react';
+import LoanPage from '../../../Components/Components.Rijon/LoanPage';
 
 const Loan = () => {
     return (
         <div>
+            <LoanPage></LoanPage>
 
             {/* Top-part-start */}
             <div>

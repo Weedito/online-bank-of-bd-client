@@ -1,8 +1,11 @@
 import React from 'react';
 import cardsImages from '../../../Assets/Images/products/bankCardbanner.jpg'
+import OurCards from '../../../Components/Components.Rijon/OurCards';
 const Cards = () => {
     return (
-        <div className='bg-slate-100'>
+
+        <div>
+            <OurCards></OurCards>
             <section style={{
                 backgroundImage: `url(${cardsImages})`,
                 backgroundRepeat: 'no-repeat',

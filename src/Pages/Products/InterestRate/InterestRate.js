@@ -1,9 +1,11 @@
 import React from 'react';
 import interestImages from '../../../Assets/Images/products/interest1.jpg'
+import Interest from '../../../Components/Components.Rijon/Interest';
 const InterestRate = () => {
-    
+
     return (
         <div>
+            <Interest></Interest>
             {/* new-banner-start */}
             <section style={{
                 backgroundImage: `url(${interestImages})`,
@@ -16,7 +18,7 @@ const InterestRate = () => {
                     <img className='mt-[-130px]' src='https://www.freeiconspng.com/thumbs/bank-icon/blue-bank-icon-in-flat-style-with-the-building-facade-with-three--26.png' alt="" />
 
                 </div>
-             
+
 
             </section>
 
