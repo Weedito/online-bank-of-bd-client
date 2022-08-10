@@ -18,9 +18,6 @@ const BlogsDetails = () => {
     if(spinner){
         return<p>Loading...</p>
     }
-    if(blog){
-        console.log(blog);
-    }
     return (
         <section className='w-full mx-auto pb-5  mb-5  justify-center rounded-[27px] relative'>
         <div className='blogDetailsBanner'>
