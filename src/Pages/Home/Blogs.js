@@ -17,7 +17,7 @@ if(spinner){
             </h2>
         </div>
         {/* card start */}
-        <div className=" grid grid-cols-1 lg:grid-cols-3 pt-8 gap-5  px-20 rounded-[27px]">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-8 gap-8 justify-content-center px-20 rounded-[27px]">
                 {
                     blogData?.map(blog=> <Blog key={blog._id} blog={blog}/>)
                 } 

@@ -7,11 +7,11 @@ const Blog = ({blog}) => {
     const {title,picture, description, _id}=blog;
     const  navigate = useNavigate()
     return (
-        <div  class="card card-compact w-96 bg-base-100 shadow-xl rounded-[27px] cursor-pointer "
+        <div  class="card card-compact bg-base-100 shadow-xl rounded-[27px] cursor-pointer "
                             onClick={() => navigate(`/blogDetails/${_id}`)}
                     >
                         <figure>
-                            <img src={picture} alt="blogs" class="rounded-[27px]" />
+                            <img src={picture} alt="blogs" className="rounded-[27px] w-full" />
                         </figure>
                         <div class="card-body text-center">
                             <h2 class="card-title text-[#027358] text-xl">category</h2>

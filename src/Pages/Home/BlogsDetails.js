@@ -38,7 +38,7 @@ const BlogsDetails = () => {
                     <div className='blog-descriptio md:mx-12 mx-2 mt-[80px]'>
                         <h4 className='text-4xl font-medium mb-2 '>{blog?.title}</h4>
                         <blockquote>
-                            <p className='text-justify'>
+                            <p className='text-justify text-xl'>
                                 {blog?.description}
                             </p>
                         </blockquote>
