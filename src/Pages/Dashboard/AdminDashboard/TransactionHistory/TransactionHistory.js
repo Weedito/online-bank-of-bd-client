@@ -6,7 +6,7 @@ const TransactionHistory = () => {
 
     const [transactions, setTransactions] = useState([]);
 
-    axios.get(`http://localhost:5000/statements`)
+    axios.get(`https://bank-of-bd.herokuapp.com/statements`)
         .then(function (data) {           
             setTransactions(data.data);
         })

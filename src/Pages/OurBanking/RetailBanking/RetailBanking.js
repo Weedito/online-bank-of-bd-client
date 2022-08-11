@@ -7,7 +7,7 @@ const RetailBanking = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/retailbanking')
+        fetch('https://bank-of-bd.herokuapp.com/retailbanking')
             .then(res => res.json())
             .then(data => setRetailBanking(data))
     }, [])

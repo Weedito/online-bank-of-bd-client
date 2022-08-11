@@ -6,7 +6,7 @@ const SMEBanking = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/smebanking')
+        fetch('https://bank-of-bd.herokuapp.com/smebanking')
             .then(res => res.json())
             .then(data => setSmeLoans(data))
     }, [])
