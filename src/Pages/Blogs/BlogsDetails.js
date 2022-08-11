@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import "./Blogs.css"
+import "../Blogs/Blogs.css"
 import { useParams } from 'react-router-dom';
 const BlogsDetails = () => {
     const {id}=useParams()

@@ -7,8 +7,7 @@ const useBlogs=()=>{
         const url = "http://localhost:5000/blogs"
         fetch(url).then(res=>res.json()).then(data=>{
             const blogreverse= data.reverse()
-            const blogslice = blogreverse.slice(0,3)
-            setBlogDate(blogslice)
+            setBlogDate(blogreverse)
             setSpinner(false)
         })
     },[spnnier])
