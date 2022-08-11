@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-const TransferMoneyModal = ({ transferMoney }) => {
-    const { name, AccNo, balance, _id, authemail } = transferMoney;
+const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
+    const { name, AccNo, balance, _id } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
 
@@ -86,6 +86,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
                 .then(res => res.json())
                 .then(data => {
                     reset();
+                    setRefresh(!refresh)
                 })
 
             // Receiver        
@@ -115,7 +116,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
                 withdraw: 0,
                 balance: depositBalance,
                 date: date,
-                email: authemail,
+                email: AccEmail,
             }
 
             fetch('http://localhost:5000/statement', {
@@ -134,7 +135,7 @@ const TransferMoneyModal = ({ transferMoney }) => {
 
 
             const receiverStatementData = {
-                senderAccount: transAccNo,
+                senderAccount: parseFloat(transAccNo),
                 statement: "Received Money",
                 deposit: transBalance ? parseFloat(transBalance) : 0,
                 withdraw: 0,

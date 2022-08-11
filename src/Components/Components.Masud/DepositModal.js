@@ -1,9 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { toast } from "react-toastify";
-
-const DepositModal = ({ deposit }) => {
+const DepositModal = ({ deposit, refresh,setRefresh }) => {
     const { name, AccNo, balance, _id, authemail } = deposit;
-
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
     let today = new Date();
@@ -13,7 +11,7 @@ const DepositModal = ({ deposit }) => {
 
         const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance + inputBalance);
-        const updateBalance = { depositBalance };
+        const updateBalance = { depositBalance,  name, AccNo, balance};
 
         if (depositBalance < 0) {
             return setError("Please Input more then 0");
@@ -32,6 +30,7 @@ const DepositModal = ({ deposit }) => {
                 .then(data => {
                     toast("Deposited Successfully!");
                     inputBalRef.current.value = 0;
+                    setRefresh(!refresh)
                 })
 
             // Deposit Statement Creator
@@ -65,7 +64,7 @@ const DepositModal = ({ deposit }) => {
         <div>
             <input type="checkbox" id="deposit-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle text-center">
-                <div className="modal-box">
+                <div className="modal-box w-full">
                     <label for="deposit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='mb-4 badge badge-success text-2xl badge-lg p-4'>Deposit Money</h1>
                     <h3 className="font-bold text-lg">{name}</h3>

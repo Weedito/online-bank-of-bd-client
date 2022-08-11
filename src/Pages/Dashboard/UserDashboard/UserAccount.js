@@ -1,4 +1,4 @@
-
+/* 
 import { faBriefcase, faCheck, faCheckCircle, faClock, faLocationDot, faMessage, faSpa, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -137,3 +137,4 @@ const UserAccount = () => {
 };
 
 export default UserAccount;
+ */

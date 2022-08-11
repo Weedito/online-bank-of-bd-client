@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
-const WidthdrawModal = ({ withdraw }) => {
+const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const { name, AccNo, balance, _id, authemail } = withdraw;
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -24,11 +24,14 @@ const WidthdrawModal = ({ withdraw }) => {
             },
             body: JSON.stringify(updateBalance)
         })
+
             .then(res => res.json())
             .then(data => {
                 toast.success(`${inputBalance} withdrawal successful`)
                 inputBalRef.current.value = 0;
+                setRefresh(!refresh)
             })
+
 
         // withdraw Statement Creator
 

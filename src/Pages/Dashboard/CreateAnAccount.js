@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+/* import React, { useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import Loading from "../../Components/Components.Nahid/Loading";
@@ -6,7 +6,7 @@ import auth from "../../firebase.init";
 import AllCountry from "../../Hook/AllCountry";
 
 
-const CreateAnAccount = () => {
+const CreateAnAccount = () => {    
 
   const [allCountry] = AllCountry();
 
@@ -80,7 +80,7 @@ const CreateAnAccount = () => {
   }
 
   return (
-    <div className="h-auto lg:h-auto mt-96 lg:mt-12 w-full">
+    <div className="h-auto lg:h-auto lg:mt-12 w-full">
       <div className="card w-auto bg-slate-100 shadow-2xl lg:my-8 mx-auto lg:w-1/2 h-full lg:h-auto py-10 lg:py-0 ">
         <div className="card-body">
           <h1 className="text-primary text-2xl font-bold">
@@ -179,4 +179,4 @@ const CreateAnAccount = () => {
   );
 };
 
-export default CreateAnAccount;
+export default CreateAnAccount; */

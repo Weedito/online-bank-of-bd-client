@@ -1,79 +1,62 @@
-import React from 'react';
-import Slide from 'react-reveal/Slide';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SMEBanking = () => {
+    const [smeLoans, setSmeLoans] = useState([]);
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/smebanking')
+            .then(res => res.json())
+            .then(data => setSmeLoans(data))
+    }, [])
+
+
+    const navigate = useNavigate();
+
+    const handleBtnUpdate = id => {
+        navigate('/smebanking/' + id)
+
+    }
+
+
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
 
-            <Slide top>
-                <div className="hero bg-slate-100">
 
-                    <div className="hero-content flex-col lg:flex-row pt-8">
-                        <img src="https://i.ibb.co/s2DSzq8/what-is-sme-loan-png-min.jpg" className="max-w-sm rounded-lg shadow-2xl" alt='sme img' />
-                        <div>
-                            <h2 className="text-3xl font-bold">Grow Your Business</h2>
-                            <h3 className="text-2xl">With our quick & simplified</h3>
-                            <h3 className="text-2xl font-bold">SME FINANCING</h3>
+            <div class="hero bg-slate-100">
 
-                        </div>
+                <div class="hero-content flex-col lg:flex-row pt-8">
+                    <img src="https://i.ibb.co/s2DSzq8/what-is-sme-loan-png-min.jpg" class="max-w-sm rounded-lg shadow-2xl" alt='sme img' />
+                    <div>
+                        <h2 className="text-3xl font-bold">Grow Your Business</h2>
+                        <h3 className="text-2xl">With our quick & simplified</h3>
+                        <h3 className="text-2xl font-bold">SME FINANCING</h3>
+
                     </div>
                 </div>
-            </Slide>
+            </div>
 
 
 
             <div className='grid grid-cols-1 lg:grid-cols-4 pt-8 gap-5 bg-slate-100 px-8'>
-                <Slide left>
-                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
-                        <figure><img src="https://www.thefinancialexpress.com.bd/uploads/1601092496.jpg" alt="agriculture img" /></figure>
+
+                {
+                    smeLoans.map(smeLoan => <div key={smeLoan._id} className="card card-compact max-w-max bg-base-100 shadow-xl">
+                        <figure><img src={smeLoan.loan_img} alt="sme loan img" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">Agriculture Loans </h2>
-                            <p>To help farmers financially, we have arranged agriculture loans. Through these loans, farmers can easily overcome the financial crisis.</p>
+                            <h2 className="card-title">{smeLoan.loan_name} </h2>
+                            <p className='text-left'>{smeLoan.loan_description}</p>
                             <div className="card-actions justify-end">
-                                <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
+                                <button onClick={() => handleBtnUpdate(smeLoan._id)} className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
 
                             </div>
                         </div>
                     </div>
-                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
-                        <figure><img className="" src='https://tearsheet.co/wp-content/uploads/2017/11/operational-efficiency.jpeg' alt="engineering img" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Engineering Loans</h2>
-                            <p>Learning engineering requires a lot of money. We have arranged this loan for becoming an engineer.</p>
-                            <div className="card-actions justify-end">
-                                <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
+                    )
+                }
 
-                            </div>
-                        </div>
-                    </div>
-                </Slide>
-                <Slide right>
-                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
-                        <figure><img className="" src='https://images.business.com/app/uploads/2022/03/23023458/loandulko-3.jpg' alt="review icon" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Entrepreneur Loans</h2>
-                            <p>New small-business owners can also access financing through personal business loans, such as those offered by online or other lenders.</p>
-                            <div className="card-actions justify-end">
-                                <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card card-compact max-w-max bg-base-100 shadow-xl">
-                        <figure><img className="" src='https://www.unwomen.org/sites/default/files/Headquarters/Images/Sections/News/Stories/2019/10/Bangladesh_IELD_Oct2019_12_960x640.JPG' alt="review icon" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Women Entrepreneur Loans</h2>
-                            <p>Online Bank BD offers specialized services to Women Entrepreneurs through dedicated service desks. Our dedicated proficient Relationship Managers with highly tailored made products are always by the side of women entrepreneurs to fulfill all their banking needs.</p>
-                            <div className="card-actions justify-end">
-                                <button className='btn btn-xs bg-green-700 border-0'>Loan Now</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </Slide>
             </div>
-
-
 
 
         </div>
