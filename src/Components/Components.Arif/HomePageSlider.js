@@ -53,11 +53,11 @@ const HomePageSlider = () => {
                       transactions of <br /> the bank and provide better and faster
                       service to the customers by using the internet.
                     </p>
-                    <div className="flex justify-left items-center pt-20 ml-16 lg:ml-0">
+                    <div className="flex justify-left items-center pt-20 ml-10 lg:ml-0">
                       <button className="bannerBtn px-5 p-3 bg-green-200 rounded-full text-2xl">
                         Get Started
                       </button>
-                      <button className="moreBtn px-5 py-2 text-white text-lg ml-6">
+                      <button className="moreBtn px-5 py-2 text-white text-lg">
                         Learn More <FontAwesomeIcon className="" icon={faArrowRight} />{" "}
                       </button>
                     </div>
