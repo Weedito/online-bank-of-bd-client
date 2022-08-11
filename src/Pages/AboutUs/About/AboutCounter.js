@@ -10,20 +10,20 @@ const AboutCounter = () => {
                     Company <span className="text-green-700">At a Glance</span>
                 </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 w-full mx-auto gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 w-full mx-auto gap-8 px-10">
                 {/* partner summary  */}
                 {
                     AboutCounterData.map((data, idx) => {
                         return(
-                            <div className="partner cursor-pointer">
-                            <div class="stats shadow-md bg-green-700 text-white hover:bg-base-100 hover:text-green-700 p-10">
-                                <div class="stat flex justify-center  items-center w-40 flex-col">
-
-                                    <div class="stat-value text-2xl"><CountUp delay={2} end={data?.count} /></div>
-                                    <div class="stat-desc text-xl">{data?.title}</div>
+                            <div className="shadow-md mx-auto cursor-pointer w-full bg-white hover:bg-[#D9FCAB] rounded-2xl p-5">
+                                <div className="flex justify-start text-start items-center py-7 flex-col">
+                                    <div className="flex justify-start my-4 text-left w-full">
+                                    <img className='w-10 ' src={data?.icon} alt="" />
+                                    </div>
+                                    <div className="font-bold flex justify-start w-full text-left text-gray-900 text-2xl">{data?.title}</div>
+                                    <div className=" text-green-700 flex justify-start text-left w-full font-bold text-2xl"> <CountUp delay={2} end={data?.count} /></div>
                                 </div>
                             </div>
-                        </div>
                         )
                     })
                 }

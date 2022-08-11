@@ -22,14 +22,14 @@ const AllUsersAccounts = () => {
 
     return (
         <div>
-            <div class="overflow-x-auto w-full">
-                <table class="table w-full">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
                             <th>
                                 <label>
-                                    <input type="checkbox" class="checkbox" />
+                                    <input type="checkbox" className="checkbox" />
                                 </label>
                             </th>
                             <th>Name</th>

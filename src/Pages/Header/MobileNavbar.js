@@ -12,10 +12,15 @@ import { motion } from 'framer-motion';
 
 // import Link
 import { NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import UseAdmin from '../../Components/Components.Nahid/Hooks/useAdmin';
 
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user] = useAuthState(auth);
+  const [admin] = UseAdmin();
 
   const circleVariants = {
     hidden: {
@@ -43,10 +48,7 @@ const MobileNavbar = () => {
 
   return (
     <nav className='relative'>
-      <div
-        onClick={() => setIsOpen(true)}
-        className='cursor-pointer text-dark'
-      >
+      <div onClick={() => setIsOpen(true)} className='cursor-pointer text-dark' >
         <FontAwesomeIcon icon={faBars} className='w-8 h-8' />
       </div>
 
@@ -186,6 +188,36 @@ const MobileNavbar = () => {
                 </li>
               )
             }
+
+            
+            if(item.name === 'Dashboard'){
+              return (
+                  (user && !admin) && <li key={idx}  onClick={() => setIsOpen(false)}  className={`mb-4 dropdown text-white`}>
+                      
+                      <NavLink
+                          to={item.href}
+                          smooth={true}
+                          duration={500}
+                          offset={-70}
+                          className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
+                      > {item.name} </NavLink>
+                  </li> 
+              )
+          }
+
+            if(item.name === 'Control Panel'){
+              return (
+                  (user && admin) && <li key={idx}  onClick={() => setIsOpen(false)}  className={`mb-4 dropdown text-white`}>
+                      
+                      <a href={item.href}
+                          smooth={true}
+                          duration={500}
+                          offset={-70}
+                          className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
+                      > {item.name} </a>
+                  </li>
+              )
+          }
 
 
             return (

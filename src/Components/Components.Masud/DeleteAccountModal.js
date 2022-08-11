@@ -20,16 +20,16 @@ const DeleteAccountModal = ({deleteAccount}) => {
 
     return (
         <div>
-            <input type="checkbox" id="delete-account-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="delete-account-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="delete-account-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <label for="delete-account-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='mb-4 badge  badge-error text-2xl badge-lg p-4'>Delete Account</h1>
-                    <h3 class="font-bold text-lg">{name}</h3>
+                    <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>                                       
                     <p className='my-4'>Balance: {balance}</p>                                       
-                    <div class="modal-action">
-                        <label for="delete-account-modal" onClick={() => handleDelete(_id)} class="btn">Delete</label>
+                    <div className="modal-action">
+                        <label for="delete-account-modal" onClick={() => handleDelete(_id)} className="btn">Delete</label>
                     </div>
                 </div>
             </div>

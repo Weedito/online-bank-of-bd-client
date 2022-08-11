@@ -1,14 +1,5 @@
-import {
-  faCheckCircle,
-  faClock,
-  faMessage,
-} from "@fortawesome/free-regular-svg-icons";
-import {
-  faBriefcase,
-  faCheck,
-  faLocationDot,
-  faSpa,
-} from "@fortawesome/free-solid-svg-icons";
+/* 
+import { faBriefcase, faCheck, faCheckCircle, faClock, faLocationDot, faMessage, faSpa, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -18,7 +9,7 @@ import auth from "../../../firebase.init";
 const UserAccount = () => {
   const [user] = useAuthState(auth);
   const email = user?.email;
-  
+
   return (
     <div className="w-full h-full lg:h-full lg:mt-8 bg-slate-100 mb-8">
       <div className="m-20 bg-white p-8 rounded border-2">
@@ -30,7 +21,7 @@ const UserAccount = () => {
         <div className="profile text-left">
           <div class="avatar flex-col lg:flex-row">
             <div class="w-24 rounded align-left m-3">
-              <img src="https://placeimg.com/192/192/people" />
+              <img src="https://placeimg.com/192/192/people" alt="" />
             </div>
             <h3 className="mt-3 d-inline-block">
               <b className="p-4">Amal Clooney </b>
@@ -137,7 +128,7 @@ const UserAccount = () => {
         </div>
         <div className="chart px-20">
           <h2 className="text-start text-2xl">PRACTICE AREAS</h2>
-          
+
 
         </div>
       </div>
@@ -146,3 +137,4 @@ const UserAccount = () => {
 };
 
 export default UserAccount;
+ */

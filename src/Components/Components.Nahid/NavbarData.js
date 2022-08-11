@@ -22,9 +22,17 @@ export const Navigation = [
         href: '/contactus',
     },
     {
+        name: 'Create Account',
+        href: '/createaccount',
+    },
+    {
         name: 'Dashboard',
         href: '/dashboard',
-    }
+    },
+    {
+        name: 'Control Panel',
+        href: '/cpanel',
+    },
 ];
 
 

@@ -1,6 +1,7 @@
 import React from "react";
 import NoticeFromBank from "../../Components/Components.Arif/NoticeFromBank/NoticeFromBank";
 import Banner from "./Banner";
+import Blogs from "./Blogs";
 import BusinessSummary from "./BusinessSummary";
 import OruTrustedPartners from "./OruTrustedPartners";
 import TrustedCFeedback from "./TrustedCFeedback";
@@ -13,6 +14,7 @@ const Home = () => {
       <NoticeFromBank />
       <WhyChooseOBB />
       <BusinessSummary />
+      <Blogs/>
       <OruTrustedPartners/>
       <TrustedCFeedback/>
     </div>
