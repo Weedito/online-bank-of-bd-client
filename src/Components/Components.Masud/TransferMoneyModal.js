@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
+const TransferMoneyModal = ({ transferMoney, setRefresh, refresh }) => {
     const { name, AccNo, balance, _id } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();

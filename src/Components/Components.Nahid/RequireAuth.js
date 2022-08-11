@@ -21,19 +21,19 @@ const RequireAuth = ({ children }) => {
         return <Navigate to='/signin' state={{ from: location }} replace />
     }
 
-    // if (!user.emailVerified) {
-    //     return <div className='text-center'>
-    //         <h1 className='text-3xl text-red-600'>Email not verified!!</h1>
-    //         <h2 className='text-xl text-green-600'>Pleser check your email alredy get a mail for Verification</h2>
-    //         <h2 className='text-xl text-red-600'>If you can't get mail then press the button</h2>
-    //         <button className='btn btn-success mt-5'
-    //             onClick={async () => {
-    //                 await sendEmailVerification();
-    //                 toast.success('email sent')
-    //             }}
-    //         >Send email</button>
-    //     </div>
-    // }
+    if (!user.emailVerified) {
+        return <div className='text-center'>
+            <h1 className='text-3xl text-red-600'>Email not verified!!</h1>
+            <h2 className='text-xl text-green-600'>Pleser check your email alredy get a mail for Verification</h2>
+            <h2 className='text-xl text-red-600'>If you can't get mail then press the button</h2>
+            <button className='btn btn-success mt-5'
+                onClick={async () => {
+                    await sendEmailVerification();
+                    toast.success('email sent')
+                }}
+            >Send email</button>
+        </div>
+    }
 
     return children;
 };

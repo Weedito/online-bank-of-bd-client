@@ -4,24 +4,24 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import DepositModal from './DepositModal';
 import WidthdrawModal from './WidthdrawModal';
 import TransferMoneyModal from './TransferMoneyModal';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getUserAccount } from '../Components.Tanvir/ReduxStateManagement/Actions/action';
 const MyAccounts = () => {
 
-    
+
     const [user, loading] = useAuthState(auth);
 
     const [deposit, setDeposit] = useState(null);
     const [withdraw, setWithdraw] = useState(null);
     const [transferMoney, setTransferMoney] = useState(null);
-    const [refresh,setRefresh]=useState(false)
+    const [refresh, setRefresh] = useState(false)
     const dispatch = useDispatch();
 
     //////  load user account
-    const {isLoading,myAccount,error} = useSelector(state=>state)
-    useEffect(()=>{
-    dispatch(getUserAccount(user.email))
-    },[user, refresh])
+    const { isLoading, myAccount, error } = useSelector(state => state)
+    useEffect(() => {
+        dispatch(getUserAccount(user.email))
+    }, [user, refresh])
     //////
 
 
@@ -32,7 +32,7 @@ const MyAccounts = () => {
 
     return (
         <div className="overflow-x-auto">
-            {error&& <h2>{error.message}</h2>}
+            {error && <h2>{error.message}</h2>}
             <table className="table table-zebra w-full">
 
                 <thead>
@@ -89,7 +89,7 @@ const MyAccounts = () => {
                                 </tr>
 
                             );
-                        } )
+                        })
                     }
                 </tbody>
             </table>

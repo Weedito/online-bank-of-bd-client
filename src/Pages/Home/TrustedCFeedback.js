@@ -93,8 +93,9 @@ const TrustedCFeedback = () => {
   const sendFeedback = () => {
     const feedback = feedbackRef.current.value
     const userName = user.displayName
+    const userEmail = user.email
     let userImg = user?.photoURL
-    console.log(currentValue, feedback, userName, userImg);
+    console.log(currentValue, feedback, userName, userEmail, userImg);
 
 
     if (!userImg) {
@@ -104,6 +105,7 @@ const TrustedCFeedback = () => {
 
     const feedbackDetails = {
       name: userName,
+      email: userEmail,
       img: userImg,
       feedbackStarts: currentValue,
       feedbackComment: feedback
@@ -143,7 +145,7 @@ const TrustedCFeedback = () => {
                     <img src={feedback.img} alt="Customrs" className="object-cover w-32 h-32 rounded-full lg:mr-40" />
                   </div>
                   <div className="text-center md:text-left">
-                    <button onClick={() => handleDelete(feedback._id)} className='btn btn-sm btn-square absolute right-2 top-2'>X</button>
+                    {/* <button onClick={() => handleDelete(feedback._id)} className='btn btn-sm btn-square absolute right-2 top-2'>X</button> */}
                     <h2 className="text-2xl font-semibold text-gray-700">{feedback.name}</h2>
                     <p className="py-3 w-96">{feedback.feedbackComment}</p>
                     {/* <img src="" alt="stars" className="object-cover w-32 mx-auto md:mx-0" /> */}
