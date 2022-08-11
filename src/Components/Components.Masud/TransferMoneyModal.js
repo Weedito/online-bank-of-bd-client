@@ -12,7 +12,7 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
     const [transAcc, setTransAcc] = useState();
 
 
-    // console.log(balance);
+    console.log(balance);
 
 
     const handleAccountBlur = (e) => {
@@ -55,15 +55,23 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
             return (
                 toast.error("Account Name & Number Doesn't Match")
             )
-        }else if(balance < 0 || balance < transBalance){
+        } else if (balance < 0 || balance < transBalance) {
             return (
                 toast.error("You Dont Have Enoung Balance for Transfer")
             )
-        }else if(transBalance < 20){
+        } else if (transBalance < 20) {
             return (
                 toast.error("You Connot Transfer Less Than $20")
             )
-        }else {
+        }
+
+        // else if (transBalance > 100000) {
+        //     return (
+        //         toast.error("You got a confirmetion mail")
+        //     )
+        // }
+
+        else {
 
             // Sender
             const url = `http://localhost:5000/account/${_id}`;

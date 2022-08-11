@@ -1,5 +1,3 @@
-
-import { faAccusoft } from "@fortawesome/free-brands-svg-icons";
 import { faBank, faDashboard, faHistory, faReceipt, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -272,8 +270,18 @@ export const SidebarData = [
         href: "mfeedbacks",
         icon: faStreetView,
     },
-<<<<<<< HEAD
+    {
+        title: "Manage Blogs",
+        href: "manageblogs",
+        icon: faStreetView,
+    },
+    {
+        title: "Add Blog",
+        href: "addblog",
+        icon: faStreetView,
+    },
 ];
+
 
 export const UserSidebarData = [
     {
@@ -311,16 +319,5 @@ export const allCountry = [
     {country:'South Africa'},
     {country:'Lebanon'},
 ]
-=======
-    {
-        title: "Manage Blogs",
-        href: "manageBlogs",
-        icon: faStreetView,
-    },
-    {
-        title: "Add Blog",
-        href: "addBlog",
-        icon: faStreetView,
-    },
-];
->>>>>>> 3cd4e6117e6e069421f55924f183c23c6ddf927f
+
+

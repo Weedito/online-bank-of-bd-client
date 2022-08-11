@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useBlogs from '../../Hook/useBlogs';
 import Blog from './Blog';
 import "../Blogs/Blogs.css";
+import Loading from '../../Components/Components.Nahid/Loading';
 const Blogs = () => {
     const {blogData,spinner}=useBlogs()
     const navigate = useNavigate()
@@ -10,7 +11,7 @@ const Blogs = () => {
     
     
 if(spinner){
-    return <p>Loading.....</p>
+    return <Loading/>
 }
    
     return (

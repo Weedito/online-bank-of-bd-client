@@ -9,6 +9,7 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 
+
 const ContactUs = () => {
 
     const [pending, setPending] = useState(false);
@@ -100,7 +101,6 @@ const ContactUs = () => {
                 </div>
             </div>
         </section>
-
 
     );
 };

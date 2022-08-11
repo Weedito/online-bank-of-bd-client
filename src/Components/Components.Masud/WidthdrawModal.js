@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
-const WidthdrawModal = ({ withdraw,setRefresh,refresh }) => {
+const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const { name, AccNo, balance, _id, authemail } = withdraw;
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -13,47 +13,49 @@ const WidthdrawModal = ({ withdraw,setRefresh,refresh }) => {
 
         const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance - inputBalance);
-        const updateBalance = { depositBalance };        
+        const updateBalance = { depositBalance };
 
-        
+
         const url = `http://localhost:5000/account/${_id}`;
         fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(updateBalance)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    toast.success(`${inputBalance} withdrawal successful`)
-                    inputBalRef.current.value = 0;
-                    setRefresh(!refresh)
-            })
-            
-            // withdraw Statement Creator
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateBalance)
+        })
 
-            const receiverStatementData = {
-                senderAccount: AccNo,
-                statement: "Withdraw Money",
-                deposit: 0,
-                withdraw: inputBalance,
-                balance: parseFloat(updateBalance?.depositBalance),
-                date: date,
-                email: authemail,
-            }            
-
-            fetch('http://localhost:5000/statement', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(receiverStatementData)
+            .then(res => res.json())
+            .then(data => {
+                toast.success(`${inputBalance} withdrawal successful`)
+                inputBalRef.current.value = 0;
+                setRefresh(!refresh)
             })
-                .then(res => res.json())
-                .then(data => {
-                    
-                })
+
+
+        // withdraw Statement Creator
+
+        const receiverStatementData = {
+            senderAccount: AccNo,
+            statement: "Withdraw Money",
+            deposit: 0,
+            withdraw: inputBalance,
+            balance: parseFloat(updateBalance?.depositBalance),
+            date: date,
+            email: authemail,
+        }
+
+        fetch('http://localhost:5000/statement', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(receiverStatementData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }
 
     return (

@@ -7,7 +7,6 @@ import Header from "./Pages/Header/Header";
 import Home from "./Pages/Home/Home";
 import Footer from "./Pages/Footer/Footer";
 import About from "./Pages/AboutUs/About/About";
-import Dashboard from "./Pages/Dashboard/Dashboard";
 import Shareholders from "./Pages/AboutUs/Shareholders/Shareholders";
 import BoardOfDirectors from "./Pages/AboutUs/BoardOfDirectors/BoardOfDirectors";
 import ExecutiveCommittee from "./Pages/AboutUs/Committee/ExecutiveCommittee/ExecutiveCommittee";
@@ -34,7 +33,11 @@ import ManageFeedbacks from "./Pages/Dashboard/AdminDashboard/ManageFeedbacks/Ma
 import CardDetails from "./Pages/Products/Cards/CardDetails";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
-<<<<<<< HEAD
+import ManageBlogs from "./Pages/Dashboard/AdminDashboard/ManageBlogs/ManageBlogs";
+import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
+import UpdateBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/UpdateBlog";
+import BlogsDetails from "./Pages/Blogs/BlogsDetails";
+import AllBlogsData from "./Pages/Blogs/AllBlogsData";
 import Overview from "./Pages/Dashboard/UserDashboard/Overview/Overview";
 import MyAccounts from "./Pages/Dashboard/UserDashboard/MyAccounts/MyAccounts";
 import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
@@ -42,13 +45,7 @@ import MyFeedbacks from "./Pages/Dashboard/UserDashboard/MyFeedbacks/MyFeedbacks
 import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/SingleAccountDetails";
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
-=======
-import ManageBlogs from "./Pages/Dashboard/AdminDashboard/ManageBlogs/ManageBlogs";
-import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
-import UpdateBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/UpdateBlog";
-import BlogsDetails from "./Pages/Blogs/BlogsDetails";
-import AllBlogsData from "./Pages/Blogs/AllBlogsData";
->>>>>>> 3cd4e6117e6e069421f55924f183c23c6ddf927f
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -58,7 +55,6 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        
         {/* Control Panel Routes */}
         <Route path="/cpanel" element={<RequireAuth><CPanel/></RequireAuth>}>
           <Route index element={<AdDashboard/>} />
