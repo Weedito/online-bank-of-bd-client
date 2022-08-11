@@ -1,4 +1,4 @@
-import {
+/* import {
   faBook,
   faMoneyBillTransfer,
   faMoneyBillTrendUp,
@@ -67,19 +67,19 @@ const UserDashboard = () => {
       <div className="recentTransactions">
         <h4 className="text-start lg:ml-20 text-2xl pt-10">Recent Transactions</h4>
         <p className="text-left lg:ml-24 mt-4">
-          <input className="border-none rounded-md p-1 ml-4 mb-3 lg:ml-0 text-slate-400" type="text" value="Status All" disabled/>
+          <input className="border-none rounded-md p-1 ml-4 mb-3 lg:ml-0 text-slate-400" type="text" value="Status All" disabled />
           <input className="border-none rounded-md p-1 ml-4 text-slate-400" type="text" value="Date: This Month" disabled />
         </p>
       </div>
 
       <div className="transactions m-4 lg:mx-20 max:w-3xl max-h-96 p-10 rounded-lg lg:py-60
        bg-white flex align-center justify-center">
-          <div className="show-transaction">
-            <div className="transaction-icon ml-14 w-10 h-10 align-center align-center justify-center rounded-full border border-green-200 bg-green-100">
+        <div className="show-transaction">
+          <div className="transaction-icon ml-14 w-10 h-10 align-center align-center justify-center rounded-full border border-green-200 bg-green-100">
             <FontAwesomeIcon icon={faBook} className="text-green-600 mt-3" />
-            </div>
-            <p className="text-slate-400">No Transactions Found</p>
           </div>
+          <p className="text-slate-400">No Transactions Found</p>
+        </div>
       </div>
 
     </div>
@@ -87,3 +87,4 @@ const UserDashboard = () => {
 };
 
 export default UserDashboard;
+ */
