@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { toast } from "react-toastify";
-const DepositModal = ({ deposit, refresh,setRefresh }) => {
-    const { name, AccNo, balance, _id, authemail } = deposit;
+const DepositModal = ({ deposit, refresh, setRefresh }) => {
+    const { name, AccNo, balance, _id, authemail, ahimage } = deposit;
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
     let today = new Date();
@@ -11,7 +11,7 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
 
         const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance + inputBalance);
-        const updateBalance = { depositBalance,  name, AccNo, balance};
+        const updateBalance = { depositBalance, name, AccNo, balance };
 
         if (depositBalance < 0) {
             return setError("Please Input more then 0");
@@ -64,13 +64,20 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
         <div>
             <input type="checkbox" id="deposit-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle text-center">
-                <div className="modal-box">
+                <div className="modal-box w-full">
                     <label for="deposit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='mb-4 badge badge-success text-2xl badge-lg p-4'>Deposit Money</h1>
-                    <h3 className="font-bold text-lg">{name}</h3>
-                    <p className='my-4'>Ac. No: {AccNo}</p>
-                    <p className='my-4'>Balance: {balance}</p>
-                    <p className=' text-primary'>{error}</p>
+                    <div className="flex justify-around items-center gap-3">
+                        <div className="">
+                        <img src={ahimage} alt="" className="" />
+                        </div>
+                        <div className="justify-start text-left">
+                            <h3 className="font-bold text-lg">{name}</h3>
+                            <p className='my-4'>Ac. No: {AccNo}</p>
+                            <p className='my-4'>Balance: {balance}</p>
+                            <p className=' text-primary'>{error}</p>
+                        </div>
+                    </div>
                     <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
                     <div className="modal-action">
                         <label for="deposit-modal" onClick={handleDeposit} className="btn">Deposit</label>

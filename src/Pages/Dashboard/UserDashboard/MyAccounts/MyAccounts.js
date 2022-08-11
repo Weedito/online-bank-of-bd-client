@@ -43,8 +43,8 @@ const MyAccounts = () => {
                                     </div>
                                 </div>
                                 <div className="">
-                                    <div className=" flex items-center justify-evenly flex-col py-5 px-3 md:flex-row gap-5">
-                                        <div className="flex flex-row items-center justify-evenly gap-3">
+                                    <div className=" flex items-center justify-evenly flex-col py-5 px-3 md:flex-row gap-3">
+                                        <div className="flex flex-row items-center mx-auto w-full justify-evenly gap-3">
                                             <label for="deposit-modal" onClick={() => setDeposit(account)} className="btn text-white btn-primary btn-xs">Deposit</label>
 
                                             <label for="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
