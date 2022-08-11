@@ -1,84 +1,125 @@
 import React from 'react';
 import Slide from 'react-reveal/Slide';
-import Fade from 'react-reveal/Fade';
 
 const AgentBanking = () => {
     return (
         <div>
-            <div className='lg:flex items-center space-x-40 mx-20 px-10'>
-                <Slide top>
-                    <div className='w-96 mt-10'>
-                        <h3 className="text-3xl font-bold">Agent Banking</h3>
-                        <p className='mt-5 font-semibold'>Agent Banking is defined as the banking services provided (outside of regular bank branches) by engaging agents under a valid agreement. An Agent is the owner of an outlet who conducts banking transaction on behalf of a Bank. It was first introduced by Bangladesh Bank (BB) in 2013. The aim is to provide financial services to the vastly unbanked segments of the population, especially those from the geographically dispersed locations.</p>
-
-                        <button className='btn btn-primary mt-5'>Submit your Deatils</button>
+            <div className='flex flex-col md:flex-row gap-12 lg:gap-96 justify-center items-center bg-slate-100 py-20 px-2'>
+                <Slide left>
+                    <div className="text-center">
+                        <div className='pl-20'>
+                            <h2 className='text-4xl font-semibold'>Agent Banking</h2>
+                            <p className="text-gray text-sm mt-3 w-96">Agent Banking is defined as the banking services provided (outside of regular bank branches) by engaging agents under a valid agreement. An Agent is the owner of an outlet who conducts banking transaction on behalf of a Bank. It was first introduced by Bangladesh Bank (BB) in 2013. The aim is to provide financial services to the vastly unbanked segments of the population, especially those from the geographically dispersed locations.</p>
+                        </div>
                     </div>
                 </Slide>
                 <Slide right>
-                    <div>
-                        <img width={'400px'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLPBK6EDQu-gzO3NfPtbNSVNjIRBQrJrKSmA&usqp=CAU" alt="" />
+                    <div className="">
+                        <img className='object-cover' src="https://i.ibb.co/QXcmY6v/Group-91.jpg" alt="Group-91" />
                     </div>
                 </Slide>
             </div>
 
-            <div className='mx-10 justify-center text-center mt-5'>
-                <Fade>
-                    <h3 className="text-3xl font-bold">WHERE WE ARE TODAY</h3>
-                </Fade>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12 gap-8'>
-                    <Slide top>
-                        <div className="card w-72 bg-warning shadow-xl">
-                            <div className="card-body">
-                                <h2 className='text-2xl'>5,129</h2>
-                                <p className='text-2xl'>Money Exchange</p>
+            <section className='mx-20 lg:pl-16'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 pt-8 gap-10 py-10'>
+                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div class="card-body">
+                            <div class="card-actions justify-start">
+                                <button class="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
                             </div>
+                            <h2 className='text-xl font-bold mt-3'>Money Exchange</h2>
+                            <h2 className='text-xl font-bold mt-3'>$ 125632569</h2>
+
                         </div>
-                        <div className="card w-72 bg-warning shadow-xl">
-                            <div className="card-body">
-                                <h2 className='text-2xl'>70</h2>
-                                <p className='text-2xl'>Partners</p>
+                    </div>
+
+                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div class="card-body">
+                            <div class="card-actions justify-start">
+                                <button class="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
                             </div>
+                            <h2 className='text-xl font-bold mt-3'>Partners</h2>
+                            <h2 className='text-xl font-bold mt-3'>10</h2>
                         </div>
-                    </Slide>
-                    <Slide bottom>
-                        <div className="card w-72 bg-warning shadow-xl">
-                            <div className="card-body">
-                                <h2 className='text-2xl'>64</h2>
-                                <p className='text-2xl'>Districs</p>
+                    </div>
+
+                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div class="card-body">
+                            <div class="card-actions justify-start">
+                                <button class="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
                             </div>
+                            <h2 className='text-xl font-bold mt-3'>District</h2>
+                            <h2 className='text-xl font-bold mt-3'>100</h2>
+
                         </div>
-                        <div className="card w-72 bg-warning shadow-xl">
-                            <div className="card-body">
-                                <h2 className='text-2xl'>532</h2>
-                                <p className='text-2xl'>Upazila</p>
+                    </div>
+
+                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div class="card-body">
+                            <div class="card-actions justify-start">
+                                <button class="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
                             </div>
+                            <h2 className='text-xl font-bold mt-3'>Sub-District</h2>
+                            <h2 className='text-xl font-bold mt-3'>$ 125632569</h2>
+
                         </div>
-                    </Slide>
+                    </div>
+
+                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div class="card-body">
+                            <div class="card-actions justify-start">
+                                <button class="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
+                            </div>
+                            <h2 className='text-xl font-bold mt-3'>Village</h2>
+                            <h2 className='text-xl font-bold mt-3'>10</h2>
+
+                        </div>
+                    </div>
+
+                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div class="card-body">
+                            <div class="card-actions justify-start">
+                                <button class="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
+                            </div>
+                            <h2 className='text-xl font-bold mt-2'>District</h2>
+                            <h2 className='text-xl font-bold text-green-500 mt-2'>100</h2>
+
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
+            <section>
+                <section className='mx-auto' style={{ backgroundColor: '#F5FFE9' }}>
+                    <div className='flex flex-col md:flex-row lg:gap-24 justify-center items-center py-2 px-2'>
+                        <Slide left >
+                            <div>
+                                <img className='object-cover' src="https://i.ibb.co/272JRxm/pexels-roman-pohorecki-230554-1.jpg" alt="" />
+                            </div>
+                        </Slide>
+                        <Slide right>
+                            <div className="text-left pl-5">
+                                <h2 className='text-4xl font-semibold'>Agent Banking Services</h2>
+                                <p className="text-gray text-sm py-3 text-left w-96">Through SMS banking, Bank clients can get different types of information like account balance, card payment, loan installment & other information by mobile SMS. SMS Banking provides both Push & Pull SMS. Push SMS are those that the bank chooses to send to a customer’s mobile phone without customer’s request. Pull SMS are those that are initiated by the customer by sending SMS to bank to get specific information like account balance enquiry, mini statement, currency exchange rates, deposit interest rates, etc.</p>
+                                <button className='px-5 py-2 bg-green-500 rounded-full'>Learn More</button>
+                            </div>
+                        </Slide>
 
-            <div className='text-start mx-10'>
-                <h3 className='text-3xl font-bold mt-10'>Agent Banking Services</h3>
-
-                <div className='mt-2'>
-                    <p className='font-semibold'>The following permissible services from Central Bank will be covered under Bank of bd Agent Banking.</p>
-                    <br />
-                    <p>1. <span>Cash deposits and cash withdrawals (ceiling should be determined by the Bank in line with the guideline of central bank)</span></p>
-                    <p>2. <span>Inward Foreign Remittance disbursement</span></p>
-                    <p>3. <span>	Disbursement and recovery/repayments of investments, installments;(as per regular banking procedure)</span></p>
-                    <p>4. <span>Utility Bills payment and ticketing (air, bus and train)</span></p>
-                    <p>5. <span>Payment of social safety net program</span></p>
-                    <p>6. <span>Fund transfer
-                        [Person to Person (P2P), Person to Business (P2B), Business to Person (B2P), Person to Government (P2G), Government to Person (G2P), Business to Government (B2G), Government to Business (G2B)]</span></p>
-                </div>
-            </div>
-
-            <div className='space-x-10 my-10 lg:pl-36 md:m-5'>
-                <button className='btn btn-accent'>Agent Banking Faq</button>
-                <button className='btn btn-accent'>Our Contact Details</button>
-                <button className='btn btn-accent'>SOC</button>
-            </div>
+                    </div>
+                </section>
+            </section>
 
         </div>
     );
