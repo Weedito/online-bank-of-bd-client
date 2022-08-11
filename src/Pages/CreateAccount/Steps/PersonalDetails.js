@@ -50,7 +50,7 @@ export default function PersonalDetails() {
         </div>
         <div class="mb-3 w-full lg:w-96">
           <label className="text-xs">Enter Your NID Number</label>
-          <input required name="NID" onChange={handleChange} value={CAData["NID"] || ""} type="number" class=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-700 focus:outline-none "
+          <input required name="NIDno" onChange={handleChange} value={CAData["NIDno"] || ""} type="number" class=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-700 focus:outline-none "
             id="exampleFormControlInput1"
             placeholder="Enter Your NID Number"
           />
@@ -65,7 +65,7 @@ export default function PersonalDetails() {
         <div class="mb-3 w-full lg:w-96">
           <label className="text-xs">Select Your Gender</label>
           <select required name="gender" onChange={handleChange} value={CAData["gender"] || ""} class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-            <option selected disabled>Select Gender</option>
+            <option selected>Select Gender</option>
             <option>Male</option>
             <option>Female</option>
             <option>Others</option>
@@ -73,10 +73,10 @@ export default function PersonalDetails() {
         </div>
         <div class="mb-3 w-full lg:w-96">
           <label className="text-xs">Country of Residence</label>
-          <select required name="gender" onChange={handleChange} value={CAData["gender"] || ""} class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-            <option selected disabled>Select Your Country</option>
+          <select required name="country" onChange={handleChange} value={CAData["country"] || ""} class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+            <option selected>Select Your Country</option>
             {
-              allCountry.map(country => <option>{country?.country}</option>)
+              allCountry?.map(country => <option>{country?.country}</option>)
             }
 
           </select>

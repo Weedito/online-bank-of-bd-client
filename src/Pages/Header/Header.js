@@ -18,8 +18,8 @@ const Header = () => {
                 {/* logo */}
                 <Fade left>
                     <a className='flex items-center gap-1' href='/'>
-                        {/* <img className="w-16" src="" alt='' />  */}
-                        <span className='text-2xl lg:text-3xl font-bold'>Online <span className="text-green-700 font-sarif">Bank BD</span></span>
+                        <img className="w-32" src="https://i.ibb.co/TLs3WLg/Logo-Header.png" alt='' /> 
+                        {/* <span className='text-2xl lg:text-3xl font-bold'>Online <span className="text-green-700 font-sarif">Bank BD</span></span> */}
                     </a>
                 </Fade>
                 {/* nav */}
