@@ -1,11 +1,12 @@
 import React from 'react';
+import Loading from '../../Components/Components.Nahid/Loading';
 import useBlogs from '../../Hook/useBlogs';
 import Blog2 from './Blog2';
 
 const AllBlogsData = () => {
     const {blogData,spinner}=useBlogs()
     if(spinner){
-        return <p>Loading... </p>
+        return <Loading/>
     }
     return (
         <div >

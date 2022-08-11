@@ -12,7 +12,7 @@ const Sidebar = () => {
       <div className={` ${open ? "w-72" : "w-20 "} bg-purple-400 h-screen p-5 pt-8 relative duration-300`} >
         <img src="https://i.ibb.co/CB1yQwj/kuba-arrow-button-set-2.png" className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple border-2 rounded-full  ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} alt="" />
         <div className="flex flex-col gap-x-4 items-center">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/OeBB_Logo_1998.svg/2560px-OeBB_Logo_1998.svg.png" className={`cursor-pointer w-full mx-auto duration-500 ${open && " w-2/3 rotate-[360deg]"}`} alt="" /> <br />
+          <img src="https://i.ibb.co/6YyJT6z/Logo-Header-white.png" className={`cursor-pointer w-full mx-auto duration-500 ${open && " w-2/3 rotate-[360deg]"}`} alt="" /> <br />
           <h1 className={`text-white origin-left font-medium text-xl duration-200 ${!open && "scale-0"}`} >
             Online Bank BD
           </h1>
