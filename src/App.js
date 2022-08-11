@@ -40,6 +40,8 @@ import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTra
 import MyFeedbacks from "./Pages/Dashboard/UserDashboard/MyFeedbacks/MyFeedbacks";
 import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/SingleAccountDetails";
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
+import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
+
 function App() {
   return (
     <div className="pt-16">
@@ -69,11 +71,12 @@ function App() {
           <Route path="myaccounts/:id" element={<SingleAccountDetails/>}></Route>
           <Route path="mytransactions" element={<MyTransactions/>}></Route>
           <Route path="myfeedbacks" element={<MyFeedbacks/>}></Route>
+
         </Route>
         {/* User Dashboard Routes End*/}
 
         {/* About Us Routes */}
-        <Route path="/about" element={<About />} />\ 
+        <Route path="/about" element={<About />} />\
         <Route path="/shareholders" element={<Shareholders />} />
         <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
         <Route path="/executivecommittee" element={<ExecutiveCommittee />} />
@@ -94,6 +97,7 @@ function App() {
         <Route path="/retailbanking" element={<RetailBanking />} />
         <Route path="/corporatebanking" element={<CorporateBanking />} />
         <Route path="/smebanking" element={<SMEBanking />} />
+        <Route path='/smebanking/:loanId' element={<SmeLoan />}></Route>
         <Route path="/agentbanking" element={<AgentBanking />} />
         <Route path="/smsbanking" element={<SMSBanking />} />
         {/* Our Banking Routes End*/}
@@ -107,6 +111,7 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
