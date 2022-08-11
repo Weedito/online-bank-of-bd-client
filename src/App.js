@@ -34,6 +34,7 @@ import ManageFeedbacks from "./Pages/Dashboard/AdminDashboard/ManageFeedbacks/Ma
 import CardDetails from "./Pages/Products/Cards/CardDetails";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
+<<<<<<< HEAD
 import Overview from "./Pages/Dashboard/UserDashboard/Overview/Overview";
 import MyAccounts from "./Pages/Dashboard/UserDashboard/MyAccounts/MyAccounts";
 import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
@@ -41,6 +42,13 @@ import MyFeedbacks from "./Pages/Dashboard/UserDashboard/MyFeedbacks/MyFeedbacks
 import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/SingleAccountDetails";
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
+=======
+import ManageBlogs from "./Pages/Dashboard/AdminDashboard/ManageBlogs/ManageBlogs";
+import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
+import UpdateBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/UpdateBlog";
+import BlogsDetails from "./Pages/Blogs/BlogsDetails";
+import AllBlogsData from "./Pages/Blogs/AllBlogsData";
+>>>>>>> 3cd4e6117e6e069421f55924f183c23c6ddf927f
 
 function App() {
   return (
@@ -59,6 +67,8 @@ function App() {
           <Route path="maccounts" element={<ManageAccounts/>} />
           <Route path="thistory" element={<TransactionHistory/>} />
           <Route path="mfeedbacks" element={<ManageFeedbacks/>} />
+          <Route path="manageBlogs" element={<ManageBlogs/>}/>
+          <Route path="addBlog" element={<AddBlog/>}/>
         </Route>    
         {/* Control Panel Routes */}
 
@@ -73,6 +83,9 @@ function App() {
           <Route path="myfeedbacks" element={<MyFeedbacks/>}></Route>
 
         </Route>
+        <Route path="/blog/:id" element={<UpdateBlog/>}/>
+        <Route path="/blogDetails/:id" element={<BlogsDetails/>}/>
+        <Route path="/allBlogsData" element={<AllBlogsData/>} />
         {/* User Dashboard Routes End*/}
 
         {/* About Us Routes */}

@@ -272,6 +272,7 @@ export const SidebarData = [
         href: "mfeedbacks",
         icon: faStreetView,
     },
+<<<<<<< HEAD
 ];
 
 export const UserSidebarData = [
@@ -310,3 +311,16 @@ export const allCountry = [
     {country:'South Africa'},
     {country:'Lebanon'},
 ]
+=======
+    {
+        title: "Manage Blogs",
+        href: "manageBlogs",
+        icon: faStreetView,
+    },
+    {
+        title: "Add Blog",
+        href: "addBlog",
+        icon: faStreetView,
+    },
+];
+>>>>>>> 3cd4e6117e6e069421f55924f183c23c6ddf927f
