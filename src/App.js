@@ -46,7 +46,7 @@ import MyFeedbacks from "./Pages/Dashboard/UserDashboard/MyFeedbacks/MyFeedbacks
 import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/SingleAccountDetails";
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
-
+import BlogDetails from "./Pages/Home/BlogDetails"
 
 function App() {
   return (
@@ -56,7 +56,8 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        
+        {/* Blog Details */}
+        <Route path="/blog/:id" element={<BlogDetails />} />
         {/* Control Panel Routes */}
         <Route path="/cpanel" element={<RequireAuth><CPanel/></RequireAuth>}>
           <Route index element={<AdDashboard/>} />
