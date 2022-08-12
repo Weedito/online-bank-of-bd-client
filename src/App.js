@@ -113,7 +113,7 @@ function App() {
 
         {/* Contact Routes End*/}
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/createaccount" element={<RequireAuth><CreateAccount/></RequireAuth>}/>
+        <Route path="/openaccount" element={<RequireAuth><CreateAccount/></RequireAuth>}/>
         <Route path="/webcam" element={<WebcamCapture />} />
         {/* Contact Routes End*/}
 

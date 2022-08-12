@@ -22,7 +22,7 @@ const RequireAuth = ({ children }) => {
     }
 
     if (!user.emailVerified) {
-        return <div className='text-center '>
+        return <div className='text-center space-y-2'>
             <h1 className='text-3xl text-red-600'>Email not verified!!</h1>
             <h2 className='text-xl text-green-600'>Pleser check your email alredy get a mail for Verification</h2>
             <h2 className='text-xl text-red-600'>If you can't get mail then press the button</h2>

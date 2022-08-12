@@ -26,7 +26,7 @@ const MyAccounts = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto w-full pt-5 items-center justify-center gap-5 pb-10 ">
                 {
                     myAccount?.map(account => {
-                        console.log(account);
+                        // console.log(account);
                         return (
                             <div className=" mx-auto w-full items-center justify-center p-5 rounded-lg bg-white shadow-lg ">
 
