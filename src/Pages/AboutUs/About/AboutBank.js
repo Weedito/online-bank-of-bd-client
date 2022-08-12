@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutBank = () => {
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <div className="p-5 md:p-10">
                 <div className="flex flex-col items-center w-full justify-around md:flex-row gap-5">
                     <div className="w-3/5 mx-auto">

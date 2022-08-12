@@ -35,7 +35,7 @@ const UserSidebar = () => {
         <a href='/' className={`${open && "hidden"} text-md flex items-center font-semibold origin-left duration-200`}> <FontAwesomeIcon className='text-2xl pr-2' icon={faHomeAlt}/></a>
         </div>
       </div>
-      <div className="h-screen flex-1 p-7">
+      <div className="h-screen max-w-7xl mx-auto flex-1 p-7">
         <Outlet />
       </div>
     </div>

@@ -5,7 +5,7 @@ const Blog2 = ({blog}) => {
     const {title,description, date,picture,_id}=blog;
     const navigate =useNavigate()
     return (
-        <div className="p-8 rounded-3xl bg-[#F3F3F3] flex flex-col md:flex-row w-[100%] shadow-md">
+        <div className="p-8 rounded-3xl bg-[#F3F3F3] flex flex-col md:flex-row w-[100%] max-w-7xl mx-auto shadow-md">
             <div className='md:w-[40%] w-[100%] flex justify-center md:mb-0 mb-4'>
                 <img src={picture} className=" rounded-3xl" alt='blog-img'/>
             </div>

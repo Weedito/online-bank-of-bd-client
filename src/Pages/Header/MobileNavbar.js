@@ -194,13 +194,12 @@ const MobileNavbar = () => {
               return (
                   (user && !admin) && <li key={idx}  onClick={() => setIsOpen(false)}  className={`mb-4 dropdown text-white`}>
                       
-                      <NavLink
-                          to={item.href}
+                      <a href={item.href}
                           smooth={true}
                           duration={500}
                           offset={-70}
                           className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
-                      > {item.name} </NavLink>
+                      > {item.name} </a>
                   </li> 
               )
           }
