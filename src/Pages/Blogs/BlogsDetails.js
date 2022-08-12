@@ -11,7 +11,7 @@ const BlogsDetails = () => {
     const [spinner,setSpinner]=useState(true)
     const navigate = useNavigate()
     useEffect(()=>{
-        const url= `http://localhost:5000/blog/${id}`
+        const url= `https://bank-of-bd.herokuapp.com/blog/${id}`
         fetch(url).then(res=>res.json()).then(data=>{
             setblog(data)
             setSpinner(false)

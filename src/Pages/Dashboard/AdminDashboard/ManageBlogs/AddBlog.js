@@ -9,7 +9,7 @@ const AddBlog = () => {
     const onSubmit = (data) => {
         const blogData= {...data, date,}
         
-        const url = 'http://localhost:5000/blog'
+        const url = 'https://bank-of-bd.herokuapp.com/blog'
         fetch(url,{
             method:"POST",
             headers:{

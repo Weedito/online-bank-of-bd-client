@@ -56,7 +56,7 @@ const CreateAnAccount = () => {
       authemail: user.email,
     }
 
-    fetch('http://localhost:5000/account', {
+    fetch('https://bank-of-bd.herokuapp.com/account', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
