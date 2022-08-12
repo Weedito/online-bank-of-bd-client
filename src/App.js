@@ -46,6 +46,7 @@ import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/Sin
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
 
 function App() {
   return (
@@ -56,7 +57,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Control Panel Routes */}
-        <Route path="/cpanel" element={<RequireAuth><CPanel/></RequireAuth>}>
+        <Route path="/cpanel" element={<RequireAuth>
+
+          <RequireAdmin>
+          <CPanel/>
+          </RequireAdmin>
+        </RequireAuth>}>
           <Route index element={<AdDashboard/>} />
           <Route path="addashboard" element={<AdDashboard/>} />
           <Route path="musers" element={<ManageUsers/>} />
