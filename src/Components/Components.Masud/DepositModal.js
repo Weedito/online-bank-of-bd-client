@@ -63,7 +63,7 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
     return (
         <div>
             <input type="checkbox" id="deposit-modal" className="modal-toggle" />
-            <div className="w-full text-center">
+            <div className="modal modal-bottom sm:modal-middle text-center">
                 <div className="modal-box w-full">
                     <label for="deposit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='mb-4 badge badge-success text-2xl badge-lg p-4'>Deposit Money</h1>
