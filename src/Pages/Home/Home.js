@@ -1,5 +1,6 @@
 import React from "react";
 import NoticeFromBank from "../../Components/Components.Arif/NoticeFromBank/NoticeFromBank";
+import BannerCarousel from "../../Components/Components.Masud/BannerCarousel";
 import Banner from "./Banner";
 import Blogs from "./Blogs";
 import BusinessSummary from "./BusinessSummary";
@@ -10,7 +11,8 @@ import WhyChooseOBB from "./WhyChooseOBB";
 const Home = () => {
   return (
     <div>
-      <Banner />
+      <BannerCarousel></BannerCarousel>
+      {/* <Banner /> */}
       <NoticeFromBank />
       <WhyChooseOBB />
       <BusinessSummary />

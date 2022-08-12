@@ -49,7 +49,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   return (
-    <div className="pt-16">
+    <div className=" pt-20">
       {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header /> }
 
       {/* <Header /> */}
