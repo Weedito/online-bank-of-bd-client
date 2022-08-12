@@ -28,8 +28,6 @@ const Header = () => {
                         <Navbar />
                     </Fade>
                 </div>
-                {/* Dashboard Icon */}
-                <label for="my-drawer-2" class="btn btn-primary drawer-button btn-sm m-3 lg:hidden"><FontAwesomeIcon icon={faBattleNet} /></label>
                 {/* Authentication */}
                 <div className="">
                     <Zoom>

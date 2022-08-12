@@ -19,7 +19,7 @@ const BlogsDetails = () => {
         return<p>Loading...</p>
     }
     return (
-        <section className='w-full mx-auto pb-5  mb-5  justify-center rounded-[27px] relative'>
+        <section className='w-full mx-auto pb-5 max-w-7xl mx-auto mb-5  justify-center rounded-[27px] relative'>
         <div className='blogDetailsBanner'>
         </div>
         <div class="bg-base-100 shadow-xl mt-[80px] mx-auto max-w-[1280px] p-4 ">
