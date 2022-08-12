@@ -4,8 +4,6 @@ import MobileNavbar from './MobileNavbar';
 import Navbar from './Navbar';
 import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
-import { faBattleNet } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
 
