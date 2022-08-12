@@ -50,7 +50,7 @@ import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
 
 function App() {
   return (
-    <div className="pt-16">
+    <div className=" pt-16">
       {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header /> }
 
       {/* <Header /> */}

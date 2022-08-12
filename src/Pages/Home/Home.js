@@ -1,5 +1,8 @@
 import React from "react";
 import NoticeFromBank from "../../Components/Components.Arif/NoticeFromBank/NoticeFromBank";
+import BannerCarousel from "../../Components/Components.Masud/BannerCarousel";
+import FetureHome from "../../Components/Components.Masud/FetureHome";
+import AboutCounter from "../AboutUs/About/AboutCounter";
 import Banner from "./Banner";
 import Blogs from "./Blogs";
 import BusinessSummary from "./BusinessSummary";
@@ -11,16 +14,19 @@ import WhyWaiting from "./WhyWaiting";
 
 const Home = () => {
   return (
-    <div className="">
-      <Banner />
+
+    <div className="max-w-7xl mx-auto">
+      <BannerCarousel/>
+      {/* <Banner /> */}
+      <OruTrustedPartners/>
+      <AboutCounter/>
       <NoticeFromBank />
       <WhyChooseOBB />
       <GetLoan/>
       <BusinessSummary />
       <WhyWaiting/>
-      <Blogs/>
-      <OruTrustedPartners/>
       <TrustedCFeedback/>
+      <Blogs/>
     </div>
   );
 };

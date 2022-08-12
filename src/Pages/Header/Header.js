@@ -10,13 +10,13 @@ const Header = () => {
 
     return (
         <header style={{ background: '#FCFAFA' }}
-            className={` h-16 flex items-center fixed top-0 w-full text-dark z-50 px-3 shadow transition-all duration-300`}
+            className={` fixed top-0 h-16 flex items-center py-4 w-full text-dark z-50 px-3 shadow transition-all duration-300`}
         >
-            <div className='container mx-auto h-full flex items-center justify-between lg:px-10'>
+            <div className='container mx-auto h-full flex items-center justify-between max-w-7xl'>
                 {/* logo */}
                 <Fade left>
                     <a className='flex items-center gap-1' href='/'>
-                        <img className="w-32" src="https://i.ibb.co/TLs3WLg/Logo-Header.png" alt='' /> 
+                        <img className="w-40" src="https://i.ibb.co/wrjf422/Untitled-1.png" alt='' /> 
                         {/* <span className='text-2xl lg:text-3xl font-bold'>Online <span className="text-green-700 font-sarif">Bank BD</span></span> */}
                     </a>
                 </Fade>
