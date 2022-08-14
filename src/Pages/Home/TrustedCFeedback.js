@@ -25,7 +25,7 @@ const TrustedCFeedback = () => {
   const [ourFeedback, setOurFeedback] = useState([]);
 
   useEffect(() => {
-    fetch('https://bank-of-bd.herokuapp.com/feedbacks')
+    fetch('http://localhost:5000/feedbacks')
       .then(res => res.json())
       .then(result => {
         setOurFeedback(result)
@@ -45,7 +45,7 @@ const TrustedCFeedback = () => {
     setHoverValue(undefined)
   }
 
-  // const url = `https://bank-of-bd.herokuapp.com/feedback/:${feedbackId}`;
+  // const url = `http://localhost:5000/feedback/:${feedbackId}`;
 
   const handleDelete = id => {
 
@@ -59,7 +59,7 @@ const TrustedCFeedback = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://bank-of-bd.herokuapp.com/feedback/${id}`, {
+        fetch(`http://localhost:5000/feedback/${id}`, {
           method: 'DELETE',
           headers: {
             'content-type': 'application/json'
@@ -109,7 +109,7 @@ const TrustedCFeedback = () => {
     }
     console.log(feedbackDetails)
 
-    fetch('https://bank-of-bd.herokuapp.com/feedback', {
+    fetch('http://localhost:5000/feedback', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -161,12 +161,12 @@ const TrustedCFeedback = () => {
 
 
       <section>
-        <div className='text-center'><label for="my-modal-6" class="btn btn-primary animate-bounce w-26 h-6 modal-button">Review Us</label></div>
+        <div className='text-center'><label htmlFor="my-modal-6" className="btn btn-primary animate-bounce w-26 h-6 modal-button">Review Us</label></div>
         <div>
-          <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-          <div class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-              <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+          <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+          <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+              <label htmlFor="my-modal-6" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
               <div style={styles.container}>
                 <h2> Feedback Ratings </h2>
@@ -189,8 +189,8 @@ const TrustedCFeedback = () => {
                   })}
                 </div>
                 <textarea placeholder="What's your experience?" ref={feedbackRef} style={styles.textarea} />
-                <div class="modal-action">
-                  <label for="my-modal-6" class="btn" onClick={sendFeedback}>Submit</label>
+                <div className="modal-action">
+                  <label htmlFor="my-modal-6" className="btn" onClick={sendFeedback}>Submit</label>
                 </div>
               </div>
             </div>

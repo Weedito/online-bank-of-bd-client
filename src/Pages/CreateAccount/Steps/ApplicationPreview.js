@@ -67,7 +67,7 @@ const ApplicationPreview = ({ currentStep, steps }) => {
             confirmButtonText: 'Yes, Submit it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('https://bank-of-bd.herokuapp.com/account', {
+                fetch('http://localhost:5000/account', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -97,22 +97,22 @@ const ApplicationPreview = ({ currentStep, steps }) => {
 
     return (
         <div className="flex flex-col w-full mx-auto items-center justify-center h-full">
-            <div class="flex flex-col md:flex-row w-full rounded-lg bg-white shadow-lg">
+            <div className="flex flex-col md:flex-row w-full rounded-lg bg-white shadow-lg">
                 <div className="w-full p-5 md:w-2/5 mx-auto">
-                    <img class=" object-cover rounded-t-lg md:rounded-none md:rounded-l-lg" src={CAData?.ahimage} alt="" />
+                    <img className=" object-cover rounded-t-lg md:rounded-none md:rounded-l-lg" src={CAData?.ahimage} alt="" />
                 </div>
-                <div class="p-6 w-full md:w-3/5 mx-auto flex flex-col justify-start">
-                    <h5 class="text-gray-900 text-xl font-semibold mb-2">Name: <span className="text-green-700">{CAData?.name}</span></h5>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Account Type: <span className=" text-xs md:text-base px-3 py-1 rounded-full bg-rose-700 text-white">{CAData?.actype}</span></p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Account Number: {accno}</p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {CAData?.balance}</p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Email: {CAData?.email}</p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">NID Number: {CAData?.NIDno}</p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Phone: {CAData?.phone}</p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Date of Birth: {CAData?.DOB}</p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Gender: {CAData?.gender}</p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Country: {CAData?.country}</p>
-                    <p class="text-gray-700 text-xs md:text-base font-semibold mb-4">Address: {CAData?.address}</p>
+                <div className="p-6 w-full md:w-3/5 mx-auto flex flex-col justify-start">
+                    <h5 className="text-gray-900 text-xl font-semibold mb-2">Name: <span className="text-green-700">{CAData?.name}</span></h5>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Account Type: <span className=" text-xs md:text-base px-3 py-1 rounded-full bg-rose-700 text-white">{CAData?.actype}</span></p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Account Number: {accno}</p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {CAData?.balance}</p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Email: {CAData?.email}</p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">NID Number: {CAData?.NIDno}</p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Phone: {CAData?.phone}</p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Date of Birth: {CAData?.DOB}</p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Gender: {CAData?.gender}</p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Country: {CAData?.country}</p>
+                    <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Address: {CAData?.address}</p>
                 </div>
             </div>
             <button onClick={handleCreateAccount} disabled={submit} className={`${submit === true ? " cursor-not-allowed opacity-50 " : ""} cursor-pointer my-5 rounded-xl border-2 border-slate-300 bg-blue-500 text-white py-2 px-4 font-semibold uppercase transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white`}>

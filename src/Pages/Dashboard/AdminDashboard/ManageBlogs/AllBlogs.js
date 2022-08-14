@@ -6,7 +6,7 @@ const AllBlogs = () => {
     const [smSpinner,setSmSpinner ]=useState(true)
     const [refresh,setRefresh]=useState(false)
     useEffect(()=>{
-        const url = 'https://bank-of-bd.herokuapp.com/blogs'
+        const url = 'http://localhost:5000/blogs'
         fetch(url).then(res=>res.json()).then(data=>{
             const reversBlog = data.reverse()
             setBlogs(reversBlog)

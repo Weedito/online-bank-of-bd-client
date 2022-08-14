@@ -33,11 +33,11 @@ const SMSBanking = () => {
 
             <section className='mx-20 lg:pl-16'>
                 <div className='grid grid-cols-1 lg:grid-cols-3 pt-8 gap-10 py-10'>
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
-                        <div class="card-body">
-                            <div class="card-actions justify-start">
-                                <button class="btn btn-square btn-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <div className="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div className="card-body">
+                            <div className="card-actions justify-start">
+                                <button className="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
                             </div>
                             <h2 className='text-xl font-bold mt-3'>Recharge</h2>
@@ -45,11 +45,11 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
-                        <div class="card-body">
-                            <div class="card-actions justify-start">
-                                <button class="btn btn-square btn-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <div className="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div className="card-body">
+                            <div className="card-actions justify-start">
+                                <button className="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
                             </div>
                             <h2 className='text-xl font-bold mt-3'>Postpaid Bill Pay</h2>
@@ -58,11 +58,11 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
-                        <div class="card-body">
-                            <div class="card-actions justify-start">
-                                <button class="btn btn-square btn-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <div className="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div className="card-body">
+                            <div className="card-actions justify-start">
+                                <button className="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
                             </div>
                             <h2 className='text-xl font-bold mt-3'>DMRC card recharge</h2>
@@ -70,11 +70,11 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
-                        <div class="card-body">
-                            <div class="card-actions justify-start">
-                                <button class="btn btn-square btn-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <div className="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div className="card-body">
+                            <div className="card-actions justify-start">
+                                <button className="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
                             </div>
                             <h2 className='text-xl font-bold mt-3'>Alerts & Request</h2>
@@ -82,11 +82,11 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-96 h-60 bg-base-100 shadow-2xl">
-                        <div class="card-body">
-                            <div class="card-actions justify-start">
-                                <button class="btn btn-square btn-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <div className="card w-96 h-60 bg-base-100 shadow-2xl">
+                        <div className="card-body">
+                            <div className="card-actions justify-start">
+                                <button className="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
                             </div>
                             <h2 className='text-xl font-bold mt-3'>Postpaid Bill Pay</h2>
@@ -94,11 +94,11 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
-                        <div class="card-body">
-                            <div class="card-actions justify-start">
-                                <button class="btn btn-square btn-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <div className="card w-72 h-52 bg-base-100 shadow-2xl">
+                        <div className="card-body">
+                            <div className="card-actions justify-start">
+                                <button className="btn btn-square btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
                             </div>
                             <h2 className='text-xl font-bold mt-2'>DMRC card recharge</h2>

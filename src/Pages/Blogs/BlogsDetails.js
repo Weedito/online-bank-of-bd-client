@@ -11,7 +11,7 @@ const BlogsDetails = () => {
     const [spinner,setSpinner]=useState(true)
     const navigate = useNavigate()
     useEffect(()=>{
-        const url= `https://bank-of-bd.herokuapp.com/blog/${id}`
+        const url= `http://localhost:5000/blog/${id}`
         fetch(url).then(res=>res.json()).then(data=>{
             setblog(data)
             setSpinner(false)
@@ -24,13 +24,13 @@ const BlogsDetails = () => {
         <section className='w-full mx-auto pb-5 max-w-7xl mx-auto mb-5  justify-center rounded-[27px] relative'>
         <div className='blogDetailsBanner'>
         </div>
-        <div class="bg-base-100 shadow-xl mt-[80px] mx-auto max-w-[1280px] p-4 ">
+        <div className="bg-base-100 shadow-xl mt-[80px] mx-auto max-w-[1280px] p-4 ">
            
-            <div class="  text-center text-gray-700 my-5">
-                <h2 class="font-bold text-4xl my-2">
+            <div className="  text-center text-gray-700 my-5">
+                <h2 className="font-bold text-4xl my-2">
                     CATAGORI-1!
                 </h2>
-                    <div class="card-actions  text-black flex justify-center ">
+                    <div className="card-actions  text-black flex justify-center ">
                         <FontAwesomeIcon icon={faHeart} className="mr-2 hover:text-red-500 cursor-pointer" />
                         <FontAwesomeIcon icon={faShare} className="hover:text-green-500 cursor-pointer" />
                     </div>

@@ -16,7 +16,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
         const updateBalance = { depositBalance };
 
 
-        const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+        const url = `http://localhost:5000/account/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -45,7 +45,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
             email: authemail,
         }
 
-        fetch('https://bank-of-bd.herokuapp.com/statement', {
+        fetch('http://localhost:5000/statement', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -63,7 +63,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
             <input type="checkbox" id="withdraw-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle text-center">
                 <div className="modal-box">
-                    <label for="withdraw-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="withdraw-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     <h1 className='mb-4 badge badge-info text-2xl badge-lg p-4'>Withdraw Money</h1>
 
@@ -73,7 +73,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
 
                     <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
                     <div className="modal-action">
-                        <label for="withdraw-modal" onClick={hadleWithdraw} className="btn">Withdraw</label>
+                        <label htmlFor="withdraw-modal" onClick={hadleWithdraw} className="btn">Withdraw</label>
                     </div>
                 </div>
             </div>

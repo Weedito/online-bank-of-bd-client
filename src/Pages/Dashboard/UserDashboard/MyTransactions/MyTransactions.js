@@ -19,7 +19,7 @@ const MyTransactions = () => {
     }, [myAccount, selectAcc]);
 
     useEffect(() => {
-        fetch('https://bank-of-bd.herokuapp.com/statements')
+        fetch('http://localhost:5000/statements')
             .then(res => res.json())
             .then(data => setTransactions(data))
     }, [])
@@ -52,7 +52,7 @@ const MyTransactions = () => {
                         <h3 className="text-sm md:text-2xl font-semibold pr-2">Select Your Account</h3>
                         <div className="">
 
-                            <select onChange={handleSelect} class="select focus:outline-none select-ghost w-full text-md md:text-xl">
+                            <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md md:text-xl">
                                 {
                                     myAccount?.map(account => <option >{account?.AccNo}</option>)
                                 }
