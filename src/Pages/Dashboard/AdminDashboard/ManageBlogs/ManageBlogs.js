@@ -2,11 +2,7 @@ import React from 'react';
 import AllBlogs from './AllBlogs';
 
 const ManageBlogs = () => {
-    return (
-        <div>
-            <AllBlogs/>
-        </div>
-    );
+    return  <AllBlogs/>
 };
 
 export default ManageBlogs;
