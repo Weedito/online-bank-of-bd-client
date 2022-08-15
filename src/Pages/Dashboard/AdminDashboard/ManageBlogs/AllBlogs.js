@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import AddBlog from './AddBlog';
 import BlogsRow from './BlogsRow';
 
 const AllBlogs = () => {
@@ -11,7 +12,6 @@ const AllBlogs = () => {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
         reset
       } = useForm();
@@ -113,6 +113,9 @@ const AllBlogs = () => {
          
 
         </div>
+        {
+            modal && <AddBlog setModal={setModal} refresh={refresh} setRefresh={setRefresh}/>
+        }
         </div>
     );
 };
