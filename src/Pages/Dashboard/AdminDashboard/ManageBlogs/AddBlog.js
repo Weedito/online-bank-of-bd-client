@@ -12,7 +12,7 @@ const AddBlog = ({refresh, setRefresh, setModal}) => {
         const image =data.picture[0]
         const formData = new FormData()
         formData.append("image",image)
-        const imgUrl = `https://api.imgbb.com/1/upload?key=${imageAPIKey}`
+        const imgUrl = `https://api.imgbb.com/1/upload?key=${imageAPIKey}`;
 
         fetch(imgUrl,{
             method:"POST",
@@ -33,8 +33,7 @@ const AddBlog = ({refresh, setRefresh, setModal}) => {
                 const picture=result.data.url
                 const blogData= {title,category,description,picture,date}
                 console.log(blogData);
-
-                const url = 'http://localhost:5000/blog'
+                const url = 'http://localhost:5000/blog';
                 fetch(url,{
                     method:"POST",
                     headers:{
