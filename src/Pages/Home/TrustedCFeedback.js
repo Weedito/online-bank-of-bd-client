@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { TrustedCFeedbackData } from '../../Components/Components.Nahid/Data';
 import { FaStar } from "react-icons/fa";
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
