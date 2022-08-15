@@ -28,7 +28,7 @@ const BlogsDetails = () => {
            
             <div className="  text-center text-gray-700 my-5">
                 <h2 className="font-bold text-4xl my-2">
-                    CATAGORI-1!
+                    {blog.category? blog.category: "Category"}
                 </h2>
                     <div className="card-actions  text-black flex justify-center ">
                         <FontAwesomeIcon icon={faHeart} className="mr-2 hover:text-red-500 cursor-pointer" />
@@ -51,20 +51,32 @@ const BlogsDetails = () => {
                         <h4 className='md:text-4xl text-xl font-medium text-start '>{blog?.title}</h4>
                         <hr/>
                         <blockquote className='mt-4'>
-                            <p className='text-justify md:text-xl text-sm'>
+                            <p className='text-justify text-[15px]'>
                                 {blog?.description}
                             </p>
                         </blockquote>
 
                         
                     </div>
+                    <div className='comment-section mt-8'>
+                <form className='w-full flex flex-col items-start md:mx-12 mx-2'>
+                    <input type="text" required placeholder='Write Your Comment' className="md:w-2/3  input w-full border-b-2 border-t-0 border-l-0 border-r-0 
+                    focus:border-t-0
+                    focus:border-r-0
+                    focus:border-l-0
+                    focus:outline-0
+                    outline-0"/>
+                    <button  className="outline-0 mt-4 border py-2 px-4 rounded-md bg-green-500 text-white flex items-center text-xl font-sans font-medium shadow-md">Comment</button>
+                </form>
+            </div>
                 
             </div>
+            
         </div>
             <div className='blog-img-container'>
-            <figure><img className='blog-img shadow-xl' src={blog?.picture} alt="Shoes" /></figure>
-
+                <figure><img className='blog-img shadow-xl' src={blog?.picture} alt="Shoes" /></figure>
             </div>
+           
         </section>
     );
 };
