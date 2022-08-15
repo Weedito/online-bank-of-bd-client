@@ -33,7 +33,7 @@ const SMSBanking = () => {
 
             <section className='mx-20 lg:pl-16'>
                 <div className='grid grid-cols-1 lg:grid-cols-3 pt-8 gap-10 py-10'>
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                    <div class="card w-72 h-52 hover:bg-lime-100 hover:w-96 hover:h-60 bg-base-100 shadow-2xl">
                         <div class="card-body">
                             <div class="card-actions text-start">
                                 <svg width="64" height="44" viewBox="0 0 64 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                    <div class="card w-72 h-52 bg-base-100 hover:bg-lime-100 hover:w-96 hover:h-60 shadow-2xl">
                         <div class="card-body">
                             <div class="card-actions justify-start">
                                 <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +81,7 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                    <div class="card w-72 h-52 hover:bg-lime-100 hover:w-96 hover:h-60 bg-base-100 shadow-2xl">
                         <div class="card-body">
                             <div class="card-actions justify-start">
                                 <svg width="44" height="43" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -103,7 +103,7 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                    <div class="card w-72 h-52 hover:bg-lime-100 hover:w-96 hover:h-60 bg-base-100 shadow-2xl">
                         <div class="card-body">
                             <div class="card-actions justify-start">
                                 <svg width="64" height="44" viewBox="0 0 64 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +127,7 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl" style={{ backgroundColor: '#ECFFD3' }}>
+                    <div class="card w-72 h-52 hover:bg-lime-100 hover:w-96 hover:h-60 bg-base-100 shadow-2xl">
                         <div class="card-body">
                             <div class="card-actions text-start">
                                 <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -149,7 +149,7 @@ const SMSBanking = () => {
                         </div>
                     </div>
 
-                    <div class="card w-72 h-52 bg-base-100 shadow-2xl">
+                    <div class="card w-72 h-52 hover:bg-lime-100 hover:w-96 hover:h-60 bg-base-100 shadow-2xl">
                         <div class="card-body">
                             <div class="card-actions justify-start">
                                 <svg width="44" height="43" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
