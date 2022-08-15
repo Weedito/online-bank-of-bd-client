@@ -42,6 +42,7 @@ const LoanPage = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

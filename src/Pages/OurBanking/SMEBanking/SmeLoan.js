@@ -13,6 +13,31 @@ const SmeLoan = () => {
       .then(data => setLoanInfo(data))
   }, [])
 
+  // const Monthly = 12;
+  // const Quarterly = 4;
+  // const Half_Yearly = 2;
+  // const Yearly = 1;
+
+
+
+
+
+  const handleLoanCalculator = e => {
+    e.preventDefault();
+    const loanAmount = e.target.loanAmount.value;
+    console.log(loanAmount);
+    const interestRate = e.target.interestRate.value;
+    console.log(interestRate)
+    const Payment_Type = e.target.Payment_Type.value;
+    console.log(Payment_Type)
+    const Loan_period = e.target.Loan_period.value;
+    console.log(Loan_period);
+
+
+
+
+
+  }
 
   return (
     <div>
@@ -25,7 +50,7 @@ const SmeLoan = () => {
           </div>
           <div>
 
-            <form>
+            <form onSubmit={handleLoanCalculator}>
               <div class="form-control w-full max-w-xs">
                 <label class="label">
                   <span class="label-text">Loan Amount(Tk.)</span>
@@ -40,17 +65,17 @@ const SmeLoan = () => {
                 <label class="label">
                   <span class="label-text">Payment Type</span>
                 </label>
-                <select class="select select-bordered select-sm w-full max-w-xs">
-                  <option selected>Monthly</option>
-                  <option>Quarterly</option>
-                  <option>Half-Yearly</option>
-                  <option>Yearly</option>
+                <select class="select select-bordered w-full max-w-xs" name="Payment_Type">
+                  <option value='12' selected>Monthly</option>
+                  <option value='4'>Quarterly</option>
+                  <option value='2'>Half_Yearly</option>
+                  <option value='1'>Yearly</option>
                 </select>
 
                 <label class="label">
                   <span class="label-text">Loan period in years</span>
                 </label>
-                <select class="select select-bordered select-sm w-full max-w-xs">
+                <select class="select select-bordered w-full max-w-xs" name="Loan_period">
                   <option selected>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -66,6 +91,7 @@ const SmeLoan = () => {
 
 
               <input className='m-5 px-5 bg-green-700' type="submit" value="Add" />
+              <input className='m-5 px-5 bg-red-700' type="reset" value="Reset" />
             </form>
 
           </div>
