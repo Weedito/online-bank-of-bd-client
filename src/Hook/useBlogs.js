@@ -4,7 +4,7 @@ const useBlogs=()=>{
     const[blogData,setBlogDate]=useState([])
     const [spinner,setSpinner]=useState(true)
     useEffect(()=>{
-        const url = "http://localhost:5000/blogs"
+        const url = "https://bank-of-bd.herokuapp.com/blogs"
         fetch(url).then(res=>res.json()).then(data=>{
             const blogreverse= data.reverse()
             setBlogDate(blogreverse)
