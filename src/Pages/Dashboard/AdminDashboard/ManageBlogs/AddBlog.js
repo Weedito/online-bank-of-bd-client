@@ -1,32 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 const AddBlog = ({refresh, setRefresh, setModal}) => {
     const { register, handleSubmit,reset } = useForm();
+    const [btnSpinner ,setBtnSpinner]=useState(false)
     const date = new Date().toLocaleDateString()
-    const navigate = useNavigate()
+    const imageAPIKey = 'f2d532c88848782b1dc45cebfdcd0290';
+
     const onSubmit = (data) => {
-        const blogData= {...data, date,}
-        
-        const url = 'http://localhost:5000/blog'
-        fetch(url,{
+        setBtnSpinner(true)
+        const image =data.picture[0]
+        const formData = new FormData()
+        formData.append("image",image)
+        const imgUrl = `https://api.imgbb.com/1/upload?key=${imageAPIKey}`
+
+        fetch(imgUrl,{
             method:"POST",
-            headers:{
-                "content-type":"application/json"
-            },
-            body:JSON.stringify(blogData)
-        }).then(res=>res.json()).then(result=>{
-            toast.success("Successfully Your Blog Post!")
-            reset()
-            navigate("/cpanel/manageBlogs")
+            body:formData
         })
+        .then(res=>{
+            if(!res.status === 200){
+                setBtnSpinner(false)
+            }
+            return res.json()
+        })
+        .then(result=>{
+            
+            if(result.success){
+                const title = data.title;
+                const category = data.category;
+                const description = data.description;
+                const picture=result.data.url
+                const blogData= {title,category,description,picture,date}
+                console.log(blogData);
+
+                const url = 'http://localhost:5000/blog'
+                fetch(url,{
+                    method:"POST",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(blogData)
+                }).then(res=>res.json()).then(result=>{
+                    toast.success("Successfully Your Blog Post!")
+                    reset()
+                    setModal(false)
+                    setBtnSpinner(false)
+                    setRefresh(!refresh)
+                })
+            }
+        })
+        
     }
     return (
         <div
         style={{backgroundColor:"rgba(000,000,000,0.6)"}}
         className=" mx-5 absolute top-0 right-0 left-0 bottom-0 z-30 flex justify-center">
-            
             <div className=" md:w-2/3 w-full  my-12 md:mx-2 mx-4  flex flex-col items-center justify-center bg-white md:p-4 p-2 rounded-md shadow-3xl">
                 <div className='cross-btn flex justify-end w-full'>
                     <span
@@ -38,47 +67,45 @@ const AddBlog = ({refresh, setRefresh, setModal}) => {
                     </span>
             </div>
                 <div className='max-h-[500px] overflow-y-scroll md:p-6 p-2 w-full'>
-                <h2 className="font-bold text-4xl text-center text-gray-700 my-5">
-                    Add a Blog
-                </h2>
-                <form
-                    className="grid grid-cols-1 gap-4"
-                    onSubmit={handleSubmit(onSubmit)}
-                >
-                    <input
-                        type="url"
-                        {...register("picture")}
-                        placeholder="Add Image URL"
-
-                        className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
-                        required
-                    />
-                     <input
-                        type="url"
-                        {...register("blogLink")}
-                        placeholder="Blogs Details Link"
-
-                        className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
-                        required
-                    />
-                    <input
-                        {...register("title", { required: true, maxLength: 200 })}
-                        className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
-                        placeholder="Add Title"
-                        required
-                    />
-                    <textarea
-                        className="h-48 border-2 border-gray-500 rounded mb-2 py-3 px-5 " maxLength='4000'
-                        {...register("description")}
-                        placeholder="Add Text Here (Max Character 4000) "
-                        required
-                    />
-                    <input
-                        className="px-5 py-2 my-2 bg-green-700 rounded-full cursor-pointer hover:bg-green-400 transition text-white"
-                        type="submit"
-                        value="POST"
-                    />
-                </form>
+                    <h2 className="font-bold text-4xl text-center text-gray-700 my-5">
+                        Add a Blog
+                    </h2>
+                    <form className="grid grid-cols-1 gap-4"
+                        onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                            {...register("title", { required: true, maxLength: 200 })}
+                            className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
+                            placeholder="Add Title"
+                            required
+                        />
+                        
+                        <select 
+                        {...register("category")}
+                        className="border-2 border-gray-500 rounded mb-2 py-3 px-5">
+                            <option>This Bank Website blog</option>
+                            <option>This Bank Website blog</option>
+                            <option>This Bank Website blog</option>
+                            <option>This Bank Website blog</option>
+                        </select>
+                        <input
+                            type="file"
+                            {...register("picture",{ required: true })}
+                            // onChange={handleFileUploader}
+                            className="border-2 border-gray-500 rounded mb-2 py-3 px-5"
+                            required
+                        />
+                        <textarea
+                            className="h-48 border-2 border-gray-500 rounded mb-2 py-3 px-5 "
+                            {...register("description",{ required: true, minLength: 50 })}
+                            placeholder="Add Text Here (Minimum Character 100) "
+                            required
+                        />
+                        <button
+                        disabled={btnSpinner&& true}
+                            className={`px-4 py-4 my-2 bg-green-700 rounded-lg text-sm md:text-xl   transition text-white ${btnSpinner? 'bg-gray-400 cursor-not-allowed':"bg-green-700 cursor-pointer hover:bg-green-400"}`}
+                            type="submit"
+                        >Add Blog</button>
+                    </form>
 
                 </div>
             </div>

@@ -34,7 +34,6 @@ import CardDetails from "./Pages/Products/Cards/CardDetails";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
 import ManageBlogs from "./Pages/Dashboard/AdminDashboard/ManageBlogs/ManageBlogs";
-import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 import UpdateBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/UpdateBlog";
 import BlogsDetails from "./Pages/Blogs/BlogsDetails";
 import AllBlogsData from "./Pages/Blogs/AllBlogsData";
@@ -70,7 +69,6 @@ function App() {
           <Route path="thistory" element={<TransactionHistory/>} />
           <Route path="mfeedbacks" element={<ManageFeedbacks/>} />
           <Route path="manageBlogs" element={<ManageBlogs/>}/>
-          <Route path="addBlog" element={<AddBlog/>}/>
         </Route>    
         {/* Control Panel Routes */}
 
