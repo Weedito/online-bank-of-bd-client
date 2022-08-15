@@ -9,9 +9,8 @@ const NoticeFromBank = () => {
   };
 
   return (
-    <div className="bankNotice mt-20">
-      <h6 className="text-white pt-5 text-4xl">Notice From Bank</h6>
-      <marquee direction="left" className="mt-8 mb-4 text-white lg:w-4/5">
+    <div className="bankNotice">
+      <marquee direction="left" className="text-white text-2xl text-center my-5">
         {bankNotice.notice}
       </marquee>
     </div>

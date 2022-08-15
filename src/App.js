@@ -46,17 +46,23 @@ import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/Sin
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
 
 function App() {
   return (
-    <div className="pt-16">
+    <div className=" pt-16">
       {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header /> }
 
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Control Panel Routes */}
-        <Route path="/cpanel" element={<RequireAuth><CPanel/></RequireAuth>}>
+        <Route path="/cpanel" element={<RequireAuth>
+
+          <RequireAdmin>
+          <CPanel/>
+          </RequireAdmin>
+        </RequireAuth>}>
           <Route index element={<AdDashboard/>} />
           <Route path="addashboard" element={<AdDashboard/>} />
           <Route path="musers" element={<ManageUsers/>} />
@@ -113,7 +119,7 @@ function App() {
 
         {/* Contact Routes End*/}
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/createaccount" element={<RequireAuth><CreateAccount/></RequireAuth>}/>
+        <Route path="/openaccount" element={<RequireAuth><CreateAccount/></RequireAuth>}/>
         <Route path="/webcam" element={<WebcamCapture />} />
         {/* Contact Routes End*/}
 

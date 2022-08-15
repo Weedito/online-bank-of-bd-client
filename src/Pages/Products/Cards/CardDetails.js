@@ -57,7 +57,7 @@ const CardDetails = () => {
                     <form>
                         <div className="row g-3 align-items-center">
                             <div className="col-auto">
-                                <label htmlFor="loan-input" className="form-label">
+                                <label htmlhtmlFor="loan-input" className="form-label">
                                     Loan Amount (Tk)
                                 </label>
                             </div>
@@ -73,7 +73,7 @@ const CardDetails = () => {
                         </div>
                         <div className="row g-3 align-items-center">
                             <div className="col-auto">
-                                <label htmlFor="duration-input" className="form-label">
+                                <label htmlhtmlFor="duration-input" className="form-label">
                                     Duration (in Months)
                                 </label>
                             </div>
@@ -90,7 +90,7 @@ const CardDetails = () => {
                     </form>
                     <div className="row g-3 align-items-center">
                         <div className="col-auto">
-                            <label htmlFor="interest-range" className="form-label">
+                            <label htmlhtmlFor="interest-range" className="form-label">
                                 Interest Rate (%) : {interest}
                             </label>
                         </div>

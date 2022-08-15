@@ -18,8 +18,8 @@ const Interest = () => {
 
       </div>
 
-      <div class="overflow-x-auto max-w-7xl mx-auto">
-        <table class="table table-zebra table-striped w-full z-0">
+      <div className="overflow-x-auto max-w-7xl mx-auto">
+        <table className="table table-zebra table-striped w-full z-0">
 
           <thead>
             <tr>

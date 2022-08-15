@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Zoom } from 'react-reveal';
 import { NavLink } from 'react-router-dom';
+import useAccount from '../../Components/Components.Nahid/Hooks/useAccount';
 import UseAdmin from '../../Components/Components.Nahid/Hooks/useAdmin';
 import { AboutDropdown, CommitteeDropdown, Navigation, OurBankingDropdown, ProductsDropdown } from '../../Components/Components.Nahid/NavbarData';
 import auth from '../../firebase.init';
@@ -12,6 +13,10 @@ const Navbar = () => {
     const [bg, setBg] = useState(false);
     const [user] = useAuthState(auth);
     const [admin] = UseAdmin();
+    const { myAccount } = useAccount();
+    const account = myAccount?.length > 0;
+
+    // console.log(myAccount);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -147,40 +152,54 @@ const Navbar = () => {
                         }
 
 
-                            if(item.name === 'Dashboard'){
-                                return (
-                                    (user && !admin) && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
-                                        
-                                        <NavLink
-                                            to={item.href}
-                                            smooth={true}
-                                            duration={500}
-                                            offset={-70}
-                                            className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
-                                        > {item.name} </NavLink>
-                                    </li> 
-                                )
-                            }
+                        if (item.name === 'Open Account') {
+                            return (
+                                (user && !account && !admin) && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
+
+                                    <NavLink
+                                        to={item.href}
+                                        smooth={true}
+                                        duration={500}
+                                        offset={-70}
+                                        className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
+                                    > {item.name} </NavLink>
+                                </li>
+                            )
+                        }
+
+                        if (item.name === 'Dashboard') {
+                            return (
+                                (user && account && !admin) && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
+
+                                    <a href={item.href}
+                                        smooth={true}
+                                        duration={500}
+                                        offset={-70}
+                                        className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
+                                    > {item.name} </a>
+                                </li>
+                            )
+                        }
 
 
-                            if(item.name === 'Control Panel'){
-                                return (
-                                    (user && admin) && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
-                                        
-                                        <a href={item.href}
-                                            smooth={true}
-                                            duration={500}
-                                            offset={-70}
-                                            className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
-                                        > {item.name} </a>
-                                    </li>
-                                )
-                            }
+                        if (item.name === 'Control Panel') {
+                            return (
+                                (user && admin) && <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
+
+                                    <a href={item.href}
+                                        smooth={true}
+                                        duration={500}
+                                        offset={-70}
+                                        className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
+                                    > {item.name} </a>
+                                </li>
+                            )
+                        }
 
 
                         return (
                             <li key={idx} className={`${bg && 'text-black'} text-xl font-semibold hover:text-secondary cursor-pointer`}>
-                                
+
                                 <NavLink
                                     to={item.href}
                                     smooth={true}

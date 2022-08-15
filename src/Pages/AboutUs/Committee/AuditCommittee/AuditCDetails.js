@@ -3,11 +3,11 @@ import { AuditCData } from '../../../../Components/Components.Nahid/Data';
 
 const AuditCDetails = () => {
     return (
-        <div className=''>
+        <div className='max-w-7xl'>
             {
                 AuditCData.map((data, idx) => {
                     return (
-                        <div key={idx} className="hero min-h-screen w-full bg-base-200">
+                        <div key={idx} className="hero min-h-screen max-w-7xl mx-auto w-full bg-base-200">
                             <div className="hero-content flex-col lg:flex-row-reverse">
                                 <div className="w-full lg:w-3/6 mx-auto">
                                 <img src={data?.img} alt='' className=" mx-auto rounded-lg shadow-2xl" />

@@ -143,12 +143,12 @@ const SigninLeft = () => {
           placeholder="Enter Your Email"
           className="input bg-slate-100 my-2 block mx-auto input-ghost w-full max-w-xs"
         />
-        <label htmlFor="email">
+        <label htmlhtmlFor="email">
           {errors?.email?.type === "required" && (
             <span className="text-red-700">{errors.email?.message}</span>
           )}
         </label>
-        <label htmlFor="email">
+        <label htmlhtmlFor="email">
           {errors?.email?.type === "pattern" && (
             <span className="text-red-700">{errors.email?.message}</span>
           )}

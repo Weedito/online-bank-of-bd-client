@@ -15,9 +15,9 @@ export default function AccountInfo() {
     <div className="text-left w-full md:w-5/6 mx-auto">
       <h3 className="font-semibold text-md">Please let us Know your Preferences:</h3>
       <div className="space-y-7 w-full md:w-4/5 mx-auto py-7 ">
-        <div class="mb-3 xl:w-96">
+        <div className="mb-3 xl:w-96">
           <label className="text-xs">What's Purpose of Account Opening ?</label>
-          <select required name="acpurpose" onChange={handleChange} value={CAData["acpurpose"] || ""} class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+          <select required name="acpurpose" onChange={handleChange} value={CAData["acpurpose"] || ""} className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
             <option selected>Select Purpose of Account</option>
             <option>Personal Savings</option>
             <option>Business Transactions</option>
@@ -25,9 +25,9 @@ export default function AccountInfo() {
             <option>Salary Transactions</option>
           </select>
         </div>
-        <div class="mb-3 xl:w-96">
+        <div className="mb-3 xl:w-96">
           <label className="text-xs">What is Your Desired Account Type ?</label>
-          <select required name="actype" onChange={handleChange} value={CAData["actype"] || ""} class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+          <select required name="actype" onChange={handleChange} value={CAData["actype"] || ""} className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
             <option selected>Select Type of Account</option>
             <option>Savings Account</option>
             <option>Current Account</option>
@@ -36,9 +36,9 @@ export default function AccountInfo() {
             <option>OBB Cash</option>
           </select>
         </div>
-        <div class="mb-3 xl:w-96">
+        <div className="mb-3 xl:w-96">
           <label className="text-xs">What is Your Preferred Branch ?</label>
-          <select required name="branch" onChange={handleChange} value={CAData["branch"] || ""} class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+          <select required name="branch" onChange={handleChange} value={CAData["branch"] || ""} className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
             <option selected>Select the Branch Near You</option>
             <option>Ashulia Branch</option>
             <option>Aftabnagar Branch</option>
@@ -52,9 +52,9 @@ export default function AccountInfo() {
             <option>Uttara Branch</option>
           </select>
         </div>
-        <div class="mb-3 xl:w-96">
+        <div className="mb-3 xl:w-96">
           <label className="text-xs">Initial Deposit (in Figure)</label>
-          <input required name="balance" onChange={handleChange} value={CAData["balance"] || ""} type="number" class=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+          <input required name="balance" onChange={handleChange} value={CAData["balance"] || ""} type="number" className=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
             id="exampleFormControlInput1"
             placeholder="Deposit Your Account"
           />

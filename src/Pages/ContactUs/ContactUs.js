@@ -32,7 +32,7 @@ const ContactUs = () => {
     };
 
     return (
-        <section className='section bg-slate-200 py-20 px-5' id='contact'>
+        <section className='section max-w-7xl mx-auto bg-slate-200 py-20 px-5' id='contact'>
 
             <RubberBand>
                 <div className='flex flex-col items-center text-center'>

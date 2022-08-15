@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 
 const AboutCounter = () => {
     return (
-        <div className="flex justify-center items-center flex-col py-20  px-2">
+        <div className="flex justify-center items-center flex-col py-20  px-2 max-w-7xl mx-auto">
             <div className="title">
                 <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
                     Company <span className="text-green-700">At a Glance</span>
