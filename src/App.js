@@ -46,42 +46,43 @@ import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/Sin
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Accounts from "./Pages/OurBanking/RetailBanking/Accounts";
 
 function App() {
   return (
     <div className="pt-16">
-      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header />}
 
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         {/* Control Panel Routes */}
-        <Route path="/cpanel" element={<RequireAuth><CPanel/></RequireAuth>}>
-          <Route index element={<AdDashboard/>} />
-          <Route path="addashboard" element={<AdDashboard/>} />
-          <Route path="musers" element={<ManageUsers/>} />
-          <Route path="maccounts" element={<ManageAccounts/>} />
-          <Route path="thistory" element={<TransactionHistory/>} />
-          <Route path="mfeedbacks" element={<ManageFeedbacks/>} />
-          <Route path="manageBlogs" element={<ManageBlogs/>}/>
-          <Route path="addBlog" element={<AddBlog/>}/>
-        </Route>    
+        <Route path="/cpanel" element={<RequireAuth><CPanel /></RequireAuth>}>
+          <Route index element={<AdDashboard />} />
+          <Route path="addashboard" element={<AdDashboard />} />
+          <Route path="musers" element={<ManageUsers />} />
+          <Route path="maccounts" element={<ManageAccounts />} />
+          <Route path="thistory" element={<TransactionHistory />} />
+          <Route path="mfeedbacks" element={<ManageFeedbacks />} />
+          <Route path="manageBlogs" element={<ManageBlogs />} />
+          <Route path="addBlog" element={<AddBlog />} />
+        </Route>
         {/* Control Panel Routes */}
 
         {/* User Dashboard Routes */}
 
-        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
-          <Route index element={<Overview/>}></Route>
-          <Route path="overview" element={<Overview/>}></Route>
-          <Route path="myaccounts" element={<MyAccounts/>}></Route>
-          <Route path="myaccounts/:id" element={<SingleAccountDetails/>}></Route>
-          <Route path="mytransactions" element={<MyTransactions/>}></Route>
-          <Route path="myfeedbacks" element={<MyFeedbacks/>}></Route>
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<Overview />}></Route>
+          <Route path="overview" element={<Overview />}></Route>
+          <Route path="myaccounts" element={<MyAccounts />}></Route>
+          <Route path="myaccounts/:id" element={<SingleAccountDetails />}></Route>
+          <Route path="mytransactions" element={<MyTransactions />}></Route>
+          <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
 
         </Route>
-        <Route path="/blog/:id" element={<UpdateBlog/>}/>
-        <Route path="/blogDetails/:id" element={<BlogsDetails/>}/>
-        <Route path="/allBlogsData" element={<AllBlogsData/>} />
+        <Route path="/blog/:id" element={<UpdateBlog />} />
+        <Route path="/blogDetails/:id" element={<BlogsDetails />} />
+        <Route path="/allBlogsData" element={<AllBlogsData />} />
         {/* User Dashboard Routes End*/}
 
         {/* About Us Routes */}
@@ -104,6 +105,7 @@ function App() {
 
         {/* Our Banking Routes */}
         <Route path="/retailbanking" element={<RetailBanking />} />
+        <Route path="/accountstogole" element={<Accounts />} />
         <Route path="/corporatebanking" element={<CorporateBanking />} />
         <Route path="/smebanking" element={<SMEBanking />} />
         <Route path='/smebanking/:loanId' element={<SmeLoan />}></Route>
@@ -113,7 +115,7 @@ function App() {
 
         {/* Contact Routes End*/}
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/createaccount" element={<RequireAuth><CreateAccount/></RequireAuth>}/>
+        <Route path="/createaccount" element={<RequireAuth><CreateAccount /></RequireAuth>} />
         <Route path="/webcam" element={<WebcamCapture />} />
         {/* Contact Routes End*/}
 
@@ -124,7 +126,7 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Footer /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Footer />}
       {/* <Footer /> */}
       <ToastContainer />
     </div>
