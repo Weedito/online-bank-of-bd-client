@@ -102,7 +102,7 @@ const AddBlog = ({refresh, setRefresh, setModal}) => {
                         />
                         <button
                         disabled={btnSpinner&& true}
-                            className={`px-4 py-4 my-2 bg-green-700 rounded-lg text-sm md:text-xl   transition text-white ${btnSpinner? 'bg-gray-400 cursor-not-allowed':"bg-green-700 cursor-pointer hover:bg-green-400"}`}
+                            className={`px-4 py-4 my-2 bg-green-700 rounded-lg text-sm md:text-xl   transition  text-white ${btnSpinner? 'bg-gray-400 cursor-not-allowed loading':"bg-green-700 cursor-pointer hover:bg-green-400"}`}
                             type="submit"
                         >Add Blog</button>
                     </form>

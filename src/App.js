@@ -84,7 +84,12 @@ function App() {
 
         </Route>
         <Route path="/blog/:id" element={<UpdateBlog/>}/>
-        <Route path="/blogDetails/:id" element={<BlogsDetails/>}/>
+        <Route path="/blogDetails/:id" element={
+
+          <RequireAuth>
+            <BlogsDetails/>
+          </RequireAuth>
+        }/>
         <Route path="/allBlogsData" element={<AllBlogsData/>} />
         {/* User Dashboard Routes End*/}
 
