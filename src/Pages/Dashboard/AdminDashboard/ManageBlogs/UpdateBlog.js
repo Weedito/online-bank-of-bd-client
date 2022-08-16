@@ -37,8 +37,9 @@ const UpdateBlog = ({refresh, setRefresh}) => {
                     const title = data.title;
                     const category = data.category;
                     const description = data.description;
-                    const picture=result.data.url
-                    const blogData= {title,category,description,picture,date}
+                    const picture=result.data.url;
+                    const comment =[]
+                    const blogData= {title,category,description,picture,date,comment}
                     console.log(blogData);
                     const url = `http://localhost:5000/blog/${id}`
                     fetch(url,{
@@ -87,10 +88,10 @@ const UpdateBlog = ({refresh, setRefresh}) => {
                             <select 
                             {...register("category")}
                             className="border-2 border-gray-500 rounded mb-2 py-3 px-5">
-                                <option>This Bank Website blog</option>
-                                <option>This Bank Website blog</option>
-                                <option>This Bank Website blog</option>
-                                <option>This Bank Website blog</option>
+                               <option>Personal blogs</option>
+                                <option>Business/corporate blogs</option>
+                                <option>News Blogs</option>
+                                <option>Review Blogs</option>
                             </select>
                             <input
                                 type="file"

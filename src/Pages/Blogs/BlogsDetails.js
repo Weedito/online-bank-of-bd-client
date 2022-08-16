@@ -5,23 +5,53 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../Blogs/Blogs.css"
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../Components/Components.Nahid/Loading';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from "../../firebase.init";
+import BlogComment from './BlogComment';
 const BlogsDetails = () => {
     const {id}=useParams()
     const [blog,setblog]=useState({})
-    const [spinner,setSpinner]=useState(true)
+    const [spinner,setSpinner]=useState(true);
     const navigate = useNavigate()
+    const [user, loading] = useAuthState(auth);
+    const [refresh,setRefresh]=useState(false)
+    const [btnSpinner,setBtnSpinner]=useState(false);
+    const [comments,setComments]=useState(null)
     useEffect(()=>{
         const url= `http://localhost:5000/blog/${id}`
         fetch(url).then(res=>res.json()).then(data=>{
             setblog(data)
             setSpinner(false)
+            const comment = data?.comment
+           setComments(comment.reverse())
         })
-    },[id])
-    if(spinner){
+    },[id,refresh])
+    if(spinner || loading){
         return<Loading/>
     }
+    const handleComment=(e)=>{
+        e.preventDefault()
+        setBtnSpinner(true)
+        const comment  =e.target.comment.value;
+        const prevComment = blog?.comment
+        const userComment = [...prevComment,{comment, user}];
+        console.log(userComment);
+        const url = `http://localhost:5000/blog/comment/${id}`;
+        fetch(url,{
+            method:"PATCH",
+            headers:{
+                "content-type":"application/json"
+            },
+            body: JSON.stringify(userComment)
+        }).then(res=>res.json()).then(result=>{
+            setRefresh(!refresh)
+            e.target.reset()
+            setBtnSpinner(false)
+        })
+    }
+    console.log(blog?.comment);
     return (
-        <section className='w-full mx-auto pb-5 max-w-7xl mx-auto mb-5  justify-center rounded-[27px] relative'>
+        <section className='w-full mx-auto pb-5 max-w-7xl  mb-5  justify-center rounded-[27px] relative'>
         <div className='blogDetailsBanner'>
         </div>
         <div className="bg-base-100 shadow-xl mt-[80px] mx-auto max-w-[1280px] p-4 ">
@@ -59,15 +89,27 @@ const BlogsDetails = () => {
                         
                     </div>
                     <div className='comment-section mt-8'>
-                <form className='w-full flex flex-col items-start md:mx-12 mx-2'>
-                    <input type="text" required placeholder='Write Your Comment' className="md:w-2/3  input w-full border-b-2 border-t-0 border-l-0 border-r-0 
-                    focus:border-t-0
-                    focus:border-r-0
-                    focus:border-l-0
-                    focus:outline-0
-                    outline-0"/>
-                    <button  className="outline-0 mt-4 border py-2 px-4 rounded-md bg-green-500 text-white flex items-center text-xl font-sans font-medium shadow-md">Comment</button>
-                </form>
+                        <form 
+                        onSubmit={handleComment}
+                        className='w-full flex flex-col items-start md:mx-12 mx-2'>
+                            <input type="text"
+                            name='comment'
+                            required placeholder='Write Your Comment' className="md:w-2/3  w-full border-b-2 border-t-0 border-l-0 border-r-0 
+                            focus:border-t-0
+                            focus:border-r-0
+                            focus:border-l-0
+                            focus:outline-0
+                            outline-0"/>
+                            <button
+                            disabled={btnSpinner&& true}
+                            className={`outline-0 mt-4 border py-2 px-4 rounded-md  text-white flex items-center text-xl font-sans font-medium shadow-md ${btnSpinner? 'bg-gray-400 cursor-not-allowed':'bg-green-500 cursor-pointer'}}`}>Comment</button>
+                        </form>
+                        <div className='my-4 md:mx-12 mx-4'>
+                            <hr/>
+                        </div>
+
+                        {/* user comment  */}
+                        {comments && comments.map((comment,index)=><BlogComment key={index} comment={comment}/>)   }
             </div>
                 
             </div>
@@ -76,6 +118,7 @@ const BlogsDetails = () => {
             <div className='blog-img-container'>
                 <figure><img className='blog-img shadow-xl' src={blog?.picture} alt="Shoes" /></figure>
             </div>
+           
            
         </section>
     );
