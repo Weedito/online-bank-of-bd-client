@@ -34,8 +34,8 @@ const RetailBanking = () => {
 
 
 
-            <section className='pb-8'>
-                <div className='grid grid-cols-1 lg:grid-cols-3 pt-8 gap-5 px-8'>
+            <section className='py-12 my-12'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-8'>
 
                     {
                         retailBanking.map(retailBank => <div key={retailBank._id} className="card hover:bg-base-200 hover:shadow-xl">

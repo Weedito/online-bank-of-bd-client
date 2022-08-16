@@ -47,11 +47,12 @@ import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
+import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 
 function App() {
   return (
     <div className=" pt-16">
-      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header />}
 
       {/* <Header /> */}
       <Routes>
@@ -60,34 +61,34 @@ function App() {
         <Route path="/cpanel" element={<RequireAuth>
 
           <RequireAdmin>
-          <CPanel/>
+            <CPanel />
           </RequireAdmin>
         </RequireAuth>}>
-          <Route index element={<AdDashboard/>} />
-          <Route path="addashboard" element={<AdDashboard/>} />
-          <Route path="musers" element={<ManageUsers/>} />
-          <Route path="maccounts" element={<ManageAccounts/>} />
-          <Route path="thistory" element={<TransactionHistory/>} />
-          <Route path="mfeedbacks" element={<ManageFeedbacks/>} />
-          <Route path="manageBlogs" element={<ManageBlogs/>}/>
-          <Route path="addBlog" element={<AddBlog/>}/>
-        </Route>    
+          <Route index element={<AdDashboard />} />
+          <Route path="addashboard" element={<AdDashboard />} />
+          <Route path="musers" element={<ManageUsers />} />
+          <Route path="maccounts" element={<ManageAccounts />} />
+          <Route path="thistory" element={<TransactionHistory />} />
+          <Route path="mfeedbacks" element={<ManageFeedbacks />} />
+          <Route path="manageBlogs" element={<ManageBlogs />} />
+          <Route path="addBlog" element={<AddBlog />} />
+        </Route>
         {/* Control Panel Routes */}
 
         {/* User Dashboard Routes */}
 
-        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>        
-          <Route index element={<Overview/>}></Route>
-          <Route path="overview" element={<Overview/>}></Route>
-          <Route path="myaccounts" element={<MyAccounts/>}></Route>
-          <Route path="myaccounts/:id" element={<SingleAccountDetails/>}></Route>
-          <Route path="mytransactions" element={<MyTransactions/>}></Route>
-          <Route path="myfeedbacks" element={<MyFeedbacks/>}></Route>
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<Overview />}></Route>
+          <Route path="overview" element={<Overview />}></Route>
+          <Route path="myaccounts" element={<MyAccounts />}></Route>
+          <Route path="myaccounts/:id" element={<SingleAccountDetails />}></Route>
+          <Route path="mytransactions" element={<MyTransactions />}></Route>
+          <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
 
         </Route>
-        <Route path="/blog/:id" element={<UpdateBlog/>}/>
-        <Route path="/blogDetails/:id" element={<BlogsDetails/>}/>
-        <Route path="/allBlogsData" element={<AllBlogsData/>} />
+        <Route path="/blog/:id" element={<UpdateBlog />} />
+        <Route path="/blogDetails/:id" element={<BlogsDetails />} />
+        <Route path="/allBlogsData" element={<AllBlogsData />} />
         {/* User Dashboard Routes End*/}
 
         {/* About Us Routes */}
@@ -117,9 +118,15 @@ function App() {
         <Route path="/smsbanking" element={<SMSBanking />} />
         {/* Our Banking Routes End*/}
 
+
+        { /* Our Commitment dynamic Routes start*/}
+        <Route path="/ourcommitmen/:id" element={<OurCommitment />} />
+        { /* Our Commitment dynamic Routes End*/}
+
+
         {/* Contact Routes End*/}
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/openaccount" element={<RequireAuth><CreateAccount/></RequireAuth>}/>
+        <Route path="/openaccount" element={<RequireAuth><CreateAccount /></RequireAuth>} />
         <Route path="/webcam" element={<WebcamCapture />} />
         {/* Contact Routes End*/}
 
@@ -130,7 +137,7 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Footer /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Footer />}
       {/* <Footer /> */}
       <ToastContainer />
     </div>
