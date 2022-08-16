@@ -1,23 +1,37 @@
 import React from 'react';
 import { TrustedPartnersData } from '../../Components/Components.Nahid/Data';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const OruTrustedPartners = () => {
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 5000,
+    cssEase: "linear"
+  };
   return (
-    <div className="flex justify-center items-center bg-slate-100 flex-col ">
-      <div className="title">
-        {/* <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
-          Our Trusted <span className="text-green-700">Partners</span>
-        </h2> */}
-      </div>
-      <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {/* partner summary  */}
-        {
-          TrustedPartnersData.map((item, idx) => {
-            return (
-              <img className='p-10 opacity-50 w-60' key={idx} src={item?.imageURL} alt="partners" />
-            )
-          })
-        }
+    <div className="flex justify-center items-center w-full mx-auto bg-slate-200 ">
+      <div className="w-full max-w-7xl mx-auto">
+        <Slider className='' {...settings}>
+          {
+            TrustedPartnersData.map((item, idx) => {
+              return (
+
+                <div className="py-10 h-40 flex justify-center items-center gap-5">
+                  <img className='w-40 md:w-52 flex justify-center items-center h-30 py-5 px-7' key={idx} src={item?.imageURL} alt="partners" />
+                </div>
+
+              )
+            })
+          }
+        </Slider>
 
       </div>
     </div>

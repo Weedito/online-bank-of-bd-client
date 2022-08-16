@@ -43,11 +43,11 @@ const ContactUs = () => {
                     </div>
                 </div>
             </RubberBand>
-            <div className='flex flex-col w-full gap-5 lg:gap-8 lg:flex-row'  >
+            <div className='flex flex-col w-full lg:gap-8 lg:flex-row'  >
                 <div className='flex flex-1 items-center flex-col lg:flex-row w-full space-y-8 mx-auto my-12 lg:mb-0 lg:pt-2' >
 
-                    <div className="flex flex-col lg:flex-row gap-4 w-full mx-auto">
-                        <div className="flex flex-col mx-auto w-full gap-5 lg:w-2/6">
+                    <div className="flex flex-col lg:flex-row w-full mx-auto">
+                        <div className="flex flex-col gap-3 mx-auto w-full lg:w-2/6">
                             <div className='flex gap-3'>
                                 <div className='text-accent rounded-sm w-14 h-14 flex items-start justify-center mt-2 mb-4 lg:mb-0 text-2xl'>
                                     <FontAwesomeIcon icon={faEnvelope} />

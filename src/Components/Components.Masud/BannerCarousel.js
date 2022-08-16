@@ -1,6 +1,9 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import Slider from 'react-animated-slider';
+import 'react-animated-slider/build/horizontal.css';
+
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,12 +15,23 @@ import { Navigation } from "swiper";
 
 
 const BannerCarousel = () => {
+
+    const slides = [
+        { title: 'First item', description: 'Lorem ipsum' },
+        { title: 'Second item', description: 'Lorem ipsum' }
+    ];
+
     return (
         <div className='mx-auto'>
-
+            <Slider>
+                {slides.map((slide, index) => <div key={index}>
+                    <h2>{slide.title}</h2>
+                    <div>{slide.description}</div>
+                </div>)}
+            </Slider>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 <SwiperSlide>
-                    <div className="flex justify-between max-w-7xl">
+                    <div className="flex justify-between max-w-7xl mx-auto gap-3">
                         <div className='flex-initial w-3/4'>
                             <h1 className='text-7xl text-white'>Welcome To</h1>
                             <h1 className=' mt-3 text-7xl text-white'>Online Bank BD</h1>
@@ -45,7 +59,7 @@ const BannerCarousel = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className="flex justify-between max-w-7xl">
+                    <div className="flex justify-between max-w-7xl mx-auto">
                         <div className='flex-initial w-3/4'>
                             <h1 className='text-7xl text-white'>We are different</h1>
                             <h1 className=' mt-3 text-7xl text-white'>From Other</h1>
@@ -73,7 +87,7 @@ const BannerCarousel = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className="flex justify-between max-w-7xl">
+                    <div className="flex justify-between max-w-7xl mx-auto">
                         <div className='flex-initial w-3/4'>
                             <h1 className='text-7xl text-white'>Welcome To</h1>
                             <h1 className=' mt-3 text-7xl text-white'>Online Bank BD</h1>
@@ -100,7 +114,7 @@ const BannerCarousel = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="flex justify-between max-w-7xl">
+                    <div className="flex justify-between max-w-7xl mx-auto">
                         <div className='flex-initial w-3/4'>
                             <h1 className='text-7xl text-white'>We are different</h1>
                             <h1 className=' mt-3 text-7xl text-white'>From Other</h1>
@@ -126,7 +140,7 @@ const BannerCarousel = () => {
                         </div>
                     </div>
                 </SwiperSlide>
-                
+
 
             </Swiper>
 

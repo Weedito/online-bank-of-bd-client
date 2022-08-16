@@ -1,0 +1,122 @@
+define.alias("artdeco-button/components/artdeco-button","tenor-gif/components/artdeco-button")
+define.alias("artdeco-modal/components/artdeco-confirmation-dialog","tenor-gif/components/artdeco-confirmation-dialog")
+define.alias("artdeco-loader/components/artdeco-loader","tenor-gif/components/artdeco-loader")
+define.alias("artdeco-modal/components/container","tenor-gif/components/artdeco-modal-container")
+define.alias("artdeco-modal/components/artdeco-modal-content","tenor-gif/components/artdeco-modal-content")
+define.alias("artdeco-modal/components/artdeco-modal-footer","tenor-gif/components/artdeco-modal-footer")
+define.alias("artdeco-modal/components/artdeco-modal-header","tenor-gif/components/artdeco-modal-header")
+define.alias("artdeco-modal/components/artdeco-modal","tenor-gif/components/artdeco-modal")
+define.alias("artdeco-text-input/components/artdeco-text-input-multi","tenor-gif/components/artdeco-text-input-multi")
+define.alias("artdeco-text-input/components/artdeco-text-input-single","tenor-gif/components/artdeco-text-input-single")
+define.alias("artdeco-text-input/components/artdeco-text-input","tenor-gif/components/artdeco-text-input")
+define.alias("ember-wormhole/components/ember-wormhole","tenor-gif/components/ember-wormhole")
+define("tenor-gif/components/gif-button-presenter",["exports","@ember/component","@ember/template-factory","@ember/component/template-only"],(function(e,t,n,r){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+const i=(0,n.createTemplateFactory)({id:"aYjLt4gM",block:'[[[11,0],[24,0,"tenor-gif__button relative"],[17,1],[12],[1,"\\n  "],[8,[39,0],[[16,"data-control-name",[28,[37,1],[[30,2],"select_gif"],null]]],[["@class","@disabled","@size","@type","@controlType","@color","@circle","@icon","@text","@title","@aria-label","@click","@aria-expanded"],["msg-form__footer-action",[30,3],[30,4],"tertiary","button","muted",true,"gif-icon",[28,[37,2],["i18n_open_gif_keyboard","tenor-gif/components/gif-button-presenter"],null],[28,[37,2],["i18n_open_gif_keyboard","tenor-gif/components/gif-button-presenter"],null],[28,[37,2],["i18n_open_gif_keyboard","tenor-gif/components/gif-button-presenter"],null],[30,5],[30,6]]],null],[1,"\\n"],[13]],["&attrs","@trackingPrefix","@disabled","@size","@openGIFPopover","@isGifSearchPopoverOpen"],false,["artdeco-button@artdeco-button","concat","t"]]',moduleName:"tenor-gif/components/gif-button-presenter.hbs",isStrictMode:!1})
+var o=(0,t.setComponentTemplate)(i,(0,r.default)())
+e.default=o}))
+define("tenor-gif/components/gif-image-presenter",["exports","@ember/component","@ember/template-factory","@glimmer/component"],(function(e,t,n,r){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+const i=(0,n.createTemplateFactory)({id:"M8ImQlaE",block:'[[[11,0],[24,"tabindex","0"],[17,1],[12],[1,"\\n  "],[8,[39,0],null,[["@class","@alt","@image","@width","@height"],[[28,[37,1],["tenor-gif__image v-align-bottom ",[30,2]],null],[28,[37,2],[[30,3],[30,4]],null],[30,5,["url"]],[30,0,["width"]],[30,0,["height"]]]],null],[1,"\\n"],[13]],["&attrs","@imgClass","@title","@searchTerm","@mediaObject"],false,["ember-vector-images@custom-image","concat","tenor-gif@tenor-gif-alt-text"]]',moduleName:"tenor-gif/components/gif-image-presenter.hbs",isStrictMode:!1})
+class o extends r.default{get width(){if(this.args.maxWidth)return Math.min(this.args.maxWidth,this.args.mediaObject.originalWidth)}get height(){if(!this.args.maxWidth)return
+const{originalHeight:e,originalWidth:t}=this.args.mediaObject
+if(this.args.maxWidth<t){const n=this.args.maxWidth/t
+return Math.round(e*n)}return e}}e.default=o;(0,t.setComponentTemplate)(i,o)}))
+define.alias("artdeco-icons-web/components/linkedin-logo","tenor-gif/components/linkedin-logo")
+define("tenor-gif/components/tenor-search-presenter",["exports","@babel/runtime/helpers/esm/initializerDefineProperty","@babel/runtime/helpers/esm/defineProperty","@babel/runtime/helpers/esm/applyDecoratedDescriptor","@babel/runtime/helpers/esm/initializerWarningHelper","@ember/component","@ember/template-factory","@glimmer/component","@glimmer/tracking","@ember/service","@ember/object","@ember/utils","@ember/runloop","@ember/debug","global-utils/utils/is-browser","msg-shared/utils/constants","ember-cli-pemberly-tracking/utils/tracking","ember-lifeline","global-utils/utils/a11y-focus-element","tenor-gif/viewdata/tenor-search-viewdata"],(function(e,t,n,r,i,o,a,l,s,c,d,u,f,p,g,m,h,b,_,y){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var v,x,k,w,T,C,I,P,S,O,j,D,E,z,G
+const M=(0,a.createTemplateFactory)({id:"lMM4XKWv",block:'[[[8,[39,0],[[4,[38,2],["click",[28,[37,3],[[30,0],"currentTabIndex",1],null]],null],[4,[38,2],["keydown",[30,0,["handleKeyDown"]]],null],[4,[38,4],[[30,0,["closeSearch"]]],null]],[["@class"],[[29,["tenor-gif__search-popover display-flex flex-column",[52,[30,1]," tenor-gif__search-popover--overlay"]]]]],[["default"],[[[[1,"\\n  "],[10,"header"],[14,0,"mb2"],[12],[1,"\\n    "],[10,0],[14,0,"relative display-flex align-items-center"],[12],[1,"\\n      "],[10,"label"],[14,0,"a11y-text"],[14,"for","tenor-gif__search-input"],[12],[1,"\\n        "],[1,[28,[35,5],["i18n_search_placeholder","tenor-gif/components/tenor-search-presenter"],null]],[1,"\\n      "],[13],[1,"\\n      "],[1,[28,[35,6],null,[["type","class","size"],["search-icon","tenor-gif__search-icon","small"]]]],[1,"\\n"],[1,"      "],[11,"input"],[24,1,"tenor-gif__search-input"],[24,0,"tenor-gif__search-input artdeco-text-input"],[16,"placeholder",[28,[37,5],["i18n_search_placeholder","tenor-gif/components/tenor-search-presenter"],null]],[16,2,[30,0,["searchTerm"]]],[4,[38,2],["input",[30,0,["onInputChange"]]],null],[4,[38,2],["focusin",[30,0,["onSearchFocus"]]],null],[4,[38,2],["keydown",[30,0,["onSearchKeyDown"]]],null],[4,[38,7],null,null],[12],[13],[1,"\\n"],[1,"      "],[8,[39,8],[[4,[38,2],["click",[30,0,["closeSearch"]]],null]],[["@class","@type","@circle","@icon","@color","@size","@text"],["ml2 flex-shrink-zero","tertiary",true,"cancel-icon","muted",1,[28,[37,5],["i18n_close","tenor-gif/components/tenor-search-presenter"],null]]],null],[1,"\\n    "],[13],[1,"\\n  "],[13],[1,"\\n\\n"],[1,"  "],[10,0],[15,0,[29,["tenor-gif__search-results",[52,[30,0,["apiError"]]," hidden"]," scrollable"]]],[12],[1,"\\n    "],[10,0],[14,0,"display-flex pb4"],[12],[1,"\\n      "],[11,0],[24,0,"tenor-gif__col flex-1 mr1"],[4,[38,9],[[28,[37,3],[[30,0],"leftColContainer"],null]],null],[12],[1,"\\n"],[42,[28,[37,11],[[28,[37,11],[[30,0,["leftCol"]]],null]],null],null,[[[1,"          "],[11,"button"],[24,0,"tenor-gif__select-gif mb1"],[24,4,"button"],[4,[38,2],["click",[28,[37,12],[[30,0,["selectGif"]],[30,2]],null]],null],[4,[38,13],[[30,0,["sendGifControlName"]]],null],[4,[38,14],[[28,[37,12],[[30,0,["onImpressionHandler"]],[30,2,["id"]]],null]],[["routeName","currentRoute"],[[28,[37,15],[[53,"outletState"],"render.name"],null],[28,[37,15],[[53,"outletState"],"render"],null]]]],[12],[1,"\\n            "],[8,[39,17],null,[["@bundle"],["tenor-gif"]],[["default"],[[[[1,"\\n"],[41,[30,3,["state","fulfilled"]],[[[1,"                "],[8,[39,18],[[24,0,"tenor-gif__search-result-image"]],[["@searchTerm","@title","@maxWidth","@mediaObject"],[[30,0,["searchTerm"]],[30,2,["title"]],176,[30,2,["previewGif"]]]],null],[1,"\\n"]],[]],null],[1,"            "]],[3]]]]],[1,"\\n          "],[13],[1,"\\n"]],[2]],null],[1,"      "],[13],[1,"\\n      "],[11,0],[24,0,"tenor-gif__col flex-1"],[4,[38,9],[[28,[37,3],[[30,0],"rightColContainer"],null]],null],[12],[1,"\\n"],[42,[28,[37,11],[[28,[37,11],[[30,0,["rightCol"]]],null]],null],null,[[[1,"          "],[11,"button"],[24,0,"tenor-gif__select-gif mb1"],[24,4,"button"],[4,[38,2],["click",[28,[37,12],[[30,0,["selectGif"]],[30,4]],null]],null],[4,[38,13],[[30,0,["sendGifControlName"]]],null],[4,[38,14],[[28,[37,12],[[30,0,["onImpressionHandler"]],[30,4,["id"]]],null]],[["routeName","currentRoute"],[[28,[37,15],[[53,"outletState"],"render.name"],null],[28,[37,15],[[53,"outletState"],"render"],null]]]],[12],[1,"\\n            "],[8,[39,17],null,[["@bundle"],["tenor-gif"]],[["default"],[[[[1,"\\n"],[41,[30,5,["state","fulfilled"]],[[[1,"                "],[8,[39,18],[[24,0,"tenor-gif__search-result-image"]],[["@searchTerm","@title","@maxWidth","@mediaObject"],[[30,0,["searchTerm"]],[30,4,["title"]],176,[30,4,["previewGif"]]]],null],[1,"\\n"]],[]],null],[1,"            "]],[5]]]]],[1,"\\n          "],[13],[1,"\\n"]],[4]],null],[1,"      "],[13],[1,"\\n    "],[13],[1,"\\n\\n    "],[10,0],[15,0,[28,[37,19],["mb6",[52,[51,[30,0,["isLoading"]]]," hidden"]],null]],[12],[1,"\\n      "],[8,[39,21],null,[["@size","@a11yText"],["small",[28,[37,5],["i18n_loading","tenor-gif/components/tenor-search-presenter"],null]]],null],[1,"\\n    "],[13],[1,"\\n  "],[13],[1,"\\n\\n"],[41,[30,0,["apiError"]],[[[1,"    "],[10,0],[14,0,"tenor-gif__info t-16 t-black--light t-normal text-align-center align-self-center"],[12],[1,"\\n      "],[10,0],[14,0,"tenor-gif__230-img missing-piece-muted-230"],[12],[13],[1,"\\n      "],[1,[28,[35,5],["i18n_api_error","tenor-gif/components/tenor-search-presenter"],null]],[1,"\\n    "],[13],[1,"\\n"]],[]],[[[41,[30,0,["noResults"]],[[[1,"    "],[10,0],[14,0,"tenor-gif__info t-16 t-black--light t-normal text-align-center align-self-center"],[12],[1,"\\n      "],[10,0],[14,0,"tenor-gif__230-img search-results-muted-230"],[12],[13],[1,"\\n      "],[1,[28,[35,5],["i18n_no_results","tenor-gif/components/tenor-search-presenter"],[["searchTerm"],[[30,0,["searchTerm"]]]]]],[1,"\\n    "],[13],[1,"\\n  "]],[]],null]],[]]],[1,"\\n  "],[10,"footer"],[14,0,"tenor-gif__footer text-align-center absolute pv2"],[12],[1,"\\n    "],[10,1],[14,0,"tenor-gif__logo block"],[12],[1,"\\n      "],[10,1],[14,0,"visually-hidden"],[12],[1,[28,[35,5],["i18n_tenor_footer","tenor-gif/components/tenor-search-presenter"],null]],[13],[1,"\\n    "],[13],[1,"\\n  "],[13],[1,"\\n"]],[]]]]]],["@isOverlay","gifViewData","assetLoader","gifViewData","assetLoader"],false,["artdeco-card@artdeco-card","if","on","ember-set-helper@set","global-modifiers@on-click-outside","t","artdeco-icons-web@li-icon","global-modifiers@focus","artdeco-button@artdeco-button","did-insert","each","-track-array","fn","ember-cli-pemberly-tracking@track-interaction","ember-cli-pemberly-tracking@track-impression","get","-get-dynamic-var","asset-loader@deferred-asset-loader","tenor-gif@gif-image-presenter","concat","unless","artdeco-loader@artdeco-loader"]]',moduleName:"tenor-gif/components/tenor-search-presenter.hbs",isStrictMode:!1}),{KEYCODES:{ESC:R,ENTER:N,TAB:F},IMPRESSION_KEYS:{CONVERSATION_DETAIL_IMPRESSION:K,DISPLAY_ITEM_TYPE:{TENOR_GIF_SEARCH:L}}}=m.default
+let W=(v=(0,c.inject)("store"),x=(0,c.inject)("tracking"),k=(0,c.inject)("i18n"),w=(0,c.inject)("global-services@a11y-notification"),T=class extends l.default{get sendGifControlName(){return this.args.trackingPrefix?`${this.args.trackingPrefix}send_gif`:"send_gif"}constructor(){super(...arguments);(0,t.default)(this,"store",C,this);(0,t.default)(this,"tracking",I,this);(0,t.default)(this,"i18n",P,this);(0,t.default)(this,"a11yNotification",S,this);(0,t.default)(this,"noResults",O,this);(0,t.default)(this,"isLoading",j,this);(0,t.default)(this,"leftCol",D,this);(0,t.default)(this,"rightCol",E,this);(0,t.default)(this,"apiError",z,this);(0,t.default)(this,"searchTerm",G,this);(0,n.default)(this,"currentTabIndex",void 0)
+this._searchGifs()
+this.tracking.firePageViewEvent("flagship3_messaging_gif")}_announceSearchResults(e,t){const n=e?"i18n_announce_search_results_for_search_term_v2":"i18n_announce_results_for_empty_search",r={searchTerm:e,gifCount:t},i=this.i18n.lookupTranslation("components/tenor-gif@tenor-search-presenter",n)([r])
+this.a11yNotification.setTextInLiveRegion(i)}getGIFResults(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}
+this.noResults=!1
+this.isLoading=!0
+const t=Object.assign(e,{q:"gifSearch"});(0,u.isPresent)(this.searchTerm)&&(t.query=this.searchTerm)
+this.args.useFeedCommentsCredential&&(t.useFeedCommentsCredential=this.args.useFeedCommentsCredential)
+return this.store.queryURL("messaging/thirdPartyMedia",{cacheKey:this.searchTerm,reload:!0,params:t}).then((e=>{const t=new y.default({gifPayload:e}),{gifs:n}=t
+this._announceSearchResults(this.searchTerm,n.length)
+if(!this.isDestroying){const[e,t]=n.reduce(((e,t,n)=>{let[r,i]=e
+return n%2==0?[r,i.concat(t)]:[r.concat(t),i]}),[this.leftCol,this.rightCol])
+this.leftCol=e
+this.rightCol=t}return n})).finally((()=>{this.isDestroying||(this.isLoading=!1)}))}_searchGifs(){this.paginationToken=void 0
+this.leftCol=[]
+this.rightCol=[]
+this.currentTabIndex=1
+return this.getGIFResults().then((e=>{if(!this.isDestroying)if((0,u.isEmpty)(e)){this.noResults=!0
+this.tracking.firePageViewEvent("flagship3_messaging_gif_noresult")}else{this.noResults=!1
+this.apiError=!1}return e})).catch((e=>{if(!this.isDestroying){this.apiError=!0
+this.tracking.firePageViewEvent("flagship3_messaging_gif_noresult")}throw e}))}handleTabbing(e){if(g.default){const{shiftKey:t}=e,{activeElement:n}=document
+n.classList.contains("tenor-gif__search-input")&&t&&this.closeSearch()
+if(n.classList.contains("tenor-gif__select-gif"))if((0,u.isPresent)(this.currentTabIndex)){e.preventDefault()
+if(this.currentTabIndex>this.rightCol.length){this.currentTabIndex=1;(0,_.default)(this,"#tenor-gif__search-input")
+return}t&&this.currentTabIndex>1&&this.currentTabIndex--
+const r=`.tenor-gif__select-gif:nth-of-type(${this.currentTabIndex})`
+if(this.leftColContainer.contains(n)){this.rightColContainer.querySelector(r).focus()
+t||this.currentTabIndex++}else{this.leftColContainer.querySelector(r).focus()
+t&&(1===this.currentTabIndex?this.currentTabIndex=void 0:this.currentTabIndex--)}}else this.currentTabIndex=1}}handleKeyDown(e){const{keyCode:t}=e
+switch(t){case R:e.stopPropagation()
+this.closeSearch()
+break
+case F:this.handleTabbing(e)}}onImpressionHandler(e,t){return{name:K,body:{moduleKey:this.tracking.getCurrentPageKey(),participantUrns:null,displayItem:{type:L,visibleTime:t.visibleTime,duration:t.duration,trackingObject:{objectUrn:"",trackingId:(0,h.generateTrackingId)()},secondaryTrackingObject:{objectUrn:"",trackingId:(0,h.generateTrackingId)()},thirdPartyMediaTrackingObject:{objectUrn:`urn:li:tenor:${e}`,trackingId:(0,h.generateTrackingId)()}},conversation:{objectUrn:"",trackingId:(0,h.generateTrackingId)()}}}}onInputChange(e){(0,f.cancel)(this.debounce)
+this.searchTerm=e.target.value
+this.debounce=(0,b.debounceTask)(this,"_searchGifs",600)}selectGif(e){var t,n
+const r=this.args.handleGIFSend(e.payloadGif).then((t=>{this.store.adapterFor("-ember-m3").ajax("/voyager/api/messaging/thirdPartyMedia?action=registerGifShare","post",{data:{tag:this.searchTerm,id:e.id,useFeedCommentsCredential:this.args.useFeedCommentsCredential}})
+return t}))
+this.args.closeHovercard()
+null===(t=(n=this.args).afterSend)||void 0===t||t.call(n)
+return r}closeSearch(){this.tracking.fireInteractionEvent(this.args.trackingPrefix?`${this.args.trackingPrefix}close_gif`:"close_gif")
+this.args.closeHovercard()}onSearchKeyDown(e){const{keyCode:t}=e
+if(t===N){e.preventDefault();(0,f.cancel)(this.debounce)
+this._searchGifs()}}onSearchFocus(){this.tracking.fireInteractionEvent(this.args.trackingPrefix?`${this.args.trackingPrefix}search_gif`:"search_gif")}},C=(0,r.default)(T.prototype,"store",[v],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),I=(0,r.default)(T.prototype,"tracking",[x],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),P=(0,r.default)(T.prototype,"i18n",[k],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),S=(0,r.default)(T.prototype,"a11yNotification",[w],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),O=(0,r.default)(T.prototype,"noResults",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return!1}}),j=(0,r.default)(T.prototype,"isLoading",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return!1}}),D=(0,r.default)(T.prototype,"leftCol",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),E=(0,r.default)(T.prototype,"rightCol",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),z=(0,r.default)(T.prototype,"apiError",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return!1}}),G=(0,r.default)(T.prototype,"searchTerm",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return this.args.prefilledSearchTerm||""}}),(0,r.default)(T.prototype,"handleKeyDown",[d.action],Object.getOwnPropertyDescriptor(T.prototype,"handleKeyDown"),T.prototype),(0,r.default)(T.prototype,"onImpressionHandler",[d.action],Object.getOwnPropertyDescriptor(T.prototype,"onImpressionHandler"),T.prototype),(0,r.default)(T.prototype,"onInputChange",[d.action],Object.getOwnPropertyDescriptor(T.prototype,"onInputChange"),T.prototype),(0,r.default)(T.prototype,"selectGif",[d.action],Object.getOwnPropertyDescriptor(T.prototype,"selectGif"),T.prototype),(0,r.default)(T.prototype,"closeSearch",[d.action],Object.getOwnPropertyDescriptor(T.prototype,"closeSearch"),T.prototype),(0,r.default)(T.prototype,"onSearchKeyDown",[d.action],Object.getOwnPropertyDescriptor(T.prototype,"onSearchKeyDown"),T.prototype),(0,r.default)(T.prototype,"onSearchFocus",[d.action],Object.getOwnPropertyDescriptor(T.prototype,"onSearchFocus"),T.prototype),T)
+e.default=W;(0,o.setComponentTemplate)(M,W)}))
+define("tenor-gif/config/environment",["exports"],(function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+let t
+try{const e="tenor-gif/config/environment",n=document.querySelector('meta[name="'+e+'"]').getAttribute("content")
+t=JSON.parse(unescape(n))}catch(e){t={}}var n=t
+e.default=n}))
+define.alias("ember-holy-futuristic-template-namespacing-batman/helpers/-translate-dynamic-2","tenor-gif/helpers/ember-holy-futuristic-template-namespacing-batman-translate-dynamic-2")
+define.alias("ember-cli-pemberly-i18n/helpers/format-number","tenor-gif/helpers/format-number")
+define.alias("artdeco-icons-web/helpers/li-icon","tenor-gif/helpers/li-icon")
+define.alias("ember-cli-pemberly-i18n/helpers/t","tenor-gif/helpers/t")
+define("tenor-gif/helpers/tenor-gif-alt-text",["exports","@babel/runtime/helpers/esm/initializerDefineProperty","@babel/runtime/helpers/esm/defineProperty","@babel/runtime/helpers/esm/applyDecoratedDescriptor","@babel/runtime/helpers/esm/initializerWarningHelper","@ember/component/helper","@ember/service"],(function(e,t,n,r,i,o,a){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var l,s,c
+let d=(l=(0,a.inject)("i18n"),s=class extends o.default{constructor(){super(...arguments);(0,t.default)(this,"i18n",c,this)}compute(e){let[t,n]=e,r="i18n_gif_alt_trending"
+const i={title:t,searchTerm:n}
+t?r=n?"i18n_gif_alt_with_title_and_search_term":"i18n_gif_alt_trending_with_title":n&&(r="i18n_gif_alt_with_search_term")
+return this.i18n.lookupTranslation("components/tenor-gif@gif-image-presenter",r)([i])}},c=(0,r.default)(s.prototype,"i18n",[l],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),s)
+e.default=d}))
+define("tenor-gif/initializers/artdeco",["exports","artdeco-eyeglass"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+e.initialize=i
+const n=[t.default.contextClasses,t.default.floatingLabel,t.default.focusOutline]
+function r(e,t){const r=e[t]
+e[t]=function(){n.forEach((e=>e&&"function"==typeof e.teardown&&e.teardown()))
+r&&"function"==typeof r&&r.call(e)}}function i(e){if("undefined"!=typeof document){n.forEach((e=>e.install()))
+"function"==typeof e.willDestroy?r(e,"willDestroy"):"function"==typeof e.destroy&&r(e,"destroy")}}var o={name:"artdeco",initialize:i}
+e.default=o}))
+define("tenor-gif/initializers/icons",["exports","artdeco-icons-web/src/icons","tenor-gif/config/environment"],(function(e,t,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+function r(e){throw e}var i={name:"icons",initialize:function(){const{environment:e,APP:i}=n.default
+let o,a
+i&&({artdecoCustomSpriteUrl:o,artdecoCustomSpriteName:a}=i)
+const l="test"!==e
+t.default.load(l,o,a).catch(r)}}
+e.default=i}))
+define.alias("artdeco-modal/services/artdeco-modal","tenor-gif/services/artdeco-modal")
+define("tenor-gif/viewdata/tenor-search-viewdata",["exports","@ember/object","msg-data/viewdata"],(function(e,t,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+class r extends n.default{get requiredProps(){return["gifPayload"]}get gifs(){return(0,t.get)(this.props.gifPayload,"elements").map((e=>({id:(0,t.get)(e,"id"),title:(0,t.get)(e,"title"),previewGif:(0,t.get)(e,"media.previewgif"),payloadGif:e})))}}e.default=r}))
+
+//# sourceMappingURL=engine.map

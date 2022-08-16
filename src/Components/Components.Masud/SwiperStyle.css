@@ -1,4 +1,4 @@
-#app {
+/* #app {
     height: 100%
 }
 
@@ -26,11 +26,14 @@ body {
 
     z-index: 0;
     font-size: 18px;
-    background-image: linear-gradient(to right, rgba(2, 115, 89, 0.459), rgb(2, 115, 89)), url("../Components.Masud/img/bannerbg1.jpg");    
+    background-image: linear-gradient(to right, rgba(2, 115, 89, 0.459), rgb(2, 115, 89)), url("../Components.Masud/img/bannerbg1.jpg"); 
+    background-repeat: no-repeat;  
+    background-position: center;
+    background-size: cover; 
     
 
     /* Center slide text vertically */
-    display: -webkit-box;
+/*     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
@@ -54,4 +57,51 @@ body {
 
 .swiper-button-next:after, .swiper-button-prev:after {
     color: #eee;
+} */
+
+ #app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
 }
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+   /* width: 100%;  */
+}
+
+.swiper-pagination-bullet {
+    background-color: #197707;
+  }
+
+  @media (max-width:480px){
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 200px;
+        height: 250px;
+      }
+  } 

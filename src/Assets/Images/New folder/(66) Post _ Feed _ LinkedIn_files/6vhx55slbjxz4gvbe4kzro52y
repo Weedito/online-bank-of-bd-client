@@ -1,0 +1,203 @@
+define("participate-text-editor/components/-dynamic-element-alt",["exports","@glimmer/component"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+class i extends t.default{}e.default=i}))
+define("participate-text-editor/components/-dynamic-element",["exports","@glimmer/component"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+class i extends t.default{}e.default=i}))
+define.alias("artdeco-button/components/artdeco-button","participate-text-editor/components/artdeco-button")
+define.alias("artdeco-modal/components/artdeco-confirmation-dialog","participate-text-editor/components/artdeco-confirmation-dialog")
+define.alias("artdeco-dropdown/components/artdeco-dropdown-content","participate-text-editor/components/artdeco-dropdown-content")
+define.alias("artdeco-dropdown/components/artdeco-dropdown-header","participate-text-editor/components/artdeco-dropdown-header")
+define.alias("artdeco-dropdown/components/artdeco-dropdown-item","participate-text-editor/components/artdeco-dropdown-item")
+define.alias("artdeco-dropdown/components/artdeco-dropdown-trigger","participate-text-editor/components/artdeco-dropdown-trigger")
+define.alias("artdeco-dropdown/components/artdeco-dropdown","participate-text-editor/components/artdeco-dropdown")
+define.alias("artdeco-loader/components/artdeco-loader","participate-text-editor/components/artdeco-loader")
+define.alias("artdeco-modal/components/container","participate-text-editor/components/artdeco-modal-container")
+define.alias("artdeco-modal/components/artdeco-modal-content","participate-text-editor/components/artdeco-modal-content")
+define.alias("artdeco-modal/components/artdeco-modal-footer","participate-text-editor/components/artdeco-modal-footer")
+define.alias("artdeco-modal/components/artdeco-modal-header","participate-text-editor/components/artdeco-modal-header")
+define.alias("artdeco-modal/components/artdeco-modal","participate-text-editor/components/artdeco-modal")
+define.alias("ember-vector-images/components/custom-image","participate-text-editor/components/custom-image")
+define.alias("ember-wormhole/components/ember-wormhole","participate-text-editor/components/ember-wormhole")
+define.alias("ember-vector-images/components/lazy-background","participate-text-editor/components/lazy-background")
+define.alias("ember-vector-images/components/lazy-image","participate-text-editor/components/lazy-image")
+define.alias("artdeco-icons-web/components/linkedin-logo","participate-text-editor/components/linkedin-logo")
+define("participate-text-editor/components/text-editor-container",["exports","@ember/component","@ember/template-factory","@ember/component/template-only"],(function(e,t,i,r){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+const o=(0,i.createTemplateFactory)({id:"wiQHO9kZ",block:'[[[8,[39,0],null,[["@alwaysExpanded"],[true]],[["default"],[[[[1,"\\n  "],[8,[39,1],null,[["@ariaActiveId","@arrowKeyPressed","@controlName","@cursorRange","@disabled","@enterKeyPressed","@groupIdForMentionsTypeahead","@initialContent","@jumpLinkTarget","@lineHeightOffSet","@onEditorFocus","@onFoundUrl","@onSubmitCommentOnEnter","@placeholder","@recommendedMentions","@scrollableContainerSelector","@setFocusEditorHandler","@setInsertContentHandler","@setResetEditorHandler","@setPlaceholderTextHandler","@shouldFocusOnRender","@textChangeHandler","@trackableRootObject","@triggered-content","@triggeredContentId","@useScrollY"],[[30,1,["ariaActiveId"]],[30,1,["arrowKeyPressed"]],[30,2],[30,3],[30,4],[30,1,["enterKeyPressed"]],[30,5],[30,6],[30,7],[30,8],[30,9],[30,10],[30,11],[30,12],[30,13],[30,14],[30,15],[30,16],[30,17],[30,18],[30,19],[30,20],[30,21],[30,1,["triggered-content"]],[30,1,["triggeredContentId"]],[30,22]]],null],[1,"\\n"]],[1]]]]]],["typeahead","@controlName","@cursorRange","@disabled","@groupIdForMentionsTypeahead","@initialContent","@jumpLinkTarget","@lineHeightOffSet","@onEditorFocus","@onFoundUrl","@onSubmitCommentOnEnter","@placeholder","@recommendedMentions","@scrollableContainerSelector","@setFocusEditorHandler","@setInsertContentHandler","@setResetEditorHandler","@setPlaceholderTextHandler","@shouldFocusOnRender","@textChangeHandler","@trackableRootObject","@useScrollY"],false,["basic-typeahead@basic-typeahead","participate-text-editor@text-editor"]]',moduleName:"participate-text-editor/components/text-editor-container.hbs",isStrictMode:!1})
+var a=(0,t.setComponentTemplate)(o,(0,r.default)())
+e.default=a}))
+define("participate-text-editor/components/text-editor",["exports","@babel/runtime/helpers/esm/initializerDefineProperty","@babel/runtime/helpers/esm/defineProperty","@babel/runtime/helpers/esm/applyDecoratedDescriptor","@babel/runtime/helpers/esm/initializerWarningHelper","@ember/component","@ember/template-factory","@glimmer/tracking","@ember/service","@glimmer/component","@ember/object","@ember/utils","global-utils/utils/keyboard-utils","editor-shared/utils/constants","editor-shared/utils/text-editor-utils","editor-shared/utils/editor-setup","@ember/debug","global-utils/utils/is-browser","editor-shared/utils/quill/utils","editor-shared/utils/quill/delta-model-transformers","global-utils/utils/url","ember-lifeline","editor-shared/utils/tracking/texteditor-tracking","ember-cli-pemberly-tracking/utils/tracking","editor-shared/utils/tracking/mentions-tracking","editor-shared/utils/tracking/hashtag-tracking"],(function(e,t,i,r,o,a,n,s,d,l,c,p,u,h,m,f,y,g,b,v,T,x,E,_,w,k){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var S,O,P,C,A,R,D,H,I,M,j,F
+const L=(0,n.createTemplateFactory)({id:"9IxdK396",block:'[[[11,0],[24,0,"editor-container"],[17,1],[12],[1,"\\n  "],[11,0],[4,[38,0],[[30,0,["initEditor"]]],null],[12],[1,"\\n    "],[11,0],[24,0,"editor-content"],[16,"data-jump-link-target",[30,2]],[16,"ondragover",[30,0,["onEditorDragover"]]],[4,[38,1],[[30,3]],null],[4,[38,2],[[30,0,["onDisabledAttrChange"]],[30,4]],null],[4,[38,3],["aria-activedescendant"],[["value","selector"],[[30,5],".ql-editor"]]],[4,[38,4],[[30,0,["onEditorEvents"]]],null],[12],[1,"\\n    "],[13],[1,"\\n\\n"],[41,[30,0,["isTypeaheadAbleToExpand"]],[[[44,[[52,[30,0,["mentionShouldOpen"]],[52,[30,0,["groupUrn"]],[28,[37,7],null,[["transform","queryContext","type","q"],[[30,0,["transformTypeaheadResponse"]],[28,[37,8],null,[["groupUrn"],[[30,0,["groupUrn"]]]]],"GROUP_MEMBERS","type"]]],[28,[37,7],null,[["transform","typeaheadUseCase"],[[30,0,["transformTypeaheadResponse"]],"MENTIONS"]]]],[28,[37,7],null,[["type"],["HASHTAG"]]]]],[[[1,"        "],[8,[39,9],null,[["@fetchFn","@typeaheadQuery","@onTypeaheadResultsRendered","@typeaheadSelect","@triggered-content"],[[30,6],[30,0,["typeaheadQuery"]],[30,0,["onTypeaheadResultsRendered"]],[30,0,["typeaheadSelect"]],[30,7]]],null],[1,"\\n"]],[6]]]],[]],null],[1,"  "],[13],[1,"\\n"],[13]],["&attrs","@jumpLinkTarget","@controlName","@disabled","@ariaActiveId","queryFunction","@triggered-content"],false,["did-insert","ember-cli-pemberly-tracking@track-interaction","did-update","global-modifiers@set-attr","participate-text-editor@editor-events","if","let","search-ta-kit@dash-fetch-results","hash","participate-text-editor@typeahead-fetch"]]',moduleName:"participate-text-editor/components/text-editor.hbs",isStrictMode:!1})
+let z=(S=(0,d.inject)("tracking"),O=(0,d.inject)("lix"),P=(0,d.inject)("i18n"),C=class extends l.default{constructor(){super(...arguments);(0,t.default)(this,"tracking",A,this);(0,t.default)(this,"lix",R,this);(0,t.default)(this,"i18n",D,this);(0,t.default)(this,"hashtagShouldOpen",H,this);(0,t.default)(this,"mentionShouldOpen",I,this);(0,t.default)(this,"workflowId",M,this);(0,t.default)(this,"typeaheadQuery",j,this);(0,t.default)(this,"commentary",F,this)}get isTypeaheadAbleToExpand(){return this.hashtagShouldOpen||this.mentionShouldOpen}get groupUrn(){return this.args.groupIdForMentionsTypeahead?`urn:li:fsd_group:${this.args.groupIdForMentionsTypeahead}`:void 0}get texteditorTracker(){return new E.default(this.tracking,this.workflowId)}get dropDownIsActive(){return this.isTypeaheadAbleToExpand&&(0,p.isPresent)(this.args.ariaActiveId)}_filterTypeaheadResults(e,t){const i=t?e.filter((e=>(0,c.get)(e,"trackingUrn")===(0,c.get)(t,"trackingUrn")))[0]:null,r=e.filter((e=>!["ESCAPE_HATCH","AUTO_COMPLETE"].includes((0,c.get)(e,"type"))))
+if(i){r.removeObject(i)
+r.unshiftObject(i)
+return r}if(t){const e=(0,c.get)(t,"title.text")
+if(e&&this.typeaheadQuery&&(0,m.mentionQueryMatchesRecommendedMention)(e,this.typeaheadQuery)&&t){r.unshiftObject(t)
+return r}}return r}_setupScrollHandler(){if(g.default){const e=document.querySelector(this.args.scrollableContainerSelector)
+this.scrollableContainerEl=e
+e&&(0,x.addEventListener)(this,e,"scroll",this._onScroll)}}_onScroll(){(0,x.throttleTask)(this,"_closeTypeahead",100)}willDestroy(){super.willDestroy(...arguments)
+this.scrollableContainerEl&&(0,x.removeEventListener)(this,this.scrollableContainerEl,"scroll",this._onScroll)}_dismissTypeaheadWithoutSelection(){var e
+this.isDestroying||null===(e=this.onDismissWithoutSelection)||void 0===e||e.call(this,this.typeaheadQuery)}_generateNewWorkflowId(){this.workflowId=(0,_.generateTrackingId)()}_insertContent(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=arguments.length>1&&void 0!==arguments[1]&&arguments[1]
+t?this._insertTextAtCursor(e.text):this._appendTextAndMentions(e)}_resetEditor(){let e=arguments.length>0&&void 0!==arguments[0]&&arguments[0]
+const{editor:t}=this
+t.setContents([])
+e&&t.history.clear()}_focusEditor(){const{editor:e}=this
+e.focus()}_insertTextAtCursor(e){if(!e)return
+const{editor:t}=this,{index:i=0}=t.getSelection(!0),r=t.getText()
+let o=e
+i>0&&!/\s/.test(r[i-1])&&(o=` ${o}`);["#","＃"].includes(e)||/\s/.test(o[o.length-1])||(o=`${o} `)
+t.insertText(i,o,"user")
+t.setSelection(i+o.length,0)}_appendTextAndMentions(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{}
+const{editor:i}=this,{text:r,mentions:o}=e
+if(r||o){const r=(0,v.deltaFromTextMentionsObject)(e),o=i.getContents(0,i.getLength()-1)
+i.setContents(o.concat(r))
+const{startCursor:a=i.getLength(),endCursor:n=0}=t
+i.setSelection(a,n)}}_handleReportedTextChanges(e){var t,i
+if(!e)return
+const{mentions:r,text:o}=(0,v.deltaToTextMentionsObject)(e),a=e.ops.rejectBy("attributes").reduce(((e,t)=>e.concat((0,T.getUrlsFromText)(t.insert,!0))),[])
+if(a.length){var n,s
+null===(n=(s=this.args).onFoundUrl)||void 0===n||n.call(s,a[0])}null===(t=(i=this.args).textChangeHandler)||void 0===t||t.call(i,r,o.trimEnd())}_handleArrowKey(e,t){var i,r
+e.preventDefault()
+null===(i=(r=this.args).arrowKeyPressed)||void 0===i||i.call(r,t)}_openTypeahead(e){let{typeaheadQuery:t,onTypeaheadSelect:i,typeaheadType:r,onDismissWithoutSelection:o}=e
+if(g.default&&!this.editorWrapperElement.contains(document.activeElement))return
+const{editor:a}=this
+this.typeaheadType=r
+if(a){this.commentary=a.getText()
+this.typeaheadQuery=t
+this.onTypeaheadSelect=i
+this.onDismissWithoutSelection=o
+this.typeaheadTopPosition=this._calculateTypeaheadTopOffset()
+this[`${r}ShouldOpen`]=!0}}_handleFocusOut(e){let{relatedTarget:t}=e
+if(!this.editorWrapperElement.contains(t)){this._dismissTypeaheadWithoutSelection()
+this._closeTypeahead()}}_handleFocusIn(){var e,t
+null===(e=(t=this.args).onEditorFocus)||void 0===e||e.call(t)}_fireControlInteractionEvent(e){this.tracking.fireInteractionEvent(e)}_updatePlaceholderText(e){const t=this.editor.container.querySelector(h.QUILL_EDITOR_SELECTOR)
+t.setAttribute("aria-placeholder",e)
+t.setAttribute("data-placeholder",e)}_fireCustomTexteditorTrackingEvent(e,t,i){this.texteditorTracker.fireTrackingEvent(e,t,i)}_dismissTypeaheadType(e){if(!this.isDestroying){if(this.typeaheadPopulatedwithType===e){this._dismissTypeaheadWithoutSelection()
+this.typeaheadPopulatedwithType=null}this[`${e}ShouldOpen`]=!1
+this.isTypeaheadAbleToExpand||this._closeTypeahead()}}_closeTypeahead(){var e
+if(!this.isDestroying){this.mentionShouldOpen=!1
+this.hashtagShouldOpen=!1
+this.typeaheadPopulatedwithType=null
+this.typeaheadQuery=null
+null===(e=this.editorElement)||void 0===e||e.removeAttribute("aria-owns")}}_calculateTypeaheadTopOffset(){var e
+const t=g.default&&this.args.useScrollY?window.scrollY:0,i=g.default?(0,m.getElementDistanceFromTopOfWindow)(this.editorWrapperElement)-this.editorWrapperElement.getBoundingClientRect().top-t:0,{editor:r}=this,{index:o=0}=r.getSelection()||{},{top:a,height:n}=r.getBounds(o),s=null!==(e=this.args.lineHeightOffSet)&&void 0!==e?e:1.2
+return this.editorWrapperElement.offsetTop+a+n*s-i}_handleKeyUp(e){if(this.typeaheadPopulatedwithType&&(0,u.isEscapeKey)(e)){e.stopPropagation()
+this._dismissTypeaheadWithoutSelection()
+this._closeTypeahead()}}_trackTypeaheadRenderedImpressionsSetup(e){switch(this.typeaheadType){case h.TYPEAHEAD_TYPES_MAP.MENTION:{const t={searchHeader:(0,w.getSearchHeaderForMentionsTrackingEvent)(this.typeaheadQuery),results:(0,m.getFormattedMentionsResults)(e)}
+this._fireCustomTexteditorTrackingEvent("MentionSuggestionImpressionEvent",t,h.TYPEAHEAD_TYPES_MAP.MENTION)
+break}case h.TYPEAHEAD_TYPES_MAP.HASHTAG:{const t={searchHeader:(0,k.getSearchHeaderForHashtagTrackingEvent)(this.typeaheadQuery),results:(0,m.getFormattedHashtagResults)(e),hashtagSourceType:"TYPEAHEAD"}
+this._fireCustomTexteditorTrackingEvent("HashtagSuggestionImpressionEvent",t,h.TYPEAHEAD_TYPES_MAP.HASHTAG)
+break}}}_adjustTypeaheadPositioning(){const e=this.editorWrapperElement.querySelector(".editor-typeahead-fetch")
+e&&(e.style.top=`${this.typeaheadTopPosition}px`)}initEditor(e){if(e){var t,i,r,o,a,n,s,d
+const l=(0,f.setupQuillEditor)(e,(()=>!this.isDestroying&&this.dropDownIsActive),this.args.placeholder,this.i18n.lookupTranslation("components/participate-text-editor@text-editor","i18n_editor_aria-label")(),(e=>(0,x.debounceTask)(this,"_handleReportedTextChanges",e,300)),this._openTypeahead.bind(this),this._dismissTypeaheadType.bind(this),this._generateNewWorkflowId.bind(this),this._fireCustomTexteditorTrackingEvent.bind(this),this._fireControlInteractionEvent.bind(this),this.args.shouldFocusOnRender,this.args.trackableRootObject)
+this.editor=l
+this.editorWrapperElement=e
+this.editorElement=this.editorWrapperElement.querySelector(h.QUILL_EDITOR_SELECTOR)
+this.args.initialContent&&this._appendTextAndMentions(this.args.initialContent,this.args.cursorRange)
+this.args.disabled&&this.editor.disable()
+null===(t=(i=this.args).setInsertContentHandler)||void 0===t||t.call(i,this._insertContent.bind(this))
+null===(r=(o=this.args).setResetEditorHandler)||void 0===r||r.call(o,this._resetEditor.bind(this))
+null===(a=(n=this.args).setFocusEditorHandler)||void 0===a||a.call(n,this._focusEditor.bind(this))
+null===(s=(d=this.args).setPlaceholderTextHandler)||void 0===s||s.call(d,this._updatePlaceholderText.bind(this))
+this._setupScrollHandler()}}onEditorEvents(e){switch(null==e?void 0:e.type){case"keydown":this._handleKeyDown(e)
+break
+case"keyup":this._handleKeyUp(e)
+break
+case"focusin":this._handleFocusIn()
+break
+case"focusout":this._handleFocusOut(e)}}_handleKeyDown(e){if(!e.isComposing)if(this.typeaheadPopulatedwithType){if((0,u.isDownArrowKey)(e))this._handleArrowKey(e,h.KEY_DOWN)
+else if((0,u.isUpArrowKey)(e))this._handleArrowKey(e,h.KEY_UP)
+else if((0,u.isTabKey)(e)){this._dismissTypeaheadWithoutSelection()
+this._closeTypeahead()}else if((0,u.isEnterKey)(e))if(this.dropDownIsActive){var t,i
+e.preventDefault()
+null===(t=(i=this.args).enterKeyPressed)||void 0===t||t.call(i)}else{this._dismissTypeaheadWithoutSelection()
+this._closeTypeahead()}}else if((0,u.isEnterKey)(e)&&this.args.onSubmitCommentOnEnter){var r,o
+const{text:e,mentions:t}=(0,v.deltaToTextMentionsObject)(this.editor.getContents())
+null===(r=(o=this.args).onSubmitCommentOnEnter)||void 0===r||r.call(o,e.trimEnd(),t)}}onDisabledAttrChange(){this.editor.enable(!this.args.disabled)}onEditorDragover(e){e.preventDefault()
+return!1}onTypeaheadResultsRendered(e){if(g.default&&!(0,p.isEmpty)(e)){var t
+this._adjustTypeaheadPositioning()
+this.typeaheadPopulatedwithType=this.typeaheadType
+this.typeheadResultsList=e
+null===(t=this.editorElement)||void 0===t||t.setAttribute("aria-owns",this.args.triggeredContentId)
+this._trackTypeaheadRenderedImpressionsSetup(e)}}transformTypeaheadResponse(e){if(null!=e&&e.length){const{recommendedMentions:t}=this.args
+return(null!=t?t:[]).reduce(((e,t)=>this._filterTypeaheadResults(e,t)),e)}return e}typeaheadSelect(e,t){var i
+this._closeTypeahead()
+const r=this.typeheadResultsList.indexOf(t),o=(0,b.normalizeTypeaheadV3Response)(t)
+null===(i=this.onTypeaheadSelect)||void 0===i||i.call(this,o,r)}},A=(0,r.default)(C.prototype,"tracking",[S],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),R=(0,r.default)(C.prototype,"lix",[O],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),D=(0,r.default)(C.prototype,"i18n",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),H=(0,r.default)(C.prototype,"hashtagShouldOpen",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return!1}}),I=(0,r.default)(C.prototype,"mentionShouldOpen",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return!1}}),M=(0,r.default)(C.prototype,"workflowId",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),j=(0,r.default)(C.prototype,"typeaheadQuery",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),F=(0,r.default)(C.prototype,"commentary",[s.tracked],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),(0,r.default)(C.prototype,"initEditor",[c.action],Object.getOwnPropertyDescriptor(C.prototype,"initEditor"),C.prototype),(0,r.default)(C.prototype,"onEditorEvents",[c.action],Object.getOwnPropertyDescriptor(C.prototype,"onEditorEvents"),C.prototype),(0,r.default)(C.prototype,"onDisabledAttrChange",[c.action],Object.getOwnPropertyDescriptor(C.prototype,"onDisabledAttrChange"),C.prototype),(0,r.default)(C.prototype,"onEditorDragover",[c.action],Object.getOwnPropertyDescriptor(C.prototype,"onEditorDragover"),C.prototype),(0,r.default)(C.prototype,"onTypeaheadResultsRendered",[c.action],Object.getOwnPropertyDescriptor(C.prototype,"onTypeaheadResultsRendered"),C.prototype),(0,r.default)(C.prototype,"transformTypeaheadResponse",[c.action],Object.getOwnPropertyDescriptor(C.prototype,"transformTypeaheadResponse"),C.prototype),(0,r.default)(C.prototype,"typeaheadSelect",[c.action],Object.getOwnPropertyDescriptor(C.prototype,"typeaheadSelect"),C.prototype),C)
+e.default=z;(0,a.setComponentTemplate)(L,z)}))
+define("participate-text-editor/components/typeahead-fetch",["exports","@ember/component","@ember/template-factory","@ember/component/template-only"],(function(e,t,i,r){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+const o=(0,i.createTemplateFactory)({id:"F/nAzx1W",block:'[[[11,0],[24,0,"editor-typeahead-fetch"],[17,1],[12],[1,"\\n  "],[8,[39,0],null,[["@debouncePeriod","@keywords","@onFetchResolve","@fetchFn"],[[30,2],[30,3],[30,4],[30,5]]],[["default"],[[[[1,"\\n"],[41,[30,6],[[[46,[28,[37,3],[[30,7]],null],null,[["auxilliaryKeywords","className"],[[30,3],"editor-typeahead__typeahead-tray"]],[["default"],[[[[42,[28,[37,5],[[28,[37,5],[[30,6]],null]],null],null,[[[1,"          "],[8,[30,8,["selectable"]],null,[["@className","@keywordsValue","@onSelect","@value"],["editor-typeahead__typeahead-item",[30,9,["title","text"]],[30,10],[30,9]]],[["default"],[[[[1,"\\n            "],[8,[39,6],null,[["@hit"],[[30,9]]],null],[1,"\\n          "]],[]]]]],[1,"\\n"]],[9]],null]],[8]]]]]],[]],null],[1,"  "]],[6]]]]],[1,"\\n"],[13]],["&attrs","@debouncePeriod","@typeaheadQuery","@onTypeaheadResultsRendered","@fetchFn","results","@triggered-content","content","result","@typeaheadSelect"],false,["basic-typeahead@ta-fetch","if","component","ember-holy-futuristic-template-namespacing-batman-translate-dynamic-2","each","-track-array","search-ta-kit@search-typeahead-hit"]]',moduleName:"participate-text-editor/components/typeahead-fetch.hbs",isStrictMode:!1})
+var a=(0,t.setComponentTemplate)(o,(0,r.default)())
+e.default=a}))
+define("participate-text-editor/config/environment",["exports"],(function(e){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+let t
+try{const e="participate-text-editor/config/environment",i=document.querySelector('meta[name="'+e+'"]').getAttribute("content")
+t=JSON.parse(unescape(i))}catch(e){t={}}var i=t
+e.default=i}))
+define.alias("ember-element-helper/helpers/element","participate-text-editor/helpers/element")
+define.alias("ember-holy-futuristic-template-namespacing-batman/helpers/-translate-dynamic-2","participate-text-editor/helpers/ember-holy-futuristic-template-namespacing-batman-translate-dynamic-2")
+define("participate-text-editor/helpers/ensure-safe-component",["exports","@embroider/util"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.EnsureSafeComponentHelper}})}))
+define.alias("ember-cli-pemberly-i18n/helpers/format-number","participate-text-editor/helpers/format-number")
+define.alias("artdeco-icons-web/helpers/li-icon","participate-text-editor/helpers/li-icon")
+define.alias("ember-cli-pemberly-i18n/helpers/t","participate-text-editor/helpers/t")
+define("participate-text-editor/initializers/artdeco",["exports","artdeco-eyeglass"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+e.initialize=o
+const i=[t.default.contextClasses,t.default.floatingLabel,t.default.focusOutline]
+function r(e,t){const r=e[t]
+e[t]=function(){i.forEach((e=>e&&"function"==typeof e.teardown&&e.teardown()))
+r&&"function"==typeof r&&r.call(e)}}function o(e){if("undefined"!=typeof document){i.forEach((e=>e.install()))
+"function"==typeof e.willDestroy?r(e,"willDestroy"):"function"==typeof e.destroy&&r(e,"destroy")}}var a={name:"artdeco",initialize:o}
+e.default=a}))
+define("participate-text-editor/initializers/icons",["exports","artdeco-icons-web/src/icons","participate-text-editor/config/environment"],(function(e,t,i){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+function r(e){throw e}var o={name:"icons",initialize:function(){const{environment:e,APP:o}=i.default
+let a,n
+o&&({artdecoCustomSpriteUrl:a,artdecoCustomSpriteName:n}=o)
+const s="test"!==e
+t.default.load(s,a,n).catch(r)}}
+e.default=o}))
+define.alias("ember-m3/initializers/m3-store","participate-text-editor/initializers/m3-store")
+define.alias("@ember/render-modifiers/modifiers/did-insert","participate-text-editor/modifiers/did-insert")
+define.alias("@ember/render-modifiers/modifiers/did-update","participate-text-editor/modifiers/did-update")
+define("participate-text-editor/modifiers/editor-events",["exports","ember-modifier","@ember/debug"],(function(e,t,i){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0})
+e.default=void 0
+var r=(0,t.modifier)(((e,t)=>{let[i]=t
+e.addEventListener("keydown",i)
+e.addEventListener("keyup",i)
+e.addEventListener("focusin",i)
+e.addEventListener("focusout",i)
+return()=>{e.removeEventListener("keydown",i)
+e.removeEventListener("keyup",i)
+e.removeEventListener("focusin",i)
+e.removeEventListener("focusout",i)}}),{eager:!1})
+e.default=r}))
+define.alias("@ember/render-modifiers/modifiers/will-destroy","participate-text-editor/modifiers/will-destroy")
+define.alias("@embroider/util/services/ensure-registered","participate-text-editor/services/-ensure-registered")
+define.alias("artdeco-modal/services/artdeco-modal","participate-text-editor/services/artdeco-modal")
+define.alias("client-sensor-web/services/client-sensor","participate-text-editor/services/client-sensor")
+define.alias("@linkedin/ember-pem/services/internal-event-utils","participate-text-editor/services/internal-event-utils")
+define.alias("@linkedin/ember-pem/services/internal-pem-tracking","participate-text-editor/services/internal-pem-tracking")
+define.alias("ember-m3/services/m3-schema-manager","participate-text-editor/services/m3-schema-manager")
+define.alias("@linkedin/ember-pem/services/pem-tracking","participate-text-editor/services/pem-tracking")
+define.alias("ember-cli-pemberly-m3/services/store","participate-text-editor/services/store")
+define.alias("client-sensor-web/utils/helpers","participate-text-editor/utils/helpers")
+define.alias("ember-vector-images/utils/vector-url","participate-text-editor/utils/vector-url")
+
+//# sourceMappingURL=engine.map

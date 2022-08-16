@@ -1,11 +1,11 @@
 import React from "react";
 import NoticeFromBank from "../../Components/Components.Arif/NoticeFromBank/NoticeFromBank";
-import BannerCarousel from "../../Components/Components.Masud/BannerCarousel";
-import AboutCounter from "../AboutUs/About/AboutCounter";
 import Blogs from "./Blogs";
 import BusinessSummary from "./BusinessSummary";
 import GetLoan from "./GetLoan";
+import HomeTopCarousel from "./HomeTopCarousel";
 import OruTrustedPartners from "./OruTrustedPartners";
+import OurFeatures from "./OurFeatures";
 import TrustedCFeedback from "./TrustedCFeedback";
 import WhyChooseOBB from "./WhyChooseOBB";
 import WhyWaiting from "./WhyWaiting";
@@ -13,11 +13,10 @@ import WhyWaiting from "./WhyWaiting";
 const Home = () => {
   return (
 
-    <div className="max-w-7xl mx-auto">
-      <BannerCarousel/>
-      {/* <Banner /> */}
+    <div className="">
+      <HomeTopCarousel/>
       <OruTrustedPartners/>
-      <AboutCounter/>
+      <OurFeatures/>
       <NoticeFromBank />
       <WhyChooseOBB />
       <GetLoan/>
