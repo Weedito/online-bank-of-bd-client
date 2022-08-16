@@ -49,7 +49,6 @@ const BlogsDetails = () => {
             setBtnSpinner(false)
         })
     }
-    console.log(blog?.comment);
     return (
         <section className='w-full mx-auto pb-5 max-w-7xl  mb-5  justify-center rounded-[27px] relative'>
         <div className='blogDetailsBanner'>

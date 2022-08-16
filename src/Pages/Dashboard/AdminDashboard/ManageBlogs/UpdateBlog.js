@@ -38,8 +38,7 @@ const UpdateBlog = ({refresh, setRefresh}) => {
                     const category = data.category;
                     const description = data.description;
                     const picture=result.data.url;
-                    const comment =[]
-                    const blogData= {title,category,description,picture,date,comment}
+                    const blogData= {title,category,description,picture,date}
                     console.log(blogData);
                     const url = `http://localhost:5000/blog/${id}`
                     fetch(url,{

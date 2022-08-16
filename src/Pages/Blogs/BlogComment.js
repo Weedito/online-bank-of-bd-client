@@ -2,8 +2,6 @@ import React from 'react';
 import Avatar from "../../Assets/Images/blog/undraw_profile_pic_ic5t.png"
 
 const BlogComment = ({comment}) => {
-    console.log(comment);
-    
     return (
         <div className='my-12 md:mx-12 mx-4 flex items-center p-4 bg-gray-100 rounded-md shadow-md'>
             <div className='avatar h-12 w-12 border-2 border-green-500 rounded-full mr-2 '>
