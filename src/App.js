@@ -48,6 +48,7 @@ import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
 import OurCommitment from "./Components/Components.Rijon/OurCommitment";
+import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
 
 function App() {
   return (
@@ -117,6 +118,10 @@ function App() {
         <Route path="/agentbanking" element={<AgentBanking />} />
         <Route path="/smsbanking" element={<SMSBanking />} />
         {/* Our Banking Routes End*/}
+
+        { /* Our agentbankingdata Routes start*/}
+        <Route path="/agentDynamicPage/:id" element={<AgentDynamicPage />} />
+        { /* Our agentbankingdata Routes End*/}
 
 
         { /* Our Commitment dynamic Routes start*/}
