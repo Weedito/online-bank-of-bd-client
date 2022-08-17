@@ -54,7 +54,7 @@ const CreateAccount = () => {
     };
 
     return (
-        <div className="bg-slate-100">
+        <div className="bg-slate-100 max-w-7xl mx-auto">
             <div className="h-full w-full">
                 <div className="card-body w-full">
                     <h1 className="text-primary text-2xl font-bold text-center">

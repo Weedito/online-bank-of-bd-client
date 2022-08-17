@@ -24,10 +24,10 @@ const SMEBanking = () => {
         <div className='max-w-7xl mx-auto'>
 
 
-            <div class="hero bg-slate-100">
+            <div className="hero bg-slate-100">
 
-                <div class="hero-content flex-col lg:flex-row pt-8">
-                    <img src="https://i.ibb.co/s2DSzq8/what-is-sme-loan-png-min.jpg" class="max-w-sm rounded-lg shadow-2xl" alt='sme img' />
+                <div className="hero-content flex-col lg:flex-row pt-8">
+                    <img src="https://i.ibb.co/s2DSzq8/what-is-sme-loan-png-min.jpg" className="max-w-sm rounded-lg shadow-2xl" alt='sme img' />
                     <div>
                         <h2 className="text-3xl font-bold">Grow Your Business</h2>
                         <h3 className="text-2xl">With our quick & simplified</h3>

@@ -1,7 +1,8 @@
 import { faFacebook, faGithub, faGoogle, } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { sendEmailVerification } from "firebase/auth";
 import React from "react";
-import { useCreateUserWithEmailAndPassword,useSignInWithFacebook,useSignInWithGithub,useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -10,63 +11,71 @@ import Loading from "../../../Components/Components.Nahid/Loading";
 import auth from "../../../firebase.init";
 
 
-  const SignupRight = () => {
-    const [createUserWithEmailAndPassword, cuser, cloading, cerror] = useCreateUserWithEmailAndPassword(auth);
-    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
-    const [SignInWithGithub, gituser, gitloading, giterror] = useSignInWithGithub(auth);
-    const [SignInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
-    const [updateProfile] = useUpdateProfile(auth);
+const SignupRight = () => {
+  const [createUserWithEmailAndPassword, cuser, cloading, cerror] = useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+  const [SignInWithGithub, gituser, gitloading, giterror] = useSignInWithGithub(auth);
+  const [SignInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
+  const [updateProfile] = useUpdateProfile(auth);
 
 
-    const { register, handleSubmit, reset } = useForm();
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+  const { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
-    let signupError;
+  let signupError;
 
-    const [token] = UseToken(cuser || guser || gituser || fuser);
+  const [token] = UseToken(cuser || guser || gituser || fuser);
 
-    if (cloading || gloading || gitloading || floading) {
-        return <Loading />
-    };
+  if (cloading || gloading || gitloading || floading) {
+    return <Loading />
+  };
 
-    if (cerror || gerror || giterror || ferror) {
-        signupError = <p className="text-red-700">{cerror?.message || gerror?.message || giterror?.message || ferror?.message}</p>
-    };
-
-
-    if (token) {
-        navigate(from, { replace: true });
-        toast.success("Signin User Successfully")
-    };
+  if (cerror || gerror || giterror || ferror) {
+    signupError = <p className="text-red-700">{cerror?.message || gerror?.message || giterror?.message || ferror?.message}</p>
+  };
 
 
-    const handleSignupform = async (data) => {
-        const displayName = data.displayName;
-        const email = data.email;
-        const password = data.password;
-        await createUserWithEmailAndPassword(email, password)
-        await updateProfile({ displayName: displayName })
-            .then(() => {
-                reset();
-            })
-    }
+  if (token) {
+    navigate(from, { replace: true });
+    toast.success("Signin User Successfully")
+  };
 
 
-    const handleGoogleSignin = async () => {
-        await signInWithGoogle()
-    }
+  const handleSignupform = async (data) => {
+    const displayName = data.displayName;
+    const email = data.email;
+    const password = data.password;
+    await createUserWithEmailAndPassword(email, password)
+    verifyEmail()
+    await updateProfile({ displayName: displayName })
+      .then(() => {
+        reset();
+      })
+  }
 
 
-    const handleGithubSignin = async () => {
-        await SignInWithGithub()
-    }
+  const handleGoogleSignin = async () => {
+    await signInWithGoogle()
+  }
 
 
-    const handleFacebookSignin = async () => {
-        await SignInWithFacebook()
-    }
+  const handleGithubSignin = async () => {
+    await SignInWithGithub()
+  }
+
+
+  const handleFacebookSignin = async () => {
+    await SignInWithFacebook()
+  }
+
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser)
+      .then(() => {
+        toast.success('email sent')
+      })
+  }
 
 
   return (

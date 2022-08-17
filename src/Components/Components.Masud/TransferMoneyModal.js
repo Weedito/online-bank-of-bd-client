@@ -12,7 +12,7 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
     const [transAcc, setTransAcc] = useState();
 
 
-    // console.log(balance);
+    console.log(balance);
 
 
     const handleAccountBlur = (e) => {
@@ -55,15 +55,23 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
             return (
                 toast.error("Account Name & Number Doesn't Match")
             )
-        }else if(balance < 0 || balance < transBalance){
+        } else if (balance < 0 || balance < transBalance) {
             return (
                 toast.error("You Dont Have Enoung Balance for Transfer")
             )
-        }else if(transBalance < 20){
+        } else if (transBalance < 20) {
             return (
                 toast.error("You Connot Transfer Less Than $20")
             )
-        }else {
+        }
+
+        // else if (transBalance > 100000) {
+        //     return (
+        //         toast.error("You got a confirmetion mail")
+        //     )
+        // }
+
+        else {
 
             // Sender
             const url = `http://localhost:5000/account/${_id}`;
@@ -157,7 +165,7 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
             <input type="checkbox" id="transfer-money-modal" className="modal-toggle" />
             <div className="modal modal-bottom md:modal-middle">
                 <div className="modal-box w-full">
-                    <label for="transfer-money-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="transfer-money-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     <h1 className="font-bold text-2xl pb-4 text-green-500">Transfer Money</h1>
                     <div className="flex flex-col w-full mx-auto justify-center lg:flex-row">
@@ -188,17 +196,17 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
                             <form onSubmit={handleSubmit(handleTransferMoney)} action="">
                                 <div className="relative z-0 my-2">
                                     <input {...register("name")} type="text" id="floating_standard" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
-                                    <label for="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Account Holder Name</label>
+                                    <label htmlFor="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Account Holder Name</label>
                                 </div>
                                 <div onBlur={handleAccountBlur} className="relative z-0 my-2">
                                     {/* onBlur={accountNumber} */}
 
                                     <input {...register("AccNo")} type="number" id="floating_standard" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
-                                    <label for="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Account Number</label>
+                                    <label htmlFor="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Account Number</label>
                                 </div>
                                 <div className="relative z-0 my-2">
                                     <input {...register("balance")} type="number" id="floating_standard" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-700 appearance-none dark:text-white dark:border-gray-600 dark:focus:green-blue-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " />
-                                    <label for="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Transfer Amount</label>
+                                    <label htmlFor="floating_standard" className="absolute text-sm text-left w-full justify-start flex text-gray-700 dark:text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Transfer Amount</label>
                                 </div>
                                 <div className="py-10 w-full flex justify-center mx-auto">
                                     <input className="inline-block px-7 py-2.5 border-2 border-green-700 text-green-700 font-medium text-xs leading-tight uppercase rounded hover:bg-gray-700 hover:text-white hover:border-rose-700 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"

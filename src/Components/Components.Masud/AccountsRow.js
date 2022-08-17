@@ -32,11 +32,11 @@ const AccountsRow = ({ account, setDeposit, setWithdraw, setDeleteAccount }) => 
             <td>$ {balance}</td>
             <td>{phone}</td>
             <th>
-                <label for="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
+                <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
 
-                <label for="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
+                <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
 
-                <label for="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs">Delete Account</label>
+                <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs">Delete Account</label>
 
             </th>
         </tr>

@@ -5,7 +5,7 @@ import { ShareHolderData } from '../../../Components/Components.Nahid/Data';
 
 const AllShareholders = () => {
     return (
-        <div className='container'>
+        <div className='container max-w-7xl mx-auto'>
             <div className="title">
                 <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
                     Our <span className="text-green-700">Shareholders</span>

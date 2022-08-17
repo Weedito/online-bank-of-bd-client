@@ -33,13 +33,13 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
             </td>
             <td className="w-full lg:w-auto text-xs p-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <div className="flex justify-between px-3 pb-1 items-center">
-                    <label for="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
+                    <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
 
-                    <label for="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
+                    <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
                 </div>
 
                 <div className="flex justify-center items-center px-3 pt-1">
-                <label for="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs">Delete Account</label>
+                <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs">Delete Account</label>
                 </div>
 
             </td>

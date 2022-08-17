@@ -6,7 +6,7 @@ import Milestone from './Milestone';
 
 const About = () => {
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <AboutTopSection/>
             <AboutBank/>
             <AboutCounter/>

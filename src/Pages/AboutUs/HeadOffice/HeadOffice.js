@@ -2,8 +2,8 @@ import React from 'react';
 
 const HeadOffice = () => {
     return (
-        <div>
-            <div className="hero  bg-slate-100">
+        <div className=''>
+            <div className="hero py-20 bg-slate-100 max-w-7xl mx-auto">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src="https://i.ibb.co/nDVy4qR/png-clipart-bank-ezy-tax-solutions-public-accountant-registered-tax-agent-bank-building-payment-remo.png" className="max-w-sm rounded-lg" alt="online Bank BD Img" />
                     <div>

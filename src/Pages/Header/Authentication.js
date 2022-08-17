@@ -27,7 +27,7 @@ const Authentication = () => {
         <div>
             <button className="text-sm lg:text-lg font-bold text-white bg-green-700 hover:bg-rose-600 focus:bg-gray-800 px-5 py-2 rounded-full cursor-pointer">
                 {
-                    user ? <button onClick={handleSignOut} >SignOut</button> : <NavLink to="/signin">Create an Account</NavLink>
+                    user ? <button onClick={handleSignOut} >SignOut</button> : <NavLink to="/signin">SignIn Your Account</NavLink>
                 }
                 
             </button>
