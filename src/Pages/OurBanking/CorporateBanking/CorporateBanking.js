@@ -32,7 +32,7 @@ const CorporateBanking = () => {
                             <p className='text-left'>We provide credit facility and services to all general corporate houses to finance current assets.</p>
                             <div className="card-actions justify-end">
 
-                                <label for="corporateFinance" className='btn btn-xs bg-green-700 border-0'>Read More</label>
+                                <label htmlFor="corporateFinance" className='btn btn-xs bg-green-700 border-0'>Read More</label>
 
                             </div>
                         </div>
@@ -43,7 +43,7 @@ const CorporateBanking = () => {
                             <h2 className="card-title">Syndications & Structured Finance</h2>
                             <p className='text-left'>We have an impressive track record of syndication financing both as a member bank and a lead arranger.</p>
                             <div className="card-actions justify-end">
-                                <label for="structuredFinance" className='btn btn-xs bg-green-700 border-0'>Read More</label>
+                                <label htmlFor="structuredFinance" className='btn btn-xs bg-green-700 border-0'>Read More</label>
 
                             </div>
                         </div>
@@ -55,7 +55,7 @@ const CorporateBanking = () => {
                             <h2 className="card-title">Cash Management Solution</h2>
                             <p className='text-left'>Online Bank BD offers a wide range of cash management services to meet the specific requirements of the clients.</p>
                             <div className="card-actions justify-end">
-                                <label for="cashManagementSolution" className='btn btn-xs bg-green-700 border-0'>Read More</label>
+                                <label htmlFor="cashManagementSolution" className='btn btn-xs bg-green-700 border-0'>Read More</label>
 
                             </div>
                         </div>
@@ -66,38 +66,38 @@ const CorporateBanking = () => {
 
             {/* Modal  */}
             {/* corporateFinance Information */}
-            <input type="checkbox" id="corporateFinance" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="corporateFinance" class="btn btn-sm btn-circle hover:bg-red-700 absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="corporateFinance" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <label htmlFor="corporateFinance" className="btn btn-sm btn-circle hover:bg-red-700 absolute right-2 top-2">✕</label>
                     <figure className='w-6/12 m-auto'><img src="https://ghalibzahirinvestmentholdings.com/public/uploads/service-6.jpg" alt="Corporate Finance img" /></figure>
-                    <h3 class="font-bold text-lg">Corporate Finance</h3>
-                    <p class="py-4">We provide credit facility and services to all general corporate houses to finance current assets and fixed assets in the form of different Term Finance, Working Capital Finance, Capital Machinery Finance, Real Estate Finance, Work order /Construction Business Financing, and Trade Finance.</p>
+                    <h3 className="font-bold text-lg">Corporate Finance</h3>
+                    <p className="py-4">We provide credit facility and services to all general corporate houses to finance current assets and fixed assets in the form of different Term Finance, Working Capital Finance, Capital Machinery Finance, Real Estate Finance, Work order /Construction Business Financing, and Trade Finance.</p>
 
                 </div>
             </div>
 
             {/* Structured Finance Information */}
-            <input type="checkbox" id="structuredFinance" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="structuredFinance" class="btn btn-sm btn-circle hover:bg-red-700 absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="structuredFinance" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <label htmlFor="structuredFinance" className="btn btn-sm btn-circle hover:bg-red-700 absolute right-2 top-2">✕</label>
                     <figure className='w-6/12 m-auto'><img src="https://i.ibb.co/JKZPbh3/New-Project.jpg" alt="Structured Finance img" /></figure>
-                    <h3 class="font-bold text-lg">Syndications & Structured Finance</h3>
-                    <p class="py-4">We have an impressive track record of syndication financing both as a member bank and a lead arranger. We also provide club financing. We have provided syndication financing in setting up, upgrade and expansion of Textiles and Readymade garments, telecom, pharmaceuticals, chemical, cement, ceramic, steel,, power generation, food and allied industries.</p>
+                    <h3 className="font-bold text-lg">Syndications & Structured Finance</h3>
+                    <p className="py-4">We have an impressive track record of syndication financing both as a member bank and a lead arranger. We also provide club financing. We have provided syndication financing in setting up, upgrade and expansion of Textiles and Readymade garments, telecom, pharmaceuticals, chemical, cement, ceramic, steel,, power generation, food and allied industries.</p>
 
                 </div>
             </div>
 
             {/* Cash Management Solution Information */}
 
-            <input type="checkbox" id="cashManagementSolution" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <label for="cashManagementSolution" class="btn btn-sm btn-circle hover:bg-red-700 absolute right-2 top-2">✕</label>
+            <input type="checkbox" id="cashManagementSolution" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <label htmlFor="cashManagementSolution" className="btn btn-sm btn-circle hover:bg-red-700 absolute right-2 top-2">✕</label>
                     <figure className='w-6/12 m-auto'><img src="https://i.ibb.co/CBcVtbk/New-Project-1.jpg" alt="Structured Finance img" /></figure>
-                    <h3 class="font-bold text-lg">Cash Management Solution</h3>
-                    <p class="py-4">Online Bank BD offers a wide range of cash management services to meet the specific requirements of the clients. These services are flexible and customizable as per the requirements of the different clients. Within a very short span of time we have been able to establish our foothold very sharply by providing different types of collection solutions to the different types of organizations such as Government organizations, autonomous bodies, large local conglomerates, developments organizations, MNCs etc.</p>
+                    <h3 className="font-bold text-lg">Cash Management Solution</h3>
+                    <p className="py-4">Online Bank BD offers a wide range of cash management services to meet the specific requirements of the clients. These services are flexible and customizable as per the requirements of the different clients. Within a very short span of time we have been able to establish our foothold very sharply by providing different types of collection solutions to the different types of organizations such as Government organizations, autonomous bodies, large local conglomerates, developments organizations, MNCs etc.</p>
 
                 </div>
             </div>

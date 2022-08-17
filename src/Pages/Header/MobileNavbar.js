@@ -15,12 +15,17 @@ import { NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import UseAdmin from '../../Components/Components.Nahid/Hooks/useAdmin';
+import useAccount from '../../Components/Components.Nahid/Hooks/useAccount';
 
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user] = useAuthState(auth);
   const [admin] = UseAdmin();
+  const { myAccount } = useAccount();
+  const account = myAccount?.length > 0;
+
+  // console.log(myAccount);
 
   const circleVariants = {
     hidden: {
@@ -190,17 +195,30 @@ const MobileNavbar = () => {
             }
 
             
-            if(item.name === 'Dashboard'){
+            if(item.name === 'Open Account'){
               return (
-                  (user && !admin) && <li key={idx}  onClick={() => setIsOpen(false)}  className={`mb-4 dropdown text-white`}>
+                  (user && !account && !admin) && <li key={idx}  onClick={() => setIsOpen(false)}  className={`mb-4 dropdown text-white`}>
                       
-                      <NavLink
-                          to={item.href}
+                      <a href={item.href}
                           smooth={true}
                           duration={500}
                           offset={-70}
                           className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
-                      > {item.name} </NavLink>
+                      > {item.name} </a>
+                  </li> 
+              )
+          }
+            
+            if(item.name === 'Dashboard'){
+              return (
+                  (user && account && !admin) && <li key={idx}  onClick={() => setIsOpen(false)}  className={`mb-4 dropdown text-white`}>
+                      
+                      <a href={item.href}
+                          smooth={true}
+                          duration={500}
+                          offset={-70}
+                          className="text-xl cursor-pointer capitalize focus:text-secondary hover:border-b-2"
+                      > {item.name} </a>
                   </li> 
               )
           }

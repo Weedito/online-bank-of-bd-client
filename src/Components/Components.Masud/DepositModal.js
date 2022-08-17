@@ -65,7 +65,7 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
             <input type="checkbox" id="deposit-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle text-center">
                 <div className="modal-box w-full">
-                    <label for="deposit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="deposit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h1 className='mb-4 badge badge-success text-2xl badge-lg p-4'>Deposit Money</h1>
                     <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>
@@ -73,7 +73,7 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
                     <p className=' text-primary'>{error}</p>
                     <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
                     <div className="modal-action">
-                        <label for="deposit-modal" onClick={handleDeposit} className="btn">Deposit</label>
+                        <label htmlFor="deposit-modal" onClick={handleDeposit} className="btn">Deposit</label>
                     </div>
                 </div>
             </div>

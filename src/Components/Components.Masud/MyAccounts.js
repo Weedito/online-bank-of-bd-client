@@ -4,24 +4,24 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import DepositModal from './DepositModal';
 import WidthdrawModal from './WidthdrawModal';
 import TransferMoneyModal from './TransferMoneyModal';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getUserAccount } from '../Components.Tanvir/ReduxStateManagement/Actions/action';
 const MyAccounts = () => {
 
-    
+
     const [user, loading] = useAuthState(auth);
 
     const [deposit, setDeposit] = useState(null);
     const [withdraw, setWithdraw] = useState(null);
     const [transferMoney, setTransferMoney] = useState(null);
-    const [refresh,setRefresh]=useState(false)
+    const [refresh, setRefresh] = useState(false)
     const dispatch = useDispatch();
 
     //////  load user account
-    const {isLoading,myAccount,error} = useSelector(state=>state)
-    useEffect(()=>{
-    dispatch(getUserAccount(user.email))
-    },[user, refresh])
+    const { isLoading, myAccount, error } = useSelector(state => state)
+    useEffect(() => {
+        dispatch(getUserAccount(user.email))
+    }, [user, refresh])
     //////
 
 
@@ -32,7 +32,7 @@ const MyAccounts = () => {
 
     return (
         <div className="overflow-x-auto">
-            {error&& <h2>{error.message}</h2>}
+            {error && <h2>{error.message}</h2>}
             <table className="table table-zebra w-full">
 
                 <thead>
@@ -80,16 +80,16 @@ const MyAccounts = () => {
                                     </td>
                                     <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                                         <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Action</span>
-                                        <label for="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
+                                        <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
 
-                                        <label for="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
+                                        <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
 
-                                        <label for="transfer-money-modal" onClick={() => setTransferMoney(account)} className="btn btn-success btn-xs">Send Money</label>
+                                        <label htmlFor="transfer-money-modal" onClick={() => setTransferMoney(account)} className="btn btn-success btn-xs">Send Money</label>
                                     </td>
                                 </tr>
 
                             );
-                        } )
+                        })
                     }
                 </tbody>
             </table>

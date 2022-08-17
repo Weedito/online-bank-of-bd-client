@@ -9,7 +9,7 @@ const AllBlogsData = () => {
         return <Loading/>
     }
     return (
-        <div >
+        <div className='max-w-7xl mx-auto'>
             <div className='blog-header md:my-12 py-6 bg-[#EDFFD4]'>
             <h3 className='text-4xl font-bold uppercase text-center '>Our Blogs</h3>
             </div>

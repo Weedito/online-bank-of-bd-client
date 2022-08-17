@@ -15,7 +15,7 @@ const TopOverview = ({ handleSelect, frstacc }) => {
                 <h3 className="text-sm md:text-md pr-2">Overview of</h3>
                 <div className="">
 
-                    <select onChange={handleSelect} class="select focus:outline-none select-ghost w-full text-md">
+                    <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md">
                         {
                             myAccount?.map(account => <option >{account?.AccNo}</option>)
                         }
@@ -27,8 +27,8 @@ const TopOverview = ({ handleSelect, frstacc }) => {
                 <div className="flex  items-center gap-4">
                     <FontAwesomeIcon icon={faSearch} />
                     <FontAwesomeIcon icon={faBell} />
-                    <div class="avatar">
-                        <div class="w-10 rounded-full">
+                    <div className="avatar">
+                        <div className="w-10 rounded-full">
                             <img src="https://placeimg.com/192/192/people" alt='' />
                         </div>
                     </div>

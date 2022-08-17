@@ -20,24 +20,24 @@ const LoanPage = () => {
         </Slide>
 
       </div>
-      <div class="hero  bg-base-200">
-        <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src="https://www.wikihow.com/images/thumb/a/a1/Build-a-House-Step-10-Version-4.jpg/v4-460px-Build-a-House-Step-10-Version-4.jpg" class="max-w-sm rounded-lg shadow-2xl" alt='' />
+      <div className="hero  bg-base-200">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <img src="https://www.wikihow.com/images/thumb/a/a1/Build-a-House-Step-10-Version-4.jpg/v4-460px-Build-a-House-Step-10-Version-4.jpg" className="max-w-sm rounded-lg shadow-2xl" alt='' />
           <div className='text-left'>
-            <h1 class="text-5xl font-bold">Make your Own Home</h1>
-            <p class="py-6">Make your dream home a reality with easy home loans from Online Bank BD. Our wide range of options are designed to cater your every home financing need, be it purchasing a new flat, constructing a house or renovating your existing home. Allow us to be the finance partner of one of the biggest investments of your lifetime and give you a delightful experience of banking.</p>
+            <h1 className="text-5xl font-bold">Make your Own Home</h1>
+            <p className="py-6">Make your dream home a reality with easy home loans from Online Bank BD. Our wide range of options are designed to cater your every home financing need, be it purchasing a new flat, constructing a house or renovating your existing home. Allow us to be the finance partner of one of the biggest investments of your lifetime and give you a delightful experience of banking.</p>
             <button className="text-1xl px-4 py-1 text-white bg-green-700 rounded-full ">Apply Now</button>
           </div>
         </div>
       </div>
 
 
-      <div class="hero py-10 mt-5">
-        <div class="hero-content flex-col lg:flex-row">
-          <img src="https://www.badcredit.org/wp-content/uploads/2019/12/Guaranteed-Loans-with-No-Credit-Check.jpg" class="max-w-sm rounded-lg shadow-2xl" alt='' />
+      <div className="hero py-10 mt-5">
+        <div className="hero-content flex-col lg:flex-row">
+          <img src="https://www.badcredit.org/wp-content/uploads/2019/12/Guaranteed-Loans-with-No-Credit-Check.jpg" className="max-w-sm rounded-lg shadow-2xl" alt='' />
           <div className='text-left lg:ml-10'>
-            <h1 class="text-5xl font-bold">Personal Loan</h1>
-            <p class="py-6">Whatever the occasion or requirement, make smart financial choice with Online Bank BD Personal Loan to fulfill all your dreams, reach to new heights and make your day to day journey of life joyful.</p>
+            <h1 className="text-5xl font-bold">Personal Loan</h1>
+            <p className="py-6">Whatever the occasion or requirement, make smart financial choice with Online Bank BD Personal Loan to fulfill all your dreams, reach to new heights and make your day to day journey of life joyful.</p>
             <button className="text-1xl px-4 py-1 text-white bg-green-700 rounded-full ">Apply Now</button>
           </div>
         </div>

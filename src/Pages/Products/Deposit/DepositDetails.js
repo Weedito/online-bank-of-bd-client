@@ -28,8 +28,8 @@ const DepositDetails = () => {
                 </RubberBand>
             </div>
             <Fade>
-                <div class="my-5 lg:px-15 lg:py-10">
-                    <table class="table w-full">
+                <div className="my-5 lg:px-15 lg:py-10">
+                    <table className="table w-full">
                         {/* <!-- head start --> */}
                         <thead >
                             <tr>
@@ -157,7 +157,7 @@ const DepositDetails = () => {
 
             <Flip top cascade>
                 <div className=" my-5 lg:px-15 lg:py-10">
-                    <table class="table w-full">
+                    <table className="table w-full">
                         {/* <!-- head start --> */}
                         <thead >
                             <tr>

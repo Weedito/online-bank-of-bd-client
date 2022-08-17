@@ -6,17 +6,12 @@ import Account from "./Steps/Account";
 import Details from "./Steps/Details";
 import Final from "./Steps/Final";
 import Payment from "./Steps/Payment";
-// import { useAuthState } from "react-firebase-hooks/auth";
-// import { toast } from "react-toastify";
-// import Loading from "../../../../Components/Components.Nahid/Loading";
-// import auth from "../../../../firebase.init";
-// import AllCountry from "../../../../Hook/AllCountry";
 
 
 
 const CreateAccount = () => {
-    // const [allCountry] = AllCountry();
 
+<<<<<<< HEAD
     // const [user, loading] = useAuthState(auth);
 
     // const legaleNameRef = useRef('');
@@ -85,6 +80,8 @@ const CreateAccount = () => {
     //             toast("Account Created Successfully!")
     //         })
     // }
+=======
+>>>>>>> b048257e20a865ebcfa449362a6c92077aaf4ab9
 
     const [currentStep, setCurrentStep] = useState(1);
 
