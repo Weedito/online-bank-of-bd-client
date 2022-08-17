@@ -47,6 +47,7 @@ import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
+import Student from "./Pages/OurBanking/RetailBanking/Student";
 
 function App() {
   return (
@@ -115,6 +116,7 @@ function App() {
         <Route path='/smebanking/:loanId' element={<SmeLoan />}></Route>
         <Route path="/agentbanking" element={<AgentBanking />} />
         <Route path="/smsbanking" element={<SMSBanking />} />
+        <Route path="/student" element={<Student />} />
         {/* Our Banking Routes End*/}
 
         {/* Contact Routes End*/}
