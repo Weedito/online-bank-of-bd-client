@@ -7,28 +7,70 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { toast } from 'react-toastify';
 
 
 
 const ContactUs = () => {
 
     const [pending, setPending] = useState(false);
-    const form = useRef();
+    const name = useRef('');
+    const email = useRef('');
+    const message = useRef('');
+    const subject = useRef('');
 
 
     const sendEmail = (e) => {
         e.preventDefault();
         setPending(true);
 
-        emailjs.sendForm('service_ppza7vk', 'template_bekixd9', form.current, 'aTGNKBF65tVThxQE0v6XN')
+        const name = e.target.name.value
+        const email = e.target.email.value
+        const message = e.target.message.value
+        const subject = e.target.subject.value
+
+        console.log(name, email, message, subject)
+
+        emailjs.sendForm('service_41xeu0y', 'template_zzunvbq', e.target, '8oCNQKe5LucpJto5h')
             .then((result) => {
-                Swal("Successfull", "You Send an Email!", "success");
-                e.target.reset();
-                setPending(false);
+
+                if (result.text) {
+                    toast.success("Successfull", "You Send an Email!", "success");
+                    e.target.reset();
+                    setPending(false);
+                }
             }, (error) => {
                 Swal("OPPSS...", "Email not Send!", "error");
                 setPending(false);
             });
+
+        const userDetails = {
+            name: name,
+            email: email,
+            message: message,
+            subject: subject
+        }
+        console.log(userDetails)
+
+        fetch('http://localhost:5000/contact', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success('your details submited')
+                }
+                else {
+                    toast.error('Something Wrong')
+                }
+            })
+
+
     };
 
     return (
@@ -83,16 +125,16 @@ const ContactUs = () => {
                         </div>
 
                         <Zoom top>
-                            <form ref={form} onSubmit={sendEmail} className='space-y-8 w-full mx-auto lg:w-3/6' >
+                            <form onSubmit={sendEmail} className='space-y-8 w-full mx-auto lg:w-3/6' >
                                 <div className='flex gap-8'>
-                                    <input required name='name' className='input w-full px-5' type='text' placeholder='Your name' />
-                                    <input required name='email' className='input w-full px-5' type='email' placeholder='Your email' />
+                                    <input ref={name} required name='name' className='input w-full px-5' type='text' placeholder='Your name' />
+                                    <input ref={email} required name='email' className='input w-full px-5' type='email' placeholder='Your email' />
                                 </div>
                                 <div className="">
-                                    <input required name='subject' className='input w-full px-5' type='text' placeholder='Subject' />
+                                    <input ref={subject} required name='subject' className='input w-full px-5' type='text' placeholder='Subject' />
                                 </div>
                                 <div className="">
-                                    <textarea required name='message' className='textarea w-full px-5 resize-none' placeholder='Your message'></textarea>
+                                    <textarea ref={message} required name='message' className='textarea w-full px-5 resize-none' placeholder='Your message'></textarea>
                                 </div>
                                 <input disabled={pending ? true : false} type='submit' value="Send Message" className='btn btn-lg bg-accent text-white hover:bg-secondary-hover' />
                             </form>
