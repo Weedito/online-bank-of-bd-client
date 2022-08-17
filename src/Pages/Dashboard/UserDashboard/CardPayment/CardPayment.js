@@ -1,8 +1,11 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
 import Loading from '../../../../Components/Components.Nahid/Loading';
-
+import CheckoutForm from './CheckoutForm';
+const stripePromise = loadStripe('pk_test_51LXkLpJ087W2neXfEx5v1T4ewb0l3tAGRM7fOI4YAm5maotPk9n1lVbth2HeVgdyYHvnt86JQPRTx5uF68g4eW2A00juw6Z3qA');
 const CardPayment = () => {
     const {id}=useParams();
     const { myAccount,isLoading } = useAccount();
@@ -20,10 +23,13 @@ const CardPayment = () => {
                     <h2 className='text-xl from-accent-focus  mb-4'>{existingAccount?.name}</h2>
                     <p className='text-sm mb-2 ' >Account Number: {existingAccount?.AccNo}</p>
                 </div>
-                <div className='Card-info bg-white md:py-12 py-6  md:rounded-l-md rounded-b-md flex flex-col items-center'>
+                <div className='Card-info bg-white md:py-12 py-6 md:px-8 px-4   md:rounded-l-md rounded-b-md flex flex-col items-center'>
                     <h3 className='text-xl from-accent-content text-gray-600 my-4'>Enter The Card Number</h3>
-                    <h3>Enter The Card Number</h3>
-                    <h3>Enter The Card Number</h3>
+                    <div className='md:w-2/3 mx-auto w-full'>
+                        <Elements stripe={stripePromise}>
+                            <CheckoutForm existingAccount={existingAccount} />
+                        </Elements>
+                    </div>
                 </div>
 
             </div>
