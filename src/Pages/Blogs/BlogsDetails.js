@@ -93,12 +93,13 @@ const BlogsDetails = () => {
                         className='w-full flex flex-col items-start md:mx-12 mx-2'>
                             <input type="text"
                             name='comment'
-                            required placeholder='Write Your Comment' className="md:w-2/3  w-full border-b-2 border-t-0 border-l-0 border-r-0 
+                            style={{outline:"none"}}
+                            required placeholder='Write Your Comment' className=" md:w-2/3  w-full outline-none border-b-2 border-t-0 border-l-0 border-r-0 
                             focus:border-t-0
                             focus:border-r-0
                             focus:border-l-0
-                            focus:outline-0
-                            outline-0"/>
+                            focus:outline-none
+                            "/>
                             <button
                             disabled={btnSpinner&& true}
                             className={`outline-0 mt-4 border py-2 px-4 rounded-md  text-white flex items-center text-xl font-sans font-medium shadow-md ${btnSpinner? 'bg-gray-400 cursor-not-allowed':'bg-green-500 cursor-pointer'}}`}>Comment</button>

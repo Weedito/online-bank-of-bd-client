@@ -46,11 +46,23 @@ import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
+import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
+import useAccount from "./Components/Components.Nahid/Hooks/useAccount";
+
 
 function App() {
+  // this Condition hidden the header and footer
+  const { myAccount } = useAccount();
+  let AccNo1;
+  let AccNo2;
+  if(myAccount){
+     AccNo1 = myAccount[0]?._id;
+     AccNo2 = myAccount[1]?._id;
+  }
+  //////
   return (
     <div className=" pt-16">
-      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard' && window.location.pathname !== `/payment/${AccNo1}` && window.location.pathname !== `/payment/${AccNo2}` ) && <Header /> }
 
       {/* <Header /> */}
       <Routes>
@@ -70,6 +82,11 @@ function App() {
           <Route path="mfeedbacks" element={<ManageFeedbacks/>} />
           <Route path="manageBlogs" element={<ManageBlogs/>}/>
         </Route>    
+        <Route path="/blog/:id" element={
+          <RequireAdmin>
+            <UpdateBlog/>
+          </RequireAdmin>
+        }/>
         {/* Control Panel Routes */}
 
         {/* User Dashboard Routes */}
@@ -81,19 +98,23 @@ function App() {
           <Route path="myaccounts/:id" element={<SingleAccountDetails/>}></Route>
           <Route path="mytransactions" element={<MyTransactions/>}></Route>
           <Route path="myfeedbacks" element={<MyFeedbacks/>}></Route>
-
         </Route>
-        <Route path="/blog/:id" element={<UpdateBlog/>}/>
+       
         <Route path="/blogDetails/:id" element={
 
           <RequireAuth>
             <BlogsDetails/>
           </RequireAuth>
         }/>
-        <Route path="/allBlogsData" element={<AllBlogsData/>} />
+        <Route path="/payment/:id" element={
+          <RequireAuth>
+            <CardPayment/>
+          </RequireAuth>
+        }/>
         {/* User Dashboard Routes End*/}
 
         {/* About Us Routes */}
+        <Route path="/allBlogsData" element={<AllBlogsData/>} />
         <Route path="/about" element={<About />} />\
         <Route path="/shareholders" element={<Shareholders />} />
         <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
@@ -133,7 +154,7 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Footer /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard' &&window.location.pathname !== `/payment/${AccNo1}` && window.location.pathname !== `/payment/${AccNo2}`) && <Footer /> }
       {/* <Footer /> */}
       <ToastContainer />
     </div>
