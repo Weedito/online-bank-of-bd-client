@@ -16,7 +16,7 @@ const RetailBanking = () => {
 
                 <div className='text-center mt-16 mx-40'>
                     <h2 className='text-4xl font-semibold'>Retail Banking</h2>
-                    <p className=' mt-5 font-medium text-sm text-black text-start px-36'>NRBCBank offers a complete range of retail and personal banking products and services through its network across the country. Our customers can be assured of a banking service that is flexible enough to tailor-make a product suite to take care of their specific banking needs. Our objective is to offer excellent value to customers by providing knowledgeable, efficient and reliable services in a personal, helpful and responsive manner</p>
+                    <p className=' mt-5 font-medium text-sm text-black text-start lg:px-36'>NRBCBank offers a complete range of retail and personal banking products and services through its network across the country. Our customers can be assured of a banking service that is flexible enough to tailor-make a product suite to take care of their specific banking needs. Our objective is to offer excellent value to customers by providing knowledgeable, efficient and reliable services in a personal, helpful and responsive manner</p>
                 </div>
 
                 <section className='lg:flex items-center justify-center bg-black lg:mx-60 mt-10'>
