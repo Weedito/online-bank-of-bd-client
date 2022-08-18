@@ -1,21 +1,11 @@
 import React from "react";
-import { CirclesWithBar } from "react-loader-spinner";
+import { HashLoader } from "react-spinners";
 
 const Loading = () => {
   return (
     <div className="flex justify-center items-center mt-2 w-full h-screen py-10">
-      <CirclesWithBar
-        height="100"
-        width="100"
-        color="#4fa94d"
-        wrapperStyle={{}}
-        wrapperclassName=""
-        visible={true}
-        outerCircleColor=""
-        innerCircleColor=""
-        barColor=""
-        ariaLabel='circles-with-bar-loading'
-      />
+      <HashLoader color="#137c38" size={70} cssOverride />
+
     </div>
   );
 };
