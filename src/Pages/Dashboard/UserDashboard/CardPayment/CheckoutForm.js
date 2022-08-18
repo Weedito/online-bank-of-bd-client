@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement ,useStripe,useElements} from '@stripe/react-stripe-js';
-const CheckoutForm = ({existingAccount}) => {
+import { toast } from "react-toastify";
+const CheckoutForm = ({existingAccount,inputBalance}) => {
   const stripe = useStripe();
   const elements=useElements()
   const [ErrorMessage,setErrorMessage]=useState("")
   const [clientSecret,setClientSecret]=useState(null)
-  const deposit = 40;
   useEffect(()=>{
     fetch("http://localhost:5000/create-payment-intent",{
         method:"POST",
         headers:{
-            "content-type":"application/json",
-            authorization : `Bearer ${localStorage.getItem('accessToken')}`
+          authorization : `Bearer ${localStorage.getItem('accessToken')}`,
+          "content-type":"application/json"
         },
-        body:JSON.stringify({deposit})
+        body:JSON.stringify({inputBalance:inputBalance})
     })
     .then(res=>res.json())
     .then(result=>{
         if(result?.clientSecret) setClientSecret(result.clientSecret)
     })
-  },[deposit])
+  },[inputBalance])
   // handle card deposit function
     const handleSubmit= async(event)=>{
         event.preventDefault()
@@ -54,6 +54,23 @@ const CheckoutForm = ({existingAccount}) => {
             }
             if(paymentIntent){
                 console.log("Congrats! Deposit Done.");
+                const depositBalance = existingAccount.balance + inputBalance;
+                const name = existingAccount.name;
+                const AccNo= existingAccount.AccNo;
+                const balance =existingAccount.balance
+                const updateBalance = { depositBalance,  name, AccNo, balance};
+                const url = `http://localhost:5000/account/${existingAccount._id}`;
+                fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(updateBalance)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        toast("Deposited Successfully!");
+                    })
             }
 
         }
