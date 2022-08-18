@@ -51,18 +51,10 @@ import useAccount from "./Components/Components.Nahid/Hooks/useAccount";
 
 
 function App() {
-  // this Condition hidden the header and footer
-  const { myAccount } = useAccount();
-  let AccNo1;
-  let AccNo2;
-  if(myAccount){
-     AccNo1 = myAccount[0]?._id;
-     AccNo2 = myAccount[1]?._id;
-  }
-  //////
+
   return (
     <div className=" pt-16">
-      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard' && window.location.pathname !== `/payment/${AccNo1}` && window.location.pathname !== `/payment/${AccNo2}` ) && <Header /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard'  ) && <Header /> }
 
       {/* <Header /> */}
       <Routes>
@@ -154,7 +146,7 @@ function App() {
         {/* Authentication Routes End*/}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard' &&window.location.pathname !== `/payment/${AccNo1}` && window.location.pathname !== `/payment/${AccNo2}`) && <Footer /> }
+      {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard' ) && <Footer /> }
       {/* <Footer /> */}
       <ToastContainer />
     </div>
