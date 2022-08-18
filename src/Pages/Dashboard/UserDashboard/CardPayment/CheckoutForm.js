@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement ,useStripe,useElements} from '@stripe/react-stripe-js';
 import { toast } from "react-toastify";
+import { Navigate, useNavigate } from 'react-router-dom';
 const CheckoutForm = ({existingAccount,inputBalance}) => {
   const stripe = useStripe();
   const elements=useElements()
   const [ErrorMessage,setErrorMessage]=useState("")
-  const [clientSecret,setClientSecret]=useState(null)
+  const [clientSecret,setClientSecret]=useState(null);
+  const navigate =useNavigate()
+  let today = new Date();
+  let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
   useEffect(()=>{
     fetch("http://localhost:5000/create-payment-intent",{
         method:"POST",
@@ -53,7 +58,7 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
                 setErrorMessage(intentError?.message);
             }
             if(paymentIntent){
-                console.log("Congrats! Deposit Done.");
+              //updated balance api start
                 const depositBalance = existingAccount.balance + inputBalance;
                 const name = existingAccount.name;
                 const AccNo= existingAccount.AccNo;
@@ -71,6 +76,32 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
                     .then(data => {
                         toast("Deposited Successfully!");
                     })
+                // updated balance api end
+
+                // transaction api start 
+                const receiverStatementData = {
+                  senderAccount: AccNo,
+                  statement: "Deposit Money With Card",
+                  deposit: inputBalance,
+                  withdraw: 0,
+                  balance: parseFloat(balance+inputBalance),
+                  date: date,
+                  email: existingAccount.accEmail,
+              }
+  
+              fetch('http://localhost:5000/statement', {
+                  method: 'POST',
+                  headers: {
+                      'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(receiverStatementData)
+              })
+                  .then(res => res.json())
+                  .then(data => {
+                      navigate("/dashboard/myaccounts")
+                  })
+                // transaction api end 
+            
             }
 
         }
