@@ -4,7 +4,7 @@ import { accountsCard } from '../../../Components/Components.Shuvo/SData'
 const Accounts = () => {
     return (
         <div className='bg-base-100'>
-            <div className='mx-40'>
+            <div className='mx-40 font-semibold'>
                 <p>When you consider the advantages that come with a NRBCB account, coupled with the support and guidance you receive from your Relationship Manager, you would be right to consider it a valuable business asset.</p>
             </div>
 
