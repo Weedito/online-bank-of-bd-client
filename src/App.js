@@ -52,6 +52,7 @@ import Accounts from "./Pages/OurBanking/RetailBanking/Accounts";
 import { useState } from "react";
 import { useEffect } from "react";
 import { HashLoader } from "react-spinners";
+import Timeline from "./Pages/OurBanking/CorporateBanking/Timeline";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -73,7 +74,7 @@ function App() {
           :
 
           <div className="pt-16">
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Header />}
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header />}
 
 
             {/* <Header /> */}
@@ -136,6 +137,7 @@ function App() {
               <Route path="/agentbanking" element={<AgentBanking />} />
               <Route path="/smsbanking" element={<SMSBanking />} />
               <Route path="/student" element={<Student />} />
+              <Route path="/timeline" element={<Timeline />} />
               {/* Our Banking Routes End*/}
 
               {/* Contact Routes End*/}
@@ -152,7 +154,7 @@ function App() {
               {/* Authentication Routes End*/}
               <Route path="*" element={<NotFound />} />
             </Routes>
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/dashboard') && <Footer />}
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />}
             {/* <Footer /> */}
             <ToastContainer />
           </div>
