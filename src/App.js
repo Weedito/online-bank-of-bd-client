@@ -47,6 +47,7 @@ import CreateAccount from "./Pages/CreateAccount/CreateAccount";
 import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
+import AskedQuestions from "./Components/Components.Arif/AskedQuestions/AskedQuestions";
 
 function App() {
   return (
@@ -73,6 +74,10 @@ function App() {
           <Route path="addBlog" element={<AddBlog/>}/>
         </Route>    
         {/* Control Panel Routes */}
+
+      {/* test route */}
+      <Route path="asked" element={<AskedQuestions />}></Route>
+      {/* test route */}
 
         {/* User Dashboard Routes */}
 
