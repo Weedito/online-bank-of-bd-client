@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Slide } from 'react-reveal';
 
 const SMEBanking = () => {
     const [smeLoans, setSmeLoans] = useState([]);
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/smebanking')
+        fetch('https://bank-of-bd.herokuapp.com/smebanking')
             .then(res => res.json())
             .then(data => setSmeLoans(data))
     }, [])
@@ -23,21 +24,23 @@ const SMEBanking = () => {
     return (
         <div className='max-w-7xl mx-auto'>
 
-
-            <div className="hero bg-slate-100">
-
-                <div className="hero-content flex-col lg:flex-row pt-8">
-                    <img src="https://i.ibb.co/s2DSzq8/what-is-sme-loan-png-min.jpg" className="max-w-sm rounded-lg shadow-2xl" alt='sme img' />
-                    <div>
-                        <h2 className="text-3xl font-bold">Grow Your Business</h2>
+<div className='flex flex-col bg-slate-100 md:flex-row gap-2 justify-around items-center py-10 px-2'>
+        <Slide left>
+          <div className="text-left">
+          <h2 className="text-3xl font-bold">Grow Your Business</h2>
                         <h3 className="text-2xl">With our quick & simplified</h3>
                         <h3 className="text-2xl font-bold">SME FINANCING</h3>
 
-                    </div>
-                </div>
-            </div>
+          </div>
+        </Slide>
+        <Slide right>
+          <div className="">
+            <img className='object-cover' src="https://i.ibb.co/VVmbh6x/istockphoto-1172696274-612x612-removebg-preview.png" alt="" />
+          </div>
+        </Slide>
 
-
+      </div>
+        
 
             <div className='grid grid-cols-1 lg:grid-cols-4 pt-8 gap-5 bg-slate-100 px-8'>
 

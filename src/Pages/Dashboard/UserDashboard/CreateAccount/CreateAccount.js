@@ -11,6 +11,77 @@ import Payment from "./Steps/Payment";
 
 const CreateAccount = () => {
 
+<<<<<<< HEAD
+    // const [user, loading] = useAuthState(auth);
+
+    // const legaleNameRef = useRef('');
+    // const phoneRef = useRef('');
+    // const nidRef = useRef('');
+    // const dateOfBirthRef = useRef('');
+    // const addressRef = useRef('');
+    // const genderRef = useRef('');
+    // const countryRef = useRef('');
+    // const emailRef = useRef('');
+
+
+
+    // if (loading) {
+    //     return <Loading />
+    // }
+
+
+    // const createAccount = e => {
+    //     e.preventDefault();
+    //     const name = legaleNameRef.current.value;
+    //     const phone = phoneRef.current.value;
+    //     const nid = nidRef.current.value;
+    //     const dateOfBirth = dateOfBirthRef.current.value;
+    //     const gender = genderRef.current.value;
+    //     const country = countryRef.current.value;
+    //     const address = addressRef.current.value;
+    //     const email = emailRef.current.value;
+
+    //     console.log(name, phone, nid, dateOfBirth, gender, country, address, country, email);
+
+    //     const accoutnDetails = {
+    //         name: name,
+    //         phone: phone,
+    //         NID: nid,
+    //         dateOfBirth: dateOfBirth,
+    //         gender: gender,
+    //         country: country,
+    //         address: address,
+    //         AccNo: Math.floor(Math.random() * 10000000000),
+    //         balance: 0,
+    //         email: email,
+    //         actype: "Savings Account",
+    //         authemail: user.email,
+    //     }
+
+    //     fetch('https://bank-of-bd.herokuapp.com/account', {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(accoutnDetails)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+
+    //             legaleNameRef.current.value = '';
+    //             nidRef.current.value = '';
+    //             phoneRef.current.value = '';
+    //             dateOfBirthRef.current.value = '';
+    //             genderRef.current.value = '';
+    //             legaleNameRef.current.value = '';
+    //             emailRef.current.value = '';
+    //             addressRef.current.value = '';
+
+    //             toast("Account Created Successfully!")
+    //         })
+    // }
+=======
+>>>>>>> 8080a74c8034bd5633d5fbcd33e237f146da228b
 
     const [currentStep, setCurrentStep] = useState(1);
 

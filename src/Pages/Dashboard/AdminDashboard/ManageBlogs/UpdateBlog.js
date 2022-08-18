@@ -9,7 +9,7 @@ const UpdateBlog = () => {
     const navigate= useNavigate()
     const onSubmit = (data) => {
         const blogData= {...data, date}
-        const url = `http://localhost:5000/blog/${id}`
+        const url = `https://bank-of-bd.herokuapp.com/blog/${id}`
         fetch(url,{
             method:"PUT",
             headers:{

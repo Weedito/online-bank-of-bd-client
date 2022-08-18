@@ -53,6 +53,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { HashLoader } from "react-spinners";
 import Timeline from "./Pages/OurBanking/CorporateBanking/Timeline";
+import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
+import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -67,9 +69,9 @@ function App() {
       {
         loading ?
 
-        <div className="w-screen h-screen flex justify-center items-center">
-          <HashLoader color="#137c38" size={70} cssOverride loading={loading}/>
-        </div>
+          <div className="w-screen h-screen flex justify-center items-center">
+            <HashLoader color="#137c38" size={70} cssOverride loading={loading} />
+          </div>
 
           :
 
@@ -138,6 +140,14 @@ function App() {
               <Route path="/smsbanking" element={<SMSBanking />} />
               <Route path="/student" element={<Student />} />
               <Route path="/timeline" element={<Timeline />} />
+              { /* Our agentbankingdata Routes start*/}
+              <Route path="/agentDynamicPage/:id" element={<AgentDynamicPage />} />
+              { /* Our agentbankingdata Routes End*/}
+
+
+              { /* Our Commitment dynamic Routes start*/}
+              <Route path="/ourcommitmen/:id" element={<OurCommitment />} />
+              { /* Our Commitment dynamic Routes End*/}
               {/* Our Banking Routes End*/}
 
               {/* Contact Routes End*/}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Slide from 'react-reveal/Slide';
+import AgentBank from '../../../Components/Components.Rijon/AgentBank';
 
 const AgentBanking = () => {
     return (
@@ -19,6 +20,8 @@ const AgentBanking = () => {
                     </div>
                 </Slide>
             </div>
+
+            <AgentBank></AgentBank>
 
             <section className='mx-20 lg:pl-16'>
                 <div className='grid grid-cols-1 lg:grid-cols-3 pt-8 gap-10 py-10'>
