@@ -24,7 +24,7 @@ const WhyChooseOBB = () => {
                 </figure>
                 <div className="card-body items-center text-center">
                   <h2 className="card-title font-bold">{item?.title}</h2>
-                  <p>{item?.description}</p>
+                  <p>{item?.description.slice(0, 70)}</p>
                   <div className="card-actions">
                     <button onClick={() => navigate(`/ourcommitmen/${item?._id}`)} className="text-1xl px-4 py-1 text-white bg-green-700 rounded-full ">See More</button>
                   </div>
