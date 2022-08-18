@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { CardElement ,useStripe,useElements} from '@stripe/react-stripe-js';
 import { toast } from "react-toastify";
 import { Navigate, useNavigate } from 'react-router-dom';
+import Loading from '../../../../Components/Components.Nahid/Loading';
 const CheckoutForm = ({existingAccount,inputBalance}) => {
   const stripe = useStripe();
   const elements=useElements()
   const [ErrorMessage,setErrorMessage]=useState("")
   const [clientSecret,setClientSecret]=useState(null);
+  const [customeLoader,seTcustomeLoader]=useState(false)
   const navigate =useNavigate()
   let today = new Date();
   let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -26,6 +28,7 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
     })
   },[inputBalance])
   // handle card deposit function
+  //smLoader 
     const handleSubmit= async(event)=>{
         event.preventDefault()
         if(!stripe|| !elements){
@@ -35,8 +38,10 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
         if(card=== null){
             return;
         }
+        seTcustomeLoader(true)
         const {error, paymentMethod}=await stripe.createPaymentMethod({type:"card",card})
         if(error){
+          seTcustomeLoader(false)
             console.log("error",error);
             setErrorMessage(error?.message)
         }else{
@@ -55,6 +60,7 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
                 },
               );
             if(intentError){
+              seTcustomeLoader(false)
                 setErrorMessage(intentError?.message);
             }
             if(paymentIntent){
@@ -98,7 +104,8 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
               })
                   .then(res => res.json())
                   .then(data => {
-                      navigate("/dashboard/myaccounts")
+                    seTcustomeLoader(false);
+                      navigate("/dashboard/mytransactions")
                   })
                 // transaction api end 
             
@@ -127,7 +134,7 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
       />
       <p className='text-sm my-2 text-red-600 '>{ErrorMessage}</p>
       <button type="submit" className='py-4 px-3 w-full bg-green-600 rounded-md md:my-12 my-6 text-xl hover:bg-green-500 duration-300 ease-in-out text-white'
-       disabled={!stripe || !clientSecret}>
+       disabled={!stripe || !clientSecret || customeLoader}>
         Deposit
       </button>
     </form>
