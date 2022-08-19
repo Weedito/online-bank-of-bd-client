@@ -5,7 +5,13 @@ import Accounts from './Accounts';
 import Service from './Service';
 
 
+
+
+
 const RetailBanking = () => {
+
+
+
 
     return (
         <div className='bg-white'>
@@ -13,6 +19,7 @@ const RetailBanking = () => {
             <section>
                 <img className='w-full' src="https://www.nrbcommercialbank.com/assets/img/banking.jpg" alt="" />
             </section>
+
             <section className='py-12 my-12'>
 
 
