@@ -81,7 +81,11 @@ const CreateAccount = () => {
     //         })
     // }
 =======
+<<<<<<< HEAD
 >>>>>>> b048257e20a865ebcfa449362a6c92077aaf4ab9
+=======
+>>>>>>> 8080a74c8034bd5633d5fbcd33e237f146da228b
+>>>>>>> 95b940778481743fb027ab794c1c2d654aa83d11
 
     const [currentStep, setCurrentStep] = useState(1);
 

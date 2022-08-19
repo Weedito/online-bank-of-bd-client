@@ -22,7 +22,7 @@ const CorporateBanking = () => {
 
 
             </section>
-            <h1 className='text-3xl font-bold py-10 bg-slate-100'>Corporate <span className='text-primary'>Banking</span></h1>
+            <h1 className='text-3xl font-bold py-10 bg-slate-100 text-center'>Corporate <span className='text-primary'>Banking</span></h1>
             <section className=''>
                 <div className='grid grid-cols-1 lg:grid-cols-3 pt-8 gap-5 bg-slate-100 px-8'>
                     <div className="card card-compact max-w-max bg-base-100 shadow-xl">
