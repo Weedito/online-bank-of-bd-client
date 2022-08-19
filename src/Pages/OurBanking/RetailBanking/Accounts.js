@@ -11,12 +11,14 @@ const Accounts = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2 my-10'>
                 {accountsCard.map(card => <div className='mt-10 text-red-600 mx-40 gap-5'>
                     <div class="w-96 border border-red-600">
+                        <a href={card?.href} className="">
                         <div class="card-body items-center">
                             <div class="justify-center">
                                 <img src={card.imageURL} alt="" />
                             </div>
                             <p>{card.text}</p>
                         </div>
+                        </a>
                     </div>
                 </div>)}
             </div>
