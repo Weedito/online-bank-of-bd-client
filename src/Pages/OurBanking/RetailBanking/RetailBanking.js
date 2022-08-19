@@ -1,20 +1,14 @@
 import React from 'react';
 
-<<<<<<< HEAD
-=======
 import OurCards from '../../../Components/Components.Rijon/OurCards';
 import Loan from '../../Products/Loan/Loan';
 import Accounts from './Accounts';
 import Service from './Service';
->>>>>>> 98cfe2232dc836752df4ec7fdf3af6ded9a4daca
 
 const RetailBanking = () => {
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 98cfe2232dc836752df4ec7fdf3af6ded9a4daca
     return (
         <div className='bg-white'>
             {/* Image div */}
@@ -22,11 +16,6 @@ const RetailBanking = () => {
                 <img className='w-full' src="https://www.nrbcommercialbank.com/assets/img/banking.jpg" alt="" />
             </section>
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 98cfe2232dc836752df4ec7fdf3af6ded9a4daca
             <section className='py-12 my-12'>
 
 
