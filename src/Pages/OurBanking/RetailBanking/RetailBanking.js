@@ -19,7 +19,6 @@ const RetailBanking = () => {
             <section>
                 <img className='w-full' src="https://www.nrbcommercialbank.com/assets/img/banking.jpg" alt="" />
             </section>
-
             <section className='py-12 my-12'>
 
 
