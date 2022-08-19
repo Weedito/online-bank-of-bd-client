@@ -5,30 +5,59 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../Blogs/Blogs.css"
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../Components/Components.Nahid/Loading';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from "../../firebase.init";
+import BlogComment from './BlogComment';
 const BlogsDetails = () => {
     const {id}=useParams()
     const [blog,setblog]=useState({})
-    const [spinner,setSpinner]=useState(true)
+    const [spinner,setSpinner]=useState(true);
     const navigate = useNavigate()
+    const [user, loading] = useAuthState(auth);
+    const [refresh,setRefresh]=useState(false)
+    const [btnSpinner,setBtnSpinner]=useState(false);
+    const [comments,setComments]=useState(null)
     useEffect(()=>{
         const url= `https://bank-of-bd.herokuapp.com/blog/${id}`
         fetch(url).then(res=>res.json()).then(data=>{
             setblog(data)
             setSpinner(false)
+            const comment = data?.comment
+           setComments(comment.reverse())
         })
-    },[id])
-    if(spinner){
+    },[id,refresh])
+    if(spinner || loading){
         return<Loading/>
     }
+    const handleComment=(e)=>{
+        e.preventDefault()
+        setBtnSpinner(true)
+        const comment  =e.target.comment.value;
+        const prevComment = blog?.comment
+        const userComment = [...prevComment,{comment, user}];
+        console.log(userComment);
+        const url = `http://localhost:5000/blog/comment/${id}`;
+        fetch(url,{
+            method:"PATCH",
+            headers:{
+                "content-type":"application/json"
+            },
+            body: JSON.stringify(userComment)
+        }).then(res=>res.json()).then(result=>{
+            setRefresh(!refresh)
+            e.target.reset()
+            setBtnSpinner(false)
+        })
+    }
     return (
-        <section className='w-full mx-auto pb-5 max-w-7xl mx-auto mb-5  justify-center rounded-[27px] relative'>
+        <section className='w-full mx-auto pb-5 max-w-7xl  mb-5  justify-center rounded-[27px] relative'>
         <div className='blogDetailsBanner'>
         </div>
         <div className="bg-base-100 shadow-xl mt-[80px] mx-auto max-w-[1280px] p-4 ">
            
             <div className="  text-center text-gray-700 my-5">
                 <h2 className="font-bold text-4xl my-2">
-                    CATAGORI-1!
+                    {blog.category? blog.category: "Category"}
                 </h2>
                     <div className="card-actions  text-black flex justify-center ">
                         <FontAwesomeIcon icon={faHeart} className="mr-2 hover:text-red-500 cursor-pointer" />
@@ -51,20 +80,46 @@ const BlogsDetails = () => {
                         <h4 className='md:text-4xl text-xl font-medium text-start '>{blog?.title}</h4>
                         <hr/>
                         <blockquote className='mt-4'>
-                            <p className='text-justify md:text-xl text-sm'>
+                            <p className='text-justify text-[15px]'>
                                 {blog?.description}
                             </p>
                         </blockquote>
 
                         
                     </div>
+                    <div className='comment-section mt-8'>
+                        <form 
+                        onSubmit={handleComment}
+                        className='w-full flex flex-col items-start md:mx-12 mx-2'>
+                            <input type="text"
+                            name='comment'
+                            style={{outline:"none"}}
+                            required placeholder='Write Your Comment' className=" md:w-2/3  w-full outline-none border-b-2 border-t-0 border-l-0 border-r-0 
+                            focus:border-t-0
+                            focus:border-r-0
+                            focus:border-l-0
+                            focus:outline-none
+                            "/>
+                            <button
+                            disabled={btnSpinner&& true}
+                            className={`outline-0 mt-4 border py-2 px-4 rounded-md  text-white flex items-center text-xl font-sans font-medium shadow-md ${btnSpinner? 'bg-gray-400 cursor-not-allowed':'bg-green-500 cursor-pointer'}}`}>Comment</button>
+                        </form>
+                        <div className='my-4 md:mx-12 mx-4'>
+                            <hr/>
+                        </div>
+
+                        {/* user comment  */}
+                        {comments && comments.map((comment,index)=><BlogComment key={index} comment={comment}/>)   }
+            </div>
                 
             </div>
+            
         </div>
             <div className='blog-img-container'>
-            <figure><img className='blog-img shadow-xl' src={blog?.picture} alt="Shoes" /></figure>
-
+                <figure><img className='blog-img shadow-xl' src={blog?.picture} alt="Shoes" /></figure>
             </div>
+           
+           
         </section>
     );
 };
