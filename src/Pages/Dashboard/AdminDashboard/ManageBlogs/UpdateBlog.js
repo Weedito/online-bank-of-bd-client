@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 
 const UpdateBlog = ({refresh, setRefresh}) => {
     const {id}=useParams()
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit } = useForm();
     const [btnSpinner ,setBtnSpinner]=useState(false)
     const date = new Date().toLocaleDateString()
     const navigate= useNavigate();
