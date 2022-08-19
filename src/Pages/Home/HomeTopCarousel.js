@@ -18,7 +18,7 @@ const HomeTopCarousel = () => {
     ];
 
     return (
-            <div className='w-full h-40 md:h-[19rem] lg:h-full bg-gray-500 mx-auto'>
+            <div className='w-full h-40 md:h-[19rem] lg:h-full bg-white mx-auto'>
                 <Slider autoplay={3500} infinite={true} previousButton='' nextButton='' >
                     {slides.map((slide, index) => <div key={index}>
                         <div className="flex justify-center items-center w-full max-w-7xl mx-auto gap-3">
