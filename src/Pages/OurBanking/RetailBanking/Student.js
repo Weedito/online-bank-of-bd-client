@@ -5,7 +5,7 @@ import React from 'react';
 const Student = () => {
     return (
         <div>
-            <div className="w-full h-full bg-slate-200">
+            <div className="w-full mx-auto h-full bg-slate-200">
                 <img className='object-cover h-full' src="https://i.ibb.co/WvdxYS8/school-banking-banner.png" alt="" />
             </div>
             <div className="w-full lg:w-3/5 mx-auto">

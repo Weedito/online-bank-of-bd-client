@@ -34,7 +34,6 @@ import CardDetails from "./Pages/Products/Cards/CardDetails";
 import ManageUsers from "./Pages/Dashboard/AdminDashboard/ManageUsers/ManageUsers";
 import WebcamCapture from "./Components/Components.Nahid/Webcam";
 import ManageBlogs from "./Pages/Dashboard/AdminDashboard/ManageBlogs/ManageBlogs";
-import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 import UpdateBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/UpdateBlog";
 import BlogsDetails from "./Pages/Blogs/BlogsDetails";
 import AllBlogsData from "./Pages/Blogs/AllBlogsData";
@@ -55,6 +54,9 @@ import { HashLoader } from "react-spinners";
 import Timeline from "./Pages/OurBanking/CorporateBanking/Timeline";
 import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
 import OurCommitment from "./Components/Components.Rijon/OurCommitment";
+import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
+import useAccount from "./Components/Components.Nahid/Hooks/useAccount";
+import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -62,12 +64,14 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false)
-    }, 5000)
+    }, 3000)
   }, []);
   return (
     <div className="">
       {
         loading ?
+
+
 
           <div className="w-screen h-screen flex justify-center items-center">
             <HashLoader color="#137c38" size={70} cssOverride loading={loading} />
@@ -78,12 +82,11 @@ function App() {
           <div className="pt-16">
             {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header />}
 
-
             {/* <Header /> */}
             <Routes>
               <Route path="/" element={<Home />} />
-              {/* Control Panel Routes */}
 
+              {/* Control Panel Routes */}
               <Route path="/cpanel" element={<RequireAuth><RequireAdmin><CPanel /></RequireAdmin></RequireAuth>}>
                 <Route index element={<AdDashboard />} />
                 <Route path="addashboard" element={<AdDashboard />} />
@@ -105,11 +108,12 @@ function App() {
                 <Route path="myaccounts/:id" element={<SingleAccountDetails />}></Route>
                 <Route path="mytransactions" element={<MyTransactions />}></Route>
                 <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
-
               </Route>
               <Route path="/blog/:id" element={<UpdateBlog />} />
               <Route path="/blogDetails/:id" element={<BlogsDetails />} />
               <Route path="/allBlogsData" element={<AllBlogsData />} />
+              <Route path="/blogDetails/:id" element={<RequireAuth> <BlogsDetails /> </RequireAuth>} />
+              <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
               {/* User Dashboard Routes End*/}
 
               {/* About Us Routes */}
@@ -163,13 +167,15 @@ function App() {
 
               {/* Authentication Routes End*/}
               <Route path="*" element={<NotFound />} />
-            </Routes>
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />}
+            </Routes >
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />
+            }
             {/* <Footer /> */}
             <ToastContainer />
-          </div>
+          </div >
       }
-    </div>
+
+    </div >
   );
 }
 
