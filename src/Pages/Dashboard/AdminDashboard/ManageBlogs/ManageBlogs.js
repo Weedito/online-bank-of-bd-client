@@ -3,7 +3,7 @@ import AllBlogs from './AllBlogs';
 
 const ManageBlogs = () => {
     return (
-        <div>
+        <div className='max-h-[600px] overflow-y-scroll'>
             <AllBlogs/>
         </div>
     );

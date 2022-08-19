@@ -38,7 +38,7 @@ const Loan = () => {
 
 
     return (
-        <div>
+        <div className='pb-10'>
             <LoanPage></LoanPage>
 
 

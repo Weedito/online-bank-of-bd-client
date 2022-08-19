@@ -3,7 +3,7 @@ import { Slide } from 'react-reveal';
 
 const OurCards = () => {
   return (
-    <div className='max-w-7xl mx-auto '>
+    <div className='max-w-7xl mx-auto pb-10'>
       <div className='flex flex-col md:flex-row gap-2 justify-around items-center py-20 px-2 '>
         <Slide left>
           <div>
