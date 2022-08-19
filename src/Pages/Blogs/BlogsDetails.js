@@ -36,7 +36,7 @@ const BlogsDetails = () => {
         const prevComment = blog?.comment
         const userComment = [...prevComment,{comment, user}];
         console.log(userComment);
-        const url = `http://localhost:5000/blog/comment/${id}`;
+        const url = `https://bank-of-bd.herokuapp.com/blog/comment/${id}`;
         fetch(url,{
             method:"PATCH",
             headers:{
