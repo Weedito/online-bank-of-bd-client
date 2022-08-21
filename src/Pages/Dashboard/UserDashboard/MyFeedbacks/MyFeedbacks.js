@@ -10,6 +10,8 @@ const MyFeedbacks = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
 
+    console.log(email);
+
     const feedback = () => axios.get(`http://localhost:5000/feedbacks/${email}`);
 
     const { isLoading, data, refetch } = useQuery(["feedbacks"], feedback);
@@ -22,6 +24,7 @@ const MyFeedbacks = () => {
     console.log("From React Query", feedbacks)
 
     return (
+        
         feedbacks && <div className=" text-left h-full w-full">
 
             <div className="w-full flex items-center justify-center my-12">
