@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
 import Loading from '../../../../Components/Components.Nahid/Loading';
 import TransactionDetails from './TransactionDetails';
+import _ from "lodash";
 
 const MyTransactions = () => {
     const { myAccount, isLoading } = useAccount();
@@ -12,14 +13,24 @@ const MyTransactions = () => {
     const [selectAcc, setSelectAcc] = useState(frstacc);
 
     const trAcc = currentAccount && currentAccount[0];
+    const [paginatedData, set_paginatedData] = useState([]);
+    const [currentPage, set_currentPage] = useState(1);
 
+    const pageSize = 7;
+
+    const handleSelect = (e) => {
+        const acc = e.target.value;
+        setSelectAcc(acc);
+    }
+
+    
     useEffect(() => {
         const account = myAccount?.filter(ac => ac.AccNo === parseInt(selectAcc));
         setCurrentAccount(account);
     }, [myAccount, selectAcc]);
 
     useEffect(() => {
-        fetch('https://bank-of-bd.herokuapp.com/statements')
+        fetch('http://localhost:5000/statements')
             .then(res => res.json())
             .then(data => setTransactions(data))
     }, [])
@@ -29,18 +40,36 @@ const MyTransactions = () => {
         setMyTransactions(trc);
     }, [transactions, trAcc]);
 
-
-    const handleSelect = (e) => {
-        const acc = e.target.value;
-        setSelectAcc(acc);
-    }
-
+    /* ----------------------------------------------------------------*/
+    /*                      LOAD ALL TOUR DATA START                   */
+    /* ----------------------------------------------------------------*/
+/*     useEffect(() => {
+        set_paginatedData(_(myTransactions).slice(0).take(pageSize).value(pageSize));
+    }, [myAccount,myTransactions]);
+ */
 
     if (isLoading) {
         return <Loading />
     }
 
-    // myTransactions.sort((a, b) => (a.date < b.date) ? 1 : -1)
+
+    /* ----------------------------------------------------------------*/
+    /*                  PAGINATION FUNCTIONALITY START                 */
+    /* ----------------------------------------------------------------*/
+/*     const pageCount = myTransactions && Math.ceil(myTransactions.length / pageSize);
+    if (pageCount === 1) return null;
+    const pages = _.range(1, pageCount + 1);
+
+    const handlePagination = (pageno) => {
+        set_currentPage(pageno);
+        const startIndex = (pageno - 1) * pageSize;
+        const paginateData = _(myTransactions).slice(startIndex).take(pageSize).value();
+        set_paginatedData(paginateData);
+    }; */
+
+    /* ----------------------------------------------------------------*/
+    /*                  PAGINATION FUNCTIONALITY END                   */
+    /* ----------------------------------------------------------------*/
 
 
     return (
@@ -73,13 +102,62 @@ const MyTransactions = () => {
                             <tbody>
 
                                 {
-                                    myTransactions.slice().reverse()
+                                  myTransactions?.slice().reverse()
                                     .map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
                                     // myTransactions?.reverse().map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
                                 }
 
                             </tbody>
                         </table>
+{/*                       <div className="">
+                            
+                            <div className="my-8 float-right">
+                                <nav aria-label="Page navigation">
+                                    <ul class="inline-flex space-x-2">
+                                        <li>
+                                            <button class="flex mr-3 items-center justify-center w-10 h-10 text-green-600 transition-colors duration-150 rounded-full focus:shadow-outline ring-1 ring-green-300 bg-green-100 hover:bg-green-500 hover:text-white">
+                                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                        clip-rule="evenodd"
+                                                        fill-rule="evenodd"
+                                                    ></path>
+                                                </svg>
+                                            </button>
+                                        </li>
+                                        {pages.map((number, index) => (
+                                            <li
+                                                key={index}
+                                                onClick={() => handlePagination(number)}
+                                                className="w-10 h-10 flex items-center justify-center text-green-600 transition-colors duration-150 rounded-full bg-green-100 hover:bg-green-300 hover:text-white focus:shadow-outline ring-1 ring-green-300 "
+                                            >
+                                                <button
+                                                    className={
+                                                        number === currentPage
+                                                            ? "bg-green-500 w-10 h-10 rounded-full text-white"
+                                                            : ""
+                                                    }
+                                                >
+                                                    {number}
+                                                </button>
+                                            </li>
+                                        ))}
+
+                                        <li>
+                                            <button class="flex items-center ml-3 justify-center w-10 h-10 text-green-600 transition-colors duration-150  rounded-full focus:shadow-outline ring-1 ring-green-300 bg-green-100 hover:bg-green-500 hover:text-white">
+                                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                        clip-rule="evenodd"
+                                                        fill-rule="evenodd"
+                                                    ></path>
+                                                </svg>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

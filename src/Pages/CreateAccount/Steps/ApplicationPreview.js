@@ -67,7 +67,7 @@ const ApplicationPreview = ({ currentStep, steps }) => {
             confirmButtonText: 'Yes, Submit it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('https://bank-of-bd.herokuapp.com/account', {
+                fetch('http://localhost:5000/account', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
