@@ -14,7 +14,7 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
   let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
   useEffect(()=>{
-    fetch("https://bank-of-bd.herokuapp.com/create-payment-intent",{
+    fetch("http://localhost:5000/create-payment-intent",{
         method:"POST",
         headers:{
           authorization : `Bearer ${localStorage.getItem('accessToken')}`,
@@ -70,7 +70,7 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
                 const AccNo= existingAccount.AccNo;
                 const balance =existingAccount.balance
                 const updateBalance = { depositBalance,  name, AccNo, balance};
-                const url = `https://bank-of-bd.herokuapp.com/account/${existingAccount._id}`;
+                const url = `http://localhost:5000/account/${existingAccount._id}`;
                 fetch(url, {
                     method: 'PUT',
                     headers: {
@@ -95,7 +95,7 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
                   email: existingAccount.accEmail,
               }
   
-              fetch('https://bank-of-bd.herokuapp.com/statement', {
+              fetch('http://localhost:5000/statement', {
                   method: 'POST',
                   headers: {
                       'content-type': 'application/json'
