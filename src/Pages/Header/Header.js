@@ -28,16 +28,17 @@ const Header = ({ handleThemeChange, theme }) => {
           </Fade>
         </div>
 
+        {/* Dark Mode Toggle */}
+        <div className="">
+          <Toggle handleThemeChange={handleThemeChange} theme={theme} />
+        </div>
+
+
         {/* Authentication */}
         <div className="">
           <Zoom>
             <Authentication />
           </Zoom>
-        </div>
-
-        {/* Dark Mode Toggle */}
-        <div className="">
-          <Toggle handleThemeChange={handleThemeChange} theme={theme} />
         </div>
 
         {/* nav mobile*/}
