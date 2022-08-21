@@ -58,6 +58,13 @@ import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment
 import useAccount from "./Components/Components.Nahid/Hooks/useAccount";
 import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 import Ssdeposit from "./Pages/OurBanking/RetailBanking/Ssdeposit";
+import Fixed from "./Pages/OurBanking/RetailBanking/Fixed";
+import Benifit from "./Pages/OurBanking/RetailBanking/Benifit";
+import Lakhpoti from "./Pages/OurBanking/RetailBanking/Lakhpoti";
+import Pension from "./Pages/OurBanking/RetailBanking/Pension";
+import Savings from "./Pages/OurBanking/RetailBanking/Savings";
+import Priority from "./Pages/OurBanking/RetailBanking/Priority";
+import Monthly from "./Pages/OurBanking/RetailBanking/Monthly";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -143,9 +150,16 @@ function App() {
               <Route path='/smebanking/:loanId' element={<SmeLoan />}></Route>
               <Route path="/agentbanking" element={<AgentBanking />} />
               <Route path="/smsbanking" element={<SMSBanking />} />
+              <Route path="/savings" element={<Savings />} />
               <Route path="/student" element={<Student />} />
               <Route path="/timeline" element={<Timeline />} />
               <Route path="/ssdeposit" element={<Ssdeposit />} />
+              <Route path="/fixed" element={<Fixed />} />
+              <Route path="/benifit" element={<Benifit />} />
+              <Route path="/lakhpoti" element={<Lakhpoti />} />
+              <Route path="/pension" element={<Pension />} />
+              <Route path="/priority" element={<Priority />} />
+              <Route path="/monthly" element={<Monthly />} />
               { /* Our agentbankingdata Routes start*/}
               <Route path="/agentDynamicPage/:id" element={<AgentDynamicPage />} />
               { /* Our agentbankingdata Routes End*/}

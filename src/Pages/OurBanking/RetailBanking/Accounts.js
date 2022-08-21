@@ -9,16 +9,20 @@ const Accounts = () => {
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 my-10'>
-                {accountsCard.map(card => <div className='mt-10 text-red-600 mx-40 gap-5'>
-                    <div class="w-96 border border-red-600">
-                        <div class="card-body items-center">
-                            <div class="justify-center">
-                                <img src={card.imageURL} alt="" />
+                {accountsCard.map(card =>
+                    <a href={card.href}>
+                        <div className='mt-10 text-red-600 mx-40 gap-5'>
+                            <div class="w-96 border border-red-600">
+                                <div class="card-body items-center">
+                                    <div class="justify-center">
+                                        <img src={card.imageURL} alt="" />
+                                    </div>
+                                    <p className='font-semibold'>{card.text}</p>
+                                </div>
                             </div>
-                            <p className='font-semibold'>{card.text}</p>
                         </div>
-                    </div>
-                </div>)}
+                    </a>
+                )}
             </div>
 
 
