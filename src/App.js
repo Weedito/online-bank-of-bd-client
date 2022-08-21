@@ -57,6 +57,7 @@ import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
 import useAccount from "./Components/Components.Nahid/Hooks/useAccount";
 import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
+import Ssdeposit from "./Pages/OurBanking/RetailBanking/Ssdeposit";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -144,6 +145,7 @@ function App() {
               <Route path="/smsbanking" element={<SMSBanking />} />
               <Route path="/student" element={<Student />} />
               <Route path="/timeline" element={<Timeline />} />
+              <Route path="/ssdeposit" element={<Ssdeposit />} />
               { /* Our agentbankingdata Routes start*/}
               <Route path="/agentDynamicPage/:id" element={<AgentDynamicPage />} />
               { /* Our agentbankingdata Routes End*/}

@@ -15,7 +15,7 @@ const Accounts = () => {
                             <div class="justify-center">
                                 <img src={card.imageURL} alt="" />
                             </div>
-                            <p>{card.text}</p>
+                            <p className='font-semibold'>{card.text}</p>
                         </div>
                     </div>
                 </div>)}
