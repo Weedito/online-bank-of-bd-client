@@ -17,7 +17,6 @@ const CheckoutForm = ({existingAccount,inputBalance}) => {
     fetch("http://localhost:5000/create-payment-intent",{
         method:"POST",
         headers:{
-          authorization : `Bearer ${localStorage.getItem('accessToken')}`,
           "content-type":"application/json"
         },
         body:JSON.stringify({inputBalance:inputBalance})

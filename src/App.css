@@ -2,31 +2,22 @@
   font-family: 'Poppins';
 }
 
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar{
+  width: 13px;
+  background: transparent;
+}
+::-webkit-scrollbar-track{
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar-thumb{
+  border-radius: 20px;
+  transition: 0.6s ease-in-out;
+  background-image: linear-gradient(  #95f81496,#016836a0);
 }
+::-webkit-scrollbar-thumb:hover{
+  background-image: linear-gradient(  #95f814,#016836);
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 .section-title {
   position: relative;

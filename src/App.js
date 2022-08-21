@@ -55,7 +55,6 @@ import Timeline from "./Pages/OurBanking/CorporateBanking/Timeline";
 import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
 import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
-import useAccount from "./Components/Components.Nahid/Hooks/useAccount";
 import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 
 function App() {
