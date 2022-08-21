@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", './src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js', "./node_modules/flowbite/**/*.js"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{html,js}",
+    "./node_modules/tw-elements/dist/js/**/*.js",
+    "./node_modules/flowbite/**/*.js",
+  ],
   daisyui: {
     themes: [
       {
@@ -31,5 +36,9 @@ module.exports = {
       // },
     ],
   },
-  plugins: [require("daisyui"), require('tw-elements/dist/plugin'), require('flowbite/plugin')],
+  plugins: [
+    require("daisyui"),
+    require("tw-elements/dist/plugin"),
+    require("flowbite/plugin"),
+  ],
 };

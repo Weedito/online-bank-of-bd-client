@@ -48,6 +48,7 @@ import SmeLoan from "./Pages/OurBanking/SMEBanking/SmeLoan";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
 import AskedQuestions from "./Components/Components.Arif/AskedQuestions/AskedQuestions";
+import TransactionsHistory from "./Components/Components.Arif/TransactionsHistory/TransactionsHistory";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
 
       {/* test route */}
       <Route path="asked" element={<AskedQuestions />}></Route>
+      <Route path="transactions" element={<TransactionsHistory />}></Route>
       {/* test route */}
 
         {/* User Dashboard Routes */}
