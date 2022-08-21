@@ -4,7 +4,6 @@ import Loading from '../../../../Components/Components.Nahid/Loading';
 import TransactionDetails from './TransactionDetails';
 import _ from "lodash";
 
-
 const MyTransactions = () => {
     const { myAccount, isLoading } = useAccount();
     const [currentAccount, setCurrentAccount] = useState();
@@ -12,13 +11,19 @@ const MyTransactions = () => {
     const [myTransactions, setMyTransactions] = useState([]);
     const frstacc = myAccount && myAccount[0]?.AccNo;
     const [selectAcc, setSelectAcc] = useState(frstacc);
+
     const trAcc = currentAccount && currentAccount[0];
     const [paginatedData, set_paginatedData] = useState([]);
     const [currentPage, set_currentPage] = useState(1);
 
     const pageSize = 7;
 
+    const handleSelect = (e) => {
+        const acc = e.target.value;
+        setSelectAcc(acc);
+    }
 
+    
     useEffect(() => {
         const account = myAccount?.filter(ac => ac.AccNo === parseInt(selectAcc));
         setCurrentAccount(account);
@@ -29,23 +34,29 @@ const MyTransactions = () => {
             .then(res => res.json())
             .then(data => setTransactions(data))
     }, [])
-    
 
     useEffect(() => {
         const trc = transactions.filter((transaction) => transaction?.senderAccount === trAcc?.AccNo);
         setMyTransactions(trc);
     }, [transactions, trAcc]);
+
     /* ----------------------------------------------------------------*/
     /*                      LOAD ALL TOUR DATA START                   */
     /* ----------------------------------------------------------------*/
-    useEffect(() => {
-        set_paginatedData(_(myTransactions).slice(0).take(pageSize).value());
-    }, [myTransactions]);
+/*     useEffect(() => {
+        set_paginatedData(_(myTransactions).slice(0).take(pageSize).value(pageSize));
+    }, [myAccount,myTransactions]);
+ */
+
+    if (isLoading) {
+        return <Loading />
+    }
+
 
     /* ----------------------------------------------------------------*/
     /*                  PAGINATION FUNCTIONALITY START                 */
     /* ----------------------------------------------------------------*/
-    const pageCount = myTransactions && Math.ceil(myTransactions?.length / pageSize);
+/*     const pageCount = myTransactions && Math.ceil(myTransactions.length / pageSize);
     if (pageCount === 1) return null;
     const pages = _.range(1, pageCount + 1);
 
@@ -54,25 +65,11 @@ const MyTransactions = () => {
         const startIndex = (pageno - 1) * pageSize;
         const paginateData = _(myTransactions).slice(startIndex).take(pageSize).value();
         set_paginatedData(paginateData);
-    };
+    }; */
 
     /* ----------------------------------------------------------------*/
     /*                  PAGINATION FUNCTIONALITY END                   */
     /* ----------------------------------------------------------------*/
-
-
-
-    const handleSelect = (e) => {
-        const acc = e.target.value;
-        setSelectAcc(acc);
-    }
-
-
-    if (isLoading) {
-        return <Loading />
-    }
-
-    // myTransactions.sort((a, b) => (a.date < b.date) ? 1 : -1)
 
 
     return (
@@ -105,16 +102,15 @@ const MyTransactions = () => {
                             <tbody>
 
                                 {
-                                    paginatedData.length &&
-                                    paginatedData.slice().reverse()
-                                        .map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
+                                  myTransactions?.slice().reverse()
+                                    .map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
                                     // myTransactions?.reverse().map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
                                 }
 
                             </tbody>
                         </table>
-                        <div className="">
-                            {/* Pagination */}
+{/*                       <div className="">
+                            
                             <div className="my-8 float-right">
                                 <nav aria-label="Page navigation">
                                     <ul class="inline-flex space-x-2">
@@ -161,7 +157,7 @@ const MyTransactions = () => {
                                     </ul>
                                 </nav>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
