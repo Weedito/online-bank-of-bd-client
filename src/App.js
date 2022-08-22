@@ -126,6 +126,7 @@ function App() {
                 admin? 
                 RequerDashboard()
               :
+              <>
               <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
                 <Route index element={<Overview />}></Route>
                 <Route path="overview" element={<Overview />}></Route>
@@ -134,11 +135,11 @@ function App() {
                 <Route path="mytransactions" element={<MyTransactions />}></Route>
                 <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
               </Route>
-
-              }
-
-              {/* // payment root */}
               <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
+                </>
+              }
+              
+                
               {/* User Dashboard Routes End*/}
 
               {/* All blogs root  */}
