@@ -4,6 +4,7 @@ const InterestRate = () => {
 
     return (
         <Interest></Interest>
+
     );
 };
 

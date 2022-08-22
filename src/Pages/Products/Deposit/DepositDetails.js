@@ -3,7 +3,7 @@ import { Fade, Fade as Zoom, Flip, Slide } from 'react-reveal';
 import RubberBand from 'react-reveal/RubberBand';
 const DepositDetails = () => {
     return (
-        <div className=''>
+        <div className='max-w-7xl mx-auto'>
             {/* new-banner-start */}
             <Zoom bottom>
                 <div className='flex flex-col md:flex-row gap-2 justify-evenly items-center py-10 px-2'>
@@ -31,7 +31,7 @@ const DepositDetails = () => {
                 </RubberBand>
             </div>
             <Fade>
-                <div className="my-5 lg:px-15 lg:py-10 px-10">
+                <div className="my-5 lg:px-15 lg:py-10 ">
                     <table className="table w-full">
                         {/* <!-- head start --> */}
                         <thead >
@@ -159,7 +159,7 @@ const DepositDetails = () => {
             </RubberBand>
 
             <Flip top cascade>
-                <div className=" my-5 lg:px-15 lg:py-10 px-10">
+                <div className=" my-5 lg:px-15 lg:py-10">
                     <table className="table w-full">
                         {/* <!-- head start --> */}
                         <thead >

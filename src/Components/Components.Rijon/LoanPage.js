@@ -34,7 +34,7 @@ const LoanPage = () => {
 
       <div className="hero py-10 mt-5">
         <div className="hero-content flex-col lg:flex-row">
-          <img src="https://www.badcredit.org/wp-content/uploads/2019/12/Guaranteed-Loans-with-No-Credit-Check.jpg" className="max-w-sm rounded-lg shadow-2xl" alt='' />
+          <img src="https://i.ibb.co/zmpVXHC/png-clipart-investment-banking-investment-banking-finance-company-bank-child-company-removebg-previe.png" className="max-w-sm rounded-lg shadow-2xl" alt='' />
           <div className='text-left lg:ml-10'>
             <h1 className="text-5xl font-bold">Personal Loan</h1>
             <p className="py-6">Whatever the occasion or requirement, make smart financial choice with Online Bank BD Personal Loan to fulfill all your dreams, reach to new heights and make your day to day journey of life joyful.</p>
