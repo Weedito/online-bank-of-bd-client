@@ -59,11 +59,16 @@ import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 import UseAdmin from "./Components/Components.Nahid/Hooks/useAdmin";
 import auth from './firebase.init';
 import { signOut } from 'firebase/auth';
+import useAccount from './Components/Components.Nahid/Hooks/useAccount';
 
 function App() {
   const [theme, setTheme] = useState(false);
   const [loading, setLoading] = useState(false);
   const [admin, adminLoading]=UseAdmin();
+  const {myAccount, isLoading, error}=useAccount();
+  if(isLoading){
+    console.log(myAccount);
+  }
   const navigate = useNavigate()
   console.log(admin);
   useEffect(() => {
