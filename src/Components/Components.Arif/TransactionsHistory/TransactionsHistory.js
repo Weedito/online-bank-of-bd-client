@@ -178,7 +178,7 @@ const TransactionsHistory = () => {
           <div class="flex items-center space-x-3">
             <div class="avatar">
               <div class="mask mask-squircle w-12 h-12">
-                <img src={image} alt="Avatar Tailwind CSS Component" />
+                <img src={image} alt="Avatar" />
               </div>
             </div>
             <div>

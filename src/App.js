@@ -50,6 +50,7 @@ import RequireAdmin from "./Components/Components.Nahid/RequireAdmin";
 import AskedQuestions from "./Components/Components.Arif/AskedQuestions/AskedQuestions";
 import TransactionsHistory from "./Components/Components.Arif/TransactionsHistory/TransactionsHistory";
 import MakeAPayment from "./Components/Components.Arif/MakeAPayment/MakeAPayment";
+import RequestPayment from "./Components/Components.Arif/RequestPayment/RequestPayment";
 
 function App() {
   return (
@@ -81,6 +82,7 @@ function App() {
       <Route path="asked" element={<AskedQuestions />}></Route>
       <Route path="transactions" element={<TransactionsHistory />}></Route>
       <Route path="makepayment" element={<MakeAPayment />}></Route>
+      <Route path="requestpayment" element={<RequestPayment />}></Route>
       {/* test route */}
 
         {/* User Dashboard Routes */}

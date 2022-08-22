@@ -6,7 +6,7 @@ const MakeAPayment = () => {
   return (
     <div className="bg-white mx-10 mt-10 mb-40 pb-40 px-8 rounded-md w-fit lg:w-auto">
       <div className="head-line pb-4 pt-5">
-        <h1 className=""><div className="text-lg font-bold">Make a Payment</div><div className="text-lg text-right -mt-7"><span className="border rounded-full border-slate-300 px-4 text-lg py-2">?</span></div></h1>
+        <h1 className=""><div className="text-2xl font-bold">Make a Payment</div><div className="text-lg text-right -mt-7"><span className="border rounded-full border-slate-300 px-4 text-lg py-2">?</span></div></h1>
         
       </div>
       <hr />
