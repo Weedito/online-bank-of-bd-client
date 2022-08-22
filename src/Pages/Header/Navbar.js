@@ -190,7 +190,7 @@ const Navbar = () => {
                                         smooth={true}
                                         duration={500}
                                         offset={-70}
-                                        className="flex rounded-full px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
+                                        className="flex rounded px-4 items-center py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent focus:bg-gray-700 focus:text-white focus:outline-none transition duration-150 ease-in-out"
                                     > {item.name} </a>
                                 </li>
                             )
