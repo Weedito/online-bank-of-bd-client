@@ -38,7 +38,7 @@ const Loan = () => {
 
 
     return (
-        <div className='pb-10'>
+        <div className='max-w-7xl mx-auto pb-10'>
             <LoanPage></LoanPage>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 mx-12 gap-5'>
