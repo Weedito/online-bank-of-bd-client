@@ -13,7 +13,6 @@ const MyAccounts = () => {
     const [transferMoney, setTransferMoney] = useState(null);
     const { myAccount } = useAccount();
     const navigate = useNavigate();
-if(myAccount) console.log(myAccount)
 
     return (
         <div className="">

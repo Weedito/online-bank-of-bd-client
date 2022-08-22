@@ -3,17 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Loading from '../../../../Components/Components.Nahid/Loading';
 import FeedbackDetails from './FeedbackDetails';
 
 const ManageFeedbacks = () => {
 
-    const feedback = () => axios.get('https://bank-of-bd.herokuapp.com/feedbacks');
+    const feedback = () => axios.get('http://localhost:5000/feedbacks');
 
         const {isLoading, data, refetch, error} = useQuery(["feedbacks"], feedback);
 
         const feedbacks = data?.data;
         if(isLoading){
-            return "Loading....";
+            return <Loading/>;
         }
 
         console.log("From React Query", feedbacks)

@@ -7,12 +7,14 @@ export const accountsCard = [
     {
         id: 2,
         imageURL: 'https://www.nrbcommercialbank.com//assets/img/students.png',
-        text: 'Individual Savings Account'
+        text: 'Student Savings Account',
+        href: '/student'
     },
     {
         id: 3,
         imageURL: 'https://www.nrbcommercialbank.com//assets/img/savings.png',
-        text: 'Individual Savings Account'
+        text: 'Individual Savings Account',
+        href: '/timeline'
     },
     {
         id: 4,

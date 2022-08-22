@@ -9,7 +9,7 @@ const RetailBanking = () => {
 
 
     return (
-        <div className='bg-slate-200'>
+        <div className='bg-white'>
             {/* Image div */}
             <section>
                 <img className='w-full' src="https://www.nrbcommercialbank.com/assets/img/banking.jpg" alt="" />
@@ -26,68 +26,70 @@ const RetailBanking = () => {
                 </div>
             </section>
 
-            <section className='items-center my-20'>
-                <ul class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 mb-4 bg-black justify-center lg:ml-80 w-1/2 gap-4" id="tabs-tab" role="tablist">
+            <section className='flex items-center justify-center w-full mx-auto my-20'>
+                <div className='w-full mx-auto'>
+                    <ul class="nav nav-tabs flex flex-col mx-auto md:flex-row flex-wrap list-none border-b-0 mb-4 bg-black justify-center lg:ml-80 w-1/2 gap-4" id="tabs-tab" role="tablist">
 
 
-                    <li class="nav-item" role="presentation">
-                        <a href="#tabs-home" class="" id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
-                            aria-selected="true">
-                            <div class="card hover:bg-green-400">
-                                <div class="card-body">
-                                    <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/care.png" alt="" />
-                                    <p className='text-warning'>ACCOUNTS</p>
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-home" class="" id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
+                                aria-selected="true">
+                                <div class="card hover:bg-green-400">
+                                    <div class="card-body">
+                                        <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/care.png" alt="" />
+                                        <p className='text-warning'>ACCOUNTS</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a href="#tabs-profile" class="" id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
-                            aria-controls="tabs-profile" aria-selected="false">
-                            <div class="card hover:bg-green-400">
-                                <div class="card-body">
-                                    <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/cash.png" alt="" />
-                                    <p className='text-warning'>CARDS</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-profile" class="" id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
+                                aria-controls="tabs-profile" aria-selected="false">
+                                <div class="card hover:bg-green-400">
+                                    <div class="card-body">
+                                        <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/cash.png" alt="" />
+                                        <p className='text-warning'>CARDS</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a href="#tabs-messages" class="" id="tabs-messages-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages" role="tab"
-                            aria-controls="tabs-messages" aria-selected="false">
-                            <div class="card hover:bg-green-400">
-                                <div class="card-body">
-                                    <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/loan.png" alt="" />
-                                    <p className='text-warning'>LOANS</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-messages" class="" id="tabs-messages-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages" role="tab"
+                                aria-controls="tabs-messages" aria-selected="false">
+                                <div class="card hover:bg-green-400">
+                                    <div class="card-body">
+                                        <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/loan.png" alt="" />
+                                        <p className='text-warning'>LOANS</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a href="#tabs-contact" class="" id="tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
-                            aria-controls="tabs-contact" aria-selected="false">
-                            <div class="card hover:bg-green-400">
-                                <div class="card-body">
-                                    <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/customer-service.png" alt="" />
-                                    <p className='text-warning'>SERVICES</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-contact" class="" id="tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
+                                aria-controls="tabs-contact" aria-selected="false">
+                                <div class="card hover:bg-green-400">
+                                    <div class="card-body">
+                                        <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/customer-service.png" alt="" />
+                                        <p className='text-warning'>SERVICES</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
 
-                </ul>
-                <div class="tab-content" id="tabs-tabContent">
-                    <div class="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
-                        <Accounts />
-                    </div>
-                    <div class="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
-                        <OurCards />
-                    </div>
-                    <div class="tab-pane fade" id="tabs-messages" role="tabpanel" aria-labelledby="tabs-profile-tab">
-                        <Loan />
-                    </div>
-                    <div class="tab-pane fade" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
-                        <Service />
+                    </ul>
+                    <div class="tab-content" id="tabs-tabContent">
+                        <div class="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
+                            <Accounts />
+                        </div>
+                        <div class="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+                            <OurCards />
+                        </div>
+                        <div class="tab-pane fade" id="tabs-messages" role="tabpanel" aria-labelledby="tabs-profile-tab">
+                            <Loan />
+                        </div>
+                        <div class="tab-pane fade" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
+                            <Service />
+                        </div>
                     </div>
                 </div>
             </section>
