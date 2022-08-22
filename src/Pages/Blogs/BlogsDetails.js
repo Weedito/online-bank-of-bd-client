@@ -16,7 +16,8 @@ const BlogsDetails = () => {
     const [user, loading] = useAuthState(auth);
     const [refresh,setRefresh]=useState(false)
     const [btnSpinner,setBtnSpinner]=useState(false);
-    const [comments,setComments]=useState(null)
+    const [comments,setComments]=useState(null);
+    const date = new Date().toLocaleString()
     useEffect(()=>{
         const url= `http://localhost:5000/blog/${id}`
         fetch(url).then(res=>res.json()).then(data=>{
@@ -29,13 +30,17 @@ const BlogsDetails = () => {
     if(spinner || loading){
         return<Loading/>
     }
+
     const handleComment=(e)=>{
         e.preventDefault()
         setBtnSpinner(true)
+        const userEmail = user?.email;
+        const userName= user?.displayName;
+        const userImage = user?.photoURL;
         const comment  =e.target.comment.value;
-        const prevComment = blog?.comment
-        const userComment = [...prevComment,{comment, user}];
-        console.log(userComment);
+        const prevComment = blog?.comment;
+        const commentDate = date;
+        const userComment = [...prevComment,{comment, userEmail,userName,userImage,commentDate}];
         const url = `http://localhost:5000/blog/comment/${id}`;
         fetch(url,{
             method:"PATCH",
@@ -109,7 +114,7 @@ const BlogsDetails = () => {
                         </div>
 
                         {/* user comment  */}
-                        {comments && comments.map((comment,index)=><BlogComment key={index} comment={comment}/>)   }
+                      {comments && comments.map((comment,index)=><BlogComment key={index} comment={comment}/>)   }
             </div>
                 
             </div>
