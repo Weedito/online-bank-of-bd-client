@@ -17,7 +17,6 @@ const RequireAccount = ({ children }) => {
             if(res.status=== 200){
                 return res.json()
             }else{
-                console.log('oshfsfjakljs');
                 setAccountLoading(false);
             }
         })
