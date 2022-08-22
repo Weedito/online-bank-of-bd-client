@@ -56,6 +56,15 @@ import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
 import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
 import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
+import Ssdeposit from "./Pages/OurBanking/RetailBanking/Ssdeposit";
+import Fixed from "./Pages/OurBanking/RetailBanking/Fixed";
+import Benifit from "./Pages/OurBanking/RetailBanking/Benifit";
+import Lakhpoti from "./Pages/OurBanking/RetailBanking/Lakhpoti";
+import Pension from "./Pages/OurBanking/RetailBanking/Pension";
+import Savings from "./Pages/OurBanking/RetailBanking/Savings";
+import Priority from "./Pages/OurBanking/RetailBanking/Priority";
+import Monthly from "./Pages/OurBanking/RetailBanking/Monthly";
+import Profile from "./Pages/Profile/Profie";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -151,24 +160,32 @@ function App() {
               <Route path='/smebanking/:loanId' element={<SmeLoan />}></Route>
               <Route path="/agentbanking" element={<AgentBanking />} />
               <Route path="/smsbanking" element={<SMSBanking />} />
+              <Route path="/savings" element={<Savings />} />
               <Route path="/student" element={<Student />} />
               <Route path="/timeline" element={<Timeline />} />
-              { /* Our agentbankingdata Routes start*/}
+              <Route path="/ssdeposit" element={<Ssdeposit />} />
+              <Route path="/fixed" element={<Fixed />} />
+              <Route path="/benifit" element={<Benifit />} />
+              <Route path="/lakhpoti" element={<Lakhpoti />} />
+              <Route path="/pension" element={<Pension />} />
+              <Route path="/priority" element={<Priority />} />
+              <Route path="/monthly" element={<Monthly />} />
               <Route path="/agentDynamicPage/:id" element={<AgentDynamicPage />} />
-              { /* Our agentbankingdata Routes End*/}
-
-
-              { /* Our Commitment dynamic Routes start*/}
               <Route path="/ourcommitmen/:id" element={<OurCommitment />} />
-              { /* Our Commitment dynamic Routes End*/}
               {/* Our Banking Routes End*/}
 
               {/* Contact Routes End*/}
               <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/openaccount" element={<RequireAuth><CreateAccount /></RequireAuth>} />
-              <Route path="/createaccount" element={<RequireAuth><CreateAccount /></RequireAuth>} />
-              <Route path="/webcam" element={<WebcamCapture />} />
               {/* Contact Routes End*/}
+
+              {/* Create Account Routes */}
+              <Route path="/openaccount" element={<RequireAuth><CreateAccount /></RequireAuth>} />
+              {/* Create Account Routes End */}
+
+              {/* Others Routes */}
+              <Route path="/webcam" element={<WebcamCapture />} />
+              <Route path="/profile" element={<Profile />} />
+
 
               {/* Authentication Routes End*/}
               <Route path="/signin" element={<Signin />} />
