@@ -59,18 +59,13 @@ import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 import UseAdmin from "./Components/Components.Nahid/Hooks/useAdmin";
 import auth from './firebase.init';
 import { signOut } from 'firebase/auth';
-import useAccount from './Components/Components.Nahid/Hooks/useAccount';
+import RequireAccount from "./Components/Components.Nahid/RequireAccount";
 
 function App() {
   const [theme, setTheme] = useState(false);
   const [loading, setLoading] = useState(false);
   const [admin, adminLoading]=UseAdmin();
-  const {myAccount, isLoading, error}=useAccount();
-  if(isLoading){
-    console.log(myAccount);
-  }
-  const navigate = useNavigate()
-  console.log(admin);
+  const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -95,15 +90,10 @@ function App() {
     <div data-theme={theme && "my_dark"} className="">
       {
         loading ?
-
-
-
           <div className="w-screen h-screen flex justify-center items-center">
             <HashLoader color="#137c38" size={70} cssOverride loading={loading} />
           </div>
-
           :
-
           <div className="pt-16">
             {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
 
@@ -126,13 +116,15 @@ function App() {
               {/* Control Panel Routes */}
 
               {/* User Dashboard Routes */}
-
-              {!adminLoading &&
-                admin? 
-                RequerDashboard()
-              :
-              <>
-              <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+              <Route path="/dashboard" element={
+              <RequireAuth>
+                <RequerDashboard>
+                  <RequireAccount>
+                    <Dashboard />
+                  </RequireAccount>
+                </RequerDashboard>
+              </RequireAuth>
+              }>
                 <Route index element={<Overview />}></Route>
                 <Route path="overview" element={<Overview />}></Route>
                 <Route path="myaccounts" element={<MyAccounts />}></Route>
@@ -141,8 +133,8 @@ function App() {
                 <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
               </Route>
               <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
-                </>
-              }
+              
+              {/* } */}
               
                 
               {/* User Dashboard Routes End*/}
