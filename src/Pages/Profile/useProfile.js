@@ -7,7 +7,7 @@ const useProfile = (email) => {
     // const email = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/profile/${email}`)
+        fetch(`https://bank-of-bd.herokuapp.com/profile/${email}`)
         .then(res => res.json())
         .then(data => setProfile(data))
     }, [email]);

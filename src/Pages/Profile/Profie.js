@@ -34,7 +34,7 @@ const Profile = () => {
                     }
 
                     // send to database
-                    fetch(`http://localhost:5000/profile/${email}`, {
+                    fetch(`https://bank-of-bd.herokuapp.com/profile/${email}`, {
                         method: 'PUT',
                         headers: {
                             "content-type": "application/json",
@@ -48,7 +48,7 @@ const Profile = () => {
                             console.log(inserted);
                             if (inserted) {
                                 toast.success("Updated Successfully")
-                                // reset();
+                                reset();
                             } else {
                                 toast.error("Faild to Update")
                             }

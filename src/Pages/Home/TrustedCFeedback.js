@@ -38,7 +38,7 @@ const TrustedCFeedback = () => {
   const [ourFeedback, setOurFeedback] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/feedbacks')
+    fetch('https://bank-of-bd.herokuapp.com/feedbacks')
       .then(res => res.json())
       .then(result => {
         setOurFeedback(result)
@@ -90,7 +90,7 @@ const TrustedCFeedback = () => {
     }
     console.log(feedbackDetails)
 
-    fetch('http://localhost:5000/feedback', {
+    fetch('https://bank-of-bd.herokuapp.com/feedback', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
