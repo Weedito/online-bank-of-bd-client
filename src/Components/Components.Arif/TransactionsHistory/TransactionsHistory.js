@@ -2,9 +2,101 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
+const transactionData = [
+  {
+    id: 1,
+    name: "Darlene Robertson",
+    image: "https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png",
+    mail: "jackson.graham@example.com",
+    time: "03:00 PM",
+    date: "10 Mar 2022",
+    amount: "$106.58",
+    amountStatus: "Received",
+    status: "Send Fund"
+  },
+  {
+    id: 2,
+    name: "Robertson",
+    image: "https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png",
+    mail: "manikMahi@example.com",
+    time: "04:00 PM",
+    date: "20 Mar 2022",
+    amount: "$406.58",
+    amountStatus: "send",
+    status: "Send Fund"
+  },
+  {
+    id: 3,
+    name: "shawon khan",
+    image: "https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png",
+    mail: "shawon@example.com",
+    time: "01:00 PM",
+    date: "16 Mar 2022",
+    amount: "$606.58",
+    amountStatus: "Received",
+    status: "Send Fund"
+  },
+  {
+    id: 4,
+    name: "Rabbi khan",
+    image: "https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png",
+    mail: "rabbi@example.com",
+    time: "05:30 PM",
+    date: "07 april 2022",
+    amount: "$678.58",
+    amountStatus: "send",
+    status: "Send Fund"
+  },
+  {
+    id: 5,
+    name: "kalam khan",
+    image: "https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png",
+    mail: "kalam@example.com",
+    time: "01:00 PM",
+    date: "09 Mar 2022",
+    amount: "$116.58",
+    amountStatus: "Received",
+    status: "Send Fund"
+  },
+  {
+    id: 6,
+    name: "hero khan",
+    image: "https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png",
+    mail: "hero@example.com",
+    time: "12:40 PM",
+    date: "29 Mar 2022",
+    amount: "$676.58",
+    amountStatus: "send",
+    status: "Send Fund"
+  },
+  {
+    id: 7,
+    name: "uvhi khan",
+    image: "https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png",
+    mail: "uvhi@example.com",
+    time: "04:00 AM",
+    date: "16 Mar 2022",
+    amount: "$649.58",
+    amountStatus: "Received",
+    status: "Send Fund"
+  },
+  {
+    id: 8,
+    name: "mira khan",
+    image: "https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png",
+    mail: "mira@example.com",
+    time: "09:27 AM",
+    date: "26 Mar 2022",
+    amount: "$696.58",
+    amountStatus: "Send",
+    status: "Send Fund"
+  },
+  
+];
+
 const TransactionsHistory = () => {
   return (
-    <div>
+    <div className="w-4/5 mx-auto">
       <div className="head bg-violet-800 py-6 px-10 flex flex-col lg:flex-row gap-4 gap">
         <div className="searchbar grow">
           <div class="form-control data-svelte-search">
@@ -64,7 +156,69 @@ const TransactionsHistory = () => {
           </button>
         </div>
       </div>
-      <div className="body"></div>
+      <div className="body">
+      <div class="overflow-x-auto w-full">
+  <table class="table w-full">
+  {/* head */}
+    <thead>
+      <tr>
+        <th className="text-sm text-slate-500 bg-slate-100 py-8">Name / Business</th>
+        <th className="text-sm text-slate-500 bg-slate-100 py-8">Last transfer date</th>
+        <th className="text-sm text-slate-500 bg-slate-100 py-8">Last transfer amount</th>
+        <th className="text-sm text-slate-500 bg-slate-100 py-8"> Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {/* row 1 */}
+      {
+        transactionData.map(({id, name, image, mail, time, date, amount,amountStatus, status}) => {
+          return(
+            <tr key={id}>
+        <td>
+          <div class="flex items-center space-x-3">
+            <div class="avatar">
+              <div class="mask mask-squircle w-12 h-12">
+                <img src={image} alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div>
+            <div>
+              <div class="font-bold">{name}</div>
+              <div class="text-sm opacity-50">{mail}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <b>{time}</b>
+          <br/>
+          <span class="badge badge-ghost badge-sm">{date}</span>
+        </td>
+        <td>
+        <b>{amount}</b>
+        <br/>
+          <span>{amountStatus}</span>
+          </td>
+        <th>
+          <button class="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal px-10 rounded-2xl bg-slate-100 border-inherit">{status}</button>
+        </th>
+      </tr>
+          );
+        })
+      }
+      
+    </tbody>
+    {/* foot */}
+    <tfoot>
+      <tr>
+        <th>Name</th>
+        <th>Last Transfer Date</th>
+        <th>Last Transfer Amount</th>
+        <th>Action</th>
+      </tr>
+    </tfoot>
+    
+  </table>
+</div>
+      </div>
     </div>
   );
 };

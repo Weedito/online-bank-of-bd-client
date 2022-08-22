@@ -38,7 +38,7 @@ const AskedQuestions = () => {
                       aria-controls={`collapse_${index}`}
                     >
                       <span className="text-green-700 font-bold">
-                        <span className="font-bold text-md">
+                        <span className="font-bold text-xl mr-6">
                           <FontAwesomeIcon icon={faPlus} />
                         </span>
                         {question}
@@ -79,7 +79,7 @@ const AskedQuestions = () => {
                       aria-controls={`collapse_${index}`}
                     >
                       <span className="text-green-700 font-bold">
-                        <span className="font-bold text-md">
+                        <span className="font-bold text-xl mr-6">
                           <FontAwesomeIcon icon={faPlus} />
                         </span>
                         {question}
