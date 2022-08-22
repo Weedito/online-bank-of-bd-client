@@ -8,8 +8,8 @@ import Loading from './Loading';
 const RequireAccount = ({ children }) => {
     let location = useLocation();
     const [user, loading] = useAuthState(auth);
-    const [account,setAccount]=useState(null);
-    const [accountLoading,setAccountLoading]=useState(false);
+    const [account,setAccount]=useState([]);
+    const [accountLoading,setAccountLoading]=useState(true);
     useEffect(()=>{
         setAccountLoading(true);
         fetch(`http://localhost:5000/accounts?email=${user?.email}`)
@@ -17,20 +17,22 @@ const RequireAccount = ({ children }) => {
             if(res.status=== 200){
                 return res.json()
             }else{
+                console.log('oshfsfjakljs');
                 setAccountLoading(false);
             }
         })
         .then(result=>{
+            setAccount(result[0]);
+            console.log(result);
+            console.log("authEmail",user?.email, "accountEmail", result[0]?.email);
             setAccountLoading(false)
-            if(result){
-                setAccount(result);
-            }
         })
     },[user])
     if (loading || accountLoading) {
       return <Loading />;
     }
-    if (!user || !account) {
+    if (!account && !accountLoading) {
+        console.log("i Am in ");
       return <Navigate to="/openaccount" state={{ from: location }} replace />;
     }
     return children;

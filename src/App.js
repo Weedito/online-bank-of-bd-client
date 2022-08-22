@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import Signin from "./Pages/Authentication/Signin/Signin";
@@ -56,16 +56,12 @@ import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
 import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
 import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
-import UseAdmin from "./Components/Components.Nahid/Hooks/useAdmin";
-import auth from './firebase.init';
-import { signOut } from 'firebase/auth';
 import RequireAccount from "./Components/Components.Nahid/RequireAccount";
+import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
 
 function App() {
   const [theme, setTheme] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [admin, adminLoading]=UseAdmin();
-  const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -80,12 +76,6 @@ function App() {
     setTheme(!theme);
     window.localStorage.setItem("theme", !theme);
   };
-  const RequerDashboard =()=>{
-    navigate("/signin");
-    signOut(auth);
-    localStorage.removeItem("accessToken");
-  }
-
   return (
     <div data-theme={theme && "my_dark"} className="">
       {
@@ -114,15 +104,14 @@ function App() {
               </Route>
               <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
-
               {/* User Dashboard Routes */}
               <Route path="/dashboard" element={
               <RequireAuth>
-                <RequerDashboard>
+                <RequireDashboard>
                   <RequireAccount>
                     <Dashboard />
                   </RequireAccount>
-                </RequerDashboard>
+                </RequireDashboard>
               </RequireAuth>
               }>
                 <Route index element={<Overview />}></Route>
@@ -134,9 +123,6 @@ function App() {
               </Route>
               <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
               
-              {/* } */}
-              
-                
               {/* User Dashboard Routes End*/}
 
               {/* All blogs root  */}
@@ -202,7 +188,6 @@ function App() {
             <ToastContainer />
           </div >
       }
-
     </div >
   );
 }
