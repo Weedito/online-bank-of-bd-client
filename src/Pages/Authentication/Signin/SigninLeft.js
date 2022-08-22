@@ -15,7 +15,7 @@ const SigninLeft = () => {
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
   const [SignInWithGithub, gituser, gitloading, giterror] = useSignInWithGithub(auth);
   const [SignInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
-  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
   const { register, handleSubmit, reset, errors } = useForm();
   const navigate = useNavigate();

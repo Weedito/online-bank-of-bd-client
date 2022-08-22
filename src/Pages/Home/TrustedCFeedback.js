@@ -4,7 +4,6 @@ import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import 'react-animated-slider/build/horizontal.css';
-import Swal from 'sweetalert2';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -58,45 +57,6 @@ const TrustedCFeedback = () => {
   const handleMouseLeave = () => {
     setHoverValue(undefined)
   }
-
-  // const url = `http://localhost:5000/feedback/:${feedbackId}`;
-
-  const handleDelete = id => {
-
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/feedback/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'content-type': 'application/json'
-          }
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.deletedCount > 0) {
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-              const remaining = ourFeedback.filter(feedback => feedback._id !== id)
-              setOurFeedback(remaining)
-            }
-
-          })
-      }
-    })
-
-  }
-
 
   const feedbackRef = useRef('');
 
@@ -247,7 +207,7 @@ const TrustedCFeedback = () => {
 
                       }
 
-                      <p className="text-xs break-words md:text-sm">{feedback?.feedbackComment.slice(0,100)}...</p>
+                      <p className="text-xs break-words md:text-sm">{feedback?.feedbackComment.length>100?`${feedback?.feedbackComment.slice(0,100)}...`:feedback?.feedbackComment}</p>
                     </SwiperSlide>
                   </div>
                 )

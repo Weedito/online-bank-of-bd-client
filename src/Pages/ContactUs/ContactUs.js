@@ -119,6 +119,8 @@ const ContactUs = () => {
                                                 <iframe title='map' className='w-full Ig:w-[180px] lg:h-[100px] rounded-md border mx-auto' id="gmap_canvas" src="https://maps.google.com/maps?q=uttarabangladesh&t=&z=13&ie=UTF8& iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                             </div>
                                         </Fade>
+                                        <button className='btn btn-md bg-secondary text-white hover:bg-secondary-hover'>Live Support</button>
+
                                     </div>
                                 </Flash>
                             </div>
