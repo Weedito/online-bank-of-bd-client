@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import Signin from "./Pages/Authentication/Signin/Signin";
@@ -56,10 +56,16 @@ import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
 import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
 import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
+import UseAdmin from "./Components/Components.Nahid/Hooks/useAdmin";
+import auth from './firebase.init';
+import { signOut } from 'firebase/auth';
 
 function App() {
   const [theme, setTheme] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [admin, adminLoading]=UseAdmin();
+  const navigate = useNavigate()
+  console.log(admin);
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -74,6 +80,11 @@ function App() {
     setTheme(!theme);
     window.localStorage.setItem("theme", !theme);
   };
+  const RequerDashboard =()=>{
+    navigate("/signin");
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  }
 
   return (
     <div data-theme={theme && "my_dark"} className="">
@@ -106,10 +117,15 @@ function App() {
                 <Route path="manageBlogs" element={<ManageBlogs />} />
                 <Route path="addBlog" element={<AddBlog />} />
               </Route>
+              <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
 
               {/* User Dashboard Routes */}
 
+              {!adminLoading &&
+                admin? 
+                RequerDashboard()
+              :
               <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
                 <Route index element={<Overview />}></Route>
                 <Route path="overview" element={<Overview />}></Route>
@@ -118,12 +134,17 @@ function App() {
                 <Route path="mytransactions" element={<MyTransactions />}></Route>
                 <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
               </Route>
-              <Route path="/blog/:id" element={<UpdateBlog />} />
+
+              }
+
+              {/* // payment root */}
+              <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
+              {/* User Dashboard Routes End*/}
+
+              {/* All blogs root  */}
               <Route path="/blogDetails/:id" element={<BlogsDetails />} />
               <Route path="/allBlogsData" element={<AllBlogsData />} />
               <Route path="/blogDetails/:id" element={<RequireAuth> <BlogsDetails /> </RequireAuth>} />
-              <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
-              {/* User Dashboard Routes End*/}
 
               {/* About Us Routes */}
               <Route path="/about" element={<About />} />\
