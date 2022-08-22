@@ -1,0 +1,4 @@
+.hello {
+    background-image: linear-gradient(to right, rgba(2, 115, 89, 0.459), rgb(2, 115, 89)), url("../../Components/Components.Masud/img/bannerbg1.jpg");
+    height: 80vh;
+}

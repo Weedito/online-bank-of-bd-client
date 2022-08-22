@@ -2,9 +2,9 @@ import React from "react";
 
 const BusinessSummary = () => {
   return (
-    <div className="flex justify-center items-center flex-col py-20  px-2">
+    <div className="flex justify-center items-center flex-col py-32 px-2">
       <div className="title">
-        <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
+        <h2 className="mb-10 section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
           Business <span className="text-green-700">Summary</span>
         </h2>
       </div>

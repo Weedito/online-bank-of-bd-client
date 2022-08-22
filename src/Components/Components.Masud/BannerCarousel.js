@@ -34,8 +34,8 @@ const BannerCarousel = () => {
                     <div className="flex justify-between max-w-7xl mx-auto gap-3">
                         <div className='flex-initial w-3/4'>
                             <h1 className='text-7xl text-white'>Welcome To</h1>
-                            <h1 className=' mt-3 text-7xl text-white'>Online Bank BD</h1>
-                            <p className=' my-10 text-white'>
+                            <h1 className='mt-3 text-7xl text-white'>Online Bank BD</h1>
+                            <p className='my-10 text-white'>
                                 Our Online banking system
                                 project's aim is to automate transactions of the bank and provide better and faster service to the
                                 customers by using the internet.

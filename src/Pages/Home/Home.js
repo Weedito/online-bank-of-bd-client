@@ -1,5 +1,6 @@
 import React from "react";
 import NoticeFromBank from "../../Components/Components.Arif/NoticeFromBank/NoticeFromBank";
+import BannerCarousel from "../../Components/Components.Masud/BannerCarousel";
 import Blogs from "./Blogs";
 import BusinessSummary from "./BusinessSummary";
 import GetLoan from "./GetLoan";
@@ -14,7 +15,7 @@ const Home = () => {
   return (
 
     <div className="">
-      <HomeTopCarousel/>
+      <HomeTopCarousel/>      
       <OruTrustedPartners/>
       <OurFeatures/>
       <NoticeFromBank />

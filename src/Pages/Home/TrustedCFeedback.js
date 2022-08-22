@@ -152,8 +152,8 @@ const TrustedCFeedback = () => {
 
 
   return (
-    <div className=" mx-auto my-5">
-      <section className='bg-slate-300 w-full mx-auto text-gray-700'>
+    <div className=" bg-slate-100 mx-auto py-20">
+      <section className=' w-full mx-auto text-gray-700'>
         <>
           <Swiper
             effect={"coverflow"}
