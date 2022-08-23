@@ -15,10 +15,10 @@ const Blogs = () => {
     }
 
     return (
-        <div className='blog-container  py-10 px-2 ' >
+        <div className='blog-container py-24 px-2' >
             <div className="max-w-7xl mx-auto">
                 <div className='py-10 px-2'>
-                    <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl text-white ">
+                    <h2 className="mb-10 section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl text-white ">
                         Read Our Blogs
                     </h2>
                 </div>
@@ -30,7 +30,7 @@ const Blogs = () => {
                 </div>
                 <div className='blog-btn flex justify-center mt-6 items-center '>
                     <button
-                        className='my-2 lg:text-xl text-sm  flex items-center text-center text-white  hover:text-green-400 duration-300 ease-in-out'
+                        className='mt-10 lg:text-xl text-sm  flex items-center text-center text-white  hover:text-green-400 duration-300 ease-in-out'
                         onClick={() => navigate("/allBlogsData")}
                     >See More
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

@@ -6,19 +6,19 @@ const WhyChooseOBB = () => {
 
   const navigate = useNavigate()
   return (
-    <div className='bg-slate-100 py-10 px-2 '>
+    <div className='bg-slate-100  py-32 px-2 '>
       <div className='py-10 px-2'>
-        <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
+        <h2 className="mb-14 section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl">
           Why Choose <span className="text-green-700">Online Bank BD</span>
         </h2>
       </div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mx-auto mt-5 max-w-7xl '>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-12 mx-auto mt-5 max-w-7xl '>
 
         {
           CommitmentData.map((item, idx) => {
             return (
-              <div key={idx} className="card hover:bg-base-100 shadow-xl">
+              <div key={idx} className="hover:bg-base-100 shadow-xl">
                 <figure className="w-40 m-auto">
                   <img src={item?.icon} alt="clock" className="rounded-xl" />
                 </figure>
