@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const TransferMoneyModal = ({ transferMoney, setRefresh, refresh }) => {
-    const { name, AccNo, balance, _id } = transferMoney;
+    const { name, AccNo, balance, _id, accEmail } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
 
@@ -26,7 +26,7 @@ const TransferMoneyModal = ({ transferMoney, setRefresh, refresh }) => {
     const previousBalance = transAcc?.balance;
     const AccName = transAcc?.name;
     const AccNumber = transAcc?.AccNo;
-    const AccEmail = transAcc?.authemail;
+    const AccEmail = transAcc?.accEmail;
 
 
     // Reciver info
@@ -116,7 +116,7 @@ const TransferMoneyModal = ({ transferMoney, setRefresh, refresh }) => {
                 withdraw: 0,
                 balance: depositBalance,
                 date: date,
-                email: AccEmail,
+                email: accEmail,
             }
 
             fetch('http://localhost:5000/statement', {

@@ -2,16 +2,16 @@ import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 const DepositModal = ({ deposit, refresh,setRefresh }) => {
-    const { name, AccNo, balance, _id, authemail } = deposit;
+    const { name, AccNo, balance, _id, accEmail } = deposit;
     const[balance1,setBalance1]=useState(0)
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
     const navigate =useNavigate()
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    console.log(deposit, authemail);
+    console.log(deposit, accEmail);
     const inputb=inputBalRef.current.value;
-    console.log("sfsklfjsfkjf",inputb, balance1);
+    console.log("sfsklfjsfkjf",inputb, deposit, accEmail);
     const handleDeposit = () => {
 
         const inputBalance = parseFloat(balance1);
@@ -47,7 +47,7 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
                 withdraw: 0,
                 balance: parseFloat(updateBalance?.depositBalance),
                 date: date,
-                email: authemail,
+                email: accEmail,
             }
 
             fetch('http://localhost:5000/statement', {

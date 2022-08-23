@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
 const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
-    const { name, AccNo, balance, _id, authemail } = withdraw;
+    const { name, AccNo, balance, _id, accEmail } = withdraw;
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
@@ -42,7 +42,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
             withdraw: inputBalance,
             balance: parseFloat(updateBalance?.depositBalance),
             date: date,
-            email: authemail,
+            email: accEmail,
         }
 
         fetch('http://localhost:5000/statement', {
