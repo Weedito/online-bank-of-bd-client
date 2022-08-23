@@ -1,4 +1,4 @@
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import Signin from "./Pages/Authentication/Signin/Signin";
@@ -67,6 +67,7 @@ import Monthly from "./Pages/OurBanking/RetailBanking/Monthly";
 import Profile from "./Pages/Profile/Profie";
 import RequireAccount from "./Components/Components.Nahid/RequireAccount";
 import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
+import SupportEmails from "./Pages/ContactUs/SupportEmails";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -115,13 +116,13 @@ function App() {
               {/* Control Panel Routes */}
               {/* User Dashboard Routes */}
               <Route path="/dashboard" element={
-              <RequireAuth>
-                <RequireDashboard>
-                  <RequireAccount>
-                    <Dashboard />
-                  </RequireAccount>
-                </RequireDashboard>
-              </RequireAuth>
+                <RequireAuth>
+                  <RequireDashboard>
+                    <RequireAccount>
+                      <Dashboard />
+                    </RequireAccount>
+                  </RequireDashboard>
+                </RequireAuth>
               }>
                 <Route index element={<Overview />}></Route>
                 <Route path="overview" element={<Overview />}></Route>
@@ -131,7 +132,7 @@ function App() {
                 <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
               </Route>
               <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
-              
+
               {/* User Dashboard Routes End*/}
 
               {/* All blogs root  */}
@@ -181,6 +182,7 @@ function App() {
 
               {/* Contact Routes End*/}
               <Route path="/contactus" element={<ContactUs />} />
+              <Route path="/supports" element={<SupportEmails />} />
               {/* Contact Routes End*/}
 
               {/* Create Account Routes */}
