@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import Signin from "./Pages/Authentication/Signin/Signin";
@@ -65,6 +65,8 @@ import Savings from "./Pages/OurBanking/RetailBanking/Savings";
 import Priority from "./Pages/OurBanking/RetailBanking/Priority";
 import Monthly from "./Pages/OurBanking/RetailBanking/Monthly";
 import Profile from "./Pages/Profile/Profie";
+import RequireAccount from "./Components/Components.Nahid/RequireAccount";
+import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -83,20 +85,14 @@ function App() {
     setTheme(!theme);
     window.localStorage.setItem("theme", !theme);
   };
-
   return (
     <div data-theme={theme && "my_dark"} className="">
       {
         loading ?
-
-
-
           <div className="w-screen h-screen flex justify-center items-center">
             <HashLoader color="#137c38" size={70} cssOverride loading={loading} />
           </div>
-
           :
-
           <div className="pt-16">
             {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
 
@@ -115,11 +111,18 @@ function App() {
                 <Route path="manageBlogs" element={<ManageBlogs />} />
                 <Route path="addBlog" element={<AddBlog />} />
               </Route>
+              <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
-
               {/* User Dashboard Routes */}
-
-              <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+              <Route path="/dashboard" element={
+              <RequireAuth>
+                <RequireDashboard>
+                  <RequireAccount>
+                    <Dashboard />
+                  </RequireAccount>
+                </RequireDashboard>
+              </RequireAuth>
+              }>
                 <Route index element={<Overview />}></Route>
                 <Route path="overview" element={<Overview />}></Route>
                 <Route path="myaccounts" element={<MyAccounts />}></Route>
@@ -127,12 +130,14 @@ function App() {
                 <Route path="mytransactions" element={<MyTransactions />}></Route>
                 <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
               </Route>
-              <Route path="/blog/:id" element={<UpdateBlog />} />
+              <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
+              
+              {/* User Dashboard Routes End*/}
+
+              {/* All blogs root  */}
               <Route path="/blogDetails/:id" element={<BlogsDetails />} />
               <Route path="/allBlogsData" element={<AllBlogsData />} />
               <Route path="/blogDetails/:id" element={<RequireAuth> <BlogsDetails /> </RequireAuth>} />
-              <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
-              {/* User Dashboard Routes End*/}
 
               {/* About Us Routes */}
               <Route path="/about" element={<About />} />\
@@ -200,7 +205,6 @@ function App() {
             <ToastContainer />
           </div >
       }
-
     </div >
   );
 }

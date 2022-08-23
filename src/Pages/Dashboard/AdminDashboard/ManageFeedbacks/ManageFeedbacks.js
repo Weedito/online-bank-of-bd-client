@@ -1,8 +1,6 @@
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Loading from '../../../../Components/Components.Nahid/Loading';
 import FeedbackDetails from './FeedbackDetails';
 
@@ -10,7 +8,7 @@ const ManageFeedbacks = () => {
 
     const feedback = () => axios.get('http://localhost:5000/feedbacks');
 
-        const {isLoading, data, refetch, error} = useQuery(["feedbacks"], feedback);
+        const {isLoading, data, refetch} = useQuery(["feedbacks"], feedback);
 
         const feedbacks = data?.data;
         if(isLoading){

@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { FaStar } from "react-icons/fa";
 import auth from '../../firebase.init';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import 'react-animated-slider/build/horizontal.css';
@@ -18,6 +20,7 @@ import "../../Components/Components.Masud/SwiperStyle.css";
 
 // import required modules
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
+import Loading from '../../Components/Components.Nahid/Loading';
 
 
 
@@ -30,20 +33,20 @@ const colors = {
 const TrustedCFeedback = () => {
 
   const [user] = useAuthState(auth);
-
+  const feedbackRef = useRef('');
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0)
+  
+  const feedback = () => axios.get('http://localhost:5000/feedbacks');
 
-  const [ourFeedback, setOurFeedback] = useState([]);
+  const {isLoading, data , refetch} = useQuery(["feedbacks"], feedback);
 
-  useEffect(() => {
-    fetch('http://localhost:5000/feedbacks')
-      .then(res => res.json())
-      .then(result => {
-        setOurFeedback(result)
-      })
-  }, []);
+  const ourFeedback = data?.data;
+
+  if(isLoading){
+      return <Loading/>;
+  }
 
 
   const handleClick = value => {
@@ -58,7 +61,7 @@ const TrustedCFeedback = () => {
     setHoverValue(undefined)
   }
 
-  const feedbackRef = useRef('');
+
 
   let newImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlLhGXqNvuYnsiYsH4yExdezxz3ePUS0t7dg&usqp=CAU'
 
@@ -102,6 +105,7 @@ const TrustedCFeedback = () => {
         console.log(data);
         if (data.acknowledged) {
           toast.success('feedback submited')
+          refetch();
         }
         else {
           toast.error('Something Wrong')
