@@ -15,14 +15,14 @@ const DBCards = () => {
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     useEffect(() => {
-        fetch('https://bank-of-bd.herokuapp.com/users')
+        fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, []);
 
 
     useEffect(() => {
-        fetch('https://bank-of-bd.herokuapp.com/allaccounts')
+        fetch('http://localhost:5000/allaccounts')
             .then(res => res.json())
             .then(data => setAccounts(data))
     }, [])
@@ -34,7 +34,7 @@ const DBCards = () => {
         }, 0);
 
     useEffect(() => {
-        fetch('https://bank-of-bd.herokuapp.com/statements')
+        fetch('http://localhost:5000/statements')
             .then(res => res.json())
             .then(data => setTransactions(data))
     }, [])

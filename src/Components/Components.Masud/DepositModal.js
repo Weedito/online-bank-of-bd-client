@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 const DepositModal = ({ deposit, refresh,setRefresh }) => {
     const { name, AccNo, balance, _id, accEmail } = deposit;
@@ -23,7 +23,7 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
         }
 
         else {
-            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+            const url = `http://localhost:5000/account/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -50,7 +50,7 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
                 email: accEmail,
             }
 
-            fetch('https://bank-of-bd.herokuapp.com/statement', {
+            fetch('http://localhost:5000/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
