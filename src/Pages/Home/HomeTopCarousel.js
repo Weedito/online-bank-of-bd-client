@@ -35,7 +35,7 @@ const HomeTopCarousel = () => {
  */}
             <Slider autoplay={2000} infinite={true} previousButton='' nextButton='' >
                 <div key="1">
-                    <div className="flex justify-between max-w-7xl mx-auto gap-3">
+                    <div className="flex justify-between max-w-7xl mx-auto gap-3 p-5">
                         <div className='flex-initial w-3/4'>
                             <h1 className='text-7xl text-white'>Welcome To</h1>
                             <h1 className='mt-3 text-7xl text-white'>Online Bank BD</h1>
@@ -45,7 +45,7 @@ const HomeTopCarousel = () => {
                                 customers by using the internet.
                             </p>
 
-                            <div className="flex justify-left items-center pt-16 lg:ml-0">
+                            <div className="flex justify-left items-center pt-12 lg:ml-0">
                                 <button className="btn btn-primary p-3 px-5 rounded-full">
                                     Get Started
                                 </button>
@@ -63,7 +63,7 @@ const HomeTopCarousel = () => {
                 </div>
 
                 <div key="2">
-                    <div className="flex justify-between max-w-7xl mx-auto">
+                    <div className="flex justify-between max-w-7xl mx-auto p-5">
                         <div className='flex-initial w-3/4'>
                             <h1 className='text-7xl text-white'>We are different</h1>
                             <h1 className=' mt-3 text-7xl text-white'>From Other</h1>
@@ -73,7 +73,7 @@ const HomeTopCarousel = () => {
                                 customers by using the internet.
                             </p>
 
-                            <div className="flex justify-left items-center pt-16 lg:ml-0">
+                            <div className="flex justify-left items-center pt-12 lg:ml-0">
                                 <button className="btn btn-primary p-3 px-5 rounded-full">
                                     Get Started
                                 </button>
@@ -91,7 +91,7 @@ const HomeTopCarousel = () => {
                 </div>
 
                 <div key="3">
-                    <div className="flex justify-between max-w-7xl mx-auto gap-3">
+                    <div className="flex justify-between max-w-7xl mx-auto gap-3 p-5">
                         <div className='flex-initial w-3/4'>
                             <h1 className='text-7xl text-white'>Welcome To</h1>
                             <h1 className='mt-3 text-7xl text-white'>Online Bank BD</h1>
@@ -101,7 +101,7 @@ const HomeTopCarousel = () => {
                                 customers by using the internet.
                             </p>
 
-                            <div className="flex justify-left items-center pt-16 lg:ml-0">
+                            <div className="flex justify-left items-center pt-12 lg:ml-0">
                                 <button className="btn btn-primary p-3 px-5 rounded-full">
                                     Get Started
                                 </button>

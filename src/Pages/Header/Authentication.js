@@ -29,7 +29,7 @@ const Authentication = () => {
                 // user ? <button onClick={handleSignOut} >SignOut</button> : <NavLink to="/signin">SignIn Your Account</NavLink>
                 user ?
                     <div class="dropdown dropdown-end">
-                        <div className="flex w-44 border border-x-primary mx-auto rounded px-5 py-2 items-center justify-between ">
+                        <div className="flex w-44 border border-x-primary mx-auto rounded px-5 py-1 items-center justify-between ">
                             <div className="">
                                 <h3 className="text-primary">{user?.displayName.slice(0, 10)}</h3>
                             </div>
