@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const SmeLoan = () => {
+  const [user, loading, error] = useAuthState(auth);
   const { loanId } = useParams();
   const [loanInfo, setLoanInfo] = useState({});
   const [calculator, setCalculator] = useState();
@@ -44,20 +47,28 @@ const SmeLoan = () => {
     const sum = parseInt(loanAmount) + interestPercent;
     const result = sum / parseInt(Payment_Type);
     const calculate = result / parseInt(Loan_period);
-    setCalculator(calculate)
-
-
-
-
-
-
-
-
-
-
+    setCalculator(calculate.toFixed())
 
 
   }
+
+  const handleBooking = e => {
+    e.preventDefault();
+
+
+    const booking = {
+
+      loanText: e.target.text.value,
+      userEmail: user.email,
+      userNmae: user.displayName,
+      phone: e.target.phone.value,
+      address: e.target.address.value
+
+
+    }
+    console.log(booking)
+  }
+
 
   return (
     <div>
@@ -121,13 +132,74 @@ const SmeLoan = () => {
             </form>
 
           </div>
+
+
           <div>
+
             <h1 className='text-5xl font-bold mb-10'>{calculator}</h1>
 
-            <p>{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p>
+            {/* <p>{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p> */}
+
+
+
+
+
+            <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
+
+              <div className="form-control w-full max-w-xs">
+                <p name='text' className="font-bold" value="4">{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p>
+
+              </div>
+
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">Your Email Address</span>
+
+                </label>
+                <input type="email" name='email' disabled value={user?.email} className="input input-bordered input-accent w-full max-w-xs" />
+              </div>
+
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">Your Name</span>
+
+                </label>
+                <input type="text" name='name' disabled value={user?.displayName} className="input input-bordered input-accent w-full max-w-xs" />
+              </div>
+
+
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">please type your Phone number</span>
+
+                </label>
+                <input type="number" name='phone' placeholder="Phone" className="input input-bordered input-accent w-full max-w-xs" required />
+              </div>
+
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">please type your Address</span>
+
+                </label>
+                <textarea name='address' className="textarea textarea-bordered h-18" placeholder="Address" required></textarea>
+              </div>
+
+              <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
+
+
+
+
+            </form>
+
 
 
             <button className="btn btn-primary">Apply Loan</button>
+
+
+
+
+
+
           </div>
         </div>
       </div>
