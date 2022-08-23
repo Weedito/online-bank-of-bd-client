@@ -12,7 +12,7 @@ const ManageAccounts = () => {
     const [deleteAccount, setDeleteAccount] = useState(null);
 
     useEffect(() => {
-        fetch('https://bank-of-bd.herokuapp.com/allaccounts')
+        fetch('http://localhost:5000/allaccounts')
             .then(res => res.json())
             .then(data => setAccounts(data))
     }, [])

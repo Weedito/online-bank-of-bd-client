@@ -2,12 +2,15 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import UseAdmin from '../../Components/Components.Nahid/Hooks/useAdmin';
 import auth from '../../firebase.init';
 import useProfile from './useProfile';
 const Profile = () => {
     const [user] = useAuthState(auth);
     const [profile] = useProfile(user?.email);
     const { register, handleSubmit, reset } = useForm();
+    const [admin] = UseAdmin();
+    console.log(user);
 
     const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
     // handle Update Profile
@@ -34,7 +37,7 @@ const Profile = () => {
                     }
 
                     // send to database
-                    fetch(`https://bank-of-bd.herokuapp.com/profile/${email}`, {
+                    fetch(`http://localhost:5000/profile/${email}`, {
                         method: 'PUT',
                         headers: {
                             "content-type": "application/json",
@@ -69,7 +72,7 @@ const Profile = () => {
 
             <div className="h-full text-left">
 
-                <div className="border-b-2 my-20 flex flex-col md:flex-row">
+                <div className="border-b-2 py-20 flex flex-col md:flex-row">
 
                     <div className="w-full md:w-2/5 p-4 mt-20 md:mt-0 sm:p-6 lg:p-8 bg-white shadow-md">
                         <div className="">
@@ -78,6 +81,7 @@ const Profile = () => {
                         </div>
 
                         <span className="text-gray-600">This information is secret so be careful</span>
+                        <span className="text-white badge badge-primary font-semibold font-sans px-5 py-2 rounded">{admin ? 'Admin Account' : 'User Account'}</span>
                         <div className="w-full h-fit p-8 mx-2 flex justify-center">
                             <img id="showImage" className="max-w-xs w-32 items-center border-2 rounded shadow " src={user?.photoURL ? user?.photoURL : 'https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375__340.png' || profile?.photoURL ? profile?.photoURL : 'https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375__340.png'} alt="" />
                         </div>
