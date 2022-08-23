@@ -1,34 +1,37 @@
 import React from 'react';
-import { Fade, Fade as Zoom, Flip } from 'react-reveal';
+import { Fade, Fade as Zoom, Flip, Slide } from 'react-reveal';
 import RubberBand from 'react-reveal/RubberBand';
-import depositImages from '../../../Assets/Images/products/deposit.jpg'
 const DepositDetails = () => {
     return (
-        <div className=''>
+        <div className='max-w-7xl mx-auto'>
             {/* new-banner-start */}
             <Zoom bottom>
-                <section style={{
-                    backgroundImage: `url(${depositImages})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                }}
-                    className='flex justify-center items-center  bg-cover pt-24 px-10 mt-8' >
-                    <div className='flex-1 hidden lg:block '>
-                        <img className='mt-[-130px]' src='https://www.freeiconspng.com/thumbs/bank-icon/blue-bank-icon-in-flat-style-with-the-building-facade-with-three--26.png' alt="" />
+                <div className='flex flex-col md:flex-row gap-2 justify-evenly items-center py-10 px-2'>
+                    <Slide left>
+                        <div className="text-left">
+                            <h3 className="text-3xl lg:text-5xl font-serif font-bold pb-4 lg:pb-8"><span className='text-primary'>Deposit </span>
+                                Products</h3>
+                            <p className='font-bold text-1xl'>Make small savings today to have a Bigger <br /> HAPPINESS TOMORROW</p>
 
-                    </div>
+                        </div>
+                    </Slide>
+                    <Slide right>
+                        <div className="">
+                            <img className='object-cover' src="https://i.ibb.co/dMCN1FK/timedeposit-01-1.png" alt="deposit img" />
+                        </div>
+                    </Slide>
 
-                </section>
+                </div>
             </Zoom>
             {/* deposit details-start */}
             <div className='text-center'>
                 <RubberBand>
                     <h3 className="text-3xl py-10">Term-deposit <span className='text-green-700 font-bold'>Products</span></h3>
+
                 </RubberBand>
             </div>
             <Fade>
-                <div className="my-5 lg:px-15 lg:py-10">
+                <div className="my-5 lg:px-15 lg:py-10 ">
                     <table className="table w-full">
                         {/* <!-- head start --> */}
                         <thead >

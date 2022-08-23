@@ -1,11 +1,16 @@
 import React from 'react';
-
 import OurCards from '../../../Components/Components.Rijon/OurCards';
 import Loan from '../../Products/Loan/Loan';
 import Accounts from './Accounts';
 import Service from './Service';
 
+
+
+
+
 const RetailBanking = () => {
+
+
 
 
     return (
@@ -14,9 +19,6 @@ const RetailBanking = () => {
             <section>
                 <img className='w-full' src="https://www.nrbcommercialbank.com/assets/img/banking.jpg" alt="" />
             </section>
-
-
-
             <section className='py-12 my-12'>
 
 

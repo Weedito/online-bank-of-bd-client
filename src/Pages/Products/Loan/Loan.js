@@ -38,52 +38,47 @@ const Loan = () => {
 
 
     return (
-        <div className='pb-10'>
+        <div className='max-w-7xl mx-auto pb-10'>
             <LoanPage></LoanPage>
 
+            <div className='grid grid-cols-1 lg:grid-cols-2 mx-12 gap-5'>
+                <div class="card w-96 bg-base-100 shadow-xl m-auto">
+                    <div class="card-body">
+                        <form>
+                            <div className="row g-3 align-items-center">
+                                <div className="col-auto mb-3">
+                                    <label htmlFor="loan-input" className="label-text">
+                                        Loan Amount (£)
+                                    </label>
+                                </div>
+                                <div className="col-auto">
+                                    <input
+                                        type="number"
+                                        className="form-control input input-bordered input-accent w-full max-w-xs"
+                                        id="loan-input"
+                                        value={loan}
+                                        onChange={e => setLoan(e.target.value)}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row g-3 align-items-center">
+                                <div className="col-auto mt-5 mb-3">
+                                    <label htmlFor="duration-input" className="form-label">
+                                        Duration (in Months)
+                                    </label>
+                                </div>
+                                <div className="col-auto">
+                                    <input
+                                        type="text"
+                                        className="form-control input input-bordered input-accent w-full max-w-xs"
+                                        id="duration-input"
+                                        value={duration}
+                                        onChange={e => setDuration(e.target.value)}
+                                    />
+                                </div>
+                            </div>
+                        </form>
 
-            <h3>This is card pages</h3>
-            {/* <iframe src="https://py3pd.csb.app"></iframe> */}
-            <React.Fragment>
-                <header>
-                    <h1>Your Loan</h1>
-                </header>
-                <main>
-                    <form>
-                        <div className="row g-3 align-items-center">
-                            <div className="col-auto">
-                                <label htmlFor="loan-input" className="form-label">
-                                    Loan Amount (£)
-                                </label>
-                            </div>
-                            <div className="col-auto">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="loan-input"
-                                    value={loan}
-                                    onChange={e => setLoan(e.target.value)}
-                                />
-                            </div>
-                        </div>
-                        <div className="row g-3 align-items-center">
-                            <div className="col-auto">
-                                <label htmlFor="duration-input" className="form-label">
-                                    Duration (in Months)
-                                </label>
-                            </div>
-                            <div className="col-auto">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="duration-input"
-                                    value={duration}
-                                    onChange={e => setDuration(e.target.value)}
-                                />
-                            </div>
-                        </div>
-                    </form>
-                    <div className="row g-3 align-items-center">
                         <div className="col-auto">
                             <label htmlFor="interest-range" className="form-label">
                                 Interest Rate (%) : {interest}
@@ -99,36 +94,41 @@ const Loan = () => {
                                 step="1"
                                 className="form-range"
                                 id="interest-range"
+
                             />
                         </div>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Repayment Date</th>
-                                    <th scope="col">Principal</th>
-                                    <th scope="col">Interest</th>
-                                    <th scope="col">Total Repayment</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {dates.map((date, index) => (
-                                    <tr key={index}>
-                                        <td>{date}</td>
-                                        <td>{getPrincipal()}</td>
-                                        <td>{getInterest()}</td>
-                                        <td>{getTotalRepayment()}</td>
-                                    </tr>
-                                ))}
-                                <tr>
-                                    <td>Total</td>
-                                    <td>{loan}</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
+
                     </div>
-                </main>
-            </React.Fragment>
+                </div>
+                <div><table className="table lg:w-full">
+                    <thead>
+                        <tr>
+                            <th scope="col">Repayment Date</th>
+                            <th scope="col">Principal</th>
+                            <th scope="col">Interest</th>
+                            <th scope="col">Total Repayment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {dates.map((date, index) => (
+                            <tr key={index}>
+                                <td>{date}</td>
+                                <td>{getPrincipal()}</td>
+                                <td>{getInterest()}</td>
+                                <td>{getTotalRepayment()}</td>
+                            </tr>
+                        ))}
+                        <tr>
+                            <td>Total</td>
+                            <td>{loan}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+
 
         </div>
     );
