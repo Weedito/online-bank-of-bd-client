@@ -25,19 +25,18 @@ const SMEBanking = () => {
         <div className='max-w-7xl mx-auto'>
 
             <div className='flex flex-col bg-slate-100 md:flex-row gap-2 justify-around items-center py-10 px-2' data-aos="fade-down">
-                <Slide left>
-                    <div className="text-left">
-                        <h2 className="text-3xl font-bold">Grow Your Business</h2>
-                        <h3 className="text-2xl">With our quick & simplified</h3>
-                        <h3 className="text-2xl font-bold">SME FINANCING</h3>
 
-                    </div>
-                </Slide>
-                <Slide right>
-                    <div className="">
-                        <img className='object-cover' src="https://i.ibb.co/VVmbh6x/istockphoto-1172696274-612x612-removebg-preview.png" alt="" />
-                    </div>
-                </Slide>
+                <div className="text-left">
+                    <h2 className="text-3xl font-bold">Grow Your Business</h2>
+                    <h3 className="text-2xl">With our quick & simplified</h3>
+                    <h3 className="text-2xl font-bold">SME FINANCING</h3>
+
+                </div>
+
+                <div className="">
+                    <img className='object-cover' src="https://i.ibb.co/VVmbh6x/istockphoto-1172696274-612x612-removebg-preview.png" alt="" />
+                </div>
+
 
             </div>
 

@@ -56,7 +56,7 @@ const SmeLoan = () => {
     e.preventDefault();
 
 
-    const booking = {
+    const applyLoan = {
 
       loanText: e.target.text.value,
       userEmail: user.email,
@@ -66,7 +66,7 @@ const SmeLoan = () => {
 
 
     }
-    console.log(booking)
+    console.log(applyLoan)
   }
 
 
@@ -184,7 +184,7 @@ const SmeLoan = () => {
                 <textarea name='address' className="textarea textarea-bordered h-18" placeholder="Address" required></textarea>
               </div>
 
-              <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
+              <input type="submit" value="Apply Loan" className="btn btn-primary w-full max-w-xs" />
 
 
 
@@ -193,7 +193,7 @@ const SmeLoan = () => {
 
 
 
-            <button className="btn btn-primary">Apply Loan</button>
+
 
 
 
