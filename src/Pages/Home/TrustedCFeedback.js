@@ -247,7 +247,7 @@ const TrustedCFeedback = () => {
 
                       }
 
-                      <p className="text-xs md:text-sm">{feedback?.feedbackComment}</p>
+                      <p className="text-xs break-words md:text-sm">{feedback?.feedbackComment.slice(0,100)}...</p>
                     </SwiperSlide>
                   </div>
                 )

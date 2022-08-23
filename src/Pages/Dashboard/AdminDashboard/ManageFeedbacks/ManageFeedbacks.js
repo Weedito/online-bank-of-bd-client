@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import Loading from '../../../../Components/Components.Nahid/Loading';
 import FeedbackDetails from './FeedbackDetails';
 
 const ManageFeedbacks = () => {
@@ -13,7 +14,7 @@ const ManageFeedbacks = () => {
 
         const feedbacks = data?.data;
         if(isLoading){
-            return "Loading....";
+            return <Loading/>;
         }
 
         console.log("From React Query", feedbacks)
