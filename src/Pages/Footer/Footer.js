@@ -28,7 +28,7 @@ const Footer = () => {
                 <div>
                     <span className="footer-title">Help Center</span>
                     <a className="link link-hover" href="/contactus">Contact US</a>
-                    <a className="link link-hover" href="/headoffice">Get Help</a>
+                    <a className="link link-hover" href="/help">Get Help</a>
                     <a className="link link-hover" href="/privacy/:id">Privacy Policy</a>
                     <a className="link link-hover" href="/tarms/:id">Terms & Conditions</a>
                 </div>
