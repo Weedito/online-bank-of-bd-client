@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const GetLoan = () => {
     return (
-
         <div className="py-10">
             <div className="flex flex-col w-full items-center max-w-7xl mx-auto  bg-[#F5FFE9] justify-around md:flex-row gap5">
                 <div data-aos="fade-up" className="w-3/6 px-5 md:px-10">
