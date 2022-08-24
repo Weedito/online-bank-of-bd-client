@@ -45,7 +45,7 @@ const AllBlogs = () => {
         <div className=" text-left h-full w-full">
 
         <div className="w-full flex items-center justify-center my-12">
-            <div className="bg-white shadow rounded py-12 px-4 mb-20 max-h-[700px] overflow-y-scroll">
+            <div className="bg-base-100 shadow rounded py-12 px-4 mb-20  ">
                 <div className='blogM-header grid grid-cols-3'>
                     <div className='add-btn flex items-center'>
                         <button

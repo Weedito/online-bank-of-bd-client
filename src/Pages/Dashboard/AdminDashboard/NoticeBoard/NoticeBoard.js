@@ -2,8 +2,9 @@ import React from 'react';
 
 const NoticeBoard = () => {
     return (
-        <div>
-            <h3>This is Notice Board tap cotainer</h3>
+        <div className='md:px-4 px-2 my-6'>
+            <h2>Total Notice</h2>
+            
         </div>
     );
 };
