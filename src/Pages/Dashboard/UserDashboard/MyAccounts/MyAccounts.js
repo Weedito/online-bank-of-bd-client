@@ -31,7 +31,7 @@ const MyAccounts = () => {
 
                                 <div className="flex flex-col md:flex-row w-full items-center p-5 rounded-lg bg-white shadow-lg">
                                     <div className="w-full p-5 md:w-2/5 items-center mx-auto">
-                                        <img className=" object-cover rounded-lg" src={account?.ahimage} alt="" />
+                                        <img className=" object-cover rounded-lg" src={(account?.ahimage && account?.ahimage) || (account?.ahupimage && account?.ahupimage) || (account?.ahcpimage && account?.ahcpimage)} alt="" />
                                     </div>
                                     <div className="p-6 w-full md:w-3/5 mx-auto flex flex-col justify-start">
                                         <h5 className="text-gray-900 text-xl font-semibold mb-2">Name: <span className="text-green-700">{account?.name}</span></h5>

@@ -22,7 +22,7 @@ const SingleAccountDetails = () => {
             <div className="flex w-full mx-auto items-center justify-center h-full">
                 <div className="flex flex-col md:flex-row w-full rounded-lg bg-white shadow-lg">
                     <div className="w-full p-5 md:w-2/5 mx-auto">
-                        <img className=" object-cover rounded-t-lg md:rounded-none md:rounded-l-lg" src={acc?.ahimage} alt="" />
+                        <img className=" object-cover rounded-t-lg md:rounded-none md:rounded-l-lg" src={(acc?.ahimage && acc?.ahimage) || (acc?.ahupimage && acc?.ahupimage) || (acc?.ahcpimage && acc?.ahcpimage)} alt="" />
                     </div>
                     <div className="p-6 w-full md:w-2/5 mx-auto flex flex-col justify-start">
                         <h5 className="text-gray-900 text-xl font-semibold mb-2">Name: <span className="text-green-700">{acc?.name}</span></h5>
