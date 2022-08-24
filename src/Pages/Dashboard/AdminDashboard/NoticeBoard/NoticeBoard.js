@@ -15,7 +15,7 @@ const NoticeBoard = () => {
                     <div className='noticeHeader flex mt-6'>
                       <h2 className='text-3xl '>Notice Title</h2>
                     </div>
-                    <div className='absolute top-[-50px] right-0 noticeIcon  bg-black '>
+                    <div className='absolute top-[-50px] right-0 noticeIcon bg-neutral '>
                     <button className='p-2 mx-2 hover:text-green-500 duration-200'>
                             {<FontAwesomeIcon className='text-2xl' icon={faEdit} />}
                         </button>
@@ -35,7 +35,7 @@ const NoticeBoard = () => {
                     <div className='noticeHeader flex mt-6'>
                       <h2 className='text-3xl '>Notice Title</h2>
                     </div>
-                    <div className='absolute top-[-50px] right-0 noticeIcon  bg-black '>
+                    <div className='absolute top-[-50px] right-0 noticeIcon  bg-neutral '>
                     <button className='p-2 mx-2 hover:text-green-500 duration-200'>
                             {<FontAwesomeIcon className='text-2xl' icon={faEdit} />}
                         </button>
