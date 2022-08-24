@@ -11,12 +11,11 @@ const MyAccounts = () => {
     const [deposit, setDeposit] = useState(null);
     const [withdraw, setWithdraw] = useState(null);
     const [transferMoney, setTransferMoney] = useState(null);
-    const { myAccount } = useAccount();
+    const { myAccount,setRefreshAccount,refreshAccount } = useAccount();
     const navigate = useNavigate();
 
     return (
         <div className="">
-
             <div className="py-7">
                 <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
                     My <span className="text-green-700">Accounts</span>
@@ -25,7 +24,6 @@ const MyAccounts = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto w-full pt-5 items-center justify-center gap-5 pb-10 ">
                 {
                     myAccount?.map(account => {
-                        // console.log(account);
                         return (
                             <div className=" mx-auto w-full items-center justify-center p-5 rounded-lg bg-white shadow-lg ">
 
@@ -68,13 +66,13 @@ const MyAccounts = () => {
             </div>
 
             {
-                deposit && <DepositModal deposit={deposit} ></DepositModal>
+                deposit && <DepositModal deposit={deposit} setRefreshAccount={setRefreshAccount} refreshAccount={refreshAccount} ></DepositModal>
             }
             {
-                withdraw && <WidthdrawModal withdraw={withdraw} ></WidthdrawModal>
+                withdraw && <WidthdrawModal withdraw={withdraw} setRefreshAccount={setRefreshAccount} refreshAccount={refreshAccount}  ></WidthdrawModal>
             }
             {
-                transferMoney && <TransferMoneyModal transferMoney={transferMoney} ></TransferMoneyModal>
+                transferMoney && <TransferMoneyModal transferMoney={transferMoney} setRefreshAccount={setRefreshAccount} refreshAccount={refreshAccount}  ></TransferMoneyModal>
             }
         </div>
     );

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import auth from '../../../firebase.init';
@@ -8,22 +8,20 @@ import Loading from '../Loading';
 const useAccount = () => {
 
     const [user, loading] = useAuthState(auth);
+    const [refreshAccount,setRefreshAccount]=useState(false)
     const dispatch = useDispatch();
-
     //////  load user account
-    const {isLoading,myAccount,error} = useSelector(state=>state)
+    const {isLoading,myAccount,error} = useSelector(state=>state);
     useEffect(()=>{
     dispatch(getUserAccount(user?.email))
-    },[user, dispatch])
+    },[user, dispatch,refreshAccount])
     //////
-
-    
     if (loading || isLoading) {
         return <Loading />
     }
 
 
-    return {myAccount, isLoading, error};
+    return {myAccount, isLoading, error, setRefreshAccount,refreshAccount};
 };
 
 export default useAccount;
