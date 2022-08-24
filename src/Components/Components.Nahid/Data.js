@@ -1,4 +1,4 @@
-import { faAdd, faBank, faBlog, faDashboard, faHistory, faReceipt, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBank, faBlog, faDashboard, faHistory, faReceipt, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 
 export const TrustedPartnersData = [
@@ -19,9 +19,6 @@ export const TrustedPartnersData = [
     },
     {
         imageURL: 'https://i.ibb.co/ySFc3Tw/afterpay-logo-png-black-transparent.png',
-    },
-    {
-        imageURL: 'https://i.ibb.co/8gkCYGr/air-india.png',
     },
     {
         imageURL: 'https://i.ibb.co/ts2VM3Q/bbc-logo-png-transparent.png',

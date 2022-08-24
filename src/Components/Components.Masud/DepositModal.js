@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 const DepositModal = ({ deposit, refresh, setRefresh }) => {
     const { name, AccNo, balance, _id, accEmail } = deposit;

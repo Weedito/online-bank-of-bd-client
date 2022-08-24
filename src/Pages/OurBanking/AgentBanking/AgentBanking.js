@@ -1,24 +1,22 @@
 import React from 'react';
-import Slide from 'react-reveal/Slide';
 import AgentBank from '../../../Components/Components.Rijon/AgentBank';
 
 const AgentBanking = () => {
     return (
         <div>
             <div className='flex flex-col md:flex-row gap-12 lg:gap-96 justify-center items-center bg-slate-100 py-20 px-2'>
-                <Slide left>
-                    <div className="text-center">
-                        <div className='pl-20'>
-                            <h2 className='text-4xl font-semibold'>Agent Banking</h2>
-                            <p className="text-gray text-sm mt-3 w-96">Agent Banking is defined as the banking services provided (outside of regular bank branches) by engaging agents under a valid agreement. An Agent is the owner of an outlet who conducts banking transaction on behalf of a Bank. It was first introduced by Bangladesh Bank (BB) in 2013. The aim is to provide financial services to the vastly unbanked segments of the population, especially those from the geographically dispersed locations.</p>
-                        </div>
+
+                <div data-aos="fade-down-right" data-aos-duration="1000" className="text-center">
+                    <div className='pl-20'>
+                        <h2 className='text-4xl font-semibold'>Agent Banking</h2>
+                        <p className="text-gray text-sm mt-3 w-96">Agent Banking is defined as the banking services provided (outside of regular bank branches) by engaging agents under a valid agreement. An Agent is the owner of an outlet who conducts banking transaction on behalf of a Bank. It was first introduced by Bangladesh Bank (BB) in 2013. The aim is to provide financial services to the vastly unbanked segments of the population, especially those from the geographically dispersed locations.</p>
                     </div>
-                </Slide>
-                <Slide right>
-                    <div className="">
-                        <img className='object-cover' src="https://i.ibb.co/QXcmY6v/Group-91.jpg" alt="Group-91" />
-                    </div>
-                </Slide>
+                </div>
+
+                <div data-aos="fade-down-left" data-aos-duration="1000">
+                    <img className='object-cover' src="https://i.ibb.co/QXcmY6v/Group-91.jpg" alt="Group-91" />
+                </div>
+
             </div>
 
             <AgentBank></AgentBank>
@@ -173,18 +171,17 @@ const AgentBanking = () => {
             <section>
                 <section className='mx-auto' style={{ backgroundColor: '#F5FFE9' }}>
                     <div className='flex flex-col md:flex-row lg:gap-24 justify-center items-center py-2 px-2'>
-                        <Slide left >
-                            <div>
-                                <img className='object-cover' src="https://i.ibb.co/272JRxm/pexels-roman-pohorecki-230554-1.jpg" alt="" />
-                            </div>
-                        </Slide>
-                        <Slide right>
-                            <div className="text-left pl-5">
-                                <h2 className='text-4xl font-semibold'>Agent Banking Services</h2>
-                                <p className="text-gray text-sm py-3 text-left w-96">Through SMS banking, Bank clients can get different types of information like account balance, card payment, loan installment & other information by mobile SMS. SMS Banking provides both Push & Pull SMS. Push SMS are those that the bank chooses to send to a customer’s mobile phone without customer’s request. Pull SMS are those that are initiated by the customer by sending SMS to bank to get specific information like account balance enquiry, mini statement, currency exchange rates, deposit interest rates, etc.</p>
-                                <button className='px-5 py-2 bg-green-500 rounded-full'>Learn More</button>
-                            </div>
-                        </Slide>
+
+                        <div data-aos="zoom-in" data-aos-duration="1000">
+                            <img className='object-cover' src="https://i.ibb.co/272JRxm/pexels-roman-pohorecki-230554-1.jpg" alt="" />
+                        </div>
+
+                        <div data-aos="zoom-in" data-aos-duration="1000" className="text-left pl-5">
+                            <h2 className='text-4xl font-semibold'>Agent Banking Services</h2>
+                            <p className="text-gray text-sm py-3 text-left w-96">Through SMS banking, Bank clients can get different types of information like account balance, card payment, loan installment & other information by mobile SMS. SMS Banking provides both Push & Pull SMS. Push SMS are those that the bank chooses to send to a customer’s mobile phone without customer’s request. Pull SMS are those that are initiated by the customer by sending SMS to bank to get specific information like account balance enquiry, mini statement, currency exchange rates, deposit interest rates, etc.</p>
+                            <button className='px-5 py-2 bg-green-500 rounded-full'>Learn More</button>
+                        </div>
+
 
                     </div>
                 </section>

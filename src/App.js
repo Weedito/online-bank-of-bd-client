@@ -68,6 +68,9 @@ import Profile from "./Pages/Profile/Profie";
 import RequireAccount from "./Components/Components.Nahid/RequireAccount";
 import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
 import SupportEmails from "./Pages/ContactUs/SupportEmails";
+import TermsnConditions from "./Pages/Footer/TermsnConditions";
+import PrivecyPolicy from "./Pages/Footer/PrivecyPolicy";
+import GetHelp from "./Pages/Footer/GetHelp";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -200,6 +203,12 @@ function App() {
 
               {/* Authentication Routes End*/}
               <Route path="*" element={<NotFound />} />
+
+              {/* Footer elemints Routes start*/}
+              <Route path="/tarms" element={<TermsnConditions />} />
+              <Route path="/privacy" element={<PrivecyPolicy />} />
+              <Route path="/help" element={<GetHelp />} />
+
             </Routes >
             {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />
             }
