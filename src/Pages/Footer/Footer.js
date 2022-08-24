@@ -29,9 +29,10 @@ const Footer = () => {
                 <div>
                     <span className="footer-title">Help Center</span>
                     <Link className="link link-hover" to="/contactus">Contact US</Link>
-                    <Link className="link link-hover" to="/headoffice">Get Help</Link>
+                    <Link className="link link-hover" to="/help">Get Help</Link>
                     <Link className="link link-hover" to="/privacy">Privacy Policy</Link>
                     <Link className="link link-hover" to="/tarms">Terms & Conditions</Link>
+
                 </div>
                 <div>
                     <span className="footer-title">Contact</span>
