@@ -1,10 +1,38 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-const NewNotice = ({setModal}) => {
+import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-toastify';
+const NewNotice = ({setModal,allNotice}) => {
     const { register, handleSubmit,reset } = useForm();
-    const [btnSpinner,setBtnSpinner]=useState(false)
+    const [btnSpinner,setBtnSpinner]=useState(false);
+    const date = new Date().toLocaleString();
+
     const onSubmit=(data)=>{
-        console.log(data);
+        setBtnSpinner(true)
+        const uuId= uuidv4();
+        const newNotice = {
+            NoticeId:uuId,
+            isRead:false,
+            title:data.title,
+            message:data.message,
+            noticeDate: date
+        };
+        const noticeData= [...allNotice, newNotice];
+        const url = `http://localhost:5000/notice`;
+        fetch(url,{
+            method:"PUT",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(noticeData)
+        })
+        .then(res=>res.json())
+        .then(result=>{
+            setBtnSpinner(false);
+            setModal(false);
+            toast.success("Successfully posted New Notice!")
+            reset();
+        })
     }
     return (
         <div
@@ -38,9 +66,13 @@ const NewNotice = ({setModal}) => {
                         />
                         <button
                         disabled={btnSpinner&& true}
-                            className={`px-4 py-4 my-2 bg-green-700 rounded-lg text-sm md:text-xl   transition  text-white ${btnSpinner? 'bg-gray-400 cursor-not-allowed loading':"bg-green-700 cursor-pointer hover:bg-green-400"}`}
+                            className={`px-4 py-4 my-2 bg-primary rounded-lg text-sm md:text-xl   transition  text-white ${btnSpinner? 'bg-gray-400 cursor-not-allowed loading':" cursor-pointer :bg-primary"}`}
                             type="submit"
-                        >Add Now</button>
+                        >
+                            {
+                                btnSpinner? "Loading...": "Add Now"
+                            }
+                        </button>
                     </form>
 
                 </div>

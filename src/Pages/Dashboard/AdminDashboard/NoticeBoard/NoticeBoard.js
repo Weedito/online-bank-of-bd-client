@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {faEdit, faBan}from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewNotice from './NewNotice';
 const NoticeBoard = () => {
     const [modal,setModal]=useState(false);
+    const [allNotice,setAllNotice]=useState([]);
+    const [smSpinner,setSmSpinner]=useState(false);
+    useEffect(() => {
+        fetch('https://bank-of-bd.herokuapp.com/allaccounts')
+            .then(res => res.json())
+            .then(data => {
+                setSmSpinner(false)
+                const noticeData= data[0]?.notice;
+                const prevNotice = [...noticeData];
+                setAllNotice(prevNotice);
+                
+            })
+    }, [])
     return (
         <div className='md:px-4 px-2 my-6 bg-base-100'>
             <div className='w-full flex flex-col  '>
@@ -56,7 +69,7 @@ const NoticeBoard = () => {
 
             </div>
                 {
-                    modal && <NewNotice setModal={setModal}/>
+                    modal && <NewNotice setModal={setModal} allNotice={allNotice}/>
                 }
             </div>
             
