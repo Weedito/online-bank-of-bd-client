@@ -15,16 +15,16 @@ const CorporateBanking = () => {
 
 
                 </div>
-                <div className='flex-1'>
+                <div data-aos="fade-down" className='flex-1'>
                     <h2 className=' text-2xl font-bold bg-slate-100'>Online <span className='text-primary'>Bank BD</span> Corporate Banking</h2>
                     <h3 className='text-3xl'>Let Our financial Expertise power your Business</h3>
                 </div>
 
 
             </section>
-            <h1 className='text-3xl font-bold py-10 bg-slate-100 text-center'>Corporate <span className='text-primary'>Banking</span></h1>
+            <h1 className='text-3xl font-bold py-10 text-center'>Corporate <span className='text-primary'>Banking</span></h1>
             <section className=''>
-                <div className='grid grid-cols-1 lg:grid-cols-3 pt-8 gap-5 bg-slate-100 px-8'>
+                <div data-aos="zoom-in" className='grid grid-cols-1 lg:grid-cols-3 mb-10 gap-5  px-8'>
                     <div className="card card-compact max-w-max bg-base-100 shadow-xl">
                         <figure><img src="https://ghalibzahirinvestmentholdings.com/public/uploads/service-6.jpg" alt="Corporate Finance img" /></figure>
                         <div className="card-body">

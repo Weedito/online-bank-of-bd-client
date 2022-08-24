@@ -19,7 +19,7 @@ const WhyChooseOBB = () => {
           CommitmentData.map((item, idx) => {
             return (
 
-              <div data-aos="zoom-in-down" key={idx} className="card hover:bg-base-100 shadow-xl">
+              <div data-aos="zoom-in-down" data-aos-duration="1000" key={idx} className="card hover:bg-base-100 shadow-xl">
                 <figure className="w-40 m-auto">
                   <img src={item?.icon} alt="clock" className="rounded-xl" />
                 </figure>
