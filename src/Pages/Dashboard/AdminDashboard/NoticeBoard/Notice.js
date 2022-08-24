@@ -8,7 +8,7 @@ const Notice = ({notice}) => {
                       <h2 className='text-3xl mb-2 '>{notice?.title}</h2>
                     </div>
                     <div className='absolute top-[-50px] right-0 noticeIcon bg-transparent shadow-xl rounded-md '>
-                    <button className='p-2 mx-2 hover:text-green-500 duration-200'>
+                        <button className='p-2 mx-2 hover:text-green-500 duration-200'>
                             {<FontAwesomeIcon className='text-2xl' icon={faEdit} />}
                         </button>
                         <button className='p-2 mx-2 hover:text-red-600 duration-200'>
@@ -20,7 +20,7 @@ const Notice = ({notice}) => {
                     notice?.message
                    }
                     </blockquote>
-                </div>
+         </div>
     );
 };
 

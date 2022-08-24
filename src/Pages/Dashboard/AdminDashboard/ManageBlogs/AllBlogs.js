@@ -50,7 +50,7 @@ const AllBlogs = () => {
                     <div className='add-btn flex items-center'>
                         <button
                         onClick={()=>setModal(true)}
-                        className="outline-0 border py-2 px-4 rounded-md bg-green-500 text-white flex items-center text-xl font-sans font-medium shadow-md">
+                        className="outline-0 border py-2 px-4 text-white rounded-md bg-primary  flex items-center text-xl font-sans font-medium shadow-md">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                             </svg>
@@ -58,12 +58,12 @@ const AllBlogs = () => {
                         </button>
                         <button
                         onClick={getShowAllBlogs}
-                        className="outline-0 border py-2 px-4 rounded-md bg-green-500 text-white flex items-center text-xl font-sans font-medium shadow-md">
+                        className="outline-0 ml-2 border py-2 px-4 rounded-md bg-primary flex items-center text-white text-xl font-sans font-medium shadow-md">
                           Show All
                         </button>
 
                     </div>
-                    <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">All Blogs </p>
+                    <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-primary">All Blogs </p>
                     {/* search container  start */}
                     <div className='search-container '>
                         <form
@@ -73,8 +73,8 @@ const AllBlogs = () => {
                              {...register("search", {
                                 required: true,
                               })}
-                            type="text" className='border-2 border-green-500 py-2  outline-0 focus:outline-0 text-green-500 text-md rounded-l-lg' placeholder="Search Blog Title"/>
-                            <button type='submit' className=' bg-green-500 py-2 px-4 rounded-r-lg text-white'>
+                            type="text" className='border-2 border-primary py-2  outline-0 focus:outline-0 text-primary text-md rounded-l-lg' placeholder="Search Blog Title"/>
+                            <button type='submit' className=' bg-primary text-white py-2 px-4 rounded-r-lg '>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                                 </svg>
@@ -86,16 +86,16 @@ const AllBlogs = () => {
                     {/* search container end  */}
 
                 </div>
-                        <table className="border-collapse w-full bg-slate-200">
+                        <table className="border-collapse w-full bg-netural ">
                             {/* <!-- head --> */}
                             <thead>
                                 <tr className='text-center'>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Index</th>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Image</th>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Title</th>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Date</th>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Update</th>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Delete</th>
+                                    <th className="p-3 font-bold uppercase border border-gray-300  hidden lg:table-cell">Index</th>
+                                    <th className="p-3 font-bold uppercase  border border-gray-300 hidden lg:table-cell">Image</th>
+                                    <th className="p-3 font-bold uppercase  border border-gray-300 hidden lg:table-cell">Title</th>
+                                    <th className="p-3 font-bold uppercase  border border-gray-300 hidden lg:table-cell">Date</th>
+                                    <th className="p-3 font-bold uppercase  border border-gray-300 hidden lg:table-cell">Update</th>
+                                    <th className="p-3 font-bold uppercase  border border-gray-300 hidden lg:table-cell">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
