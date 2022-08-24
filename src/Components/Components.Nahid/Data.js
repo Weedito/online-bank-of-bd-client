@@ -339,11 +339,11 @@ export const SidebarData = [
         href: "manageblogs",
         icon: faBlog,
     },
-    // {
-    //     title: "Add Blog",
-    //     href: "addblog",
-    //     icon: faAdd,
-    // },
+    {
+        title: "Notice Board",
+        href: "NoticeBoard",
+        icon: faBlog,
+    },
 ];
 
 

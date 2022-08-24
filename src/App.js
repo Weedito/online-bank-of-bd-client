@@ -55,7 +55,6 @@ import Timeline from "./Pages/OurBanking/CorporateBanking/Timeline";
 import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
 import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
-import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 import Ssdeposit from "./Pages/OurBanking/RetailBanking/Ssdeposit";
 import Fixed from "./Pages/OurBanking/RetailBanking/Fixed";
 import Benifit from "./Pages/OurBanking/RetailBanking/Benifit";
@@ -67,6 +66,7 @@ import Monthly from "./Pages/OurBanking/RetailBanking/Monthly";
 import Profile from "./Pages/Profile/Profie";
 import RequireAccount from "./Components/Components.Nahid/RequireAccount";
 import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
+import NoticeBoard from "./Pages/Dashboard/AdminDashboard/NoticeBoard/NoticeBoard";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -109,7 +109,7 @@ function App() {
                 <Route path="thistory" element={<TransactionHistory />} />
                 <Route path="mfeedbacks" element={<ManageFeedbacks />} />
                 <Route path="manageBlogs" element={<ManageBlogs />} />
-                <Route path="addBlog" element={<AddBlog />} />
+                <Route path="NoticeBoard" element={<NoticeBoard />} />
               </Route>
               <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
