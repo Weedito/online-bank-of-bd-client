@@ -19,7 +19,7 @@ const AskedQuestions = () => {
         </p>
       </div>
       {/* --------Frequently asked questions & ans--------- */}
-      <div className="grid grid-cols-2 w-4/5 mx-auto gap-8">
+      <div className="grid lg:grid-cols-2 w-4/5 mx-auto gap-8">
         <div className="w-full  mx-auto py-10">
           <div
             className="accordion grid gap-4 grid-cols-1"
