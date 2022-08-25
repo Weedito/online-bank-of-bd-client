@@ -90,7 +90,6 @@ const AddBlog = ({refresh, setRefresh, setModal}) => {
                         <input
                             type="file"
                             {...register("picture",{ required: true })}
-                            // onChange={handleFileUploader}
                             className="border-2 border-gray-500 rounded mb-2 py-3 px-5 bg-transparent"
                             required
                         />

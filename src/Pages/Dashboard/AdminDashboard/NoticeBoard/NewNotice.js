@@ -1,30 +1,26 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
-const NewNotice = ({setModal,allNotice}) => {
+const NewNotice = ({setModal}) => {
     const { register, handleSubmit,reset } = useForm();
     const [btnSpinner,setBtnSpinner]=useState(false);
     const date = new Date().toLocaleString();
 
     const onSubmit=(data)=>{
         setBtnSpinner(true)
-        const uuId= uuidv4();
         const newNotice = {
-            NoticeId:uuId,
-            isRead:false,
+            readUsers:[],
             title:data.title,
             message:data.message,
             noticeDate: date
         };
-        const noticeData= [...allNotice, newNotice];
         const url = `http://localhost:5000/notice`;
         fetch(url,{
-            method:"PUT",
+            method:"POST",
             headers:{
                 "content-type":"application/json"
             },
-            body:JSON.stringify(noticeData)
+            body:JSON.stringify(newNotice)
         })
         .then(res=>res.json())
         .then(result=>{
