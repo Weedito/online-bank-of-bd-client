@@ -27,7 +27,7 @@ const AllNotice = () => {
                         <small className='text-xs'>Hello! User</small>
                     </p>
                 </div>
-                <p className=' tracking-widest'>List of Primarily Selected Candidates (3rd Phase) for the Post of 'Officer (Cash) (Job ID: 10114)' of Probashi Kallyan Bank. List of primarily selected candidates for the post of officer (G)(3rd Phase)(Job ID-10113) of Prabashi Kallyan Bank List of primarily selected candidates for the post of officer (G)(3rd Phase)(Job ID-10113) of Prabashi Kallyan BankList of selected candidates for the post of Maintenance Engineer(Hardware/Network) (Job ID-10145) of Probashi Kallyan Bank</p>
+                <p className=' tracking-tight'>List of Primarily Selected Candidates (3rd Phase) for the Post of 'Officer (Cash) (Job ID: 10114)' of Probashi Kallyan Bank. List of primarily selected candidates for the post of officer (G)(3rd Phase)(Job ID-10113) of Prabashi Kallyan Bank List of primarily selected candidates for the post of officer (G)(3rd Phase)(Job ID-10113) of Prabashi Kallyan BankList of selected candidates for the post of Maintenance Engineer(Hardware/Network) (Job ID-10145) of Probashi Kallyan Bank</p>
                 <Link className='text-xl my-4 underline text-primary' to="google.com">Our Meeting</Link>
             </div>
         </div>
