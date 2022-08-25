@@ -5,7 +5,7 @@ const useAdmin = (user)=>{
     const [adminLoading, setAdminLoading] = useState(true);
     const email = user?.email
     useEffect(()=>{
-        const url= `https://bank-of-bd.herokuapp.com/user/isAdmin/${email}`
+        const url= `http://localhost:5000/user/isAdmin/${email}`
         fetch(url,{
             method:"GET",
             headers:{

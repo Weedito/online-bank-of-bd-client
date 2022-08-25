@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount }) => {
+const PendingAccountsRow = ({ account, index, setDeleteAccount, setApproveAccount }) => {
 
-    const { name, AccNo, balance, phone, country, actype } = account;
+    const { name, AccNo, balance, phone, country, actype, role } = account;
 
     return (
         <tr className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
@@ -32,14 +32,10 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
                 {country}
             </td>
             <td className="w-full lg:w-auto text-xs p-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                <div className="flex justify-between px-3 pb-1 items-center">
-                    <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
+                <div className="flex justify-between px-3 pb-1 gap-2 items-center">
+                {role === 'approved' ? <div className="badge text-warning badge-outline">Verified</div> : <label  htmlFor="approve-account-modal" onClick={() => setApproveAccount(account)} className="btn text-white btn-accent btn-xs">Approve</label>}
 
-                    <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
-                </div>
-
-                <div className="flex justify-center items-center px-3 pt-1">
-                <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs">Delete Account</label>
+                    <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn text-white btn-secondary btn-xs">Delete</label>
                 </div>
 
             </td>
@@ -47,4 +43,4 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
     );
 };
 
-export default AccountsRow;
+export default PendingAccountsRow;

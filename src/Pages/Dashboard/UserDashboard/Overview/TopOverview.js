@@ -29,7 +29,9 @@ const TopOverview = ({ handleSelect, frstacc }) => {
                     <FontAwesomeIcon icon={faBell} />
                     <div className="avatar">
                         <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/192/192/people" alt='' />
+                           {
+                            myAccount?.map(account => <img src={account ? (account?.ahimage && account?.ahimage) || (account?.ahcpimage && account?.ahcpimage) || (account?.ahupimage && account?.ahupimage) : `https://placeimg.com/192/192/people`} alt='' />)
+                           } 
                         </div>
                     </div>
                 </div>
@@ -39,3 +41,6 @@ const TopOverview = ({ handleSelect, frstacc }) => {
 };
 
 export default TopOverview;
+
+
+
