@@ -28,11 +28,9 @@ const NoticeBoard = () => {
            </div>
             <div className='all Notice grid gap-4 grid-cols-1 md:grid-cols-2 my-4'>
                {/* all notice Container  */}
-                
                 {
                     allNotice.map(notice=><Notice key={notice?.noticeId} notice={notice}/>)
                 }
-
             </div>
                 {
                     modal && <NewNotice setModal={setModal} allNotice={allNotice}/>
