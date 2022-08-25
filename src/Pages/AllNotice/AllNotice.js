@@ -1,0 +1,31 @@
+import React from 'react';
+import useNotice from '../../Hook/useNotice';
+
+const AllNotice = () => {
+    const {allNotice}=useNotice()
+
+    return (
+        <div className='min-h-screen bg-transparent md:my-12  my-6 mx-auto max-w-[1280px] w-full flex  md:flex-row flex-col '>
+            <div  className='noticeSiderbar rounded-md min-h-screen overflow-y-scroll md:w-[30%] w-[100%] p-4 shadow-lg border md:order-1 order-2 mr-0 md:mr-6 '>
+                <h3 className='text-2xl text-center'>Select  Notice</h3>
+                <hr/>
+                {
+                    allNotice?.map(notice=> {
+                        return<div className='p-4 my-2 cursor-pointer rounded-md shadow-xl flex'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 text-primary">
+                                <path fillRule="evenodd" d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z" clipRule="evenodd" />
+                                </svg>
+
+                                <h2  className='text-xl capitalize '>{notice?.title}</h2>
+                              </div>
+                    })
+                }
+            </div>
+            <div className='noticeBody md:order-2 order-1 md:w-[70%] w-[100%]  shadow-lg border '>
+                <p>List of Primarily Selected Candidates (3rd Phase) for the Post of 'Officer (Cash) (Job ID: 10114)' of Probashi Kallyan Bank. List of primarily selected candidates for the post of officer (G)(3rd Phase)(Job ID-10113) of Prabashi Kallyan Bank List of primarily selected candidates for the post of officer (G)(3rd Phase)(Job ID-10113) of Prabashi Kallyan BankList of selected candidates for the post of Maintenance Engineer(Hardware/Network) (Job ID-10145) of Probashi Kallyan Bank</p>
+            </div>
+        </div>
+    );
+};
+
+export default AllNotice;

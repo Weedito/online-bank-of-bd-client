@@ -67,6 +67,7 @@ import Profile from "./Pages/Profile/Profie";
 import RequireAccount from "./Components/Components.Nahid/RequireAccount";
 import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
 import NoticeBoard from "./Pages/Dashboard/AdminDashboard/NoticeBoard/NoticeBoard";
+import AllNotice from "./Pages/AllNotice/AllNotice";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -113,6 +114,16 @@ function App() {
               </Route>
               <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
+              {/* notice route  */}
+              <Route path="/notice" element={
+                 <RequireAuth>
+                  <RequireDashboard>
+                    <RequireAccount>
+                      <AllNotice/>
+                    </RequireAccount>
+                </RequireDashboard>
+              </RequireAuth>
+              }/>
               {/* User Dashboard Routes */}
               <Route path="/dashboard" element={
               <RequireAuth>

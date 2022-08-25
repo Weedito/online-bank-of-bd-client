@@ -1,12 +1,15 @@
 import { faBell, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
+import useNotice from '../../../../Hook/useNotice';
 
 const TopOverview = ({ handleSelect, frstacc }) => {
 
     const { myAccount } = useAccount();
     const [noticeDropDown,setNoticeDropDown]=useState(false);
+    const {allNotice}=useNotice()
 
 
 
@@ -38,9 +41,10 @@ const TopOverview = ({ handleSelect, frstacc }) => {
                     {
                         noticeDropDown&& 
                         <div className='absolute top-8 right-12'>
-                            <ul tabindex="12" class="dropdown-content menu p-2 shadow bg-base-100 min-h-52 rounded-box w-52">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
+                            <ul tabindex="12" class="dropdown-content menu p-2 shadow bg-base-100 min-h-52 rounded-box w-72">
+                                    {
+                                        allNotice?.map(notice=><>  <li className='pt-2 mx-2  text-sm font-mono'><Link to="/notice"> {notice?.title}</Link></li> <hr/>   </>)
+                                    }
                                 </ul>
                         </div>
                     }
