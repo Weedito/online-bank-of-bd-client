@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { HashLoader } from "react-spinners";
 
@@ -8,7 +9,8 @@ const useNotice=()=>{
         fetch('http://localhost:5000/allNotice')
             .then(res => res.json())
             .then(data => {
-                setAllNotice(data);
+                const dataReverse = data.reverse()
+                setAllNotice(dataReverse);
                 setSmSpinner(false);
             })
     }, [])
