@@ -73,6 +73,7 @@ import SupportEmails from "./Pages/ContactUs/SupportEmails";
 import PendingAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/PendingAccount/PendingAccounts";
 import NoticeBoard from "./Pages/Dashboard/AdminDashboard/NoticeBoard/NoticeBoard";
 import AllNotice from "./Pages/AllNotice/AllNotice";
+import PendingAcc from "./Pages/Dashboard/UserDashboard/Pending/PendingAcc";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -208,6 +209,7 @@ function App() {
               {/* Others Routes */}
               <Route path="/webcam" element={<WebcamCapture />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/pendingacc" element={<PendingAcc />} />
 
 
               {/* Authentication Routes End*/}
