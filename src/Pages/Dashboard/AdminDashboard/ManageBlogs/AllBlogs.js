@@ -16,7 +16,7 @@ const AllBlogs = () => {
         reset
       } = useForm();
     useEffect(()=>{
-        const url = 'http://localhost:5000/blogs'
+        const url = 'https://bank-of-bd.herokuapp.com/blogs'
         fetch(url).then(res=>res.json()).then(data=>{
             const reversBlog = data.reverse()
             setBlogs(reversBlog)

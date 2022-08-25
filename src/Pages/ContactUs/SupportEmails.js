@@ -7,7 +7,7 @@ const SupportEmails = () => {
     const [support, setSupports] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/contacts')
+        fetch('https://bank-of-bd.herokuapp.com/contacts')
             .then(res => res.json())
             .then(result => {
                 console.log(result)

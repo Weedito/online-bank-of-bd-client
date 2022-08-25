@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight, faSignalPerfect, faUniversalAccess, faWonSign } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import DepositModal from '../../../../Components/Components.Masud/DepositModal';
 import TransferMoneyModal from '../../../../Components/Components.Masud/TransferMoneyModal';
@@ -22,11 +25,14 @@ const MyAccounts = () => {
                     My <span className="text-green-700">Accounts</span>
                 </h2>
             </div>
+            <div className="py-7 flex justify-end">
+                <a href="/openaccount" className="text-right font-semibold text-xl bg-accent text-white cursor-pointer px-7 py-2 rounded"> Open Another Account  <FontAwesomeIcon icon={faArrowCircleRight} /></a>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto w-full pt-5 items-center justify-center gap-5 pb-10 ">
                 {
                     myAccount?.map(account => {
                         // console.log(account);
-                        return (
+                        return ( 
                             <div className=" mx-auto w-full items-center justify-center p-5 rounded-lg bg-white shadow-lg ">
 
                                 <div className="flex flex-col md:flex-row w-full items-center p-5 rounded-lg bg-white shadow-lg">

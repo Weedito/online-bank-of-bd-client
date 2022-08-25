@@ -12,7 +12,7 @@ const AllUsersAccounts = () => {
     const [deleteAccount, setDeleteAccount] = useState(null);   
     
     useEffect(()=> {        
-         fetch('http://localhost:5000/allaccounts')
+         fetch('https://bank-of-bd.herokuapp.com/allaccounts')
         .then(res => res.json())
         .then( data =>  setAccounts(data))
     }, [])
