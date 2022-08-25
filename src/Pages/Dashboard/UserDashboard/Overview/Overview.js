@@ -28,6 +28,8 @@ const Overview = () => {
         setCurrentAccount(account);
     }, [myAccount, selectAcc]);
 
+    
+
     useEffect(() => {
         fetch('http://localhost:5000/statements')
             .then(res => res.json())

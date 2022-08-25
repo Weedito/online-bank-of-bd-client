@@ -7,6 +7,7 @@ const TopOverview = ({ handleSelect, frstacc }) => {
 
     const { myAccount } = useAccount();
 
+    const approveAcc = myAccount?.filter(account => account?.role === 'approved');
 
     return (
         <div className="flex justify-between items-center text-gray-700 gap-3 h-20 w-full">
@@ -17,7 +18,7 @@ const TopOverview = ({ handleSelect, frstacc }) => {
 
                     <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md">
                         {
-                            myAccount?.map(account => <option >{account?.AccNo}</option>)
+                            approveAcc?.map(account => <option >{account?.AccNo}</option>)
                         }
                     </select>
                 </div>
