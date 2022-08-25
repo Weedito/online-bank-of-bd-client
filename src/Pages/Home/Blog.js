@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate,Link } from 'react-router-dom';
 
 const Blog = ({ blog }) => {
-    const { title, picture, _id, blogLink, date,category } = blog;
+    const { title, picture, _id,  date,category } = blog;
     const navigate = useNavigate()
     return (
         <div className="card card-compact bg-base-100 shadow-xl rounded-[27px] cursor-pointer " >

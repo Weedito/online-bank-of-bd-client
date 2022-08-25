@@ -55,7 +55,6 @@ import Timeline from "./Pages/OurBanking/CorporateBanking/Timeline";
 import AgentDynamicPage from "./Components/Components.Rijon/AgentDynamicPage";
 import OurCommitment from "./Components/Components.Rijon/OurCommitment";
 import CardPayment from "./Pages/Dashboard/UserDashboard/CardPayment/CardPayment";
-import AddBlog from "./Pages/Dashboard/AdminDashboard/ManageBlogs/AddBlog";
 import Ssdeposit from "./Pages/OurBanking/RetailBanking/Ssdeposit";
 import Fixed from "./Pages/OurBanking/RetailBanking/Fixed";
 import Benifit from "./Pages/OurBanking/RetailBanking/Benifit";
@@ -72,6 +71,8 @@ import PrivecyPolicy from "./Pages/Footer/PrivecyPolicy";
 import GetHelp from "./Pages/Footer/GetHelp";
 import SupportEmails from "./Pages/ContactUs/SupportEmails";
 import PendingAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/PendingAccount/PendingAccounts";
+import NoticeBoard from "./Pages/Dashboard/AdminDashboard/NoticeBoard/NoticeBoard";
+import AllNotice from "./Pages/AllNotice/AllNotice";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -99,7 +100,7 @@ function App() {
           </div>
           :
           <div className="pt-16">
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts'  && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
 
             {/* <Header /> */}
             <Routes>
@@ -115,10 +116,20 @@ function App() {
                 <Route path="thistory" element={<TransactionHistory />} />
                 <Route path="mfeedbacks" element={<ManageFeedbacks />} />
                 <Route path="manageBlogs" element={<ManageBlogs />} />
-                <Route path="addBlog" element={<AddBlog />} />
+                <Route path="NoticeBoard" element={<NoticeBoard />} />
               </Route>
               <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
+              {/* notice route  */}
+              <Route path="/notice" element={
+                 <RequireAuth>
+                  <RequireDashboard>
+                    <RequireAccount>
+                      <AllNotice/>
+                    </RequireAccount>
+                </RequireDashboard>
+              </RequireAuth>
+              }/>
               {/* User Dashboard Routes */}
               <Route path="/dashboard" element={
                 <RequireAuth>
@@ -212,7 +223,7 @@ function App() {
               <Route path="/help" element={<GetHelp />} />
 
             </Routes >
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />
             }
             {/* <Footer /> */}
             <ToastContainer />

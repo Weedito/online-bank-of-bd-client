@@ -6,7 +6,9 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-const TransferMoneyModal = ({ transferMoney, setRefresh, refresh, refetch }) => {
+
+const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }) => {
+
     const { name, AccNo, balance, _id, accEmail } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
@@ -86,8 +88,8 @@ const TransferMoneyModal = ({ transferMoney, setRefresh, refresh, refetch }) => 
                 .then(res => res.json())
                 .then(data => {
                     reset();
-                    setRefresh(!refresh);
-                    refetch();
+
+                    setRefreshAccount(!refreshAccount)
                 })
 
             // Receiver        
@@ -106,7 +108,6 @@ const TransferMoneyModal = ({ transferMoney, setRefresh, refresh, refetch }) => 
                 .then(data => {
                     toast.success("Transfer Money Successfully")
                     reset();
-                    refetch();
                 })
 
             // Post Data for Statemant

@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
+import {  useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
-const DepositModal = ({ deposit, refresh, setRefresh }) => {
+const DepositModal = ({ deposit, setRefreshAccount, refreshAccount }) => {
+
     const { name, AccNo, balance, _id, accEmail } = deposit;
     const [balance1, setBalance1] = useState(0)
     const inputBalRef = useRef(0);
@@ -9,9 +11,7 @@ const DepositModal = ({ deposit, refresh, setRefresh }) => {
     const navigate = useNavigate()
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    console.log(deposit, accEmail);
-    const inputb = inputBalRef.current.value;
-    console.log("sfsklfjsfkjf", inputb, deposit, accEmail);
+
     const handleDeposit = () => {
 
         const inputBalance = parseFloat(balance1);
@@ -33,9 +33,10 @@ const DepositModal = ({ deposit, refresh, setRefresh }) => {
             })
                 .then(res => res.json())
                 .then(data => {
+                    setRefreshAccount(!refreshAccount)
                     toast("Deposited Successfully!");
                     inputBalRef.current.value = 0;
-                    setRefresh(!refresh)
+
                 })
 
             // Deposit Statement Creator
@@ -76,8 +77,9 @@ const DepositModal = ({ deposit, refresh, setRefresh }) => {
                     <p className='my-4'>Ac. No: {AccNo}</p>
                     <p className='my-4'>Balance: {balance}</p>
                     <p className=' text-primary'>{error}</p>
-                    {/* <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" /> */}
-                    <input name='balance' onChange={(e) => setBalance1(parseInt(e.target.value))} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
+
+                    <input name='balance' onChange={(e)=>setBalance1(parseInt(e.target.value))} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
+                    
 
                     <div className="modal-action flex justify-between">
                         <button

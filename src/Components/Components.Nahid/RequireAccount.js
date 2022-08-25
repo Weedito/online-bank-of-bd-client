@@ -36,5 +36,5 @@ const RequireAccount = ({ children }) => {
     }
     return children;
   };
-  
-  export default RequireAccount;
+      
+  export default RequireAccount;        
