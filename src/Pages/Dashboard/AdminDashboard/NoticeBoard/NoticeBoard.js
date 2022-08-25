@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import {faEdit, faBan}from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { HashLoader } from 'react-spinners';
 import NewNotice from './NewNotice';
 import Notice from './Notice';
 const NoticeBoard = () => {
     const [modal,setModal]=useState(false);
     const [allNotice,setAllNotice]=useState([]);
-    const [smSpinner,setSmSpinner]=useState(false);
+    const [smSpinner,setSmSpinner]=useState(true);
     useEffect(() => {
-        fetch('https://bank-of-bd.herokuapp.com/allaccounts')
+        fetch('http://localhost:5000/allNotice')
             .then(res => res.json())
             .then(data => {
-                setSmSpinner(false)
-                const noticeData= data[0]?.notice;
-                const prevNotice = [...noticeData];
-                setAllNotice(prevNotice);
-                
+                setAllNotice(data);
+                setSmSpinner(false);
             })
     }, [])
+    if(smSpinner){
+        <HashLoader color="#137c38" size={70} cssOverride />
+    }
     return (
         <div className='md:px-4 px-2 my-6 bg-base-100'>
             <div className='w-full flex flex-col  '>
