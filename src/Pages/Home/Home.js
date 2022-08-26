@@ -1,6 +1,7 @@
 import React from "react";
 import NoticeFromBank from "../../Components/Components.Arif/NoticeFromBank/NoticeFromBank";
 import BannerCarousel from "../../Components/Components.Masud/BannerCarousel";
+import PageTitle from "../PageTitle/PageTitle";
 import Blogs from "./Blogs";
 import BusinessSummary from "./BusinessSummary";
 import GetLoan from "./GetLoan";
@@ -15,16 +16,22 @@ const Home = () => {
   return (
 
     <div className="">
-      <HomeTopCarousel/>      
-      <OruTrustedPartners/>
-      <OurFeatures/>
+      {/* title */}
+
+      <PageTitle title="Home"></PageTitle>
+
+      {/* end */}
+
+      <HomeTopCarousel />
+      <OruTrustedPartners />
+      <OurFeatures />
       <NoticeFromBank />
       <WhyChooseOBB />
-      <GetLoan/>
+      <GetLoan />
       <BusinessSummary />
-      <WhyWaiting/>
-      <TrustedCFeedback/>
-      <Blogs/>
+      <WhyWaiting />
+      <TrustedCFeedback />
+      <Blogs />
     </div>
   );
 };

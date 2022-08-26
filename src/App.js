@@ -78,6 +78,7 @@ import MakeAPayment from "./Components/Components.Arif/MakeAPayment/MakeAPayment
 import RequestPayment from "./Components/Components.Arif/RequestPayment/RequestPayment";
 import Profile from "./Components/Components.Arif/MyAccount/Profile";
 import Transactionfff from "./Pages/Dashboard/UserDashboard/MyTransactions/Transactionfff";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -108,116 +109,120 @@ function App() {
             {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
 
             {/* <Header /> */}
-            <Routes>
-              <Route path="/" element={<Home />} />
 
-              {/* Control Panel Routes */}
-              <Route path="/cpanel" element={<RequireAuth><RequireAdmin><CPanel /></RequireAdmin></RequireAuth>}>
-                <Route index element={<AdDashboard />} />
-                <Route path="addashboard" element={<AdDashboard />} />
-                <Route path="musers" element={<ManageUsers />} />
-                <Route path="maccounts" element={<ManageAccounts />} />
-                <Route path="paccounts" element={<PendingAccounts />} />
-                <Route path="thistory" element={<TransactionHistory />} />
-                <Route path="mfeedbacks" element={<ManageFeedbacks />} />
-                <Route path="manageBlogs" element={<ManageBlogs />} />
-                <Route path="NoticeBoard" element={<NoticeBoard />} />
-              </Route>
-              <Route path="/blog/:id" element={<UpdateBlog />} />
-              {/* Control Panel Routes */}
-              {/* notice route  */}
-              <Route path="/notice" element={<RequireAuth> <RequireDashboard> <RequireAccount> <AllNotice /> </RequireAccount> </RequireDashboard> </RequireAuth>} />
-              {/* User Dashboard Routes */}
-              <Route path="/dashboard" element={<RequireAuth> <RequireDashboard> <RequireAccount> <Dashboard /> </RequireAccount> </RequireDashboard> </RequireAuth>}>
-                <Route index element={<Overview />}/>
-                <Route path="overview" element={<Overview />}/>
-                <Route path="myaccounts" element={<MyAccounts />}/>
-                <Route path="myaccounts/:id" element={<SingleAccountDetails />}/>
-                <Route path="mytransactions" element={<Transactionfff />} />
-                <Route path="makepayment" element={<MakeAPayment />} />
-                <Route path="requestpayment" element={<RequestPayment />} />
-                <Route path="myfeedbacks" element={<MyFeedbacks />}/>
-              </Route>
-              <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
+            <HelmetProvider>
 
-              {/* User Dashboard Routes End*/}
+              <Routes>
+                <Route path="/" element={<Home />} />
 
+                {/* Control Panel Routes */}
+                <Route path="/cpanel" element={<RequireAuth><RequireAdmin><CPanel /></RequireAdmin></RequireAuth>}>
+                  <Route index element={<AdDashboard />} />
+                  <Route path="addashboard" element={<AdDashboard />} />
+                  <Route path="musers" element={<ManageUsers />} />
+                  <Route path="maccounts" element={<ManageAccounts />} />
+                  <Route path="paccounts" element={<PendingAccounts />} />
+                  <Route path="thistory" element={<TransactionHistory />} />
+                  <Route path="mfeedbacks" element={<ManageFeedbacks />} />
+                  <Route path="manageBlogs" element={<ManageBlogs />} />
+                  <Route path="NoticeBoard" element={<NoticeBoard />} />
+                </Route>
+                <Route path="/blog/:id" element={<UpdateBlog />} />
+                {/* Control Panel Routes */}
+                {/* notice route  */}
+                <Route path="/notice" element={<RequireAuth> <RequireDashboard> <RequireAccount> <AllNotice /> </RequireAccount> </RequireDashboard> </RequireAuth>} />
+                {/* User Dashboard Routes */}
+                <Route path="/dashboard" element={<RequireAuth> <RequireDashboard> <RequireAccount> <Dashboard /> </RequireAccount> </RequireDashboard> </RequireAuth>}>
+                  <Route index element={<Overview />} />
+                  <Route path="overview" element={<Overview />} />
+                  <Route path="myaccounts" element={<MyAccounts />} />
+                  <Route path="myaccounts/:id" element={<SingleAccountDetails />} />
+                  <Route path="mytransactions" element={<Transactionfff />} />
+                  <Route path="makepayment" element={<MakeAPayment />} />
+                  <Route path="requestpayment" element={<RequestPayment />} />
+                  <Route path="myfeedbacks" element={<MyFeedbacks />} />
+                </Route>
+                <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
 
-
-              {/* All blogs root  */}
-              <Route path="/blogDetails/:id" element={<BlogsDetails />} />
-              <Route path="/allBlogsData" element={<AllBlogsData />} />
-              <Route path="/blogDetails/:id" element={<RequireAuth> <BlogsDetails /> </RequireAuth>} />
-
-              {/* About Us Routes */}
-              <Route path="/about" element={<About />} />\
-              <Route path="/shareholders" element={<Shareholders />} />
-              <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
-              <Route path="/executivecommittee" element={<ExecutiveCommittee />} />
-              <Route path="/auditcommittee" element={<AuditCommittee />} />
-              <Route path="/rmcommittee" element={<RiskManagementCommittee />} />
-              <Route path="/headoffice" element={<HeadOffice />} />
-              {/* About Us Routes End*/}
-
-              {/* Products Routes */}
-              <Route path="/deposit" element={<DepositDetails />} />
-              <Route path="/loan" element={<Loan />} />
-              <Route path="/cards" element={<Cards />} />
-              <Route path="/card/:id" element={<CardDetails />} />
-              <Route path="/interestrate" element={<InterestRate />} />
-              {/* Products Routes End*/}
-
-              {/* Our Banking Routes */}
-              <Route path="/retailbanking" element={<RetailBanking />} />
-              <Route path="/accountstogole" element={<Accounts />} />
-              <Route path="/corporatebanking" element={<CorporateBanking />} />
-              <Route path="/smebanking" element={<SMEBanking />} />
-              <Route path='/smebanking/:loanId' element={<SmeLoan />}></Route>
-              <Route path="/agentbanking" element={<AgentBanking />} />
-              <Route path="/smsbanking" element={<SMSBanking />} />
-              <Route path="/savings" element={<Savings />} />
-              <Route path="/student" element={<Student />} />
-              <Route path="/timeline" element={<Timeline />} />
-              <Route path="/ssdeposit" element={<Ssdeposit />} />
-              <Route path="/fixed" element={<Fixed />} />
-              <Route path="/benifit" element={<Benifit />} />
-              <Route path="/lakhpoti" element={<Lakhpoti />} />
-              <Route path="/pension" element={<Pension />} />
-              <Route path="/priority" element={<Priority />} />
-              <Route path="/monthly" element={<Monthly />} />
-              <Route path="/agentDynamicPage/:id" element={<AgentDynamicPage />} />
-              <Route path="/ourcommitmen/:id" element={<OurCommitment />} />
-              {/* Our Banking Routes End*/}
-
-              {/* Contact Routes End*/}
-              <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/supports" element={<SupportEmails />} />
-              {/* Contact Routes End*/}
-
-              {/* Create Account Routes */}
-              <Route path="/openaccount" element={<RequireAuth><CreateAccount /></RequireAuth>} />
-              {/* Create Account Routes End */}
-
-              {/* Others Routes */}
-              <Route path="/webcam" element={<WebcamCapture />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/pendingacc" element={<PendingAcc />} />
+                {/* User Dashboard Routes End*/}
 
 
-              {/* Authentication Routes End*/}
-              <Route path="/signin" element={<Signin />} />
-              <Route path="/signup" element={<Signup />} />
 
-              {/* Authentication Routes End*/}
-              <Route path="*" element={<NotFound />} />
+                {/* All blogs root  */}
+                <Route path="/blogDetails/:id" element={<BlogsDetails />} />
+                <Route path="/allBlogsData" element={<AllBlogsData />} />
+                <Route path="/blogDetails/:id" element={<RequireAuth> <BlogsDetails /> </RequireAuth>} />
 
-              {/* Footer elemints Routes start*/}
-              <Route path="/faq" element={<AskedQuestions />} />
-              <Route path="/tarms" element={<TermsnConditions />} />
-              <Route path="/privacy" element={<PrivecyPolicy />} />
-              <Route path="/help" element={<GetHelp />} />
+                {/* About Us Routes */}
+                <Route path="/about" element={<About />} />\
+                <Route path="/shareholders" element={<Shareholders />} />
+                <Route path="/boardofdirectors" element={<BoardOfDirectors />} />
+                <Route path="/executivecommittee" element={<ExecutiveCommittee />} />
+                <Route path="/auditcommittee" element={<AuditCommittee />} />
+                <Route path="/rmcommittee" element={<RiskManagementCommittee />} />
+                <Route path="/headoffice" element={<HeadOffice />} />
+                {/* About Us Routes End*/}
 
-            </Routes >
+                {/* Products Routes */}
+                <Route path="/deposit" element={<DepositDetails />} />
+                <Route path="/loan" element={<Loan />} />
+                <Route path="/cards" element={<Cards />} />
+                <Route path="/card/:id" element={<CardDetails />} />
+                <Route path="/interestrate" element={<InterestRate />} />
+                {/* Products Routes End*/}
+
+                {/* Our Banking Routes */}
+                <Route path="/retailbanking" element={<RetailBanking />} />
+                <Route path="/accountstogole" element={<Accounts />} />
+                <Route path="/corporatebanking" element={<CorporateBanking />} />
+                <Route path="/smebanking" element={<SMEBanking />} />
+                <Route path='/smebanking/:loanId' element={<SmeLoan />}></Route>
+                <Route path="/agentbanking" element={<AgentBanking />} />
+                <Route path="/smsbanking" element={<SMSBanking />} />
+                <Route path="/savings" element={<Savings />} />
+                <Route path="/student" element={<Student />} />
+                <Route path="/timeline" element={<Timeline />} />
+                <Route path="/ssdeposit" element={<Ssdeposit />} />
+                <Route path="/fixed" element={<Fixed />} />
+                <Route path="/benifit" element={<Benifit />} />
+                <Route path="/lakhpoti" element={<Lakhpoti />} />
+                <Route path="/pension" element={<Pension />} />
+                <Route path="/priority" element={<Priority />} />
+                <Route path="/monthly" element={<Monthly />} />
+                <Route path="/agentDynamicPage/:id" element={<AgentDynamicPage />} />
+                <Route path="/ourcommitmen/:id" element={<OurCommitment />} />
+                {/* Our Banking Routes End*/}
+
+                {/* Contact Routes End*/}
+                <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/supports" element={<SupportEmails />} />
+                {/* Contact Routes End*/}
+
+                {/* Create Account Routes */}
+                <Route path="/openaccount" element={<RequireAuth><CreateAccount /></RequireAuth>} />
+                {/* Create Account Routes End */}
+
+                {/* Others Routes */}
+                <Route path="/webcam" element={<WebcamCapture />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/pendingacc" element={<PendingAcc />} />
+
+
+                {/* Authentication Routes End*/}
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Signup />} />
+
+                {/* Authentication Routes End*/}
+                <Route path="*" element={<NotFound />} />
+
+                {/* Footer elemints Routes start*/}
+                <Route path="/faq" element={<AskedQuestions />} />
+                <Route path="/tarms" element={<TermsnConditions />} />
+                <Route path="/privacy" element={<PrivecyPolicy />} />
+                <Route path="/help" element={<GetHelp />} />
+
+              </Routes >
+            </HelmetProvider>
             {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />
             }
             {/* <Footer /> */}

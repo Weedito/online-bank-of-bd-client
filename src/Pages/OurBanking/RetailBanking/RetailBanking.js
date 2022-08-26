@@ -1,5 +1,6 @@
 import React from 'react';
 import OurCards from '../../../Components/Components.Rijon/OurCards';
+import PageTitle from '../../PageTitle/PageTitle';
 import Loan from '../../Products/Loan/Loan';
 import Accounts from './Accounts';
 import Service from './Service';
@@ -15,6 +16,14 @@ const RetailBanking = () => {
 
     return (
         <div className='bg-white'>
+
+            {/* title */}
+
+            <PageTitle title="RetailBanking"></PageTitle>
+
+            {/* end */}
+
+
             {/* Image div */}
             <section>
                 <img className='w-full' src="https://www.nrbcommercialbank.com/assets/img/banking.jpg" alt="" />

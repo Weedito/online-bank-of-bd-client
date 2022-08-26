@@ -1,7 +1,15 @@
 import React from 'react';
+import PageTitle from '../../Pages/PageTitle/PageTitle';
 const Interest = () => {
   return (
     <div className='max-w-7xl mx-auto'>
+      {/* title */}
+
+      <PageTitle title="Interest"></PageTitle>
+
+      {/* end */}
+
+
       <div className='flex flex-col md:flex-row gap-2 justify-around items-center py-10 px-2'>
 
         <div data-aos="fade-down-right" data-aos-duration="1000" className="text-left">

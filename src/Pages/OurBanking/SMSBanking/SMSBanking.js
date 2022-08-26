@@ -2,6 +2,8 @@ import React from 'react';
 import Slide from 'react-reveal/Slide';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../../PageTitle/PageTitle';
+// import { Helmet } from 'react-helmet-async';
 
 const SMSBanking = () => {
 
@@ -16,6 +18,13 @@ const SMSBanking = () => {
 
     return (
         <div>
+
+            {/* title */}
+
+            <PageTitle title="Sms banking"></PageTitle>
+
+            {/* end */}
+
             <div className='flex flex-col md:flex-row gap-12 lg:gap-96 justify-center items-center bg-slate-100 py-20 px-2'>
                 <Slide left>
                     <div className="text-left">

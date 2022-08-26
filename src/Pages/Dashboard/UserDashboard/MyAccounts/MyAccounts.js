@@ -6,6 +6,7 @@ import DepositModal from '../../../../Components/Components.Masud/DepositModal';
 import TransferMoneyModal from '../../../../Components/Components.Masud/TransferMoneyModal';
 import WidthdrawModal from '../../../../Components/Components.Masud/WidthdrawModal';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
+import PageTitle from '../../../PageTitle/PageTitle';
 
 
 const MyAccounts = () => {
@@ -13,13 +14,22 @@ const MyAccounts = () => {
     const [deposit, setDeposit] = useState(null);
     const [withdraw, setWithdraw] = useState(null);
     const [transferMoney, setTransferMoney] = useState(null);
-    const { myAccount,setRefreshAccount,refreshAccount } = useAccount();
+    const { myAccount, setRefreshAccount, refreshAccount } = useAccount();
     const navigate = useNavigate();
 
     const account = myAccount?.filter(acc => acc?.role === 'approved');
 
     return (
         <div className="">
+
+            {/* title */}
+
+            <PageTitle title="MyAccounts"></PageTitle>
+
+            {/* end */}
+
+
+
             <div className="py-7">
                 <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
                     My <span className="text-green-700">Accounts</span>

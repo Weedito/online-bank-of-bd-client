@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import Loading from '../../../../Components/Components.Nahid/Loading';
 import MyFeedbackDetails from './MyFeedbackDetails';
 import auth from '../../../../firebase.init';
+import PageTitle from '../../../PageTitle/PageTitle';
 
 const MyFeedbacks = () => {
     const [user] = useAuthState(auth);
@@ -24,8 +25,16 @@ const MyFeedbacks = () => {
     console.log("From React Query", feedbacks)
 
     return (
-        
+
         feedbacks && <div className=" text-left h-full w-full">
+
+            {/* title */}
+
+            <PageTitle title="feedbacks"></PageTitle>
+
+            {/* end */}
+
+
 
             <div className="w-full flex items-center justify-center my-12">
                 <div className="bg-white shadow rounded py-12 px-8 mb-20">

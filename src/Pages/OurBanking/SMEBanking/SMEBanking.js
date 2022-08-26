@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Slide } from 'react-reveal';
+import PageTitle from "../../PageTitle/PageTitle";
 
 const SMEBanking = () => {
     const [smeLoans, setSmeLoans] = useState([]);
@@ -23,6 +24,14 @@ const SMEBanking = () => {
 
     return (
         <div className='max-w-7xl mx-auto'>
+
+            {/* title */}
+
+            <PageTitle title="SMEBanking"></PageTitle>
+
+            {/* end */}
+
+
 
             <div className='flex flex-col bg-slate-100 md:flex-row gap-2 justify-around items-center py-10 px-2' data-aos="fade-down">
 

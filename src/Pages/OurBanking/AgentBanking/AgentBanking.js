@@ -1,9 +1,17 @@
 import React from 'react';
 import AgentBank from '../../../Components/Components.Rijon/AgentBank';
+import PageTitle from '../../PageTitle/PageTitle';
 
 const AgentBanking = () => {
     return (
         <div>
+            {/* title */}
+
+            <PageTitle title="AgentBanking"></PageTitle>
+
+            {/* end */}
+
+
             <div className='flex flex-col md:flex-row gap-12 lg:gap-96 justify-center items-center bg-slate-100 py-20 px-2'>
 
                 <div data-aos="fade-down-right" data-aos-duration="1000" className="text-center">

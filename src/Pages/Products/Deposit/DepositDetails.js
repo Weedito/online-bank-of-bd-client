@@ -1,7 +1,15 @@
 import React from 'react';
+import PageTitle from '../../PageTitle/PageTitle';
 const DepositDetails = () => {
     return (
         <div className='max-w-7xl mx-auto'>
+            {/* title */}
+
+            <PageTitle title="Deposit"></PageTitle>
+
+            {/* end */}
+
+
             {/* new-banner-start */}
 
             <div className='flex flex-col md:flex-row gap-2 justify-between items-center py-10 px-2'>

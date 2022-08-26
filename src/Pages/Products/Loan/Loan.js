@@ -1,6 +1,7 @@
 import React from 'react';
 import LoanPage from '../../../Components/Components.Rijon/LoanPage';
 import { useState, useEffect } from "react";
+import PageTitle from '../../PageTitle/PageTitle';
 
 const Loan = () => {
     const [loan, setLoan] = useState(10000);
@@ -39,6 +40,13 @@ const Loan = () => {
 
     return (
         <div className='max-w-7xl mx-auto pb-10'>
+            {/* title */}
+
+            <PageTitle title="Loan"></PageTitle>
+
+            {/* end */}
+
+
             <LoanPage></LoanPage>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 mx-12 gap-5'>

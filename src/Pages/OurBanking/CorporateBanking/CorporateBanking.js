@@ -1,9 +1,18 @@
 import React from 'react';
 import corporateBankingIMG from '../../../Assets/Images/corporate-banking-img/BG-Web-banner-1366-x-400-pxl-01-scaled.jpg'
+import PageTitle from '../../PageTitle/PageTitle';
 
 const CorporateBanking = () => {
     return (
         <div className='max-w-7xl mx-auto'>
+
+            {/* title */}
+
+            <PageTitle title="CorporateBanking"></PageTitle>
+
+            {/* end */}
+
+
             <section style={{
                 backgroundImage: `url(${corporateBankingIMG})`,
                 backgroundRepeat: 'no-repeat',

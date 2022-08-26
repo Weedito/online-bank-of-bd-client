@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { toast } from 'react-toastify';
+import PageTitle from '../PageTitle/PageTitle';
 
 
 
@@ -75,6 +76,14 @@ const ContactUs = () => {
 
     return (
         <section className='section max-w-7xl mx-auto bg-slate-200 py-20 px-5' id='contact'>
+
+            {/* title */}
+
+            <PageTitle title="Contact Us"></PageTitle>
+
+            {/* end */}
+
+
 
             <RubberBand>
                 <div className='flex flex-col items-center text-center'>

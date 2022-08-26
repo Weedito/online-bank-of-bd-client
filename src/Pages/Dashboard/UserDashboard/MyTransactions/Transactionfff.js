@@ -1,6 +1,7 @@
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import PageTitle from "../../../PageTitle/PageTitle";
 
 const transactionData = [
   {
@@ -91,12 +92,19 @@ const transactionData = [
     amountStatus: "Send",
     status: "Send Fund"
   },
-  
+
 ];
 
 const Transactionfff = () => {
   return (
     <div className="w-full mx-auto pb-16">
+      {/* title */}
+
+      <PageTitle title="Transactions"></PageTitle>
+
+      {/* end */}
+
+
       <div className="head bg-violet-800 py-6 px-10 flex flex-col lg:flex-row gap-4 gap">
         <div className="searchbar grow">
           <div class="form-control data-svelte-search">
@@ -157,67 +165,67 @@ const Transactionfff = () => {
         </div>
       </div>
       <div className="body">
-      <div class="overflow-x-auto w-full">
-  <table class="table w-full">
-  {/* head */}
-    <thead>
-      <tr>
-        <th className="text-sm text-slate-500 bg-slate-100 py-8">Name / Business</th>
-        <th className="text-sm text-slate-500 bg-slate-100 py-8">Last transfer date</th>
-        <th className="text-sm text-slate-500 bg-slate-100 py-8">Last transfer amount</th>
-        <th className="text-sm text-slate-500 bg-slate-100 py-8"> Action</th>
-      </tr>
-    </thead>
-    <tbody>
-    {/* row 1 */}
-      {
-        transactionData.map(({id, name, image, mail, time, date, amount,amountStatus, status}) => {
-          return(
-            <tr key={id}>
-        <td>
-          <div class="flex items-center space-x-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-12 h-12">
-                <img src={image} alt="Avatar" />
-              </div>
-            </div>
-            <div>
-              <div class="font-bold">{name}</div>
-              <div class="text-sm opacity-50">{mail}</div>
-            </div>
-          </div>
-        </td>
-        <td>
-          <b>{time}</b>
-          <br/>
-          <span class="badge badge-ghost badge-sm">{date}</span>
-        </td>
-        <td>
-        <b>{amount}</b>
-        <br/>
-          <span>{amountStatus}</span>
-          </td>
-        <th>
-          <button class="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal px-10 rounded-2xl bg-slate-100 border-inherit">{status}</button>
-        </th>
-      </tr>
-          );
-        })
-      }
-      
-    </tbody>
-    {/* foot */}
-    <tfoot>
-      <tr>
-        <th>Name</th>
-        <th>Last Transfer Date</th>
-        <th>Last Transfer Amount</th>
-        <th>Action</th>
-      </tr>
-    </tfoot>
-    
-  </table>
-</div>
+        <div class="overflow-x-auto w-full">
+          <table class="table w-full">
+            {/* head */}
+            <thead>
+              <tr>
+                <th className="text-sm text-slate-500 bg-slate-100 py-8">Name / Business</th>
+                <th className="text-sm text-slate-500 bg-slate-100 py-8">Last transfer date</th>
+                <th className="text-sm text-slate-500 bg-slate-100 py-8">Last transfer amount</th>
+                <th className="text-sm text-slate-500 bg-slate-100 py-8"> Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* row 1 */}
+              {
+                transactionData.map(({ id, name, image, mail, time, date, amount, amountStatus, status }) => {
+                  return (
+                    <tr key={id}>
+                      <td>
+                        <div class="flex items-center space-x-3">
+                          <div class="avatar">
+                            <div class="mask mask-squircle w-12 h-12">
+                              <img src={image} alt="Avatar" />
+                            </div>
+                          </div>
+                          <div>
+                            <div class="font-bold">{name}</div>
+                            <div class="text-sm opacity-50">{mail}</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <b>{time}</b>
+                        <br />
+                        <span class="badge badge-ghost badge-sm">{date}</span>
+                      </td>
+                      <td>
+                        <b>{amount}</b>
+                        <br />
+                        <span>{amountStatus}</span>
+                      </td>
+                      <th>
+                        <button class="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal px-10 rounded-2xl bg-slate-100 border-inherit">{status}</button>
+                      </th>
+                    </tr>
+                  );
+                })
+              }
+
+            </tbody>
+            {/* foot */}
+            <tfoot>
+              <tr>
+                <th>Name</th>
+                <th>Last Transfer Date</th>
+                <th>Last Transfer Amount</th>
+                <th>Action</th>
+              </tr>
+            </tfoot>
+
+          </table>
+        </div>
       </div>
     </div>
   );
