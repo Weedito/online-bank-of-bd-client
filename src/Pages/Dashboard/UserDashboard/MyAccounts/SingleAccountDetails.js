@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
+import Loading from '../../../../Components/Components.Nahid/Loading';
 
 const SingleAccountDetails = () => {
-    const { myAccount } = useAccount();
+    const { myAccount, isLoading } = useAccount();
     const [acc, setAcc] = useState();
     const navigate = useNavigate();
     const { id } = useParams();
@@ -16,6 +17,10 @@ const SingleAccountDetails = () => {
     }, [myAccount, id]);
 
     // console.log(acc);
+
+    if(isLoading){
+        return <Loading/>
+    }
 
     return (
         <div className="">

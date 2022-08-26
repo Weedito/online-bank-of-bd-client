@@ -7,7 +7,7 @@ import UseAdmin from './Hooks/useAdmin';
 import Loading from './Loading';
 
 const RequireDashboard = ({ children }) => {
-    let location = useLocation();
+    let location = useLocation();   
     const [user, loading] = useAuthState(auth);
     const [admin, adminLoading] = UseAdmin(user);
     if (loading || adminLoading) {

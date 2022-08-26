@@ -1,3 +1,4 @@
+
 .App {
   font-family: 'Poppins', sans-serif;
 }
@@ -35,6 +36,17 @@
   background-color: green;
 }
 
+/* cpalen notice board some cutsom style  */
+.notice{
+  transition: 400ms ease-in-out;
+}
+.noticeIcon{
+  transition: 400ms ease-in-out;
+}
+.notice:hover > .noticeIcon{
+  top: 0;
+
+}
 
 @keyframes App-logo-spin {
   from {

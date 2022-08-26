@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const DeleteAccountModal = ({deleteAccount}) => {
+const DeleteAccountModal = ({deleteAccount, refetch}) => {
 
     const {name, AccNo, balance, _id} = deleteAccount;
 
@@ -14,7 +14,8 @@ const DeleteAccountModal = ({deleteAccount}) => {
         })
         .then(res => res.json())
         .then(data => {
-            toast.success(`${name} account has been deleted.`)            
+            toast.success(`${name} account has been deleted.`);
+            refetch();           
         })
     }
 

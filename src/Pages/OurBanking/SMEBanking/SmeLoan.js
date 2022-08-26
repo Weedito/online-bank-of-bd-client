@@ -4,11 +4,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 const SmeLoan = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const { loanId } = useParams();
   const [loanInfo, setLoanInfo] = useState({});
   const [calculator, setCalculator] = useState();
-
   const [loanAmountIV, setLoanAmountIV] = useState();
   const [payment_TypeIV, setPayment_TypeIV] = useState();
   const [loan_periodIV, setLoan_periodIV] = useState();
@@ -36,7 +35,7 @@ const SmeLoan = () => {
     const loanAmount = e.target.loanAmount.value;
     setLoanAmountIV(loanAmount);
     const interestRate = e.target.interestRate.value;
-    console.log(interestRate)
+    // console.log(interestRate);
     const Payment_Type = e.target.Payment_Type.value;
     setPayment_TypeIV(Payment_Type)
     const Loan_period = e.target.Loan_period.value;
@@ -59,12 +58,11 @@ const SmeLoan = () => {
 
 
 
-  const handleApplyLoan = e => {
+  const handleApply = e => {
     e.preventDefault();
 
 
     const applyLoan = {
-
 
       userEmail: user.email,
       userNmae: user.displayName,
@@ -74,7 +72,9 @@ const SmeLoan = () => {
 
 
     }
+
     console.log(applyLoan)
+
   }
 
 
@@ -93,7 +93,7 @@ const SmeLoan = () => {
             <form onSubmit={handleLoanCalculator}>
               <div class="form-control w-full max-w-xs">
                 <label class="label">
-                  <span class="label-text">Loan Amount(Tk.)</span>
+                  <span class="label-text">Loan Amount(USD.)</span>
 
                 </label>
                 <input type="number" name='loanAmount' placeholder="Type Loan Amount" className="input input-bordered w-full max-w-xs" />
@@ -150,16 +150,15 @@ const SmeLoan = () => {
 
 
 
-            <form onSubmit={handleApplyLoan} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
 
-              <div className="form-control w-full max-w-xs">
+            <form onSubmit={handleApply} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
 
-                <p>{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে </p>
-
-
-
-              </div>
-
+              {
+                calculator &&
+                <div className="form-control w-full max-w-xs">
+                  <p name='text' className="font-bold" value="4">{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p>
+                </div>
+              }
               <div className="form-control w-full max-w-xs">
                 <label className="label">
                   <span className="label-text">Your Email Address</span>
@@ -190,13 +189,10 @@ const SmeLoan = () => {
                   <span className="label-text">please type your Address</span>
 
                 </label>
-                <textarea name='address' className="textarea textarea-bordered h-18" placeholder="Address" required></textarea>
+                <textarea name='address' className="textarea resize-none textarea-bordered h-18" placeholder="Address" required></textarea>
               </div>
 
               <input type="submit" value="Apply Loan" className="btn btn-primary w-full max-w-xs" />
-
-
-
 
             </form>
 
