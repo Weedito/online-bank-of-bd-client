@@ -8,6 +8,7 @@ const SmeLoan = () => {
   const { loanId } = useParams();
   const [loanInfo, setLoanInfo] = useState({});
   const [calculator, setCalculator] = useState();
+
   const [loanAmountIV, setLoanAmountIV] = useState();
   const [payment_TypeIV, setPayment_TypeIV] = useState();
   const [loan_periodIV, setLoan_periodIV] = useState();
@@ -50,19 +51,26 @@ const SmeLoan = () => {
     setCalculator(calculate.toFixed())
 
 
+
+
   }
 
-  const handleBooking = e => {
+  // setCalculateText(<p>{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p>)
+
+
+
+  const handleApplyLoan = e => {
     e.preventDefault();
 
 
     const applyLoan = {
 
-      loanText: e.target.text.value,
+
       userEmail: user.email,
       userNmae: user.displayName,
       phone: e.target.phone.value,
-      address: e.target.address.value
+      address: e.target.address.value,
+
 
 
     }
@@ -142,12 +150,13 @@ const SmeLoan = () => {
 
 
 
-
-
-            <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
+            <form onSubmit={handleApplyLoan} className='grid grid-cols-1 gap-3 justify-items-center mt-3'>
 
               <div className="form-control w-full max-w-xs">
-                <p name='text' className="font-bold" value="4">{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p>
+
+                <p>{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে </p>
+
+
 
               </div>
 
