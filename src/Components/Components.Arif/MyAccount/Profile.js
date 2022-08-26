@@ -10,7 +10,7 @@ import React from "react";
 import InputField from "./InputField/InputField";
 import "./MyAccount.css";
 
-const MyAccount = () => {
+const Profile = () => {
   return (
     <div className="myAccount">
       <div className="header-bg"></div>
@@ -212,7 +212,7 @@ const MyAccount = () => {
                       </div>
                     </a>
                   </li>
-                  
+
                 </ul>
 
                 <div class="tab-content" id="tabs-tabContentFill">
@@ -360,4 +360,4 @@ const MyAccount = () => {
   );
 };
 
-export default MyAccount;
+export default Profile;
