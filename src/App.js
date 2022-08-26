@@ -74,6 +74,11 @@ import PendingAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/Pen
 import NoticeBoard from "./Pages/Dashboard/AdminDashboard/NoticeBoard/NoticeBoard";
 import AllNotice from "./Pages/AllNotice/AllNotice";
 import PendingAcc from "./Pages/Dashboard/UserDashboard/Pending/PendingAcc";
+import AskedQuestions from "./Components/Components.Arif/AskedQuestions/AskedQuestions";
+import TransactionsHistory from "./Components/Components.Arif/TransactionsHistory/TransactionsHistory";
+import MakeAPayment from "./Components/Components.Arif/MakeAPayment/MakeAPayment";
+import RequestPayment from "./Components/Components.Arif/RequestPayment/RequestPayment";
+import MyAccount from "./Components/Components.Arif/MyAccount/MyAccount";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -101,7 +106,7 @@ function App() {
           </div>
           :
           <div className="pt-16">
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts'  && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
 
             {/* <Header /> */}
             <Routes>
@@ -122,9 +127,9 @@ function App() {
               <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
               {/* notice route  */}
-              <Route path="/notice" element={ <RequireAuth> <RequireDashboard> <RequireAccount> <AllNotice/> </RequireAccount> </RequireDashboard> </RequireAuth> }/>
+              <Route path="/notice" element={<RequireAuth> <RequireDashboard> <RequireAccount> <AllNotice /> </RequireAccount> </RequireDashboard> </RequireAuth>} />
               {/* User Dashboard Routes */}
-              <Route path="/dashboard" element={ <RequireAuth> <RequireDashboard> <RequireAccount> <Dashboard /> </RequireAccount> </RequireDashboard> </RequireAuth> }>
+              <Route path="/dashboard" element={<RequireAuth> <RequireDashboard> <RequireAccount> <Dashboard /> </RequireAccount> </RequireDashboard> </RequireAuth>}>
                 <Route index element={<Overview />}></Route>
                 <Route path="overview" element={<Overview />}></Route>
                 <Route path="myaccounts" element={<MyAccounts />}></Route>
@@ -134,7 +139,17 @@ function App() {
               </Route>
               <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
 
+
               {/* User Dashboard Routes End*/}
+              {/* test route */}
+              <Route path="asked" element={<AskedQuestions />}></Route>
+              <Route path="transactions" element={<TransactionsHistory />}></Route>
+              <Route path="makepayment" element={<MakeAPayment />}></Route>
+              <Route path="requestpayment" element={<RequestPayment />}></Route>
+              <Route path="myaccount" element={<MyAccount />}></Route>
+              {/* test route */}
+
+              {/* User Dashboard Routes */}
 
               {/* All blogs root  */}
               <Route path="/blogDetails/:id" element={<BlogsDetails />} />
