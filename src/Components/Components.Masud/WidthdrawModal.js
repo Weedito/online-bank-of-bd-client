@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
-const WidthdrawModal = ({ withdraw, setRefreshAccount, refreshAccount }) => {
+const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const { name, AccNo, balance, _id, accEmail } = withdraw;
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -16,7 +16,7 @@ const WidthdrawModal = ({ withdraw, setRefreshAccount, refreshAccount }) => {
         const updateBalance = { depositBalance };
 
 
-        const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+        const url = `http://localhost:5000/account/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -29,7 +29,7 @@ const WidthdrawModal = ({ withdraw, setRefreshAccount, refreshAccount }) => {
             .then(data => {
                 toast.success(`${inputBalance} withdrawal successful`)
                 inputBalRef.current.value = 0;
-                setRefreshAccount(!refreshAccount)
+                setRefresh(!refresh)
             })
 
 
@@ -45,7 +45,7 @@ const WidthdrawModal = ({ withdraw, setRefreshAccount, refreshAccount }) => {
             email: accEmail,
         }
 
-        fetch('https://bank-of-bd.herokuapp.com/statement', {
+        fetch('http://localhost:5000/statement', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

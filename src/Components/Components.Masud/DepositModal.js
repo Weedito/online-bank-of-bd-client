@@ -1,29 +1,29 @@
 import React, { useRef, useState } from 'react';
-
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
-const DepositModal = ({ deposit, setRefreshAccount, refreshAccount }) => {
-
+const DepositModal = ({ deposit, refresh,setRefresh }) => {
     const { name, AccNo, balance, _id, accEmail } = deposit;
-    const [balance1, setBalance1] = useState(0)
+    const[balance1,setBalance1]=useState(0)
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
-    const navigate = useNavigate()
+    const navigate =useNavigate()
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
+    console.log(deposit, accEmail);
+    const inputb=inputBalRef.current.value;
+    console.log("sfsklfjsfkjf",inputb, deposit, accEmail);
     const handleDeposit = () => {
 
         const inputBalance = parseFloat(balance1);
         const depositBalance = parseFloat(balance + inputBalance);
-        const updateBalance = { depositBalance, name, AccNo, balance };
+        const updateBalance = { depositBalance,  name, AccNo, balance};
 
         if (depositBalance < 0) {
             return setError("Please Input more then 0");
         }
 
         else {
-            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
+            const url = `http://localhost:5000/account/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -33,10 +33,9 @@ const DepositModal = ({ deposit, setRefreshAccount, refreshAccount }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    setRefreshAccount(!refreshAccount)
                     toast("Deposited Successfully!");
                     inputBalRef.current.value = 0;
-
+                    setRefresh(!refresh)
                 })
 
             // Deposit Statement Creator
@@ -51,7 +50,7 @@ const DepositModal = ({ deposit, setRefreshAccount, refreshAccount }) => {
                 email: accEmail,
             }
 
-            fetch('https://bank-of-bd.herokuapp.com/statement', {
+            fetch('http://localhost:5000/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -77,14 +76,13 @@ const DepositModal = ({ deposit, setRefreshAccount, refreshAccount }) => {
                     <p className='my-4'>Ac. No: {AccNo}</p>
                     <p className='my-4'>Balance: {balance}</p>
                     <p className=' text-primary'>{error}</p>
-
+                    {/* <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" /> */}
                     <input name='balance' onChange={(e)=>setBalance1(parseInt(e.target.value))} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
                     
-
                     <div className="modal-action flex justify-between">
                         <button
-                            onClick={() => navigate(`/payment/${_id}:${balance1}`)}
-                            className='btn btn-primary'>Deposit With Card</button>
+                        onClick={()=>navigate(`/payment/${_id}:${balance1}`)}
+                        className='btn btn-primary'>Deposit With Card</button>
                         <label htmlFor="deposit-modal" onClick={handleDeposit} className="btn">Deposit</label>
                     </div>
                 </div>

@@ -16,6 +16,8 @@ const MyAccounts = () => {
     const { myAccount,setRefreshAccount,refreshAccount } = useAccount();
     const navigate = useNavigate();
 
+    const account = myAccount?.filter(acc => acc?.role === 'approved');
+
     return (
         <div className="">
             <div className="py-7">
@@ -28,7 +30,7 @@ const MyAccounts = () => {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto w-full pt-5 items-center justify-center gap-5 pb-10 ">
                 {
-                    myAccount?.map(account => {
+                    account?.map(account => {
 
                         return (
 

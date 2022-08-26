@@ -8,7 +8,7 @@ import Loading from './Loading';
 const RequireAccount = ({ children }) => {
     let location = useLocation();
     const [user, loading] = useAuthState(auth);
-    const [account,setAccount]=useState([]);
+    const [acc,setAcc]=useState({});
     const [accountLoading,setAccountLoading]=useState(true);
     useEffect(()=>{
         setAccountLoading(true);
@@ -21,16 +21,25 @@ const RequireAccount = ({ children }) => {
             }
         })
         .then(result=>{
-            setAccount(result[0]);
-            console.log(result);
-            console.log("authEmail",user?.email, "accountEmail", result[0]?.email);
+            if(result[0]?.role === 'approved'){
+                setAcc(result[0]);
+                console.log(result);
+                console.log("authEmail",user?.email, "accountEmail", result[0]?.email);
+                setAccountLoading(false)
+            }
+
             setAccountLoading(false)
         })
     },[user])
     if (loading || accountLoading) {
       return <Loading />;
     }
-    if (!account && !accountLoading) {
+
+    console.log(acc);
+
+    // const account = acc?.find(account => account?.role === 'approved');
+
+    if (!acc && !accountLoading) {
         console.log("i Am in ");
       return <Navigate to="/openaccount" state={{ from: location }} replace />;
     }
