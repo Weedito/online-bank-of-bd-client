@@ -8,7 +8,7 @@ const ApproveAccountModal = ({approveAccount, refetch}) => {
 
 
     const handleApprove = () =>{
-        fetch(`http://localhost:5000/account/${AccNo}`, {
+        fetch(`http://localhost:5000/acc/${AccNo}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

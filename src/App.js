@@ -122,25 +122,9 @@ function App() {
               <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
               {/* notice route  */}
-              <Route path="/notice" element={
-                 <RequireAuth>
-                  <RequireDashboard>
-                    <RequireAccount>
-                      <AllNotice/>
-                    </RequireAccount>
-                </RequireDashboard>
-              </RequireAuth>
-              }/>
+              <Route path="/notice" element={ <RequireAuth> <RequireDashboard> <RequireAccount> <AllNotice/> </RequireAccount> </RequireDashboard> </RequireAuth> }/>
               {/* User Dashboard Routes */}
-              <Route path="/dashboard" element={
-                <RequireAuth>
-                  <RequireDashboard>
-                    <RequireAccount>
-                      <Dashboard />
-                    </RequireAccount>
-                  </RequireDashboard>
-                </RequireAuth>
-              }>
+              <Route path="/dashboard" element={ <RequireAuth> <RequireDashboard> <RequireAccount> <Dashboard /> </RequireAccount> </RequireDashboard> </RequireAuth> }>
                 <Route index element={<Overview />}></Route>
                 <Route path="overview" element={<Overview />}></Route>
                 <Route path="myaccounts" element={<MyAccounts />}></Route>

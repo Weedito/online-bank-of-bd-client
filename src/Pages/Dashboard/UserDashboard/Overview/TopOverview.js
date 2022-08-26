@@ -15,7 +15,7 @@ const TopOverview = ({ handleSelect, frstacc }) => {
     const [noticeDropDown,setNoticeDropDown]=useState(false);
     const {allNotice}=useNotice();
     const [countNotice,setCountNotice]=useState(false)
-    console.log(allNotice?.length);
+    // console.log(allNotice?.length);
 
 
     return (
