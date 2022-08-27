@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { toast } from 'react-toastify';
 
 const SmeLoan = () => {
   const [user] = useAuthState(auth);
@@ -11,7 +12,7 @@ const SmeLoan = () => {
   const [loanAmountIV, setLoanAmountIV] = useState();
   const [payment_TypeIV, setPayment_TypeIV] = useState();
   const [loan_periodIV, setLoan_periodIV] = useState();
-
+  const navigate = useNavigate()
 
   useEffect(() => {
     const url = `http://localhost:5000/smeBanking/${loanId}`
@@ -20,6 +21,8 @@ const SmeLoan = () => {
       .then(res => res.json())
       .then(data => setLoanInfo(data))
   }, [])
+
+
 
   // const Monthly = 12;
   // const Quarterly = 4;
@@ -63,7 +66,11 @@ const SmeLoan = () => {
 
 
     const applyLoan = {
-
+      loan_name: loanInfo.loan_name,
+      loan_period: loan_periodIV,
+      payment_Type: payment_TypeIV,
+      loanAmount: loanAmountIV,
+      calculateLoan: calculator,
       userEmail: user.email,
       userNmae: user.displayName,
       phone: e.target.phone.value,
@@ -72,6 +79,25 @@ const SmeLoan = () => {
 
 
     }
+    fetch('http://localhost:5000/smeapplyloan', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(applyLoan)
+
+    })
+      .then(res => res.json())
+      .then(data => {
+        toast.success('loan apply success')
+        navigate('/smebanking')
+
+      })
+
+    e.target.reset()
+
+
+
 
     console.log(applyLoan)
 
@@ -80,12 +106,14 @@ const SmeLoan = () => {
 
   return (
     <div>
+      <h1 className="text-center bg-slate-100 text-red-700 text-2xl font-bold py-5">Legal action will be taken if the loan is not paid on time.</h1>
 
       <div className="hero min-h-screen bg-slate-100">
+
         <div className="hero-content grid lg:grid-cols-3">
           <div>
             <img src={loanInfo.loan_img} className="max-w-sm rounded shadow-2xl mask mask-circle" alt='img' />
-            <h1 className="text-5xl font-bold">{loanInfo.loan_name}</h1>
+            <h1 className="text-3xl text-center lg:text-5xl font-bold">{loanInfo.loan_name}</h1>
           </div>
           <div>
 
@@ -96,7 +124,7 @@ const SmeLoan = () => {
                   <span class="label-text">Loan Amount(USD.)</span>
 
                 </label>
-                <input type="number" name='loanAmount' placeholder="Type Loan Amount" className="input input-bordered w-full max-w-xs" />
+                <input type="number" name='loanAmount' placeholder="Type Loan Amount" required className="input input-bordered w-full max-w-xs" />
 
                 <label className="label">
                   <span className="label-text">Interest Rate(%)</span>
@@ -126,11 +154,6 @@ const SmeLoan = () => {
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
                 </select>
               </div>
 
@@ -144,7 +167,7 @@ const SmeLoan = () => {
 
           <div>
 
-            <h1 className='text-5xl font-bold mb-10'>{calculator}</h1>
+            <h1 className='text-2xl font-bold mb-4'>{calculator}</h1>
 
             {/* <p>{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p> */}
 
@@ -156,7 +179,10 @@ const SmeLoan = () => {
               {
                 calculator &&
                 <div className="form-control w-full max-w-xs">
-                  <p name='text' className="font-bold" value="4">{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p>
+                  <p name='text' className="font-bold">
+                    You have selected USD {loanAmountIV} for {loanInfo.loan_name}. To repay a loan of USD {loanAmountIV} at {loanInfo.Interest}% interest within {loan_periodIV} years, you need to pay USD {calculator} {payment_TypeIV} times a year.
+                  </p>
+
                 </div>
               }
               <div className="form-control w-full max-w-xs">
@@ -192,7 +218,7 @@ const SmeLoan = () => {
                 <textarea name='address' className="textarea resize-none textarea-bordered h-18" placeholder="Address" required></textarea>
               </div>
 
-              <input type="submit" value="Apply Loan" className="btn btn-primary w-full max-w-xs" />
+              <input type="submit" value="Apply Loan" disabled={!calculator} className="btn btn-primary w-full max-w-xs" />
 
             </form>
 
