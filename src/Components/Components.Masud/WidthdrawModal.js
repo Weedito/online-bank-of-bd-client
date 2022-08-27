@@ -5,7 +5,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = withdraw;
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    function timeAMPM(date) {
+    const timeAMPM = (date) => {
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var ampm = hours >= 12 ? 'pm' : 'am';

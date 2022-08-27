@@ -76,7 +76,6 @@ import AskedQuestions from "./Components/Components.Arif/AskedQuestions/AskedQue
 import MakeAPayment from "./Components/Components.Arif/MakeAPayment/MakeAPayment";
 import RequestPayment from "./Components/Components.Arif/RequestPayment/RequestPayment";
 import Profile from "./Components/Components.Arif/MyAccount/Profile";
-import Transactionfff from "./Pages/Dashboard/UserDashboard/MyTransactions/Transactionfff";
 import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
 
 function App() {

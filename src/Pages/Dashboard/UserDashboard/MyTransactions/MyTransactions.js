@@ -43,12 +43,15 @@ const MyTransactions = () => {
     }
 
     const account = myAccount?.filter(acc => acc?.role === 'approved');
+    const dwlAcc = account && account?.length > 1;
 
 
     return (
         <div className=" text-left h-full w-full">
+            <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">Total Transactions: {myTransactions?.length}</p>
 
-            <div className="w-full flex items-center justify-center my-12">
+
+            <div className="w-full flex items-center justify-center my-7">
                 <div className=" shadow rounded py-12 px-8 mb-20">
                     <div className="w-full">
                         <div className="w-full mx-auto pb-16">
@@ -74,12 +77,12 @@ const MyTransactions = () => {
                                         <input
                                             type="text"
                                             placeholder="Type to search..."
-                                            class="input px-11 placeholder-slate-300 text-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-lg"
+                                            class="input px-11 placeholder-slate-300 text-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-md"
                                         />
                                     </div>
                                 </div>
                                 <div className="filteringBy-A-to-Z">
-                                    <select class="select w-full max-w-xs input px-11 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-lg">
+                                    <select class="select w-full max-w-xs input px-3 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-sm">
                                         <option disabled selected>
                                             Sort by: A-Z
                                         </option>
@@ -91,7 +94,7 @@ const MyTransactions = () => {
                                     </select>
                                 </div>
                                 <div className="allStatus">
-                                    <select class="select w-full max-w-xs px-11 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-lg">
+                                    <select class="select w-full max-w-xs px-3 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-md">
                                         <option disabled selected>
                                             All Status
                                         </option>
@@ -103,7 +106,7 @@ const MyTransactions = () => {
                                     </select>
                                 </div>
                                 <div className="recipients">
-                                    <button className="input px-11 text-white placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white-50 text-lg">
+                                    <button className="input px-3 text-white placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white-50 text-md">
                                         <span className="font-bold text-md">
                                             <FontAwesomeIcon className="mr-4" icon={faPlus} />
                                         </span>
@@ -111,18 +114,19 @@ const MyTransactions = () => {
                                     </button>
                                 </div>
                             </div>
-                            <div className="text-gray-700 flex py-7 items-center justify-center gap-2 font-semibold text-xl lg:text-3xl">
-                                <h3 className="text-sm md:text-2xl font-semibold pr-2">Select Your Account</h3>
-                                <div className="">
+                            {
+                                dwlAcc && <div className="text-gray-700 flex py-7 items-center justify-center gap-2 font-semibold text-xl lg:text-3xl">
+                                    <h3 className="text-sm md:text-2xl font-semibold pr-2">Select Your Account</h3>
+                                    <div className="">
 
-                                    <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md md:text-xl">
-                                        {
-                                            account?.map(account => <option >{account?.AccNo}</option>)
-                                        }
-                                    </select>
+                                        <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md md:text-xl">
+                                            {
+                                                account?.map(account => <option >{account?.AccNo}</option>)
+                                            }
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">Total Transactions: {myTransactions?.length}</p>
+                            }
 
                             <div className="body">
                                 <div class="overflow-x-auto w-full">

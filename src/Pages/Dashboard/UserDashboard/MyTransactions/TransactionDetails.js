@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 const TransactionDetails = ({trc}) => {
+    const [icon, setIcon] = useState();
     console.log(trc);
+
+    useEffect(() => {
+        if(trc?.statement === 'Deposit Money'){
+            setIcon('https://i.ibb.co/GM0hKpF/13-130000-orange-and-yellow-arrow-hd-png-download-removebg-preview.png');
+        }else{
+            setIcon('https://i.ibb.co/nDC8L6b/up-arrow-png-27175.png');
+        }
+    }, [trc])
+
+
     return (
     //     <tr className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
     //     <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block font-semibold lg:table-cell relative lg:static">
@@ -27,7 +39,7 @@ const TransactionDetails = ({trc}) => {
           <div class="flex items-center space-x-3">
             <div class="avatar">
               <div class="mask mask-squircle w-12 h-12">
-                <img src={(trc?.ahimage && trc?.ahimage) || (trc?.ahupimage && trc?.ahupimage) || (trc?.ahcpimage && trc?.ahcpimage)} alt="Avatar" />
+                <img src={trc?.image || 'https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png'} alt="Avatar" />
               </div>
             </div>
             <div>
@@ -47,7 +59,7 @@ const TransactionDetails = ({trc}) => {
           <span>{trc?.statement}</span>
           </td>
         <th>
-          <button class="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal px-10 rounded-2xl bg-slate-100 border-inherit">gdfh</button>
+          <img src={icon} alt="" className="w-12" />
         </th>
       </tr>
     );
