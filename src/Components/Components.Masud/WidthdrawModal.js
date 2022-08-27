@@ -2,9 +2,21 @@ import React, { useRef } from 'react';
 import { toast } from 'react-toastify';
 
 const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
-    const { name, AccNo, balance, _id, accEmail } = withdraw;
+    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = withdraw;
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    function timeAMPM(date) {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return strTime;
+      }
+      
+      const time = timeAMPM(today);
 
 
     const inputBalRef = useRef('');
@@ -14,6 +26,8 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
         const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance - inputBalance);
         const updateBalance = { depositBalance };
+        const image = ahimage || ahcpimage || ahupimage;
+
 
 
         const url = `http://localhost:5000/account/${_id}`;
@@ -42,7 +56,10 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
             withdraw: inputBalance,
             balance: parseFloat(updateBalance?.depositBalance),
             date: date,
+            time: time,
             email: accEmail,
+            name: name,
+            image: image
         }
 
         fetch('http://localhost:5000/statement', {

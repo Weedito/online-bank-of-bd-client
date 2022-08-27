@@ -2,21 +2,34 @@ import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 const DepositModal = ({ deposit, refresh,setRefresh }) => {
-    const { name, AccNo, balance, _id, accEmail } = deposit;
+    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = deposit;
     const[balance1,setBalance1]=useState(0)
     const inputBalRef = useRef(0);
     const [error, setError] = useState('');
     const navigate =useNavigate()
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    console.log(deposit, accEmail);
-    const inputb=inputBalRef.current.value;
-    console.log("sfsklfjsfkjf",inputb, deposit, accEmail);
+    const timeAMPM = (date) => {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return strTime;
+      }
+      
+      const time = timeAMPM(today);    
+    //   console.log(deposit, accEmail);
+    // const inputb=inputBalRef.current.value;
+    // console.log("sfsklfjsfkjf",inputb, deposit, accEmail);
     const handleDeposit = () => {
 
         const inputBalance = parseFloat(balance1);
         const depositBalance = parseFloat(balance + inputBalance);
         const updateBalance = { depositBalance,  name, AccNo, balance};
+        const image = ahimage || ahcpimage || ahupimage;
 
         if (depositBalance < 0) {
             return setError("Please Input more then 0");
@@ -47,7 +60,10 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
                 withdraw: 0,
                 balance: parseFloat(updateBalance?.depositBalance),
                 date: date,
+                time: time,
                 email: accEmail,
+                name: name,
+                image : image
             }
 
             fetch('http://localhost:5000/statement', {
