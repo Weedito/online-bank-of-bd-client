@@ -9,12 +9,12 @@ import axios from 'axios';
 
 const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }) => {
 
-    const { name, AccNo, balance, _id, accEmail } = transferMoney;
+    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
+    const image = ahimage || ahcpimage || ahupimage;
 
-
-    console.log(balance);
+    console.log(transferMoney);
 
 
     const handleAccountBlur = (e) => {
@@ -29,6 +29,9 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
     const AccName = transAcc?.name;
     const AccNumber = transAcc?.AccNo;
     const AccEmail = transAcc?.accEmail;
+    const trAcImg = transAcc?.ahimage || transAcc?.ahupimage || transAcc?.ahcpimage ;
+    
+
 
 
     // Reciver info
@@ -41,7 +44,18 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
         let today = new Date();
 
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
+        const timeAMPM = (date) => {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'pm' : 'am';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+          }
+          
+          const time = timeAMPM(today);
 
         // Receiver 
         const transferAmount = previousBalance + parseFloat(transBalance);
@@ -119,7 +133,10 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
                 withdraw: 0,
                 balance: depositBalance,
                 date: date,
+                time: time,
                 email: accEmail,
+                name: name,
+                image: image
             }
 
             fetch('http://localhost:5000/statement', {
@@ -136,7 +153,6 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
 
             // Receiver data
 
-
             const receiverStatementData = {
                 senderAccount: parseFloat(transAccNo),
                 statement: "Received Money",
@@ -144,7 +160,10 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
                 withdraw: 0,
                 balance: transferAmount,
                 date: date,
+                time: time,
                 email: AccEmail,
+                name: AccName,
+                image: trAcImg
             }
 
 

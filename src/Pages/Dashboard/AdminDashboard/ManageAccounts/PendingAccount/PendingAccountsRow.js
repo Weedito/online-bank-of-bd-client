@@ -33,7 +33,7 @@ const PendingAccountsRow = ({ account, index, setDeleteAccount, setApproveAccoun
             </td>
             <td className="w-full lg:w-auto text-xs p-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <div className="flex justify-between px-3 pb-1 gap-2 items-center">
-                {role === 'approved' ? <div className="badge text-warning badge-outline">Verified</div> : <label  htmlFor="approve-account-modal" onClick={() => setApproveAccount(account)} className="btn text-white btn-accent btn-xs">Approve</label>}
+                {role === 'approved' ? <div className="badge text-warning badge-outline">Verified</div> : <label  htmlFor="approve-account-modal" onClick={() => setApproveAccount(account)} className="btn text-white btn-accent btn-xs">Review</label>}
 
                     <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn text-white btn-secondary btn-xs">Delete</label>
                 </div>
