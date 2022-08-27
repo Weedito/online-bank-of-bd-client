@@ -1,6 +1,5 @@
 import {
   faCheckDouble,
-  faDeleteLeft,
   faLongArrowRight,
   faStopwatch,
   faWarning,
@@ -11,12 +10,13 @@ import InputField from "./InputField/InputField";
 import "./MyAccount.css";
 
 const Profile = () => {
+  // const [user,setUser]=use 
   return (
     <div className="myAccount">
       <div className="header-bg"></div>
       <div className="myProfile lg:w-11/12 lg:mx-16 md:mx-6 mx-1 lg:flex gap-10 -mt-72 mb-20">
         <div className="profile lg:mt-28 mt-32">
-          <div class="card w-96 bg-base-100 shadow-xl">
+          <div class="card lg:w-96 w-full bg-base-100 shadow-xl mx-auto">
             <figure class="px-10 pt-10">
               <img
                 src="https://i.ibb.co/J2bCs3B/Profile.jpg"
@@ -56,20 +56,10 @@ const Profile = () => {
                     Logout
                   </button>
                 </div>
-                <div className="accountDelete-btn text-center mt-6">
-                  <button className="btn border-slate-200 normal-case text-red-500 bg-slate-100 btn-ghost w-full rounded-2xl">
-                    <FontAwesomeIcon
-                      icon={faDeleteLeft}
-                      className="mr-4 text-red-500"
-                    />
-                    Delete Account
-                  </button>
-                </div>
               </div>
             </div>
           </div>
         </div>
-
         <div className="profile-customize w-full lg:mt-28 mt-10">
           <div class="h-fit bg-base-100 shadow-xl rounded-2xl">
             <div class="card-body tab-content" id="tabs-tabContentFill">
@@ -86,19 +76,19 @@ const Profile = () => {
                     <a
                       href="#tabs-accountFill"
                       class="
-      nav-link
-      w-full
-      block
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      border-x-0 border-t-0 border-b-2 border-transparent
-      px-6
-      py-3
-      my-2
-      active
-    "
+                            nav-link
+                            w-full
+                            block
+                            font-medium
+                            text-xs
+                            leading-tight
+                            uppercase
+                            border-x-0 border-t-0 border-b-2 border-transparent
+                            px-6
+                            py-3
+                            my-2
+                            active
+                          "
                       id="tabs-account-tabFill"
                       data-bs-toggle="pill"
                       data-bs-target="#tabs-accountFill"
@@ -120,18 +110,18 @@ const Profile = () => {
                     <a
                       href="#tabs-securityFill"
                       class="
-                      nav-link
-      w-full
-      block
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      border-x-0 border-t-0 border-b-2 border-transparent
-      px-6
-      py-3
-      my-2
-    "
+                            nav-link
+                            w-full
+                            block
+                            font-medium
+                            text-xs
+                            leading-tight
+                            uppercase
+                            border-x-0 border-t-0 border-b-2 border-transparent
+                            px-6
+                            py-3
+                            my-2
+                          "
                       id="tabs-security-tabFill"
                       data-bs-toggle="pill"
                       data-bs-target="#tabs-securityFill"
@@ -151,53 +141,20 @@ const Profile = () => {
                     role="presentation"
                   >
                     <a
-                      href="#tabs-paymentFill"
-                      class="
-                      nav-link
-      w-full
-      block
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      border-x-0 border-t-0 border-b-2 border-transparent
-      px-6
-      py-3
-      my-2
-    "
-                      id="tabs-payment-tabFill"
-                      data-bs-toggle="pill"
-                      data-bs-target="#tabs-paymentFill"
-                      role="tab"
-                      aria-controls="tabs-paymentFill"
-                      aria-selected="false"
-                    >
-                      <div className="payment-method">
-                        <button className="btn normal-case border-slate-200 hover:text-white bg-slate-100 hover:bg-indigo-700 px-10 btn-ghost  rounded-2xl">
-                          Payment Methods
-                        </button>
-                      </div>
-                    </a>
-                  </li>
-                  <li
-                    class="nav-item flex-auto text-center"
-                    role="presentation"
-                  >
-                    <a
                       href="#tabs-notificationFill"
                       class="
-                      nav-link
-      w-full
-      block
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      border-x-0 border-t-0 border-b-2 border-transparent
-      px-6
-      py-3
-      my-2
-    "
+                            nav-link
+                            w-full
+                            block
+                            font-medium
+                            text-xs
+                            leading-tight
+                            uppercase
+                            border-x-0 border-t-0 border-b-2 border-transparent
+                            px-6
+                            py-3
+                            my-2
+                          "
                       id="tabs-notification-tabFill"
                       data-bs-toggle="pill"
                       data-bs-target="#tabs-notificationFill"
@@ -212,9 +169,7 @@ const Profile = () => {
                       </div>
                     </a>
                   </li>
-
                 </ul>
-
                 <div class="tab-content" id="tabs-tabContentFill">
                   <div
                     class="tab-pane fade show active"
@@ -242,14 +197,12 @@ const Profile = () => {
                             </div>
                           </div>
                         </td>
-
                         <th className="mt-1">
                           <button class="btn btn-md hover:bg-slate-200 normal-case text-black font-normal rounded-lg bg-white border-inherit border-none">
                             Upload new avatar
                           </button>
                         </th>
                       </div>
-
                       <div className="infoUpdate mt-10">
                         <form>
                           <div className="fullNameField lg:flex gap-8">
@@ -272,7 +225,7 @@ const Profile = () => {
                               label="Email"
                               name="example@gmail.com"
                             ></InputField>
-                            <button className="input text-left mt-10 w-full ml-5 border-indigo-700 bg-indigo-50 border-slate-300 text-indigo-700">
+                            <button className="input text-left mt-10 w-full ml-5 border-indigo-700 bg-indigo-50  text-indigo-700">
                               <FontAwesomeIcon
                                 icon={faStopwatch}
                                 className="mr-3"
@@ -280,7 +233,6 @@ const Profile = () => {
                               E-mail confirmation in pending
                             </button>
                           </div>
-
                           <div className="phoneNumberField lg:flex gap-8">
                             <InputField
                               label="Phone"
@@ -294,7 +246,6 @@ const Profile = () => {
                               Phone number confirm
                             </button>
                           </div>
-
                           <div className="idConfirmation lg:flex gap-8">
                             <InputField
                               label="ID Confirmation documents"
@@ -308,7 +259,6 @@ const Profile = () => {
                               Person not confirmed
                             </button>
                           </div>
-
                           <div className="address">
                             <InputField
                               label="Address"
@@ -335,21 +285,12 @@ const Profile = () => {
                   </div>
                   <div
                     class="tab-pane fade"
-                    id="tabs-paymentFill"
-                    role="tabpanel"
-                    aria-labelledby="tabs-payment-tabFill"
-                  >
-                    <h1 className="text-center">Payment tab is Empty</h1>
-                  </div>
-                  <div
-                    class="tab-pane fade"
                     id="tabs-notificationFill"
                     role="tabpanel"
                     aria-labelledby="tabs-notification-tabFill"
                   >
                     <h1 className="text-center">Notification tab is Empty</h1>
                   </div>
-
                 </div>
               </div>
             </div>
