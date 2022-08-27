@@ -80,21 +80,21 @@ const MyAccount = () => {
                   role="tablist"
                 >
                   <li
-                    class="nav-item flex-auto text-center"
+                    class=" flex-auto text-center"
                     role="presentation"
                   >
                     <a
                       href="#tabs-accountFill"
                       class="
       nav-link
-      w-full
+      lg:w-full
       block
       font-medium
       text-xs
       leading-tight
       uppercase
       border-x-0 border-t-0 border-b-2 border-transparent
-      px-6
+      lg:px-6
       py-3
       my-2
       active
@@ -107,7 +107,7 @@ const MyAccount = () => {
                       aria-selected="true"
                     >
                       <div className="account">
-                        <button className="btn normal-case my-4 lg:my-0 border-slate-200 hover:text-white bg-slate-100 hover:bg-indigo-700 px-10 btn-ghost  rounded-2xl">
+                        <button className="btn normal-case my-4 lg:my-0 border-slate-200 hover:text-white bg-slate-100 hover:bg-indigo-700 lg:px-10 btn-ghost  rounded-2xl">
                           Account
                         </button>
                       </div>

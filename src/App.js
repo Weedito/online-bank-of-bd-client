@@ -52,6 +52,7 @@ import TransactionsHistory from "./Components/Components.Arif/TransactionsHistor
 import MakeAPayment from "./Components/Components.Arif/MakeAPayment/MakeAPayment";
 import RequestPayment from "./Components/Components.Arif/RequestPayment/RequestPayment";
 import MyAccount from "./Components/Components.Arif/MyAccount/MyAccount";
+import MoneyConverter from "./Components/Components.Arif/MoneyConverter/MoneyConverter";
 
 function App() {
   return (
@@ -85,6 +86,7 @@ function App() {
       <Route path="makepayment" element={<MakeAPayment />}></Route>
       <Route path="requestpayment" element={<RequestPayment />}></Route>
       <Route path="myaccount" element={<MyAccount />}></Route>
+      <Route path="moneyconverter" element={<MoneyConverter />}></Route>
       {/* test route */}
 
         {/* User Dashboard Routes */}
