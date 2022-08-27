@@ -7,12 +7,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import PageTitle from "../../../Pages/PageTitle/PageTitle";
 import InputField from "./InputField/InputField";
 import "./MyAccount.css";
 
 const Profile = () => {
   return (
     <div className="myAccount">
+      {/* title */}
+
+      <PageTitle title="Profile"></PageTitle>
+
+      {/* end */}
       <div className="header-bg"></div>
       <div className="myProfile lg:w-11/12 lg:mx-16 md:mx-6 mx-1 lg:flex gap-10 -mt-72 mb-20">
         <div className="profile lg:mt-28 mt-32">
