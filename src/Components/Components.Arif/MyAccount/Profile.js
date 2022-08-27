@@ -8,9 +8,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import InputField from "./InputField/InputField";
 import "./MyAccount.css";
+import { useForm } from "react-hook-form";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import Loading from "../../Components.Nahid/Loading";
 
 const Profile = () => {
-  // const [user,setUser]=use 
+  const { register, handleSubmit,reset,watch,formState: { errors } } = useForm();
+  const [user, loading]=useAuthState(auth)
+
+  if(loading){
+    <Loading/>
+  }
+
+  const onSubmit=(data)=>{
+    console.log(data);
+  }
   return (
     <div className="myAccount">
       <div className="header-bg"></div>
@@ -63,30 +76,28 @@ const Profile = () => {
         <div className="profile-customize w-full lg:mt-28 mt-10">
           <div class="h-fit bg-base-100 shadow-xl rounded-2xl">
             <div class="card-body tab-content" id="tabs-tabContentFill">
-              <div className="profileCustomizeHead md:gap-3 justify-between">
+              <div className="profileCustomizeHead lg:gap-3  gap-0 justify-between">
                 <ul
-                  class="nav nav-tabs flex flex-col md:flex-row  list-none border-b-0 pl-0 mb-4"
+                  class="nav nav-tabs flex  md:flex-row w-full  list-none border-b-0 pl-0 mb-4"
                   id="tabs-tabFill"
                   role="tablist"
                 >
                   <li
-                    class="nav-item flex-auto text-center"
+                    class="nav-item flex-auto text-center p-0 m-0"
                     role="presentation"
                   >
                     <a
                       href="#tabs-accountFill"
                       class="
                             nav-link
-                            w-full
                             block
+                            w-22
+                            lg:w-full
                             font-medium
                             text-xs
                             leading-tight
                             uppercase
-                            border-x-0 border-t-0 border-b-2 border-transparent
-                            px-6
-                            py-3
-                            my-2
+                            p-0 mx-1
                             active
                           "
                       id="tabs-account-tabFill"
@@ -96,31 +107,29 @@ const Profile = () => {
                       aria-controls="tabs-accountFill"
                       aria-selected="true"
                     >
-                      <div className="account">
-                        <button className="btn normal-case my-4 lg:my-0 border-slate-200 hover:text-white bg-slate-100 hover:bg-indigo-700 px-10 btn-ghost  rounded-2xl">
+                      <div className="account p-0 m-0">
+                        <button className="btn btn-xs md:btn-xl  normal-case my-4 lg:my-0 border-slate-200 hover:text-indigo-700 bg-slate-100 md:px-10 px-2 btn-ghost  rounded-2xl">
                           Account
                         </button>
                       </div>
                     </a>
                   </li>
                   <li
-                    class="nav-item flex-auto text-center"
+                   class="nav-item flex-auto text-center p-0 m-0"
                     role="presentation"
                   >
                     <a
                       href="#tabs-securityFill"
                       class="
                             nav-link
-                            w-full
                             block
+                            w-22
+                            lg:w-full
                             font-medium
                             text-xs
                             leading-tight
                             uppercase
-                            border-x-0 border-t-0 border-b-2 border-transparent
-                            px-6
-                            py-3
-                            my-2
+                           p-0 mx-1
                           "
                       id="tabs-security-tabFill"
                       data-bs-toggle="pill"
@@ -130,30 +139,28 @@ const Profile = () => {
                       aria-selected="false"
                     >
                       <div className="security">
-                        <button className="btn normal-case my-4 lg:my-0 border-slate-200 hover:text-white bg-slate-100 hover:bg-indigo-700 px-10 btn-ghost  rounded-2xl">
+                        <button className="btn btn-xs md:btn-xl normal-case my-4 lg:my-0 border-slate-200 hover:text-indigo-700 bg-slate-100  md:px-10 px-2 btn-ghost  rounded-2xl">
                           Security
                         </button>
                       </div>
                     </a>
                   </li>
                   <li
-                    class="nav-item flex-auto text-center"
+                   class="nav-item flex-auto text-center p-0 m-0"
                     role="presentation"
                   >
                     <a
                       href="#tabs-notificationFill"
                       class="
                             nav-link
-                            w-full
                             block
+                            w-22
+                            lg:w-full
                             font-medium
                             text-xs
                             leading-tight
                             uppercase
-                            border-x-0 border-t-0 border-b-2 border-transparent
-                            px-6
-                            py-3
-                            my-2
+                           p-0 mx-1
                           "
                       id="tabs-notification-tabFill"
                       data-bs-toggle="pill"
@@ -163,7 +170,7 @@ const Profile = () => {
                       aria-selected="false"
                     >
                       <div className="notification">
-                        <button className="btn normal-case my-4 lg:my-0 border-slate-200 hover:text-white bg-slate-100 hover:bg-indigo-700 px-10 btn-ghost  rounded-2xl">
+                        <button className="btn btn-xs md:btn-xl normal-case my-4 lg:my-0 border-slate-200 hover:text-indigo-700 bg-slate-100  md:px-10 px-2 btn-ghost  rounded-2xl">
                           Notification
                         </button>
                       </div>
@@ -204,27 +211,40 @@ const Profile = () => {
                         </th>
                       </div>
                       <div className="infoUpdate mt-10">
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                          {/* name field  */}
                           <div className="fullNameField lg:flex gap-8">
                             <div className="w-full mt-5 pr-5">
                               <label>First Name</label>
                               <input
                                 type="text"
-                                name="firstName"
+                                {...register("firstName", { required: true })}
                                 placeholder="John"
                                 className="input w-full bg-indigo-50 border-slate-300"
                               />
                             </div>
-                            <InputField
-                              label="Last Name"
-                              name="Dev"
-                            ></InputField>
+                            <div className="w-full mt-5 pr-5">
+                              <label>Last Name</label>
+                              <input
+                                type="text"
+                                {...register("lastName", { required: true })}
+                                placeholder="John"
+                                className="input w-full bg-indigo-50 border-slate-300"
+                              />
+                            </div>
                           </div>
+                          {/* Email field */}
                           <div className="emailField lg:flex gap-8">
-                            <InputField
-                              label="Email"
-                              name="example@gmail.com"
-                            ></InputField>
+                          <div className="w-full mt-5 pr-5">
+                              <label>Email</label>
+                              <input
+                                type="email"
+                                readOnly
+                                value={user?.email}
+                                {...register("email")}
+                                className="input w-full bg-indigo-50 border-slate-300"
+                              />
+                            </div>
                             <button className="input text-left mt-10 w-full ml-5 border-indigo-700 bg-indigo-50  text-indigo-700">
                               <FontAwesomeIcon
                                 icon={faStopwatch}
@@ -234,11 +254,16 @@ const Profile = () => {
                             </button>
                           </div>
                           <div className="phoneNumberField lg:flex gap-8">
-                            <InputField
-                              label="Phone"
-                              name="+8801303984576"
-                            ></InputField>
-                            <button className="input text-left mt-10 w-full ml-5 border-green-500 bg-indigo-50 border-slate-300 text-green-500">
+                          <div className="w-full mt-5 pr-5">
+                              <label>Phone Number</label>
+                              <input
+                                type="number"
+                                {...register("phone", { required: true, })}
+                                placeholder="01734798427"
+                                className="input w-full bg-indigo-50 border-slate-300"
+                              />
+                            </div>
+                            <button className="input text-left mt-10 w-full ml-5 border-green-500 bg-indigo-50  text-green-500">
                               <FontAwesomeIcon
                                 icon={faCheckDouble}
                                 className="mr-3"
@@ -247,23 +272,35 @@ const Profile = () => {
                             </button>
                           </div>
                           <div className="idConfirmation lg:flex gap-8">
-                            <InputField
-                              label="ID Confirmation documents"
-                              name="Not uploaded"
-                            ></InputField>
-                            <button className="input text-left mt-10 w-full ml-5 border-red-600 bg-indigo-50 border-slate-300 text-red-500">
-                              <FontAwesomeIcon
-                                icon={faWarning}
-                                className="mr-3"
+                          <div className="w-full mt-5 pr-5">
+                              <label>Date of Birth </label>
+                              <input
+                                type="date"
+                                {...register("accountNumber", { required: true, })}
+                                placeholder="359485203928"
+                                className="input w-full bg-indigo-50 border-slate-300"
                               />
-                              Person not confirmed
-                            </button>
+                            </div>
+                            <div className="w-full mt-5 ">
+                            <label> Gender </label>
+                              <select
+                               className="input w-full bg-indigo-50 border-slate-300"
+                               {...register("gender", { required: true, })}
+                              >
+                                <option>Male</option>
+                                <option>Female</option>
+                              </select>
+                            </div>
+                            
                           </div>
-                          <div className="address">
-                            <InputField
-                              label="Address"
-                              name="2972 Westheimer Rd. Santa Ana, Illinois 85486"
-                            ></InputField>
+                          <div className="address mt-5">
+                              <label>Address</label>
+                              <textarea
+                                type="text"
+                                {...register("address", { required: true, })}
+                                placeholder="Road No: 534,Mirpur,Dhaka"
+                                className="input w-full h-24 resize-none bg-indigo-50 border-slate-300"
+                              ></textarea>
                           </div>
 
                           <div className="submit mt-10 ">
