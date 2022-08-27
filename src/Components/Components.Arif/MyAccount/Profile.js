@@ -12,13 +12,23 @@ import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../Components.Nahid/Loading";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { register, handleSubmit,reset,watch,formState: { errors } } = useForm();
   const [user, loading]=useAuthState(auth)
+  const navigate =useNavigate()
 
   if(loading){
     <Loading/>
+  }
+
+  // handle logout function 
+  const handleLogout=()=>{
+    signOut(auth)
+    localStorage.removeItem("accessToken")
+    navigate("/signin")
   }
 
   const onSubmit=(data)=>{
@@ -61,11 +71,13 @@ const Profile = () => {
                   <div className="text-right -mt-5 text-slate-400">80%</div>
                 </p>
                 <div className="logout-btn text-center">
-                  <button className="btn border-slate-200 normal-case text-slate-600 bg-slate-100 btn-ghost w-full rounded-2xl">
-                    <FontAwesomeIcon
-                      icon={faLongArrowRight}
-                      className="mr-4 text-slate-500"
-                    />
+                  <button
+                  onClick={handleLogout}
+                  className="btn border-slate-200 normal-case text-slate-600 bg-slate-100 btn-ghost w-full rounded-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                  </svg>
+
                     Logout
                   </button>
                 </div>
