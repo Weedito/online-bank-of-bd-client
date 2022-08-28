@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
+import useAccount from '../../../Components/Components.Nahid/Hooks/useAccount';
 
 const SmeLoan = () => {
   const [user] = useAuthState(auth);
@@ -13,6 +14,22 @@ const SmeLoan = () => {
   const [payment_TypeIV, setPayment_TypeIV] = useState();
   const [loan_periodIV, setLoan_periodIV] = useState();
   const navigate = useNavigate()
+  const { myAccount } = useAccount();
+  const frstacc = myAccount && myAccount[0]?.AccNo;
+  const [selectAcc, setSelectAcc] = useState(frstacc);
+
+  const handleSelect = (e) => {
+    const acc = e.target.value;
+    setSelectAcc(acc);
+  }
+
+  const account = myAccount?.filter(acc => acc?.role === 'approved');
+  const dwlAcc = account && account?.length > 1;
+
+
+  console.log(selectAcc)
+
+
 
   useEffect(() => {
     const url = `http://localhost:5000/smeBanking/${loanId}`
@@ -45,6 +62,7 @@ const SmeLoan = () => {
     setLoan_periodIV(Loan_period);
 
 
+
     const compoundingYear = parseInt(loanAmount) * parseInt(interestRate);
     const interestPercent = compoundingYear / 100;
     const sum = parseInt(loanAmount) + interestPercent;
@@ -73,6 +91,7 @@ const SmeLoan = () => {
       calculateLoan: calculator,
       userEmail: user.email,
       userNmae: user.displayName,
+      accountNo: selectAcc,
       phone: e.target.phone.value,
       address: e.target.address.value,
 
@@ -202,6 +221,25 @@ const SmeLoan = () => {
               </div>
 
 
+
+
+              <div className="text-gray-700 flex items-center justify-center gap-2 font-semibold">
+                <h3 className=" font-semibold">Select Your Account</h3>
+                <div className="">
+
+                  <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md md:text-xl">
+                    {
+                      account?.map(account => <option >{account?.AccNo}</option>)
+                    }
+                  </select>
+                </div>
+              </div>
+
+
+
+
+
+
               <div className="form-control w-full max-w-xs">
                 <label className="label">
                   <span className="label-text">please type your Phone number</span>
@@ -218,7 +256,7 @@ const SmeLoan = () => {
                 <textarea name='address' className="textarea resize-none textarea-bordered h-18" placeholder="Address" required></textarea>
               </div>
 
-              <input type="submit" value="Apply Loan" disabled={!calculator} className="btn btn-primary w-full max-w-xs" />
+              <input type="submit" value="Apply Loan" disabled={!calculator || !selectAcc} className="btn btn-primary w-full max-w-xs" />
 
             </form>
 
