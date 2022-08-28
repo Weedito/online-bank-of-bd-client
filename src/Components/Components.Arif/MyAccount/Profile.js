@@ -156,7 +156,7 @@ const Profile = () => {
               />
             </figure>
             <div class="card-body">
-              <h2 class="font-bold text-2xl text-center">{profile?.displayName? `${profile?.displayName}`:`Your Name`}</h2>
+              <h2 class="font-bold text-2xl text-center">{profile?.displayName? `${profile?.displayName}`:user?.displayName}</h2>
               <p className="text-green-500 text-center">{admin? "Admin":"User"}</p>
               <div className="hr text-black py-2">
                 <hr />
