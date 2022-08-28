@@ -41,7 +41,7 @@ const Profile = () => {
         setProfile(data)
       }
     })
-  },[email])
+  },[email,btnSpinner])
 
   if(loading ||adminLoading){
     <Loading/>
@@ -100,7 +100,6 @@ const Profile = () => {
               return res.json()
             })
             .then(inserted => {
-              console.log(inserted);
               if (inserted) {
                   toast.success("Updated Successfully")
                   reset();
@@ -111,7 +110,6 @@ const Profile = () => {
               }
             })
      }
-     console.log(profile);
   return (
     <div className="myAccount">
       <div className="header-bg"></div>
@@ -126,64 +124,68 @@ const Profile = () => {
               />
             </figure>
             <div class="card-body">
-              <h2 class="font-bold text-2xl text-center">{profile?.displayName}</h2>
+              <h2 class="font-bold text-2xl text-center">{profile? `${profile?.displayName}`:`Your Name`}</h2>
               <p className="text-green-500 text-center">{admin? "Admin":"User"}</p>
               <div className="hr text-black py-2">
                 <hr />
               </div>
+              {
+                !profile? <p className="text-xl text-center">Please Update Your Profile</p>:
+                
               <div className="account-details">
-                <p className="account-id">
-                  <div className="text-left">User ID:</div>
-                  <div className="text-right -mt-5 text-slate-400">
-                  {profile?._id}
-                  </div>
-                </p>
-                <p className="accountOpening-date my-6">
-                  <div className="text-left">Joined:</div>
-                  <div className="text-right -mt-5 text-slate-400">
-                  {profile?.joined}
-                  </div>
-                </p>
-                <p className="accountOpening-date my-6">
-                  <div className="text-left">Email:</div>
-                  <div className="text-right -mt-5 text-slate-400">
-                  {profile?.email}
-                  </div>
-                </p>
-                <p className="accountOpening-date my-6">
-                  <div className="text-left">Gender:</div>
-                  <div className="text-right -mt-5 text-slate-400">
-                  {profile?.gender}
-                  </div>
-                </p>
-                <p className="accountOpening-date my-6">
-                  <div className="text-left">Date of Birth:</div>
-                  <div className="text-right -mt-5 text-slate-400">
-                  {profile?.birthday}
-                  </div>
-                </p>
-                <p className="accountOpening-date my-6">
-                  <div className="text-left">Phone:</div>
-                  <div className="text-right -mt-5 text-slate-400">
-                  {profile?.phone}
-                  </div>
-                </p>
-                <p className="accountOpening-date my-6">
-                  <div className="text-left">Confirm Status:</div>
-                  <div className="text-right -mt-5 text-slate-400">80%</div>
-                </p>
-                <div className="logout-btn text-center">
-                  <button
-                  onClick={handleLogout}
-                  className="btn border-slate-200 normal-case text-slate-600 bg-slate-100 btn-ghost w-full rounded-2xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-                  </svg>
-
-                    Logout
-                  </button>
+              <p className="account-id">
+                <div className="text-left">User ID:</div>
+                <div className="text-right -mt-5 text-slate-400">
+                {profile?._id}
                 </div>
+              </p>
+              <p className="accountOpening-date my-6">
+                <div className="text-left">Joined:</div>
+                <div className="text-right -mt-5 text-slate-400">
+                {profile?.joined}
+                </div>
+              </p>
+              <p className="accountOpening-date my-6">
+                <div className="text-left">Email:</div>
+                <div className="text-right -mt-5 text-slate-400">
+                {profile?.email}
+                </div>
+              </p>
+              <p className="accountOpening-date my-6">
+                <div className="text-left">Gender:</div>
+                <div className="text-right -mt-5 text-slate-400">
+                {profile?.gender}
+                </div>
+              </p>
+              <p className="accountOpening-date my-6">
+                <div className="text-left">Date of Birth:</div>
+                <div className="text-right -mt-5 text-slate-400">
+                {profile?.birthday}
+                </div>
+              </p>
+              <p className="accountOpening-date my-6">
+                <div className="text-left">Phone:</div>
+                <div className="text-right -mt-5 text-slate-400">
+                {profile?.phone}
+                </div>
+              </p>
+              <p className="accountOpening-date my-6">
+                <div className="text-left">Confirm Status:</div>
+                <div className="text-right -mt-5 text-slate-400">80%</div>
+              </p>
+              <div className="logout-btn text-center">
+                <button
+                onClick={handleLogout}
+                className="btn border-slate-200 normal-case text-slate-600 bg-slate-100 btn-ghost w-full rounded-2xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                </svg>
+
+                  Logout
+                </button>
               </div>
+            </div>
+              }
             </div>
           </div>
         </div>
