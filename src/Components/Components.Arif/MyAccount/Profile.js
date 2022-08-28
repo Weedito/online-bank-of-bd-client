@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import UseAdmin from "../../Components.Nahid/Hooks/useAdmin";
 import Avatar from '../../../Assets/Images/blog/undraw_profile_pic_ic5t.png'
+import LoadingAvatar from '../../../Assets/Images/blog/loading (1)5fd5r45.gif'
 const Profile = () => {
   const { register, handleSubmit,reset,watch} = useForm();
   const [user, loading]=useAuthState(auth)
@@ -21,6 +22,7 @@ const Profile = () => {
   const [profile, setProfile]=useState(null)
   const [btnSpinner ,setBtnSpinner ]=useState(false)
   const [admin, adminLoading]=UseAdmin()
+  const [avatarLoading,setAvatarLoading]=useState(false)
 
   const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
   let today = new Date();
@@ -41,7 +43,7 @@ const Profile = () => {
         setProfile(data)
       }
     })
-  },[email,btnSpinner])
+  },[email,btnSpinner,avatarLoading])
 
   if(loading ||adminLoading){
     <Loading/>
@@ -57,7 +59,8 @@ const Profile = () => {
 
     // handle Update Profile
     const handleUploadAvatar = (e)=>{
-      const image = e.target.files[0];
+        setAvatarLoading(true)
+        const image = e.target.files[0];
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imageUrlKey}`;
@@ -68,14 +71,15 @@ const Profile = () => {
             .then(res => {
               if(!res.status===200){
                 toast.error("Your Image Size Larger!")
+                setAvatarLoading(false)
               }
               return res.json()
             })
             .then(result => {
               if(result.data?.url){
-                const url = result?.data?.url
+                const url = result?.data?.url;
                 fetch(`http://localhost:5000/profile/image/${email}`,{
-                  method:"PATCH",
+                  method:"put",
                   headers: {
                     "content-type": "application/json",
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -84,16 +88,19 @@ const Profile = () => {
                 }).then(res=>{
                   if(!res.status===200){
                     toast.error("Image Upload Failed!")
+                    setAvatarLoading(false)
                   }
                   return res.json();
                 }).then(result=>{
-                  console.log(result);
+                  if(result){
+                    setAvatarLoading(false)
+                    toast.success("successfully Update Your Avatar")
+                  }
                 })
 
               }
             })
     }
-    console.log(profile);
     // handle onsubmit function 
     const onSubmit = async (data) => {
       setBtnSpinner(true);
@@ -144,7 +151,7 @@ const Profile = () => {
               <img
                 src={profile?.image? profile?.image:Avatar }
                 alt="Shoes"
-                class="rounded-full w-36 h-36"
+                class="rounded-full w-36 h-36 object-cover"
               />
             </figure>
             <div class="card-body">
@@ -329,11 +336,17 @@ const Profile = () => {
                         <td>
                           <div class="flex items-center lg:space-x-3">
                             <div class="avatar">
-                              <div class="mask mask-squircle w-12 h-12 rounded-full">
-                                <img
-                                  src="https://i.ibb.co/J2bCs3B/Profile.jpg"
+                              {
+                                avatarLoading && 
+                                <span class="loader"></span>
+                              }
+                              <div class="mask mask-squircle w-12 h-12 md:w-16 md:h-16 rounded-full">
+                                {!avatarLoading&&
+                                  <img
+                                  className="w-12 h-12 md:w-16 md:h-16 rounded-full"
+                                  src={profile?.image? profile?.image: Avatar}
                                   alt="Avatar"
-                                />
+                                />}
                               </div>
                             </div>
                             <div>
@@ -357,6 +370,7 @@ const Profile = () => {
                                 type="file" 
                                 name="photoURL"
                                 id="uploadAvatar"
+                                disabled={avatarLoading}
                                 onChange={handleUploadAvatar}
                                 />
                                
