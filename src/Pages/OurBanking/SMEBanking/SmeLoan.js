@@ -27,7 +27,6 @@ const SmeLoan = () => {
   const dwlAcc = account && account?.length > 1;
 
 
-  console.log(selectAcc)
 
 
 
@@ -115,10 +114,6 @@ const SmeLoan = () => {
 
     e.target.reset()
 
-
-
-
-    console.log(applyLoan)
 
   }
 
