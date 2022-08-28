@@ -13,6 +13,7 @@ import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import UseAdmin from "../../Components.Nahid/Hooks/useAdmin";
+import Avatar from '../../../Assets/Images/blog/undraw_profile_pic_ic5t.png'
 const Profile = () => {
   const { register, handleSubmit,reset,watch} = useForm();
   const [user, loading]=useAuthState(auth)
@@ -36,7 +37,6 @@ const Profile = () => {
       return res.json()
     })
     .then(data=>{
-      console.log(data,"profile data");
       if(data){
         setProfile(data)
       }
@@ -55,11 +55,9 @@ const Profile = () => {
   }
 
 
-  // handle form submit function 
     // handle Update Profile
-
-    const handleUploadAvatar = (data)=>{
-      const image = data.photoURL[0];
+    const handleUploadAvatar = (e)=>{
+      const image = e.target.files[0];
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imageUrlKey}`;
@@ -67,9 +65,35 @@ const Profile = () => {
             method: 'POST',
             body: formData
         })
-            .then(res => res.json())
-            .then(result => {})
+            .then(res => {
+              if(!res.status===200){
+                toast.error("Your Image Size Larger!")
+              }
+              return res.json()
+            })
+            .then(result => {
+              if(result.data?.url){
+                const url = result?.data?.url
+                fetch(`http://localhost:5000/profile/image/${email}`,{
+                  method:"PATCH",
+                  headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body:JSON.stringify({url})
+                }).then(res=>{
+                  if(!res.status===200){
+                    toast.error("Image Upload Failed!")
+                  }
+                  return res.json();
+                }).then(result=>{
+                  console.log(result);
+                })
+
+              }
+            })
     }
+    console.log(profile);
     // handle onsubmit function 
     const onSubmit = async (data) => {
       setBtnSpinner(true);
@@ -118,7 +142,7 @@ const Profile = () => {
           <div class="card lg:w-96 w-full bg-base-100 shadow-xl mx-auto">
             <figure class="px-10 pt-10">
               <img
-                src="https://i.ibb.co/J2bCs3B/Profile.jpg"
+                src={profile?.image? profile?.image:Avatar }
                 alt="Shoes"
                 class="rounded-full w-36 h-36"
               />
@@ -321,17 +345,21 @@ const Profile = () => {
                           </div>
                         </td>
                         <th className="mt-1">
+                        {/* upload avatar jsx  */}
                           <label
                           htmlFor="uploadAvatar"
                           className="btn btn-md hover:bg-slate-200 normal-case text-black font-normal rounded-lg bg-white border-inherit border-none flex justify-center items-center">
-                          <p>
-                          Upload new avatar
-                          </p>
-                          <input
-                          class="hidden"
-                          type="file" 
-                          id="uploadAvatar"
-                          />
+                             <p>
+                                  Upload new avatar
+                                </p>
+                                <input
+                                class="hidden"
+                                type="file" 
+                                name="photoURL"
+                                id="uploadAvatar"
+                                onChange={handleUploadAvatar}
+                                />
+                               
                           </label>
                         </th>
                       </div>
