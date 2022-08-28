@@ -23,7 +23,7 @@ const Profile = () => {
   const [btnSpinner ,setBtnSpinner ]=useState(false)
   const [admin, adminLoading]=UseAdmin()
   const [avatarLoading,setAvatarLoading]=useState(false)
-
+  const [profileLoading,setProfileLoading]=useState(true)
   const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
   let today = new Date();
   let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -41,11 +41,12 @@ const Profile = () => {
     .then(data=>{
       if(data){
         setProfile(data)
+        setProfileLoading(false)
       }
     })
   },[email,btnSpinner,avatarLoading])
 
-  if(loading ||adminLoading){
+  if(loading ||adminLoading ||profileLoading){
     <Loading/>
   }
 
@@ -155,7 +156,7 @@ const Profile = () => {
               />
             </figure>
             <div class="card-body">
-              <h2 class="font-bold text-2xl text-center">{profile? `${profile?.displayName}`:`Your Name`}</h2>
+              <h2 class="font-bold text-2xl text-center">{profile?.displayName? `${profile?.displayName}`:`Your Name`}</h2>
               <p className="text-green-500 text-center">{admin? "Admin":"User"}</p>
               <div className="hr text-black py-2">
                 <hr />
@@ -170,36 +171,48 @@ const Profile = () => {
                 {profile?._id}
                 </div>
               </p>
-              <p className="accountOpening-date my-6">
+              {
+                profile?.joined && 
+                <p className="accountOpening-date my-6">
                 <div className="text-left">Joined:</div>
                 <div className="text-right -mt-5 text-slate-400">
                 {profile?.joined}
                 </div>
               </p>
+              }
               <p className="accountOpening-date my-6">
                 <div className="text-left">Email:</div>
                 <div className="text-right -mt-5 text-slate-400">
                 {profile?.email}
                 </div>
               </p>
-              <p className="accountOpening-date my-6">
+              {
+                profile?.gender &&
+                <p className="accountOpening-date my-6">
                 <div className="text-left">Gender:</div>
                 <div className="text-right -mt-5 text-slate-400">
                 {profile?.gender}
                 </div>
               </p>
-              <p className="accountOpening-date my-6">
+              }
+              {
+                profile?.birthday && 
+                <p className="accountOpening-date my-6">
                 <div className="text-left">Date of Birth:</div>
                 <div className="text-right -mt-5 text-slate-400">
                 {profile?.birthday}
                 </div>
               </p>
-              <p className="accountOpening-date my-6">
+              }
+              {
+                profile?.phone &&
+                <p className="accountOpening-date my-6">
                 <div className="text-left">Phone:</div>
                 <div className="text-right -mt-5 text-slate-400">
                 {profile?.phone}
                 </div>
               </p>
+              }
               <p className="accountOpening-date my-6">
                 <div className="text-left">Confirm Status:</div>
                 <div className="text-right -mt-5 text-slate-400">80%</div>
@@ -381,7 +394,7 @@ const Profile = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                           {/* name field  */}
                           <div className="fullNameField lg:flex gap-8">
-                            <div className="w-full mt-5 pr-5">
+                            <div className="w-full mt-5 lg:pr-5 pr-0">
                               <label>First Name</label>
                               <input
                                 type="text"
@@ -390,7 +403,7 @@ const Profile = () => {
                                 className="input w-full bg-indigo-50 border-slate-300"
                               />
                             </div>
-                            <div className="w-full mt-5 pr-5">
+                            <div className="w-full mt-5 pr-0">
                               <label>Last Name</label>
                               <input
                                 type="text"
@@ -402,7 +415,7 @@ const Profile = () => {
                           </div>
                           {/* Email field */}
                           <div className="emailField lg:flex gap-8">
-                          <div className="w-full mt-5 pr-5">
+                          <div className="w-full mt-5 lg:pr-5 pr-0">
                               <label>Email</label>
                               <input
                                 type="email"
@@ -412,16 +425,18 @@ const Profile = () => {
                                 className="input w-full bg-indigo-50 border-slate-300"
                               />
                             </div>
-                            <button className="input text-left mt-10 w-full ml-5 border-indigo-700 bg-indigo-50  text-indigo-700">
-                              <FontAwesomeIcon
-                                icon={faStopwatch}
-                                className="mr-3"
-                              />
-                              E-mail confirmation in pending
-                            </button>
+                           <div className="mr-5 lg:mr-0 w-full">
+                            <button className="input text-left mt-10 w-full   border-indigo-700 bg-indigo-50  text-indigo-700">
+                                <FontAwesomeIcon
+                                  icon={faStopwatch}
+                                  className="mr-3"
+                                />
+                                E-mail confirmation in pending
+                              </button>
                           </div>
+                           </div>
                           <div className="phoneNumberField lg:flex gap-8">
-                          <div className="w-full mt-5 pr-5">
+                          <div className="w-full mt-5 lg:pr-5 pr-0">
                               <label>Phone Number</label>
                               <input
                                 type="number"
@@ -430,16 +445,18 @@ const Profile = () => {
                                 className="input w-full bg-indigo-50 border-slate-300"
                               />
                             </div>
-                            <button className="input text-left mt-10 w-full ml-5 border-green-500 bg-indigo-50  text-green-500">
-                              <FontAwesomeIcon
-                                icon={faCheckDouble}
-                                className="mr-3"
-                              />
-                              Phone number confirm
-                            </button>
+                           <div className="mr-5 lg:mr-0 w-full">
+                            <button className="input text-left mt-10 w-full  border-green-500 bg-indigo-50  text-green-500">
+                                <FontAwesomeIcon
+                                  icon={faCheckDouble}
+                                  className="mr-3"
+                                />
+                                Phone number confirm
+                              </button>
+                           </div>
                           </div>
                           <div className="idConfirmation lg:flex gap-8">
-                          <div className="w-full mt-5 pr-5">
+                          <div className="w-full mt-5 lg:pr-5 pr-0">
                               <label>Date of Birth </label>
                               <input
                                 type="date"
