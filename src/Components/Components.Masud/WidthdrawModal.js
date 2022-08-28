@@ -1,8 +1,13 @@
 import React, { useRef } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
+import useMainAccount from '../Components.Nahid/Hooks/useMainAccount';
 
 const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
-    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = withdraw;
+    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage, actype } = withdraw;
+    const {mainAcc, refetch} = useMainAccount();
+    const [interest, setInterest] = useState();
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     const timeAMPM = (date) => {
@@ -17,9 +22,9 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
       }
       
       const time = timeAMPM(today);
+      const inputBalRef = useRef('');
 
 
-    const inputBalRef = useRef('');
 
     const hadleWithdraw = () => {
 
@@ -27,6 +32,19 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
         const depositBalance = parseFloat(balance - inputBalance);
         const updateBalance = { depositBalance };
         const image = ahimage || ahcpimage || ahupimage;
+
+        
+        if(actype === 'Business Account'){
+            setInterest(inputBalance*5/100);
+        }else if(actype === 'Current Account'){
+            setInterest(inputBalance*3/100);
+        }else if(actype === 'Savings Account'){
+            setInterest(inputBalance*2/100);
+        }else if(actype === 'Sohoj Account'){
+            setInterest(inputBalance*1/100);
+        }else{
+            setInterest(inputBalance*0/100);
+        }
 
 
 
@@ -45,6 +63,8 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
                 inputBalRef.current.value = 0;
                 setRefresh(!refresh)
             })
+
+            
 
 
         // withdraw Statement Creator
@@ -74,6 +94,8 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
                 console.log(data)
             })
     }
+
+    console.log(mainAcc?.balance);
 
     return (
         <div>

@@ -20,8 +20,9 @@ const useAccount = () => {
         return <Loading />
     }
 
-
     return {myAccount, isLoading, error, setRefreshAccount,refreshAccount};
+
+
 };
 
 export default useAccount;

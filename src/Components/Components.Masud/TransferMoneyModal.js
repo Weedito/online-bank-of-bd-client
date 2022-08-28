@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import useMainAccount from '../Components.Nahid/Hooks/useMainAccount';
 
 
 const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }) => {
@@ -12,6 +13,8 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
     const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
+    const [interest, setInterest] = useState();
+    const {mainAcc, refetch} = useMainAccount();
     const image = ahimage || ahcpimage || ahupimage;
 
     console.log(transferMoney);
