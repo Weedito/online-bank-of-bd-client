@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import useMainAccount from '../Components.Nahid/Hooks/useMainAccount';
 
 const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage, actype } = withdraw;
     const { mainAcc, refetch } = useMainAccount();
+    const [count, setCount] = useState();
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     const timeAMPM = (date) => {
@@ -20,6 +21,16 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
 
     const time = timeAMPM(today);
     const inputBalRef = useRef('');
+
+
+
+    useEffect(() => {
+        setInterval(() => {
+            setCount("I Love You");
+        }, 1000);
+    }, []);
+
+    console.log(count);
 
     const hadleWithdraw = () => {
         const inputBalance = parseInt(inputBalRef.current.value);
@@ -46,54 +57,64 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
             interest = calc;
         };
 
-
-        const url = `http://localhost:5000/account/${_id}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updateBalance)
-        })
-
-            .then(res => res.json())
-            .then(data => {
-                // toast.success(`${inputBalance} withdrawal successful`)
-                inputBalRef.current.value = '';
-
-
-
-
-                const mainAcBal = mainAcc?.balance;
-                const newMainBal = mainAcBal + interest;
-                // console.log(newMainBal);
-                // console.log(parseFloat(newMainBal));
-
-                const updateBal = { bal: newMainBal };
-
-                // console.log(mainAcc?.balance);
-                // console.log(interest);
-                const mainurl = `http://localhost:5000/mainaccount/${mainAcc?._id}`;
-                fetch(mainurl, {
-                    method: 'PUT',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(updateBal)
-                })
-
-                    .then(res => res.json())
-                    .then(data => {
-                        // toast.success(`${interest} Interest Add Successfull`);
-                        toast.success(`${inputBalance} Withdrawal Successful !`)
-                        refetch();
-                        // console.log("interest added");
-                    })
-
-
+        if (inputBalRef.current.value === '' ) {
+            return toast.error("Please Input a Valid Amount");
+        } else if (balance < 0 || balance < inputBalance) {
+            return (
+                toast.error("You Dont Have Enough Balance for Withdraw")
+            )
+        } else if (inputBalance < 5) {
+            return (
+                toast.error("You Connot Withdraw Less Than $5")
+            )
+        } else {
+            const url = `http://localhost:5000/account/${_id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(updateBalance)
             })
 
+                .then(res => res.json())
+                .then(data => {
+                    // toast.success(`${inputBalance} withdrawal successful`)
+                    inputBalRef.current.value = '';
 
+
+
+
+                    const mainAcBal = mainAcc?.balance;
+                    const newMainBal = mainAcBal + interest;
+                    // console.log(newMainBal);
+                    // console.log(parseFloat(newMainBal));
+
+                    const updateBal = { bal: newMainBal };
+
+                    // console.log(mainAcc?.balance);
+                    // console.log(interest);
+                    const mainurl = `http://localhost:5000/mainaccount/${mainAcc?._id}`;
+                    fetch(mainurl, {
+                        method: 'PUT',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(updateBal)
+                    })
+
+                        .then(res => res.json())
+                        .then(data => {
+                            // toast.success(`${interest} Interest Add Successfull`);
+                            toast.success(`${inputBalance} Withdrawal Successful !`)
+                            refetch();
+                            // console.log("interest added");
+                        })
+
+
+                })
+
+        }
 
 
         // withdraw Statement Creator
