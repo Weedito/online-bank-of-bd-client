@@ -1,12 +1,9 @@
 import {
   faCheckDouble,
-  faLongArrowRight,
   faStopwatch,
-  faWarning,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import InputField from "./InputField/InputField";
+import React, { useEffect, useState } from "react";
 import "./MyAccount.css";
 import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -14,15 +11,35 @@ import auth from "../../../firebase.init";
 import Loading from "../../Components.Nahid/Loading";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from 'react-toastify';
 const Profile = () => {
-  const { register, handleSubmit,reset,watch,formState: { errors } } = useForm();
+  const { register, handleSubmit,reset,watch} = useForm();
   const [user, loading]=useAuthState(auth)
   const navigate =useNavigate()
+  const [profile, setProfile]=useState(null)
 
+  const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
   if(loading){
     <Loading/>
   }
+  
+  useEffect(()=>{
+    const email = user?.email
+    fetch(`http://localhost:5000/profile/${email}`)
+    .then(res=>{
+      if(res.status ===200){
+        return res.json()
+      }else{
+        toast.error("Your Profile Not Found")
+      }
+    })
+    .then(data=>{
+      console.log(data,"profile data");
+      if(data){
+        setProfile(data)
+      }
+    })
+  },[user])
 
   // handle logout function 
   const handleLogout=()=>{
@@ -31,9 +48,45 @@ const Profile = () => {
     navigate("/signin")
   }
 
-  const onSubmit=(data)=>{
-    console.log(data);
-  }
+
+  // handle form submit function 
+    // handle Update Profile
+
+    const handleUploadAvatar = (data)=>{
+      const image = data.photoURL[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageUrlKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {})
+    }
+
+    const onSubmit = async (data) => {
+        const email = data.email;
+                    const profile = {
+                        displayName: data.displayName,
+                        email: data.email,
+                        phone: data.phone,
+                    }
+
+                    // send to database
+                    fetch(`http://localhost:5000/profile/${email}`, {
+                        method: 'PUT',
+                        headers: {
+                            "content-type": "application/json",
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(profile)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            
+                        })
+          }
   return (
     <div className="myAccount">
       <div className="header-bg"></div>
@@ -217,9 +270,18 @@ const Profile = () => {
                           </div>
                         </td>
                         <th className="mt-1">
-                          <button class="btn btn-md hover:bg-slate-200 normal-case text-black font-normal rounded-lg bg-white border-inherit border-none">
-                            Upload new avatar
-                          </button>
+                          <label
+                          htmlFor="uploadAvatar"
+                          className="btn btn-md hover:bg-slate-200 normal-case text-black font-normal rounded-lg bg-white border-inherit border-none flex justify-center items-center">
+                          <p>
+                          Upload new avatar
+                          </p>
+                          <input
+                          class="hidden"
+                          type="file" 
+                          id="uploadAvatar"
+                          />
+                          </label>
                         </th>
                       </div>
                       <div className="infoUpdate mt-10">
