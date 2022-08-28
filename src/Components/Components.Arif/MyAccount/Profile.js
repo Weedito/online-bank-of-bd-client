@@ -12,19 +12,19 @@ import Loading from "../../Components.Nahid/Loading";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import UseAdmin from "../../Components.Nahid/Hooks/useAdmin";
 const Profile = () => {
   const { register, handleSubmit,reset,watch} = useForm();
   const [user, loading]=useAuthState(auth)
   const navigate =useNavigate()
   const [profile, setProfile]=useState(null)
   const [btnSpinner ,setBtnSpinner ]=useState(false)
+  const [admin, adminLoading]=UseAdmin()
 
   const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
   let today = new Date();
   let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-  if(loading){
-    <Loading/>
-  }
+ 
   
   const email = user?.email
   useEffect(()=>{
@@ -42,6 +42,10 @@ const Profile = () => {
       }
     })
   },[email])
+
+  if(loading ||adminLoading){
+    <Loading/>
+  }
 
   // handle logout function 
   const handleLogout=()=>{
@@ -122,22 +126,46 @@ const Profile = () => {
               />
             </figure>
             <div class="card-body">
-              <h2 class="font-bold text-2xl text-center">Luchiya</h2>
-              <p className="text-green-500 text-center">Active</p>
+              <h2 class="font-bold text-2xl text-center">{profile?.displayName}</h2>
+              <p className="text-green-500 text-center">{admin? "Admin":"User"}</p>
               <div className="hr text-black py-2">
                 <hr />
               </div>
               <div className="account-details">
                 <p className="account-id">
-                  <div className="text-left">Account ID:</div>
+                  <div className="text-left">User ID:</div>
                   <div className="text-right -mt-5 text-slate-400">
-                    Rex49484
+                  {profile?._id}
                   </div>
                 </p>
                 <p className="accountOpening-date my-6">
                   <div className="text-left">Joined:</div>
                   <div className="text-right -mt-5 text-slate-400">
-                    Aug 25,2021
+                  {profile?.joined}
+                  </div>
+                </p>
+                <p className="accountOpening-date my-6">
+                  <div className="text-left">Email:</div>
+                  <div className="text-right -mt-5 text-slate-400">
+                  {profile?.email}
+                  </div>
+                </p>
+                <p className="accountOpening-date my-6">
+                  <div className="text-left">Gender:</div>
+                  <div className="text-right -mt-5 text-slate-400">
+                  {profile?.gender}
+                  </div>
+                </p>
+                <p className="accountOpening-date my-6">
+                  <div className="text-left">Date of Birth:</div>
+                  <div className="text-right -mt-5 text-slate-400">
+                  {profile?.birthday}
+                  </div>
+                </p>
+                <p className="accountOpening-date my-6">
+                  <div className="text-left">Phone:</div>
+                  <div className="text-right -mt-5 text-slate-400">
+                  {profile?.phone}
                   </div>
                 </p>
                 <p className="accountOpening-date my-6">
