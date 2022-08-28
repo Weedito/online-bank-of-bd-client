@@ -46,7 +46,7 @@ const Authentication = () => {
                     <div class="dropdown dropdown-end">
                         <div className="flex w-44 border border-x-primary mx-auto rounded px-5 py-1 items-center justify-between ">
                             <div className="">
-                                <h3 className="text-primary">{user?.displayName.slice(0, 10)}</h3>
+                                <h3 className="text-primary">{user?.displayName?.slice(0, 10)}</h3>
                             </div>
                             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                                 <div class="w-10 rounded-full">

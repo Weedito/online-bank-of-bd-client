@@ -6,6 +6,7 @@ import DepositModal from '../../../../Components/Components.Masud/DepositModal';
 import TransferMoneyModal from '../../../../Components/Components.Masud/TransferMoneyModal';
 import WidthdrawModal from '../../../../Components/Components.Masud/WidthdrawModal';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
+// import useMainAccount from '../../../../Components/Components.Nahid/Hooks/useMainAccount';
 
 
 const MyAccounts = () => {
@@ -15,11 +16,14 @@ const MyAccounts = () => {
     const [transferMoney, setTransferMoney] = useState(null);
     const { myAccount,setRefreshAccount,refreshAccount } = useAccount();
     const navigate = useNavigate();
+    // const {mainAcc} = useMainAccount();
 
     const account = myAccount?.filter(acc => acc?.role === 'approved');
 
+    // console.log(mainAcc);
     return (
         <div className="">
+            
             <div className="py-7">
                 <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
                     My <span className="text-green-700">Accounts</span>

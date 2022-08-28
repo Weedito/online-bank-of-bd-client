@@ -369,15 +369,16 @@ export const UserSidebarData = [
 
 
 export const allCountry = [
-    {country:'Bangladesh'},
-    {country:'India'},
-    {country:'USA'},
-    {country:'Saudi Arabia'},
-    {country:'Nepal'},
-    {country:'Mizoram'},
-    {country:'Uganda'},
-    {country:'Qater'},
-    {country:'South Africa'},
-    {country:'Lebanon'},
+    { country: 'Bangladesh' },
+    { country: 'India' },
+    { country: 'USA' },
+    { country: 'Saudi Arabia' },
+    { country: 'Nepal' },
+    { country: 'Mizoram' },
+    { country: 'Uganda' },
+    { country: 'Qater' },
+    { country: 'South Africa' },
+    { country: 'Lebanon' },
 ]
+
 
