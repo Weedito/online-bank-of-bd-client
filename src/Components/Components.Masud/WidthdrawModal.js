@@ -1,13 +1,10 @@
 import React, { useRef } from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { toast } from 'react-toastify';
 import useMainAccount from '../Components.Nahid/Hooks/useMainAccount';
 
 const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage, actype } = withdraw;
     const { mainAcc, refetch } = useMainAccount();
-    const [interest, setInterest] = useState();
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     const timeAMPM = (date) => {
@@ -24,30 +21,30 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const time = timeAMPM(today);
     const inputBalRef = useRef('');
 
-
-
     const hadleWithdraw = () => {
-
-        const inputBalance = parseFloat(inputBalRef.current.value);
+        const inputBalance = parseInt(inputBalRef.current.value);
         const depositBalance = parseFloat(balance - inputBalance);
         const updateBalance = { depositBalance };
         const image = ahimage || ahcpimage || ahupimage;
 
+        let interest;
 
-        if (actype === 'Business Account') {
-            setInterest(inputBalance * 5 / 100);
-        } else if (actype === 'Current Account') {
-            setInterest(inputBalance * 3 / 100);
-        } else if (actype === 'Savings Account') {
-            setInterest(inputBalance * 2 / 100);
-        } else if (actype === 'Sohoj Account') {
-            setInterest(inputBalance * 1 / 100);
+        if (actype && actype === 'Business Account') {
+            const calc = inputBalance * 5 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Current Account') {
+            const calc = inputBalance * 3 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Savings Account') {
+            const calc = inputBalance * 2 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Sohoj Account') {
+            const calc = inputBalance * 1 / 100;
+            interest = calc;
         } else {
-            setInterest(inputBalance * 0 / 100);
-        }
-
-        console.log(interest);
-
+            const calc = inputBalance * 0 / 100;
+            interest = calc;
+        };
 
 
         const url = `http://localhost:5000/account/${_id}`;
@@ -61,14 +58,22 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
 
             .then(res => res.json())
             .then(data => {
-                toast.success(`${inputBalance} withdrawal successful`)
-                inputBalRef.current.value = 0;
+                // toast.success(`${inputBalance} withdrawal successful`)
+                inputBalRef.current.value = '';
 
-                const updateBal = mainAcc?.balance + interest;
 
-                console.log(mainAcc?.balance );
-                console.log(interest);
-                const mainurl = `http://localhost:5000/mainaccount/${mainAcc?.AccNo}`;
+
+
+                const mainAcBal = mainAcc?.balance;
+                const newMainBal = mainAcBal + interest;
+                // console.log(newMainBal);
+                // console.log(parseFloat(newMainBal));
+
+                const updateBal = { bal: newMainBal };
+
+                // console.log(mainAcc?.balance);
+                // console.log(interest);
+                const mainurl = `http://localhost:5000/mainaccount/${mainAcc?._id}`;
                 fetch(mainurl, {
                     method: 'PUT',
                     headers: {
@@ -76,14 +81,17 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
                     },
                     body: JSON.stringify(updateBal)
                 })
-        
+
                     .then(res => res.json())
                     .then(data => {
-                        toast.success(`${updateBal} Interest Add Successfull`);
+                        // toast.success(`${interest} Interest Add Successfull`);
+                        toast.success(`${inputBalance} Withdrawal Successful !`)
+                        refetch();
+                        // console.log("interest added");
                     })
-        
-            })
 
+
+            })
 
 
 
@@ -116,17 +124,17 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
             })
     }
 
-    console.log(mainAcc?.balance);
+    // console.log(mainAcc?.balance);
 
     return (
         <div>
+
             <input type="checkbox" id="withdraw-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle text-center">
                 <div className="modal-box">
                     <label htmlFor="withdraw-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     <h1 className='mb-4 badge badge-info text-2xl badge-lg p-4'>Withdraw Money</h1>
-
                     <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>
                     <p className='my-4'>Balance: {balance}</p>

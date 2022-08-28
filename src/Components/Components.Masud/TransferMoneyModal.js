@@ -10,10 +10,9 @@ import useMainAccount from '../Components.Nahid/Hooks/useMainAccount';
 
 const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }) => {
 
-    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = transferMoney;
+    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage, actype } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
-    const [interest, setInterest] = useState();
     const {mainAcc, refetch} = useMainAccount();
     const image = ahimage || ahcpimage || ahupimage;
 
@@ -68,6 +67,29 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
         // Sender
         const depositBalance = balance - parseFloat(transBalance);
         const updateBalance = { depositBalance };
+
+        
+        let interest;
+
+        if (actype && actype === 'Business Account') {
+            const calc = transBalance * 7 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Current Account') {
+            const calc = transBalance * 5 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Savings Account') {
+            const calc = transBalance * 3 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Sohoj Account') {
+            const calc = transBalance * 2 / 100;
+            interest = calc;
+        } else {
+            const calc = transBalance * 0 / 100;
+            interest = calc;
+        }
+
+        console.log(interest);
+
 
 
         if (AccName !== transName && AccNumber !== transAccNo) {
@@ -125,6 +147,35 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
                 .then(data => {
                     toast.success("Transfer Money Successfully")
                     reset();
+
+                    
+                const mainAcBal = mainAcc?.balance;
+                const newMainBal = mainAcBal + interest;
+                // console.log(newMainBal);
+                // console.log(parseFloat(newMainBal));
+
+                const updateBal = { bal: newMainBal };
+
+                // console.log(mainAcc?.balance);
+                // console.log(interest);
+                const mainurl = `http://localhost:5000/mainaccount/${mainAcc?._id}`;
+                fetch(mainurl, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(updateBal)
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        // toast.success(`${interest} Interest Add Successfull`);
+                        toast.success(`${transBalance} Transfer Successful !`)
+                        refetch();
+                        // console.log("interest added");
+                    })
+
+                    
                 })
 
             // Post Data for Statemant

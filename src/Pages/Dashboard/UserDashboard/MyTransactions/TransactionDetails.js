@@ -51,7 +51,7 @@ const TransactionDetails = ({trc}) => {
         <td>
           <b>{trc?.date}</b>
           <br/>
-          <span class="badge badge-ghost badge-sm">{trc?.date}</span>
+          <span class="badge badge-ghost badge-sm">{trc?.time}</span>
         </td>
         <td>
         <b>$ {(trc?.deposit > 0 && trc?.withdraw <= 0) ? trc?.deposit : null || (trc?.withdraw > 0 && trc?.deposit <= 0) ? trc?.withdraw : null }</b>
