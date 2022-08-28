@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import UseAdmin from "../../Components.Nahid/Hooks/useAdmin";
 import Avatar from '../../../Assets/Images/blog/undraw_profile_pic_ic5t.png'
-import LoadingAvatar from '../../../Assets/Images/blog/loading (1)5fd5r45.gif'
 const Profile = () => {
   const { register, handleSubmit,reset,watch} = useForm();
   const [user, loading]=useAuthState(auth)
@@ -27,8 +26,6 @@ const Profile = () => {
   const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
   let today = new Date();
   let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
- 
-  
   const email = user?.email
   useEffect(()=>{
     fetch(`http://localhost:5000/profile/${email}`)
@@ -56,8 +53,6 @@ const Profile = () => {
     localStorage.removeItem("accessToken")
     navigate("/signin")
   }
-
-
     // handle Update Profile
     const handleUploadAvatar = (e)=>{
         setAvatarLoading(true)
@@ -225,7 +220,7 @@ const Profile = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                 </svg>
 
-                  Logout
+                  SignOut
                 </button>
               </div>
             </div>
