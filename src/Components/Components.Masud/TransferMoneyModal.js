@@ -76,7 +76,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
             )
         } else if (balance < 0 || balance < transBalance) {
             return (
-                toast.error("You Dont Have Enoung Balance for Transfer")
+                toast.error("You Dont Have Enough Balance for Transfer")
             )
         } else if (transBalance < 20) {
             return (
