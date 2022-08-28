@@ -17,21 +17,23 @@ const Profile = () => {
   const [user, loading]=useAuthState(auth)
   const navigate =useNavigate()
   const [profile, setProfile]=useState(null)
+  const [btnSpinner ,setBtnSpinner ]=useState(false)
 
   const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
+  let today = new Date();
+  let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   if(loading){
     <Loading/>
   }
   
+  const email = user?.email
   useEffect(()=>{
-    const email = user?.email
     fetch(`http://localhost:5000/profile/${email}`)
     .then(res=>{
-      if(res.status ===200){
-        return res.json()
-      }else{
-        toast.error("Your Profile Not Found")
+      if(!res.status===200){
+        toast.error("Profile Not Found!")
       }
+      return res.json()
     })
     .then(data=>{
       console.log(data,"profile data");
@@ -39,7 +41,7 @@ const Profile = () => {
         setProfile(data)
       }
     })
-  },[user])
+  },[email])
 
   // handle logout function 
   const handleLogout=()=>{
@@ -64,29 +66,48 @@ const Profile = () => {
             .then(res => res.json())
             .then(result => {})
     }
-
+    // handle onsubmit function 
     const onSubmit = async (data) => {
-        const email = data.email;
-                    const profile = {
-                        displayName: data.displayName,
-                        email: data.email,
-                        phone: data.phone,
-                    }
-
-                    // send to database
-                    fetch(`http://localhost:5000/profile/${email}`, {
-                        method: 'PUT',
-                        headers: {
-                            "content-type": "application/json",
-                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                        },
-                        body: JSON.stringify(profile)
-                    })
-                        .then(res => res.json())
-                        .then(inserted => {
-                            
-                        })
-          }
+      setBtnSpinner(true);
+        const displayName = data.firstName + " "+ data.lastName;
+        const profile = {
+            displayName: displayName,
+            email: data.email,
+            phone: data.phone,
+            birthday:data.birthday,
+            gender: data.gender,
+            address: data.address,
+            joined:date
+        }
+        // send to database
+        fetch(`http://localhost:5000/profile/${email}`, {
+            method: 'PUT',
+            headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(profile)
+        })
+            .then(res => {
+              if(!res.status===200){
+                toast.error("update Failed  server error")
+                setBtnSpinner(false)
+              }
+              return res.json()
+            })
+            .then(inserted => {
+              console.log(inserted);
+              if (inserted) {
+                  toast.success("Updated Successfully")
+                  reset();
+                  setBtnSpinner(false)
+              } else {
+                  toast.error("Faild to Update")
+                  setBtnSpinner(false)
+              }
+            })
+     }
+     console.log(profile);
   return (
     <div className="myAccount">
       <div className="header-bg"></div>
@@ -350,7 +371,7 @@ const Profile = () => {
                               <label>Date of Birth </label>
                               <input
                                 type="date"
-                                {...register("accountNumber", { required: true, })}
+                                {...register("birthday", { required: true, })}
                                 placeholder="359485203928"
                                 className="input w-full bg-indigo-50 border-slate-300"
                               />
@@ -378,8 +399,13 @@ const Profile = () => {
                           </div>
 
                           <div className="submit mt-10 ">
-                            <button className="btn normal-case border-slate-200 text-white bg-indigo-700 px-14 btn-ghost rounded-2xl hover:text-black hover:bg-indigo-400">
-                              <input type="submit" value="Update Profile" />
+                            <button
+                            type="submit"
+                            disabled={btnSpinner}
+                            className="btn normal-case border-slate-200 text-white bg-indigo-700 px-14 btn-ghost rounded-2xl hover:text-black hover:bg-indigo-400">
+                            {
+                              btnSpinner? "Loading...": "Update Profile"
+                            }
                             </button>
                           </div>
                         </form>
