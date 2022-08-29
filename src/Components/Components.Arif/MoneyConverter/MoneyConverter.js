@@ -12,6 +12,7 @@ import { useCountries } from "./useCountries";
 const MoneyConverter = () => {
   const countries = useCountries();
 
+
   const [leftCurrency, setLeftCurrency] = useState(countries[0] ?? "");
   const [rightCurrency, setRightCurrency] = useState(countries[0] ?? "");
 
@@ -101,7 +102,7 @@ const MoneyConverter = () => {
           {/* ----------------------- */}
           <div className="flex justify-between">
             <div className="leftBtn ml-2 mt-2">
-              {["BTC", "AED", "GBP", "BDT"].map((currency, i) => {
+              {["BTC", "AED", "GBP", "USD"].map((currency, i) => {
                 return (
                   <button
                     key={i}
@@ -113,8 +114,8 @@ const MoneyConverter = () => {
                 );
               })}
             </div>
-            <div className="leftBtn ml-2 mt-2">
-              {["USD", "BDT", "GBP", "ETH"].map((currency, i) => {
+            <div className="leftBtn mx-auto ml-28 mt-2">
+              {["BDT", "CLP", "GBP", "ETH"].map((currency, i) => {
                 return (
                   <button
                     key={i}
