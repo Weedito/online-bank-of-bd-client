@@ -48,7 +48,7 @@ const MyAccounts = () => {
                                         <h5 className="text-gray-900 text-xl font-semibold mb-2">Name: <span className="text-green-700">{account?.name}</span></h5>
                                         <p className="text-gray-700 text-xs md:text-base font-semibold mb-4"><span className=" text-xs md:text-base px-3 py-1 rounded-full bg-rose-700 text-white">{account?.actype}</span></p>
                                         <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Acc No: {account?.AccNo}</p>
-                                        <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {account?.balance}</p>
+                                        <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {account?.balance?.toFixed(2)}</p>
                                         <p className="text-gray-600 text-xs">Account Created {account?.OpeningDate}</p>
                                     </div>
                                 </div>

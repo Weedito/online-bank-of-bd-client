@@ -5,7 +5,6 @@ const DepositModal = ({ deposit, refresh, setRefresh }) => {
     const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = deposit;
     const [balance1, setBalance1] = useState(0)
     const inputBalRef = useRef(0);
-    const [error, setError] = useState('');
     const navigate = useNavigate()
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -93,7 +92,6 @@ const DepositModal = ({ deposit, refresh, setRefresh }) => {
                     <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>
                     <p className='my-4'>Balance: {balance}</p>
-                    <p className=' text-primary'>{error}</p>
                     {/* <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" /> */}
                     <input name='balance' onChange={(e) => setBalance1(parseInt(e.target.value))} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
 

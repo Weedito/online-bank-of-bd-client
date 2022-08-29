@@ -33,7 +33,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     console.log(count);
 
     const hadleWithdraw = () => {
-        const inputBalance = parseInt(inputBalRef.current.value);
+        const inputBalance = parseFloat(inputBalRef.current.value);
         const depositBalance = parseFloat(balance - inputBalance);
         const updateBalance = { depositBalance };
         const image = ahimage || ahcpimage || ahupimage;
