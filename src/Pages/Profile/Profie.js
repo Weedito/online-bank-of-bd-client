@@ -10,7 +10,6 @@ const Profile = () => {
     const [profile] = useProfile(user?.email);
     const { register, handleSubmit, reset } = useForm();
     const [admin] = UseAdmin();
-    console.log(user);
 
     const imageUrlKey = 'e738f1d16de6b265746b7f82cc157644';
     // handle Update Profile
