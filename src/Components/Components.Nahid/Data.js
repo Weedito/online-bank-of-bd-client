@@ -341,6 +341,11 @@ export const SidebarData = [
         href: "NoticeBoard",
         icon: faBlog,
     },
+    {
+        title: "Loan Request",
+        href: "loanRequest",
+        icon: faBlog,
+    },
 ];
 
 
