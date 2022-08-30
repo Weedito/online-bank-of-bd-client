@@ -12,6 +12,7 @@ const AllNotice = () => {
     }
     return (
         <div className='min-h-screen  bg-transparent md:my-12  my-6 mx-auto max-w-[1280px] w-full flex  md:flex-row flex-col '>
+            {/* back to dashboard */}
            <div className='relative'>
            <button
            className='absolute top-[5px] left-[5px] shadow-lg rounded-full p-2'
@@ -24,8 +25,6 @@ const AllNotice = () => {
                 </button>
            </div>
             <div  className='noticeSiderbar rounded-md min-h-screen overflow-y-scroll md:w-[40%] w-[100%] p-4 shadow-lg border md:order-1 order-2 mr-0 md:mr-6 '>
-                 {/* back to dashboard */}
-                
                 <h3 className='text-2xl text-center'>Select  Notice</h3>
                 <hr/>
                 {
