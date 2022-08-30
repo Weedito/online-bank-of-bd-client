@@ -1,12 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
-const DepositModal = ({ deposit, refresh,setRefresh }) => {
+const DepositModal = ({ deposit, refresh, setRefresh }) => {
     const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage } = deposit;
-    const[balance1,setBalance1]=useState(0)
+    const [balance1, setBalance1] = useState(0)
     const inputBalRef = useRef(0);
-    const [error, setError] = useState('');
-    const navigate =useNavigate()
+    const navigate = useNavigate()
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     const timeAMPM = (date) => {
@@ -15,12 +14,12 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
         var ampm = hours >= 12 ? 'pm' : 'am';
         hours = hours % 12;
         hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0'+minutes : minutes;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
         var strTime = hours + ':' + minutes + ' ' + ampm;
         return strTime;
-      }
-      
-      const time = timeAMPM(today);    
+    }
+
+    const time = timeAMPM(today);
     //   console.log(deposit, accEmail);
     // const inputb=inputBalRef.current.value;
     // console.log("sfsklfjsfkjf",inputb, deposit, accEmail);
@@ -28,14 +27,16 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
 
         const inputBalance = parseFloat(balance1);
         const depositBalance = parseFloat(balance + inputBalance);
-        const updateBalance = { depositBalance,  name, AccNo, balance};
+        const updateBalance = { depositBalance, name, AccNo, balance };
         const image = ahimage || ahcpimage || ahupimage;
 
-        if (depositBalance < 0) {
-            return setError("Please Input more then 0");
-        }
-
-        else {
+        if (balance1 === '' || balance1 < 0) {
+            return toast.error("Please Input a Valid Amount");
+        } else if (balance1 < 5) {
+            return (
+                toast.error("You Connot Deposit Less Than $5")
+            )
+        } else {
             const url = `http://localhost:5000/account/${_id}`;
             fetch(url, {
                 method: 'PUT',
@@ -63,7 +64,7 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
                 time: time,
                 email: accEmail,
                 name: name,
-                image : image
+                image: image
             }
 
             fetch('http://localhost:5000/statement', {
@@ -91,14 +92,13 @@ const DepositModal = ({ deposit, refresh,setRefresh }) => {
                     <h3 className="font-bold text-lg">{name}</h3>
                     <p className='my-4'>Ac. No: {AccNo}</p>
                     <p className='my-4'>Balance: {balance}</p>
-                    <p className=' text-primary'>{error}</p>
                     {/* <input ref={inputBalRef} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" /> */}
-                    <input name='balance' onChange={(e)=>setBalance1(parseInt(e.target.value))} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
-                    
+                    <input name='balance' onChange={(e) => setBalance1(parseInt(e.target.value))} min={10000} type="number" placeholder="$ amount" className="input input-bordered input-primary w-full max-w-xs" />
+
                     <div className="modal-action flex justify-between">
                         <button
-                        onClick={()=>navigate(`/payment/${_id}:${balance1}`)}
-                        className='btn btn-primary'>Deposit With Card</button>
+                            onClick={() => navigate(`/payment/${_id}:${balance1}`)}
+                            className='btn btn-primary'>Deposit With Card</button>
                         <label htmlFor="deposit-modal" onClick={handleDeposit} className="btn">Deposit</label>
                     </div>
                 </div>

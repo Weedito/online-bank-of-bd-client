@@ -203,7 +203,7 @@ function App() {
 
               {/* Others Routes */}
               <Route path="/webcam" element={<WebcamCapture />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
               <Route path="/pendingacc" element={<PendingAcc />} />
 
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 const AddBlog = ({refresh, setRefresh, setModal}) => {
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit,reset,watch } = useForm();
     const [btnSpinner ,setBtnSpinner]=useState(false)
     const date = new Date().toLocaleDateString()
     const imageAPIKey = 'f2d532c88848782b1dc45cebfdcd0290';
