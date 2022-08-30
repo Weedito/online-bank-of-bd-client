@@ -58,6 +58,7 @@ const SmeLoan = () => {
       interestTotal: "10%",
       loanType: payment_TypeIV,
       loanPeriodYear: loan_periodIV,
+      status: "Pending",
 
       // User Information      
       userEmail: user.email,
@@ -65,6 +66,8 @@ const SmeLoan = () => {
       needToPayForEveryTransaction: calculator,
       phone: e.target.phone.value,
       address: e.target.address.value,
+
+
 
     }
 
@@ -142,7 +145,7 @@ const SmeLoan = () => {
               <input className='m-5 px-5 btn bg-primary text-white' type="submit" value="Calculate" />
               <input className='m-5 px-5 btn text-white bg-red-700' type="reset" value="Reset" />
             </form>
-            <h1 className='text-3xl font-bold mb-10'>Total Amount: {calculator}</h1>
+            <h1 className='text-5xl font-bold mb-10'>Total Amount: {calculator}</h1>
           </div>
 
 
