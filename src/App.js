@@ -84,6 +84,8 @@ function App() {
     }, 3000)
   }, []);
 
+  
+
   useEffect(() => {
     setTheme(JSON.parse(window.localStorage.getItem("theme")));
   }, []);
