@@ -39,7 +39,6 @@ import BlogsDetails from "./Pages/Blogs/BlogsDetails";
 import AllBlogsData from "./Pages/Blogs/AllBlogsData";
 import Overview from "./Pages/Dashboard/UserDashboard/Overview/Overview";
 import MyAccounts from "./Pages/Dashboard/UserDashboard/MyAccounts/MyAccounts";
-import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
 import MyFeedbacks from "./Pages/Dashboard/UserDashboard/MyFeedbacks/MyFeedbacks";
 import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/SingleAccountDetails";
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
@@ -63,7 +62,6 @@ import Pension from "./Pages/OurBanking/RetailBanking/Pension";
 import Savings from "./Pages/OurBanking/RetailBanking/Savings";
 import Priority from "./Pages/OurBanking/RetailBanking/Priority";
 import Monthly from "./Pages/OurBanking/RetailBanking/Monthly";
-import Profile from "./Pages/Profile/Profie";
 import RequireAccount from "./Components/Components.Nahid/RequireAccount";
 import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
 import TermsnConditions from "./Pages/Footer/TermsnConditions";
@@ -73,10 +71,17 @@ import SupportEmails from "./Pages/ContactUs/SupportEmails";
 import PendingAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/PendingAccount/PendingAccounts";
 import NoticeBoard from "./Pages/Dashboard/AdminDashboard/NoticeBoard/NoticeBoard";
 import AllNotice from "./Pages/AllNotice/AllNotice";
+import PendingAcc from "./Pages/Dashboard/UserDashboard/Pending/PendingAcc";
+import AskedQuestions from "./Components/Components.Arif/AskedQuestions/AskedQuestions";
+import MakeAPayment from "./Components/Components.Arif/MakeAPayment/MakeAPayment";
+import RequestPayment from "./Components/Components.Arif/RequestPayment/RequestPayment";
+import Profile from "./Components/Components.Arif/MyAccount/Profile";
+import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
 
 function App() {
   const [theme, setTheme] = useState(false);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -93,6 +98,8 @@ function App() {
     setTheme(!theme);
     window.localStorage.setItem("theme", !theme);
   };
+
+
   return (
     <div data-theme={theme && "my_dark"} className="">
       {
@@ -102,7 +109,7 @@ function App() {
           </div>
           :
           <div className="pt-16">
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts'  && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
 
             {/* <Header /> */}
             <Routes>
@@ -123,35 +130,24 @@ function App() {
               <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
               {/* notice route  */}
-              <Route path="/notice" element={
-                 <RequireAuth>
-                  <RequireDashboard>
-                    <RequireAccount>
-                      <AllNotice/>
-                    </RequireAccount>
-                </RequireDashboard>
-              </RequireAuth>
-              }/>
+              <Route path="/notice" element={<RequireAuth> <RequireDashboard> <RequireAccount> <AllNotice /> </RequireAccount> </RequireDashboard> </RequireAuth>} />
               {/* User Dashboard Routes */}
-              <Route path="/dashboard" element={
-                <RequireAuth>
-                  <RequireDashboard>
-                    <RequireAccount>
-                      <Dashboard />
-                    </RequireAccount>
-                  </RequireDashboard>
-                </RequireAuth>
-              }>
-                <Route index element={<Overview />}></Route>
-                <Route path="overview" element={<Overview />}></Route>
-                <Route path="myaccounts" element={<MyAccounts />}></Route>
-                <Route path="myaccounts/:id" element={<SingleAccountDetails />}></Route>
-                <Route path="mytransactions" element={<MyTransactions />}></Route>
-                <Route path="myfeedbacks" element={<MyFeedbacks />}></Route>
+              <Route path="/dashboard" element={<RequireAuth> <RequireDashboard> <RequireAccount> <Dashboard /> </RequireAccount> </RequireDashboard> </RequireAuth>}>
+                <Route index element={<Overview/>}/>
+                <Route path="overview" element={<Overview/>}/>
+                <Route path="myaccounts" element={<MyAccounts/>}/>
+                <Route path="myaccounts/:id" element={<SingleAccountDetails/>}/>
+                <Route path="mytransactions" element={<MyTransactions/>}/>
+                <Route path="makepayment" element={<MakeAPayment/>} />
+                <Route path="requestpayment" element={<RequestPayment/>}/>
+                <Route path="myfeedbacks" element={<MyFeedbacks/>}/>
+                <Route path="pendingacc" element={<PendingAcc/>}/>
               </Route>
               <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
 
               {/* User Dashboard Routes End*/}
+
+
 
               {/* All blogs root  */}
               <Route path="/blogDetails/:id" element={<BlogsDetails />} />
@@ -209,7 +205,8 @@ function App() {
 
               {/* Others Routes */}
               <Route path="/webcam" element={<WebcamCapture />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+              <Route path="/pendingacc" element={<PendingAcc />} />
 
 
               {/* Authentication Routes End*/}
@@ -220,6 +217,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
 
               {/* Footer elemints Routes start*/}
+              <Route path="/faq" element={<AskedQuestions />} />
               <Route path="/tarms" element={<TermsnConditions />} />
               <Route path="/privacy" element={<PrivecyPolicy />} />
               <Route path="/help" element={<GetHelp />} />

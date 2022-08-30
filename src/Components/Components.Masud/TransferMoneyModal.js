@@ -5,16 +5,18 @@ import { useForm } from "react-hook-form";
 
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import useMainAccount from '../Components.Nahid/Hooks/useMainAccount';
 
 
 const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }) => {
 
-    const { name, AccNo, balance, _id, accEmail } = transferMoney;
+    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage, actype } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
+    const {mainAcc, refetch} = useMainAccount();
+    const image = ahimage || ahcpimage || ahupimage;
 
-
-    console.log(balance);
+    console.log(transferMoney);
 
 
     const handleAccountBlur = (e) => {
@@ -29,6 +31,9 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
     const AccName = transAcc?.name;
     const AccNumber = transAcc?.AccNo;
     const AccEmail = transAcc?.accEmail;
+    const trAcImg = transAcc?.ahimage || transAcc?.ahupimage || transAcc?.ahcpimage ;
+    
+
 
 
     // Reciver info
@@ -41,7 +46,18 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
         let today = new Date();
 
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
+        const timeAMPM = (date) => {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'pm' : 'am';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+          }
+          
+          const time = timeAMPM(today);
 
         // Receiver 
         const transferAmount = previousBalance + parseFloat(transBalance);
@@ -52,6 +68,29 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
         const depositBalance = balance - parseFloat(transBalance);
         const updateBalance = { depositBalance };
 
+        
+        let interest;
+
+        if (actype && actype === 'Business Account') {
+            const calc = transBalance * 7 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Current Account') {
+            const calc = transBalance * 5 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Savings Account') {
+            const calc = transBalance * 3 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Sohoj Account') {
+            const calc = transBalance * 2 / 100;
+            interest = calc;
+        } else {
+            const calc = transBalance * 0 / 100;
+            interest = calc;
+        }
+
+        console.log(interest);
+
+
 
         if (AccName !== transName && AccNumber !== transAccNo) {
             return (
@@ -59,7 +98,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
             )
         } else if (balance < 0 || balance < transBalance) {
             return (
-                toast.error("You Dont Have Enoung Balance for Transfer")
+                toast.error("You Dont Have Enough Balance for Transfer")
             )
         } else if (transBalance < 20) {
             return (
@@ -108,6 +147,35 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
                 .then(data => {
                     toast.success("Transfer Money Successfully")
                     reset();
+
+                    
+                const mainAcBal = mainAcc?.balance;
+                const newMainBal = mainAcBal + interest;
+                // console.log(newMainBal);
+                // console.log(parseFloat(newMainBal));
+
+                const updateBal = { bal: newMainBal };
+
+                // console.log(mainAcc?.balance);
+                // console.log(interest);
+                const mainurl = `http://localhost:5000/mainaccount/${mainAcc?._id}`;
+                fetch(mainurl, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(updateBal)
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        // toast.success(`${interest} Interest Add Successfull`);
+                        toast.success(`${transBalance} Transfer Successful !`)
+                        refetch();
+                        // console.log("interest added");
+                    })
+
+                    
                 })
 
             // Post Data for Statemant
@@ -119,7 +187,10 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
                 withdraw: 0,
                 balance: depositBalance,
                 date: date,
+                time: time,
                 email: accEmail,
+                name: name,
+                image: image
             }
 
             fetch('http://localhost:5000/statement', {
@@ -136,7 +207,6 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
 
             // Receiver data
 
-
             const receiverStatementData = {
                 senderAccount: parseFloat(transAccNo),
                 statement: "Received Money",
@@ -144,7 +214,10 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
                 withdraw: 0,
                 balance: transferAmount,
                 date: date,
+                time: time,
                 email: AccEmail,
+                name: AccName,
+                image: trAcImg
             }
 
 

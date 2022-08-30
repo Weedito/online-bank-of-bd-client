@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
@@ -11,7 +11,22 @@ const Authentication = () => {
     const [user] = useAuthState(auth);
     const [token] = useToken();
     const navigate = useNavigate();
+    const [profile ,setProfile]=useState(null)
 
+    useEffect(()=>{
+        fetch(`http://localhost:5000/profile/${user?.email}`)
+        .then(res=>{
+          if(!res.status===200){
+            toast.error("Profile Not Found!")
+          }
+          return res.json()
+        })
+        .then(data=>{
+          if(data){
+            setProfile(data)
+          }
+        })
+      },[user])
 
     const handleSignOut = async () => {
         await signOut(auth)
@@ -31,11 +46,15 @@ const Authentication = () => {
                     <div class="dropdown dropdown-end">
                         <div className="flex w-44 border border-x-primary mx-auto rounded px-5 py-1 items-center justify-between ">
                             <div className="">
-                                <h3 className="text-primary">{user?.displayName.slice(0, 10)}</h3>
+                                <h3 className="text-primary">{user?.displayName?.slice(0, 10)}</h3>
                             </div>
                             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                                 <div class="w-10 rounded-full">
-                                    {user?.photoURL ? <img src={user?.photoURL} alt='' /> : <img src="https://placeimg.com/80/80/people" alt='' />}
+                                    {
+                                        profile?.image && <img src={profile?.image} alt='img' />
+                                    }
+                                    {!profile?.image &&
+                                    user?.photoURL ? <img src={user?.photoURL} alt='' /> : <img src="https://placeimg.com/80/80/people" alt='' />}
                                 </div>
                             </label>
                         </div>

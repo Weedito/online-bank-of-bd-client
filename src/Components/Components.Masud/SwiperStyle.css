@@ -59,13 +59,13 @@ body {
     color: #eee;
 } */
 
- #app { height: 100% }
+
+
 html,
 body {
   position: relative;
-  height: 100%;
+  background: #eee;
 }
-
 
 .swiper {
   width: 100%;

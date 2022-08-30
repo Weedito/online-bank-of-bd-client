@@ -1,8 +1,9 @@
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
 import Loading from '../../../../Components/Components.Nahid/Loading';
 import TransactionDetails from './TransactionDetails';
-import _ from "lodash";
 
 const MyTransactions = () => {
     const { myAccount, isLoading } = useAccount();
@@ -13,17 +14,13 @@ const MyTransactions = () => {
     const [selectAcc, setSelectAcc] = useState(frstacc);
 
     const trAcc = currentAccount && currentAccount[0];
-    const [paginatedData, set_paginatedData] = useState([]);
-    const [currentPage, set_currentPage] = useState(1);
-
-    const pageSize = 7;
 
     const handleSelect = (e) => {
         const acc = e.target.value;
         setSelectAcc(acc);
     }
 
-    
+
     useEffect(() => {
         const account = myAccount?.filter(ac => ac.AccNo === parseInt(selectAcc));
         setCurrentAccount(account);
@@ -40,124 +37,131 @@ const MyTransactions = () => {
         setMyTransactions(trc);
     }, [transactions, trAcc]);
 
-    /* ----------------------------------------------------------------*/
-    /*                      LOAD ALL TOUR DATA START                   */
-    /* ----------------------------------------------------------------*/
-/*     useEffect(() => {
-        set_paginatedData(_(myTransactions).slice(0).take(pageSize).value(pageSize));
-    }, [myAccount,myTransactions]);
- */
 
     if (isLoading) {
         return <Loading />
     }
 
-
-    /* ----------------------------------------------------------------*/
-    /*                  PAGINATION FUNCTIONALITY START                 */
-    /* ----------------------------------------------------------------*/
-/*     const pageCount = myTransactions && Math.ceil(myTransactions.length / pageSize);
-    if (pageCount === 1) return null;
-    const pages = _.range(1, pageCount + 1);
-
-    const handlePagination = (pageno) => {
-        set_currentPage(pageno);
-        const startIndex = (pageno - 1) * pageSize;
-        const paginateData = _(myTransactions).slice(startIndex).take(pageSize).value();
-        set_paginatedData(paginateData);
-    }; */
-
-    /* ----------------------------------------------------------------*/
-    /*                  PAGINATION FUNCTIONALITY END                   */
-    /* ----------------------------------------------------------------*/
+    const account = myAccount?.filter(acc => acc?.role === 'approved');
+    const dwlAcc = account && account?.length > 1;
 
 
     return (
         <div className=" text-left h-full w-full">
+            <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">Total Transactions: {myTransactions?.length}</p>
 
-            <div className="w-full flex items-center justify-center my-12">
+
+            <div className="w-full flex items-center justify-center my-7">
                 <div className=" shadow rounded py-12 px-8 mb-20">
-                    <div className="text-gray-700 flex py-7 items-center justify-center gap-2 font-semibold text-xl lg:text-3xl">
-                        <h3 className="text-sm md:text-2xl font-semibold pr-2">Select Your Account</h3>
-                        <div className="">
-
-                            <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md md:text-xl">
-                                {
-                                    myAccount?.map(account => <option >{account?.AccNo}</option>)
-                                }
-                            </select>
-                        </div>
-                    </div>
-                    <p className="md:text-3xl text-xl font-bold pb-10 leading-7 text-center text-gray-700">Total Transactions: {myTransactions?.length}</p>
                     <div className="w-full">
-                        <table className="border-collapse w-full bg-slate-200">
-                            <thead>
-                                <tr className='text-center'>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Date</th>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Account Number</th>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Statement</th>
-                                    <th className="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">Transaction</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                {
-                                  myTransactions?.slice().reverse()
-                                    .map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
-                                    // myTransactions?.reverse().map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
-                                }
-
-                            </tbody>
-                        </table>
-{/*                       <div className="">
-                            
-                            <div className="my-8 float-right">
-                                <nav aria-label="Page navigation">
-                                    <ul class="inline-flex space-x-2">
-                                        <li>
-                                            <button class="flex mr-3 items-center justify-center w-10 h-10 text-green-600 transition-colors duration-150 rounded-full focus:shadow-outline ring-1 ring-green-300 bg-green-100 hover:bg-green-500 hover:text-white">
-                                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                        clip-rule="evenodd"
-                                                        fill-rule="evenodd"
-                                                    ></path>
-                                                </svg>
-                                            </button>
-                                        </li>
-                                        {pages.map((number, index) => (
-                                            <li
-                                                key={index}
-                                                onClick={() => handlePagination(number)}
-                                                className="w-10 h-10 flex items-center justify-center text-green-600 transition-colors duration-150 rounded-full bg-green-100 hover:bg-green-300 hover:text-white focus:shadow-outline ring-1 ring-green-300 "
-                                            >
-                                                <button
-                                                    className={
-                                                        number === currentPage
-                                                            ? "bg-green-500 w-10 h-10 rounded-full text-white"
-                                                            : ""
-                                                    }
-                                                >
-                                                    {number}
-                                                </button>
-                                            </li>
-                                        ))}
-
-                                        <li>
-                                            <button class="flex items-center ml-3 justify-center w-10 h-10 text-green-600 transition-colors duration-150  rounded-full focus:shadow-outline ring-1 ring-green-300 bg-green-100 hover:bg-green-500 hover:text-white">
-                                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                                    <path
-                                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                        clip-rule="evenodd"
-                                                        fill-rule="evenodd"
-                                                    ></path>
-                                                </svg>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </nav>
+                        <div className="w-full mx-auto pb-16">
+                            <div className="head bg-violet-800 py-6 px-10 flex flex-col lg:flex-row gap-4 gap">
+                                <div className="searchbar grow">
+                                    <div class="form-control data-svelte-search">
+                                        <svg
+                                            class="text-base-content pointer-events-none absolute mt-3 ml-3 stroke-current opacity-60 "
+                                            width="25"
+                                            height="25"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                className="text-white"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="4"
+                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                            ></path>
+                                        </svg>
+                                        <input
+                                            type="text"
+                                            placeholder="Type to search..."
+                                            class="input px-11 placeholder-slate-300 text-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-md"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="filteringBy-A-to-Z">
+                                    <select class="select w-full max-w-xs input px-3 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-sm">
+                                        <option disabled selected>
+                                            Sort by: A-Z
+                                        </option>
+                                        <option>Name</option>
+                                        <option>Date</option>
+                                        <option>Type</option>
+                                        <option>Lists</option>
+                                        <option>Size</option>
+                                    </select>
+                                </div>
+                                <div className="allStatus">
+                                    <select class="select w-full max-w-xs px-3 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-md">
+                                        <option disabled selected>
+                                            All Status
+                                        </option>
+                                        <option>Recently</option>
+                                        <option>Last day</option>
+                                        <option>Last week</option>
+                                        <option>Last month</option>
+                                        <option>Last year</option>
+                                    </select>
+                                </div>
+                                <div className="recipients">
+                                    <button className="input px-3 text-white placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white-50 text-md">
+                                        <span className="font-bold text-md">
+                                            <FontAwesomeIcon className="mr-4" icon={faPlus} />
+                                        </span>
+                                        New Recipients
+                                    </button>
+                                </div>
                             </div>
-                        </div> */}
+                            {
+                                dwlAcc && <div className="text-gray-700 flex py-7 items-center justify-center gap-2 font-semibold text-xl lg:text-3xl">
+                                    <h3 className="text-sm md:text-2xl font-semibold pr-2">Select Your Account</h3>
+                                    <div className="">
+
+                                        <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md md:text-xl">
+                                            {
+                                                account?.map(account => <option >{account?.AccNo}</option>)
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            }
+
+                            <div className="body">
+                                <div class="overflow-x-auto w-full">
+                                    <table class="table w-full">
+                                        {/* head */}
+                                        <thead>
+                                            <tr>
+                                                <th className="text-sm text-slate-500 bg-slate-100 py-8">Name / Business</th>
+                                                <th className="text-sm text-slate-500 bg-slate-100 py-8">Last transfer date</th>
+                                                <th className="text-sm text-slate-500 bg-slate-100 py-8">Last transfer amount</th>
+                                                <th className="text-sm text-slate-500 bg-slate-100 py-8"> Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {
+                                                myTransactions?.slice().reverse()
+                                                    .map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
+                                                // myTransactions?.reverse().map((trc) => <TransactionDetails key={trc._id} trc={trc} />)
+                                            }
+
+                                        </tbody>    {/* foot */}
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Last Transfer Date</th>
+                                                <th>Last Transfer Amount</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
