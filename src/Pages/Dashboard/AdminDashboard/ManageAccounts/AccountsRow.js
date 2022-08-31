@@ -23,7 +23,7 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
             </td>
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Balance</span>
-                {balance}
+                {balance?.toFixed(0)}
             </td>
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Phone</span>
@@ -34,7 +34,7 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
                 {country}
             </td>
             <td className="w-full lg:w-auto text-xs p-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                <div className="flex justify-between px-3 pb-1 items-center">
+                <div className="flex justify-between px-1 pb-1 items-center">
                     <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary text-white btn-xs"><FontAwesomeIcon icon={faArrowAltCircleDown} /></label>
 
                     <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4"><FontAwesomeIcon icon={faArrowAltCircleUp} /></label>
