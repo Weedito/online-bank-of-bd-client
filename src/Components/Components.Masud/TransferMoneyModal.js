@@ -16,7 +16,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
     const {mainAcc, refetch} = useMainAccount();
     const image = ahimage || ahcpimage || ahupimage;
 
-    console.log(transferMoney);
+    //console.log(transferMoney);
 
 
     const handleAccountBlur = (e) => {
@@ -88,7 +88,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
             interest = calc;
         }
 
-        console.log(interest);
+        // console.log(interest);
 
 
 

@@ -28,7 +28,7 @@ const TransactionHistory = () => {
         return <Loading />;
     }
 
-    console.log("From React Query", transactions)
+    // console.log("From React Query", transactions)
 
     /* ----------------------------------------------------------------*/
     /*                  PAGINATION FUNCTIONALITY START                 */

@@ -10,7 +10,7 @@ const MyFeedbacks = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
 
-    console.log(email);
+    // console.log(email);
 
     const feedback = () => axios.get(`http://localhost:5000/feedbacks/${email}`);
 
@@ -21,7 +21,7 @@ const MyFeedbacks = () => {
         return <Loading />;
     }
 
-    console.log("From React Query", feedbacks)
+    // console.log("From React Query", feedbacks)
 
     return (
         

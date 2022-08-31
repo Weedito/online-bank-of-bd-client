@@ -85,11 +85,11 @@ const SmeLoan = () => {
 
     axios.post('http://localhost:5000/applyLoan', applyLoan)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         navigate("/loanApplicationSuccess")
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
 
   }

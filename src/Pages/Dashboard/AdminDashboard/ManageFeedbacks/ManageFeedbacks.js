@@ -15,7 +15,7 @@ const ManageFeedbacks = () => {
             return <Loading/>;
         }
 
-        console.log("From React Query", feedbacks)
+        // console.log("From React Query", feedbacks)
 
 
     return (

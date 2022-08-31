@@ -29,7 +29,7 @@ const MyAccounts = () => {
         dispatch(fetchAllAccounts())
     },[])
 
-    console.log("Myaccouts", myAccount)
+    // console.log("Myaccouts", myAccount)
 
     
 

@@ -40,7 +40,7 @@ const RequireAccount = ({ children }) => {
     // const account = acc?.find(account => account?.role === 'approved');
 
     if (!acc && !accountLoading) {
-        console.log("i Am in ");
+        // console.log("i Am in ");
       return <Navigate to="/openaccount" state={{ from: location }} replace />;
     }
     return children;
