@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import axios from 'axios';
+import useAccount from '../../../Components/Components.Nahid/Hooks/useAccount';
 
 const SmeLoan = () => {
   const [user] = useAuthState(auth);
   const { loanId } = useParams();
   const [loanInfo, setLoanInfo] = useState({});
   const [calculator, setCalculator] = useState();
-  const [reload, setReload] = useState(true);
+  const navigate = useNavigate();
   const [loanAmountIV, setLoanAmountIV] = useState();
   const [payment_TypeIV, setPayment_TypeIV] = useState();
   const [loan_periodIV, setLoan_periodIV] = useState();
+  const { myAccount } = useAccount();
+  const frstacc = myAccount && myAccount[0]?.AccNo;
+  const [selectAcc, setSelectAcc] = useState(frstacc);
+
+  const handleSelect = (e) => {
+    const acc = e.target.value;
+    setSelectAcc(acc);
+  }
+
+  const account = myAccount?.filter(acc => acc?.role === 'approved');
 
 
   useEffect(() => {
@@ -22,14 +34,10 @@ const SmeLoan = () => {
       .then(data => setLoanInfo(data))
   }, [])
 
-  // const Monthly = 12;
-  // const Quarterly = 4;
-  // const Half_Yearly = 2;
-  // const Yearly = 1;
-
-
-
-
+  /* const Monthly = 12;
+  const Quarterly = 4;
+  const Half_Yearly = 2;
+  const Yearly = 1; */
 
   const handleLoanCalculator = e => {
     e.preventDefault();
@@ -42,33 +50,47 @@ const SmeLoan = () => {
     const Loan_period = e.target.Loan_period.value;
     setLoan_periodIV(Loan_period);
 
-
     const compoundingYear = parseInt(loanAmount) * parseInt(interestRate);
     const interestPercent = compoundingYear / 100;
     const sum = parseInt(loanAmount) + interestPercent;
     const result = sum / parseInt(Payment_Type);
     const calculate = result / parseInt(Loan_period);
     setCalculator(calculate.toFixed())
-
-
   }
 
   const handleBooking = e => {
     e.preventDefault();
 
-
     const applyLoan = {
 
-      loanText: e.target.text.innerHTML,
+      // Loan Information
+      totalAmountTotal: loanAmountIV,
+      interestTotal: "10%",
+      loanType: payment_TypeIV,
+      loanPeriodYear: loan_periodIV,
+      status: "Pending",
+
+      // User Information      
       userEmail: user.email,
-      userNmae: user.displayName,
+      userName: user.displayName,
+      needToPayForEveryTransaction: calculator,
       phone: e.target.phone.value,
-      address: e.target.address.value
+      address: e.target.address.value,
+
 
 
     }
 
-    console.log(applyLoan)
+    // Post Loan to the request
+
+    axios.post('http://localhost:5000/applyLoan', applyLoan)
+      .then((res) => {
+        // console.log(res);
+        navigate("/loanApplicationSuccess")
+      })
+      .catch((error) => {
+        // console.log(error);
+      });
 
   }
 
@@ -133,13 +155,16 @@ const SmeLoan = () => {
               <input className='m-5 px-5 btn bg-primary text-white' type="submit" value="Calculate" />
               <input className='m-5 px-5 btn text-white bg-red-700' type="reset" value="Reset" />
             </form>
-
+            {
+              calculator && <h1 className='text-5xl font-bold mb-10'>Total Amount: {calculator}</h1>
+            }
           </div>
+
 
 
           <div>
 
-            <h1 className='text-5xl font-bold mb-10'>{calculator}</h1>
+
 
             {/* <p>{loanInfo.loan_name} এর জন্য আপনি {loanAmountIV} টাকা সিলেক্ট করেছেন। {loan_periodIV} বছরের মধ্যে  {loanInfo.Interest} % সুদে  {loanAmountIV}  টাকা loan পরিশোধের জন্য আপনাকে বছরে {payment_TypeIV} বার {calculator} টাকা করে দিতে হবে</p> */}
 
@@ -170,6 +195,20 @@ const SmeLoan = () => {
                 </label>
                 <input type="text" name='name' disabled value={user?.displayName} className="input input-bordered input-accent w-full max-w-xs" />
               </div>
+
+              {
+                account && <div className="text-gray-700 flex items-center justify-center gap-2 font-semibold">
+                  <h3 className=" font-semibold">Select Your Account</h3>
+                  <div className="">
+
+                    <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md md:text-xl">
+                      {
+                        account?.map(account => <option >{account?.AccNo}</option>)
+                      }
+                    </select>
+                  </div>
+                </div>
+              }
 
 
               <div className="form-control w-full max-w-xs">

@@ -31,7 +31,7 @@ const Navbar = () => {
                 {
                     Navigation.map((item, idx) => {
 
-                        if (item.name === 'About US') {
+                        if (item?.name === 'About US') {
                             return (
                                 <li className={`${bg && 'text-black'} dropdown text-xl font-semibold hover:text-secondary cursor-pointer`}>
                                     <NavLink

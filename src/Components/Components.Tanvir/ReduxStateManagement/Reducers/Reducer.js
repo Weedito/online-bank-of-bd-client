@@ -11,8 +11,7 @@ const BalanceReducer = (state=initailsUserAccount,action)=>{
         case USER_ACCOUNT_REQUEST:
             return{
                 ...state,
-                isLoading:true,
-                
+                isLoading:true,                
             }
         case USER_ACCOUNT_SUCCESS:
             return{

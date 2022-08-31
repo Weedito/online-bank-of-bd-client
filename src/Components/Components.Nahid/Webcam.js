@@ -21,7 +21,7 @@ export const WebcamCapture = () => {
         setImage(imageSrc)
         });
 
-        console.log(image);
+        // console.log(image);
  
  
     return (

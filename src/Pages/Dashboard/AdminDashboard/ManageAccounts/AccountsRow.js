@@ -1,3 +1,5 @@
+import { faArrowAltCircleDown, faArrowAltCircleUp, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount }) => {
@@ -33,15 +35,12 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
             </td>
             <td className="w-full lg:w-auto text-xs p-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <div className="flex justify-between px-3 pb-1 items-center">
-                    <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
+                    <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary text-white btn-xs"><FontAwesomeIcon icon={faArrowAltCircleDown} /></label>
 
-                    <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
+                    <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4"><FontAwesomeIcon icon={faArrowAltCircleUp} /></label>
+                    
+                    <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs"><FontAwesomeIcon icon={faTrashAlt} /></label>
                 </div>
-
-                <div className="flex justify-center items-center px-3 pt-1">
-                <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs">Delete Account</label>
-                </div>
-
             </td>
         </tr>
     );

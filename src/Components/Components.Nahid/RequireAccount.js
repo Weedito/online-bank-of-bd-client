@@ -23,8 +23,8 @@ const RequireAccount = ({ children }) => {
         .then(result=>{
             if(result[0]?.role === 'approved'){
                 setAcc(result[0]);
-                console.log(result);
-                console.log("authEmail",user?.email, "accountEmail", result[0]?.email);
+                // console.log(result);
+                // console.log("authEmail",user?.email, "accountEmail", result[0]?.email);
                 setAccountLoading(false)
             }
 
@@ -35,12 +35,12 @@ const RequireAccount = ({ children }) => {
       return <Loading />;
     }
 
-    console.log(acc);
+    // console.log(acc);
 
     // const account = acc?.find(account => account?.role === 'approved');
 
     if (!acc && !accountLoading) {
-        console.log("i Am in ");
+        // console.log("i Am in ");
       return <Navigate to="/openaccount" state={{ from: location }} replace />;
     }
     return children;

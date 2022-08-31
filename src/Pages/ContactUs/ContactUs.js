@@ -30,7 +30,7 @@ const ContactUs = () => {
         const message = e.target.message.value
         const subject = e.target.subject.value
 
-        console.log(name, email, message, subject)
+        // console.log(name, email, message, subject)
 
         emailjs.sendForm('service_41xeu0y', 'template_zzunvbq', e.target, '8oCNQKe5LucpJto5h')
             .then((result) => {
@@ -51,7 +51,7 @@ const ContactUs = () => {
             message: message,
             subject: subject
         }
-        console.log(userDetails)
+        // console.log(userDetails)
 
         fetch('http://localhost:5000/contact', {
             method: 'POST',
@@ -62,7 +62,7 @@ const ContactUs = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.acknowledged) {
                     toast.success('your details submited')
                 }

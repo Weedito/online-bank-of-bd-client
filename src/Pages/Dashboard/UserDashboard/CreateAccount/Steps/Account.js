@@ -9,7 +9,7 @@ export default function Account() {
     setUserData({ ...userData, [name]: value });
   };
 
-  console.log(userData);
+  // console.log(userData);
 
   return (
     <div className="flex flex-col ">

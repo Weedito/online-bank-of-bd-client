@@ -6,7 +6,11 @@ import DepositModal from '../../../../Components/Components.Masud/DepositModal';
 import TransferMoneyModal from '../../../../Components/Components.Masud/TransferMoneyModal';
 import WidthdrawModal from '../../../../Components/Components.Masud/WidthdrawModal';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
+
 import PageTitle from '../../../PageTitle/PageTitle';
+
+// import useMainAccount from '../../../../Components/Components.Nahid/Hooks/useMainAccount';
+
 
 
 const MyAccounts = () => {
@@ -16,11 +20,14 @@ const MyAccounts = () => {
     const [transferMoney, setTransferMoney] = useState(null);
     const { myAccount, setRefreshAccount, refreshAccount } = useAccount();
     const navigate = useNavigate();
+    // const {mainAcc} = useMainAccount();
 
     const account = myAccount?.filter(acc => acc?.role === 'approved');
 
+    // console.log(mainAcc);
     return (
         <div className="">
+
 
             {/* title */}
 
@@ -41,6 +48,7 @@ const MyAccounts = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto w-full pt-5 items-center justify-center gap-5 pb-10 ">
                 {
                     account?.map(account => {
+                        const mainAcc = account?.AccNo === 777888999000;
 
                         return (
 
@@ -54,7 +62,11 @@ const MyAccounts = () => {
                                         <h5 className="text-gray-900 text-xl font-semibold mb-2">Name: <span className="text-green-700">{account?.name}</span></h5>
                                         <p className="text-gray-700 text-xs md:text-base font-semibold mb-4"><span className=" text-xs md:text-base px-3 py-1 rounded-full bg-rose-700 text-white">{account?.actype}</span></p>
                                         <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Acc No: {account?.AccNo}</p>
-                                        <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {account?.balance}</p>
+                                        {
+                                            mainAcc ?
+                                                <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {account?.balance?.toFixed(2)}</p> :
+                                                <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {account?.balance}</p>
+                                        }
                                         <p className="text-gray-600 text-xs">Account Created {account?.OpeningDate}</p>
                                     </div>
                                 </div>

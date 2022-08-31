@@ -111,7 +111,7 @@ const MobileNavbar = () => {
                                   CommitteeDropdown.map((item, idx) => {
                                     return (
                                       <li onClick={() => setIsOpen(false)} key={idx}>
-                                        <NavLink to={item.href}>{item.name}</NavLink>
+                                        <NavLink to={item.href}>{item?.name}</NavLink>
                                       </li>
                                     )
                                   })
@@ -124,7 +124,7 @@ const MobileNavbar = () => {
 
                         return (
                           <li onClick={() => setIsOpen(false)} key={idx}>
-                            <NavLink to={item.href}>{item.name}</NavLink>
+                            <NavLink to={item.href}>{item?.name}</NavLink>
                           </li>
                         )
                       })

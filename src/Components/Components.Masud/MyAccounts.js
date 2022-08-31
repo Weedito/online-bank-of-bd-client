@@ -6,6 +6,9 @@ import WidthdrawModal from './WidthdrawModal';
 import TransferMoneyModal from './TransferMoneyModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserAccount } from '../Components.Tanvir/ReduxStateManagement/Actions/action';
+import { fetchAllUsers } from '../../Feature/usersSlice';
+import { fetchAllAccounts } from '../../Feature/allAccountsSlice';
+
 const MyAccounts = () => {
 
 
@@ -17,22 +20,35 @@ const MyAccounts = () => {
     const [refresh, setRefresh] = useState(false)
     const dispatch = useDispatch();
 
-    //////  load user account
+    const  {allAccounts} = useSelector(state => state.accounts);
+
+    const myAccount = allAccounts.filter(accouts => accouts.email === user.email );
+
+    // const data = useSelector(state => console.log(state))
+    useEffect(()=> {
+        dispatch(fetchAllAccounts())
+    },[])
+
+    // console.log("Myaccouts", myAccount)
+
+    
+
+   /*  //////  load user account
     const { isLoading, myAccount, error } = useSelector(state => state)
     useEffect(() => {
         dispatch(getUserAccount(user.email))
     }, [user, refresh])
-    //////
+    ////// */
 
 
-    if (loading, isLoading) {
+   /*  if (loading, isLoading) {
         return <p className='text-center text-green-800 text-xl'>Loading....</p>
     }
+ */
 
-
-    return (
+  return (
         <div className="overflow-x-auto">
-            {error && <h2>{error.message}</h2>}
+            {/* {error && <h2>{error.message}</h2>} */}
             <table className="table table-zebra w-full">
 
                 <thead>
@@ -48,7 +64,8 @@ const MyAccounts = () => {
                 </thead>
                 <tbody>
 
-                    {
+                    { myAccount &&
+
                         myAccount.map((account, index) => {
                             const { name, AccNo, balance, email, actype } = account;
                             return (

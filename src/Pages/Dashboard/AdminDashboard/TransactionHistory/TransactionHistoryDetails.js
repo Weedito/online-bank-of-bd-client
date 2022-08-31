@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 
-const TransactionDetails = ({trc}) => {
+const TransactionHistoryDetails = ({trc}) => {
     const [icon, setIcon] = useState();
-    // console.log(trc);
+    console.log(trc);
 
     useEffect(() => {
         if(trc?.statement === 'Deposit Money'){
@@ -65,4 +65,4 @@ const TransactionDetails = ({trc}) => {
     );
 };
 
-export default TransactionDetails;
+export default TransactionHistoryDetails;

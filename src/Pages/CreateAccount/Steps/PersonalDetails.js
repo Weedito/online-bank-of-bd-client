@@ -62,7 +62,7 @@ export default function PersonalDetails() {
   }
 
 
-  console.log(CAData);
+  // console.log(CAData);
   return (
     <div className='flex flex-col md:flex-row justify-center w-full items-center p-5 gap-3 mx-auto'>
       <div className="flex flex-col w-full md:w-3/6 items-center justify-center gap-3">

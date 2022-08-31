@@ -39,7 +39,6 @@ import BlogsDetails from "./Pages/Blogs/BlogsDetails";
 import AllBlogsData from "./Pages/Blogs/AllBlogsData";
 import Overview from "./Pages/Dashboard/UserDashboard/Overview/Overview";
 import MyAccounts from "./Pages/Dashboard/UserDashboard/MyAccounts/MyAccounts";
-import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
 import MyFeedbacks from "./Pages/Dashboard/UserDashboard/MyFeedbacks/MyFeedbacks";
 import SingleAccountDetails from "./Pages/Dashboard/UserDashboard/MyAccounts/SingleAccountDetails";
 import CreateAccount from "./Pages/CreateAccount/CreateAccount";
@@ -68,7 +67,6 @@ import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
 import TermsnConditions from "./Pages/Footer/TermsnConditions";
 import PrivecyPolicy from "./Pages/Footer/PrivecyPolicy";
 import GetHelp from "./Pages/Footer/GetHelp";
-import SupportEmails from "./Pages/ContactUs/SupportEmails";
 import PendingAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/PendingAccount/PendingAccounts";
 import NoticeBoard from "./Pages/Dashboard/AdminDashboard/NoticeBoard/NoticeBoard";
 import AllNotice from "./Pages/AllNotice/AllNotice";
@@ -77,18 +75,26 @@ import AskedQuestions from "./Components/Components.Arif/AskedQuestions/AskedQue
 import MakeAPayment from "./Components/Components.Arif/MakeAPayment/MakeAPayment";
 import RequestPayment from "./Components/Components.Arif/RequestPayment/RequestPayment";
 import Profile from "./Components/Components.Arif/MyAccount/Profile";
-import Transactionfff from "./Pages/Dashboard/UserDashboard/MyTransactions/Transactionfff";
+import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
+import AfterAppliedLoan from "./Pages/OurBanking/SMEBanking/AfterAppliedLoan";
+import LoanReq from "./Components/Components.Masud/LoanReq";
 import { HelmetProvider } from "react-helmet-async";
+
+// Loan Pages
+
 
 function App() {
   const [theme, setTheme] = useState(false);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false)
     }, 3000)
   }, []);
+
+
 
   useEffect(() => {
     setTheme(JSON.parse(window.localStorage.getItem("theme")));
@@ -97,6 +103,8 @@ function App() {
     setTheme(!theme);
     window.localStorage.setItem("theme", !theme);
   };
+
+
   return (
     <div data-theme={theme && "my_dark"} className="">
       {
@@ -106,12 +114,10 @@ function App() {
           </div>
           :
           <div className="pt-16">
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/cpanel/loanRequest' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Header handleThemeChange={handleThemeChange} theme={theme} />}
 
             {/* <Header /> */}
-
             <HelmetProvider>
-
               <Routes>
                 <Route path="/" element={<Home />} />
 
@@ -126,6 +132,7 @@ function App() {
                   <Route path="mfeedbacks" element={<ManageFeedbacks />} />
                   <Route path="manageBlogs" element={<ManageBlogs />} />
                   <Route path="NoticeBoard" element={<NoticeBoard />} />
+                  <Route path="loanRequest" element={<LoanReq />} />
                 </Route>
                 <Route path="/blog/:id" element={<UpdateBlog />} />
                 {/* Control Panel Routes */}
@@ -137,10 +144,11 @@ function App() {
                   <Route path="overview" element={<Overview />} />
                   <Route path="myaccounts" element={<MyAccounts />} />
                   <Route path="myaccounts/:id" element={<SingleAccountDetails />} />
-                  <Route path="mytransactions" element={<Transactionfff />} />
+                  <Route path="mytransactions" element={<MyTransactions />} />
                   <Route path="makepayment" element={<MakeAPayment />} />
                   <Route path="requestpayment" element={<RequestPayment />} />
                   <Route path="myfeedbacks" element={<MyFeedbacks />} />
+                  <Route path="pendingacc" element={<PendingAcc />} />
                 </Route>
                 <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
 
@@ -195,7 +203,6 @@ function App() {
 
                 {/* Contact Routes End*/}
                 <Route path="/contactus" element={<ContactUs />} />
-                <Route path="/supports" element={<SupportEmails />} />
                 {/* Contact Routes End*/}
 
                 {/* Create Account Routes */}
@@ -204,7 +211,7 @@ function App() {
 
                 {/* Others Routes */}
                 <Route path="/webcam" element={<WebcamCapture />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
                 <Route path="/pendingacc" element={<PendingAcc />} />
 
 
@@ -221,9 +228,13 @@ function App() {
                 <Route path="/privacy" element={<PrivecyPolicy />} />
                 <Route path="/help" element={<GetHelp />} />
 
+                {/* Loan Pages */}
+
+                <Route path="/loanApplicationSuccess" element={<AfterAppliedLoan />} />
+
               </Routes >
             </HelmetProvider>
-            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />
+            {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/cpanel/loanRequest' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />
             }
             {/* <Footer /> */}
             <ToastContainer />

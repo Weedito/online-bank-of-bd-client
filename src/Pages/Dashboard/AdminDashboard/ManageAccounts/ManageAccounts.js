@@ -31,7 +31,7 @@ const ManageAccounts = () => {
     const apvAcc = accounts?.filter(account => account?.role === 'approved');
     const upvAcc = accounts?.filter(account => account?.role !== 'approved');
 
-    console.log(apvAcc);
+    // console.log(apvAcc);
 
     return (
         <div className=" text-left h-full w-full">

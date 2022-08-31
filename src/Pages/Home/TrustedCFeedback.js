@@ -71,7 +71,7 @@ const TrustedCFeedback = () => {
     const userName = user?.displayName;
     const email = user?.email;
     let userImg = user?.photoURL;
-    console.log(currentValue, feedback, userName, email, userImg);
+    // console.log(currentValue, feedback, userName, email, userImg);
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
@@ -80,7 +80,7 @@ const TrustedCFeedback = () => {
       userImg = newImg;
     }
 
-    console.log(ourFeedback);
+    // console.log(ourFeedback);
 
 
     const feedbackDetails = {
@@ -91,7 +91,7 @@ const TrustedCFeedback = () => {
       feedbackComment: feedback,
       date: date
     }
-    console.log(feedbackDetails)
+    // console.log(feedbackDetails)
 
     fetch('http://localhost:5000/feedback', {
       method: 'POST',

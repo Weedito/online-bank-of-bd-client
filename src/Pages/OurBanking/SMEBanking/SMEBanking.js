@@ -50,7 +50,7 @@ const SMEBanking = () => {
             </div>
 
 
-            <div className='grid grid-cols-1 lg:grid-cols-4 pt-8 gap-5 bg-slate-100 px-8' data-aos="zoom-in-down">
+            <div className='grid grid-cols-1 lg:grid-cols-4 pt-8 gap-5 bg-slate-100 px-8 pb-10' data-aos="zoom-in-down">
 
                 {
                     smeLoans.map(smeLoan => <div key={smeLoan._id} className="card card-compact max-w-max bg-base-100 shadow-xl">
