@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 const TransactionDetails = ({trc}) => {
     const [icon, setIcon] = useState();
+    
     // console.log(trc);
 
     useEffect(() => {
