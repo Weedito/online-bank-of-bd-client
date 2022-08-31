@@ -3,7 +3,7 @@
 
 Live Site [Online Bank BD](https://online-money-bd.netlify.app/).
 
-##Below is the list of features we have implement in this project-
+## Below is the list of features we have implement in this project-
 
 * _Google Authentication_
 * _Signin & Signup_
@@ -36,7 +36,7 @@ Live Site [Online Bank BD](https://online-money-bd.netlify.app/).
 
 
 
-##Below is the list of NPM Packages we have used in this project-
+## Below is the list of NPM Packages we have used in this project-
 
 
 * _React_
