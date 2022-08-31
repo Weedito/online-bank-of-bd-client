@@ -37,7 +37,7 @@ const Profile = () => {
                     }
 
                     // send to database
-                    fetch(`http://localhost:5000/profile/${email}`, {
+                    fetch(`https://bank-of-bd.herokuapp.com/profile/${email}`, {
                         method: 'PUT',
                         headers: {
                             "content-type": "application/json",

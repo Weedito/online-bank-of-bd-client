@@ -6,7 +6,7 @@ const useNotice=()=>{
     const [allNotice,setAllNotice]=useState([]);
     const [smSpinner,setSmSpinner]=useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/allNotice')
+        fetch('https://bank-of-bd.herokuapp.com/allNotice')
             .then(res => res.json())
             .then(data => {
                 const dataReverse = data.reverse()

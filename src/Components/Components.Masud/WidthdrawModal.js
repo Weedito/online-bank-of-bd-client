@@ -68,7 +68,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
                 toast.error("You Connot Withdraw Less Than $5")
             )
         } else {
-            const url = `http://localhost:5000/account/${_id}`;
+            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -94,7 +94,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
 
                     // console.log(mainAcc?.balance);
                     // console.log(interest);
-                    const mainurl = `http://localhost:5000/mainaccount/${mainAcc?._id}`;
+                    const mainurl = `https://bank-of-bd.herokuapp.com/mainaccount/${mainAcc?._id}`;
                     fetch(mainurl, {
                         method: 'PUT',
                         headers: {
@@ -132,7 +132,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
             image: image
         }
 
-        fetch('http://localhost:5000/statement', {
+        fetch('https://bank-of-bd.herokuapp.com/statement', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

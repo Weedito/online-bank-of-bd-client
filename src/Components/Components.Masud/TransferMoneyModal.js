@@ -21,7 +21,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
 
     const handleAccountBlur = (e) => {
         const tccAcc = e.target.value;
-        axios.get(`http://localhost:5000/accountno?accountno=${tccAcc}`)
+        axios.get(`https://bank-of-bd.herokuapp.com/accountno?accountno=${tccAcc}`)
             .then(function (data) {
                 setTransAcc(data?.data);
             })
@@ -115,7 +115,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
         else {
 
             // Sender
-            const url = `http://localhost:5000/account/${_id}`;
+            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
 
             fetch(url, {
                 method: 'PUT',
@@ -134,7 +134,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
             // Receiver        
             const addBalance = { transferAmount };
 
-            const senderUrl = `http://localhost:5000/accountno/${transferAccountNo}`;
+            const senderUrl = `https://bank-of-bd.herokuapp.com/accountno/${transferAccountNo}`;
 
             fetch(senderUrl, {
                 method: 'PUT',
@@ -158,7 +158,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
 
                 // console.log(mainAcc?.balance);
                 // console.log(interest);
-                const mainurl = `http://localhost:5000/mainaccount/${mainAcc?._id}`;
+                const mainurl = `https://bank-of-bd.herokuapp.com/mainaccount/${mainAcc?._id}`;
                 fetch(mainurl, {
                     method: 'PUT',
                     headers: {
@@ -193,7 +193,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
                 image: image
             }
 
-            fetch('http://localhost:5000/statement', {
+            fetch('https://bank-of-bd.herokuapp.com/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -221,7 +221,7 @@ const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }
             }
 
 
-            fetch('http://localhost:5000/statement', {
+            fetch('https://bank-of-bd.herokuapp.com/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

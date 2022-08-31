@@ -14,7 +14,7 @@ const NewNotice = ({setModal}) => {
             message:data.message,
             noticeDate: date
         };
-        const url = `http://localhost:5000/notice`;
+        const url = `https://bank-of-bd.herokuapp.com/notice`;
         fetch(url,{
             method:"POST",
             headers:{

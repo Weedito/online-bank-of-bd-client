@@ -31,7 +31,7 @@ const SmeLoan = () => {
 
 
   useEffect(() => {
-    const url = `http://localhost:5000/smeBanking/${loanId}`
+    const url = `https://bank-of-bd.herokuapp.com/smeBanking/${loanId}`
 
     fetch(url)
       .then(res => res.json())
@@ -97,7 +97,7 @@ const SmeLoan = () => {
 
 
     }
-    fetch('http://localhost:5000/smeapplyloan', {
+    fetch('https://bank-of-bd.herokuapp.com/smeapplyloan', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -254,14 +254,6 @@ const SmeLoan = () => {
               <input type="submit" value="Apply Loan" disabled={!calculator || !selectAcc} className="btn btn-primary w-full max-w-xs" />
 
             </form>
-
-
-
-
-
-
-
-
 
 
           </div>
