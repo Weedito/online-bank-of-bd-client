@@ -6,6 +6,7 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage, actype } = withdraw;
     const { mainAcc, refetch } = useMainAccount();
     const [count, setCount] = useState();
+    
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     const timeAMPM = (date) => {
@@ -22,15 +23,6 @@ const WidthdrawModal = ({ withdraw, setRefresh, refresh }) => {
     const time = timeAMPM(today);
     const inputBalRef = useRef('');
 
-
-
-    useEffect(() => {
-        setInterval(() => {
-            setCount("I Love You");
-        }, 1000);
-    }, []);
-
-    console.log(count);
 
     const hadleWithdraw = () => {
         const inputBalance = parseFloat(inputBalRef.current.value);
