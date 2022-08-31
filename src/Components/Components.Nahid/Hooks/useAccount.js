@@ -3,7 +3,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllAccounts } from '../../../Feature/allAccountsSlice';
 import auth from '../../../firebase.init';
-import { getUserAccount } from '../../Components.Tanvir/ReduxStateManagement/Actions/action';
 import Loading from '../Loading';
 
 const useAccount = () => {
