@@ -93,7 +93,7 @@ const DBCards = () => {
                 <div className="">
                     <div className="flex items-center justify-between bg-[#28A745] p-3 rounded-t-xl">
                         <div className="">
-                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {TotalBalance}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {TotalBalance.toFixed(2)}</h3>
                             <h3 className="text-md font-bold text-white">Our Balance</h3>
                         </div>
                         <div className="">

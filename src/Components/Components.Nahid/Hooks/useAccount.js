@@ -14,8 +14,8 @@ const useAccount = () => {
 
     // redux toolkit
 
-    const { allAccounts, isLoading, error} = useSelector(state => state.accounts);
-    const myAccount = allAccounts.filter(accouts => accouts.email === user.email);    
+    const { allAccounts, isLoading, error} = useSelector(state => state?.accounts);
+    const myAccount = allAccounts?.filter(accouts => accouts?.email === user?.email);    
     useEffect(() => {
         dispatch(fetchAllAccounts())
     }, [user, dispatch, refreshAccount])
