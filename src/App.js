@@ -76,6 +76,11 @@ import MakeAPayment from "./Components/Components.Arif/MakeAPayment/MakeAPayment
 import RequestPayment from "./Components/Components.Arif/RequestPayment/RequestPayment";
 import Profile from "./Components/Components.Arif/MyAccount/Profile";
 import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
+import AfterAppliedLoan from "./Pages/OurBanking/SMEBanking/AfterAppliedLoan";
+import LoanReq from "./Components/Components.Masud/LoanReq";
+
+// Loan Pages
+
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -87,6 +92,8 @@ function App() {
       setLoading(false)
     }, 3000)
   }, []);
+
+  
 
   useEffect(() => {
     setTheme(JSON.parse(window.localStorage.getItem("theme")));
@@ -123,6 +130,7 @@ function App() {
                 <Route path="mfeedbacks" element={<ManageFeedbacks />} />
                 <Route path="manageBlogs" element={<ManageBlogs />} />
                 <Route path="NoticeBoard" element={<NoticeBoard />} />
+                <Route path="loanRequest" element={<LoanReq/>} />
               </Route>
               <Route path="/blog/:id" element={<UpdateBlog />} />
               {/* Control Panel Routes */}
@@ -217,6 +225,10 @@ function App() {
               <Route path="/tarms" element={<TermsnConditions />} />
               <Route path="/privacy" element={<PrivecyPolicy />} />
               <Route path="/help" element={<GetHelp />} />
+
+              {/* Loan Pages */}
+
+              <Route path="/loanApplicationSuccess" element={<AfterAppliedLoan/>} /> 
 
             </Routes >
             {(window.location.pathname !== '/cpanel' && window.location.pathname !== '/cpanel/addashboard' && window.location.pathname !== '/cpanel/musers' && window.location.pathname !== '/cpanel/maccounts' && window.location.pathname !== '/cpanel/paccounts' && window.location.pathname !== '/cpanel/NoticeBoard' && window.location.pathname !== '/cpanel/thistory' && window.location.pathname !== '/cpanel/mfeedbacks' && window.location.pathname !== '/cpanel/manageblogs' && window.location.pathname !== '/cpanel/addblog' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard' && window.location.pathname !== '/dashboard/overview' && window.location.pathname !== '/dashboard/myaccounts' && window.location.pathname !== '/dashboard/mytransactions' && window.location.pathname !== '/dashboard/myfeedbacks') && <Footer />
