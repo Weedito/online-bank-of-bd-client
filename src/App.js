@@ -67,7 +67,6 @@ import RequireDashboard from "./Components/Components.Nahid/RequireDashboard";
 import TermsnConditions from "./Pages/Footer/TermsnConditions";
 import PrivecyPolicy from "./Pages/Footer/PrivecyPolicy";
 import GetHelp from "./Pages/Footer/GetHelp";
-import SupportEmails from "./Pages/ContactUs/SupportEmails";
 import PendingAccounts from "./Pages/Dashboard/AdminDashboard/ManageAccounts/PendingAccount/PendingAccounts";
 import NoticeBoard from "./Pages/Dashboard/AdminDashboard/NoticeBoard/NoticeBoard";
 import AllNotice from "./Pages/AllNotice/AllNotice";
@@ -194,7 +193,6 @@ function App() {
 
               {/* Contact Routes End*/}
               <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/supports" element={<SupportEmails />} />
               {/* Contact Routes End*/}
 
               {/* Create Account Routes */}
