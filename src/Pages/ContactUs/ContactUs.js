@@ -52,7 +52,7 @@ const ContactUs = () => {
         }
         // console.log(userDetails)
 
-        fetch('http://localhost:5000/contact', {
+        fetch('https://bank-of-bd.herokuapp.com/contact', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

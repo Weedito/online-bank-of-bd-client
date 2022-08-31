@@ -10,7 +10,7 @@ const ApproveAccountModal = ({approveAccount, refetch}) => {
 console.log(approveAccount);
 
     const handleApprove = () =>{
-        fetch(`http://localhost:5000/acc/${AccNo}`, {
+        fetch(`https://bank-of-bd.herokuapp.com/acc/${AccNo}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

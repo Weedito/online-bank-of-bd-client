@@ -181,13 +181,13 @@ const SigninLeft = () => {
         />
       </form>
       <>
-        <input type="checkbox" id="reset-pass-modal" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle">
-          <div class="modal-box relative">
-            <label for="reset-pass-modal" class="absolute right-4 top-4">
+        <input type="checkbox" id="reset-pass-modal" className="modal-toggle" />
+        <div className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box relative">
+            <label for="reset-pass-modal" className="absolute right-4 top-4">
               <GiCancel className="text-2xl" />
             </label>
-            <h3 class="font-bold text-lg">Reset Your Password</h3>
+            <h3 className="font-bold text-lg">Reset Your Password</h3>
             <div className="form-control">
               <input
                 required

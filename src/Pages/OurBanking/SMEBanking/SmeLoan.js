@@ -27,7 +27,7 @@ const SmeLoan = () => {
 
 
   useEffect(() => {
-    const url = `http://localhost:5000/smeBanking/${loanId}`
+    const url = `https://bank-of-bd.herokuapp.com/smeBanking/${loanId}`
 
     fetch(url)
       .then(res => res.json())
@@ -83,7 +83,7 @@ const SmeLoan = () => {
 
     // Post Loan to the request
 
-    axios.post('http://localhost:5000/applyLoan', applyLoan)
+    axios.post('https://bank-of-bd.herokuapp.com/applyLoan', applyLoan)
       .then((res) => {
         // console.log(res);
         navigate("/loanApplicationSuccess")
@@ -108,9 +108,9 @@ const SmeLoan = () => {
 
 
             <form onSubmit={handleLoanCalculator}>
-              <div class="form-control w-full max-w-xs">
-                <label class="label">
-                  <span class="label-text">Loan Amount(USD.)</span>
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
+                  <span className="label-text">Loan Amount(USD.)</span>
 
                 </label>
                 <input type="number" name='loanAmount' placeholder="Type Loan Amount" className="input input-bordered w-full max-w-xs" />
@@ -124,7 +124,7 @@ const SmeLoan = () => {
                   <span className="label-text">Payment Type</span>
                 </label>
 
-                <select class="select select-bordered w-full max-w-xs" name="Payment_Type">
+                <select className="select select-bordered w-full max-w-xs" name="Payment_Type">
                   <option value='12' selected>Monthly</option>
                   <option value='4'>Quarterly</option>
                   <option value='2'>Half_Yearly</option>
@@ -136,7 +136,7 @@ const SmeLoan = () => {
                   <span className="label-text">Loan period in years</span>
                 </label>
 
-                <select class="select select-bordered w-full max-w-xs" name="Loan_period">
+                <select className="select select-bordered w-full max-w-xs" name="Loan_period">
 
                   <option selected>1</option>
                   <option>2</option>

@@ -26,26 +26,26 @@ const RequestPayment = () => {
       </div>
 
       <div className="mostRecent-card mt-10 lg:flex gap-10 w-fit">
-        <div class=" bg-purple-600 lg:w-60 shadow-xl lg:h-40 mb-4 lg:mb-0 rounded-2xl">
-          <figure class="px-10 pt-10 text-white text-xl">
+        <div className=" bg-purple-600 lg:w-60 shadow-xl lg:h-40 mb-4 lg:mb-0 rounded-2xl">
+          <figure className="px-10 pt-10 text-white text-xl">
             <FontAwesomeIcon
               icon={faUser}
               className="p-2 border-2 rounded-full"
             />
           </figure>
-          <div class="items-center text-center">
+          <div className="items-center text-center">
             <p className="py-6 lg:px-0 px-4 text-white">Most Recent</p>
           </div>
         </div>
         {/*  */}
-        <div class=" bg-base-200 lg:w-60 shadow-xl lg:h-40 mb-4 lg:mb-0 rounded-2xl">
-          <figure class="px-10 pt-10 text-white text-xl">
+        <div className=" bg-base-200 lg:w-60 shadow-xl lg:h-40 mb-4 lg:mb-0 rounded-2xl">
+          <figure className="px-10 pt-10 text-white text-xl">
             <FontAwesomeIcon
               icon={faPlus}
               className="text-slate-400 text-4xl"
             />
           </figure>
-          <div class="items-center text-center">
+          <div className="items-center text-center">
             <p className="py-6 lg:px-0 px-4 text-black">New Recipients</p>
           </div>
         </div>
@@ -55,9 +55,9 @@ const RequestPayment = () => {
       </div>
       <div className="provideEmailInput">
         <div className="searchbar grow">
-          <div class="form-control data-svelte-search">
+          <div className="form-control data-svelte-search">
             <svg
-              class="text-base-content pointer-events-none absolute mt-3 ml-3 stroke-current opacity-60 "
+              className="text-base-content pointer-events-none absolute mt-3 ml-3 stroke-current opacity-60 "
               width="25"
               height="25"
               xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ const RequestPayment = () => {
             <input
               type="email"
               placeholder="Enter email, name or company"
-              class="input px-11 border-2 border-slate-200 placeholder-slate-400 text-black bg-slate-50 focus:ring-0 focus:ring-offset-0 text-sm"
+              className="input px-11 border-2 border-slate-200 placeholder-slate-400 text-black bg-slate-50 focus:ring-0 focus:ring-offset-0 text-sm"
             />
           </div>
         </div>
@@ -86,9 +86,9 @@ const RequestPayment = () => {
       <div className="usersPaying-details">
         <div className="mt-6 flex justify-between">
           <td>
-            <div class="flex items-center lg:space-x-3">
-              <div class="avatar">
-                <div class="mask mask-squircle w-12 h-12 -mt-8">
+            <div className="flex items-center lg:space-x-3">
+              <div className="avatar">
+                <div className="mask mask-squircle w-12 h-12 -mt-8">
                   <img
                     src="https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png"
                     alt="Avatar"
@@ -96,8 +96,8 @@ const RequestPayment = () => {
                 </div>
               </div>
               <div>
-                <div class="font-bold">Hart Hagerty</div>
-                <div class="text-sm opacity-50">Hart.hagerty@gmai.com</div>
+                <div className="font-bold">Hart Hagerty</div>
+                <div className="text-sm opacity-50">Hart.hagerty@gmai.com</div>
                 <div className="mt-4 w-65 text-xs">
                   ---------------------------------------------
                   <p>
@@ -111,7 +111,7 @@ const RequestPayment = () => {
           </td>
 
           <th className="mt-5">
-            <button class="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal lg:px-10 rounded-2xl bg-slate-100 border-inherit">
+            <button className="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal lg:px-10 rounded-2xl bg-slate-100 border-inherit">
               Choose
             </button>
           </th>
@@ -121,9 +121,9 @@ const RequestPayment = () => {
         </div>
         <div className="mt-6 flex justify-between">
           <td>
-            <div class="flex items-center space-x-3">
-              <div class="avatar">
-                <div class="mask mask-squircle w-12 h-12 -mt-8">
+            <div className="flex items-center space-x-3">
+              <div className="avatar">
+                <div className="mask mask-squircle w-12 h-12 -mt-8">
                   <img
                     src="https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png"
                     alt="Avatar"
@@ -131,8 +131,8 @@ const RequestPayment = () => {
                 </div>
               </div>
               <div>
-                <div class="font-bold">Morris Lucas</div>
-                <div class="text-sm opacity-50">Morris22@gmai.com</div>
+                <div className="font-bold">Morris Lucas</div>
+                <div className="text-sm opacity-50">Morris22@gmai.com</div>
                 <div className="mt-4 w-65 text-xs">
                   ---------------------------------------------
                   <p>
@@ -146,7 +146,7 @@ const RequestPayment = () => {
           </td>
 
           <th className="mt-5">
-            <button class="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal lg:px-10 rounded-2xl bg-slate-100 border-inherit">
+            <button className="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal lg:px-10 rounded-2xl bg-slate-100 border-inherit">
               Choose
             </button>
           </th>

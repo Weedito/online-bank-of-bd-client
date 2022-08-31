@@ -14,7 +14,7 @@ const Authentication = () => {
     const [profile ,setProfile]=useState(null)
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/profile/${user?.email}`)
+        fetch(`https://bank-of-bd.herokuapp.com/profile/${user?.email}`)
         .then(res=>{
           if(!res.status===200){
             toast.error("Profile Not Found!")
@@ -43,13 +43,13 @@ const Authentication = () => {
             {
                 // user ? <button onClick={handleSignOut} >SignOut</button> : <NavLink to="/signin">SignIn Your Account</NavLink>
                 user ?
-                    <div class="dropdown dropdown-end">
+                    <div className="dropdown dropdown-end">
                         <div className="flex w-44 border border-x-primary mx-auto rounded px-5 py-1 items-center justify-between ">
                             <div className="">
                                 <h3 className="text-primary">{user?.displayName?.slice(0, 10)}</h3>
                             </div>
-                            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                                <div class="w-10 rounded-full">
+                            <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
                                     {
                                         profile?.image && <img src={profile?.image} alt='img' />
                                     }
@@ -58,8 +58,8 @@ const Authentication = () => {
                                 </div>
                             </label>
                         </div>
-                        <ul tabindex="0" class="mt-3 p-2 gap-1 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                            <li> <Link to="/profile" class="justify-between"> Profile <span class="badge">New</span> </Link> </li>
+                        <ul tabindex="0" className="mt-3 p-2 gap-1 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                            <li> <Link to="/profile" className="justify-between"> Profile <span className="badge">New</span> </Link> </li>
                             <li><Link to="">Settings</Link></li>
                             <li><button onClick={handleSignOut}>Sign Out</button></li>
                         </ul>

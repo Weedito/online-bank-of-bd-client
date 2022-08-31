@@ -17,7 +17,7 @@ const Interest = () => {
       </div>
 
       <div data-aos="zoom-in-down" className="overflow-x-auto max-w-7xl mx-auto">
-        <table class="table table-zebra w-full m-auto mb-8">
+        <table className="table table-zebra w-full m-auto mb-8">
 
           <thead>
 

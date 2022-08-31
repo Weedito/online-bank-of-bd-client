@@ -28,7 +28,7 @@ const Profile = () => {
   let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   const email = user?.email
   useEffect(()=>{
-    fetch(`http://localhost:5000/profile/${email}`)
+    fetch(`https://bank-of-bd.herokuapp.com/profile/${email}`)
     .then(res=>{
       if(!res.status===200){
         toast.error("Profile Not Found!")
@@ -74,7 +74,7 @@ const Profile = () => {
             .then(result => {
               if(result.data?.url){
                 const url = result?.data?.url;
-                fetch(`http://localhost:5000/profile/image/${email}`,{
+                fetch(`https://bank-of-bd.herokuapp.com/profile/image/${email}`,{
                   method:"put",
                   headers: {
                     "content-type": "application/json",
@@ -111,7 +111,7 @@ const Profile = () => {
             joined:date
         }
         // send to database
-        fetch(`http://localhost:5000/profile/${email}`, {
+        fetch(`https://bank-of-bd.herokuapp.com/profile/${email}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json",
@@ -142,16 +142,16 @@ const Profile = () => {
       <div className="header-bg"></div>
       <div className="myProfile lg:w-11/12 lg:mx-16 md:mx-6 mx-1 lg:flex gap-10 -mt-72 mb-20">
         <div className="profile lg:mt-28 mt-32">
-          <div class="card lg:w-96 w-full bg-base-100 shadow-xl mx-auto">
-            <figure class="px-10 pt-10">
+          <div className="card lg:w-96 w-full bg-base-100 shadow-xl mx-auto">
+            <figure className="px-10 pt-10">
               <img
                 src={profile?.image? profile?.image:Avatar }
                 alt="Shoes"
-                class="rounded-full w-36 h-36 object-cover"
+                className="rounded-full w-36 h-36 object-cover"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="font-bold text-2xl text-center">{profile?.displayName? `${profile?.displayName}`:user?.displayName}</h2>
+            <div className="card-body">
+              <h2 className="font-bold text-2xl text-center">{profile?.displayName? `${profile?.displayName}`:user?.displayName}</h2>
               <p className="text-green-500 text-center">{admin? "Admin":"User"}</p>
               <div className="hr text-black py-2">
                 <hr />
@@ -229,21 +229,21 @@ const Profile = () => {
           </div>
         </div>
         <div className="profile-customize w-full lg:mt-28 mt-10">
-          <div class="h-fit bg-base-100 shadow-xl rounded-2xl">
-            <div class="card-body tab-content" id="tabs-tabContentFill">
+          <div className="h-fit bg-base-100 shadow-xl rounded-2xl">
+            <div className="card-body tab-content" id="tabs-tabContentFill">
               <div className="profileCustomizeHead lg:gap-3  gap-0 justify-between">
                 <ul
-                  class="nav nav-tabs flex  md:flex-row w-full  list-none border-b-0 pl-0 mb-4"
+                  className="nav nav-tabs flex  md:flex-row w-full  list-none border-b-0 pl-0 mb-4"
                   id="tabs-tabFill"
                   role="tablist"
                 >
                   <li
-                    class="nav-item flex-auto text-center p-0 m-0"
+                    className="nav-item flex-auto text-center p-0 m-0"
                     role="presentation"
                   >
                     <a
                       href="#tabs-accountFill"
-                      class="
+                      className="
                             nav-link
                             block
                             w-22
@@ -270,12 +270,12 @@ const Profile = () => {
                     </a>
                   </li>
                   <li
-                   class="nav-item flex-auto text-center p-0 m-0"
+                   className="nav-item flex-auto text-center p-0 m-0"
                     role="presentation"
                   >
                     <a
                       href="#tabs-securityFill"
-                      class="
+                      className="
                             nav-link
                             block
                             w-22
@@ -301,12 +301,12 @@ const Profile = () => {
                     </a>
                   </li>
                   <li
-                   class="nav-item flex-auto text-center p-0 m-0"
+                   className="nav-item flex-auto text-center p-0 m-0"
                     role="presentation"
                   >
                     <a
                       href="#tabs-notificationFill"
-                      class="
+                      className="
                             nav-link
                             block
                             w-22
@@ -332,9 +332,9 @@ const Profile = () => {
                     </a>
                   </li>
                 </ul>
-                <div class="tab-content" id="tabs-tabContentFill">
+                <div className="tab-content" id="tabs-tabContentFill">
                   <div
-                    class="tab-pane fade show active"
+                    className="tab-pane fade show active"
                     id="tabs-accountFill"
                     role="tabpanel"
                     aria-labelledby="tabs-account-tabFill"
@@ -342,13 +342,13 @@ const Profile = () => {
                     <div className="profileCustomizeBody">
                       <div className="avatarUpdate mt-8 flex justify-between bg-indigo-50 px-6 py-6 rounded-xl">
                         <td>
-                          <div class="flex items-center lg:space-x-3">
-                            <div class="avatar">
+                          <div className="flex items-center lg:space-x-3">
+                            <div className="avatar">
                               {
                                 avatarLoading && 
-                                <span class="loader"></span>
+                                <span className="loader"></span>
                               }
-                              <div class="mask mask-squircle w-12 h-12 md:w-16 md:h-16 rounded-full">
+                              <div className="mask mask-squircle w-12 h-12 md:w-16 md:h-16 rounded-full">
                                 {!avatarLoading&&
                                   <img
                                   className="w-12 h-12 md:w-16 md:h-16 rounded-full"
@@ -358,8 +358,8 @@ const Profile = () => {
                               </div>
                             </div>
                             <div>
-                              <div class="font-bold">Your Avatar</div>
-                              <div class="text-sm opacity-50">
+                              <div className="font-bold">Your Avatar</div>
+                              <div className="text-sm opacity-50">
                                 Profile picture size: 400px x 400px
                               </div>
                             </div>
@@ -374,7 +374,7 @@ const Profile = () => {
                                   Upload new avatar
                                 </p>
                                 <input
-                                class="hidden"
+                                className="hidden"
                                 type="file" 
                                 name="photoURL"
                                 id="uploadAvatar"
@@ -497,7 +497,7 @@ const Profile = () => {
                     </div>
                   </div>
                   <div
-                    class="tab-pane fade"
+                    className="tab-pane fade"
                     id="tabs-securityFill"
                     role="tabpanel"
                     aria-labelledby="tabs-security-tabFill"
@@ -505,7 +505,7 @@ const Profile = () => {
                     <h1 className="text-center">Security tab is Empty</h1>
                   </div>
                   <div
-                    class="tab-pane fade"
+                    className="tab-pane fade"
                     id="tabs-notificationFill"
                     role="tabpanel"
                     aria-labelledby="tabs-notification-tabFill"

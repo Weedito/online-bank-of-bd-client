@@ -19,7 +19,7 @@ const AgentDynamicPage = () => {
 
   return (
     <div>
-      <h1 class="text-5xl font-bold my-8 text-center">{singleData.title} <span className='text-3xl'>({singleData.EnglishTitle})</span></h1>
+      <h1 className="text-5xl font-bold my-8 text-center">{singleData.title} <span className='text-3xl'>({singleData.EnglishTitle})</span></h1>
 
       <>
         <div className="flex flex-wrap">

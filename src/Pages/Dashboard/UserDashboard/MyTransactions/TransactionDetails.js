@@ -36,22 +36,22 @@ const TransactionDetails = ({trc}) => {
 
     <tr key={trc?.AccNo}>
         <td>
-          <div class="flex items-center space-x-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-12 h-12">
+          <div className="flex items-center space-x-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
                 <img src={trc?.image || 'https://i.ibb.co/DbF2r7V/avatar-icon-images-4.png'} alt="Avatar" />
               </div>
             </div>
             <div>
-              <div class="font-bold">{trc?.name}</div>
-              <div class="text-sm opacity-50">{trc?.email}</div>
+              <div className="font-bold">{trc?.name}</div>
+              <div className="text-sm opacity-50">{trc?.email}</div>
             </div>
           </div>
         </td>
         <td>
           <b>{trc?.date}</b>
           <br/>
-          <span class="badge badge-ghost badge-sm">{trc?.time}</span>
+          <span className="badge badge-ghost badge-sm">{trc?.time}</span>
         </td>
         <td>
         <b>$ {(trc?.deposit > 0 && trc?.withdraw <= 0) ? trc?.deposit : null || (trc?.withdraw > 0 && trc?.deposit <= 0) ? trc?.withdraw : null }</b>

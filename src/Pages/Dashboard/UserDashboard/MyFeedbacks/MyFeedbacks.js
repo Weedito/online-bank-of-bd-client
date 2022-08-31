@@ -12,7 +12,7 @@ const MyFeedbacks = () => {
 
     // console.log(email);
 
-    const feedback = () => axios.get(`http://localhost:5000/feedbacks/${email}`);
+    const feedback = () => axios.get(`https://bank-of-bd.herokuapp.com/feedbacks/${email}`);
 
     const { isLoading, data, refetch } = useQuery(["feedbacks"], feedback);
 

@@ -27,7 +27,7 @@ const MyTransactions = () => {
     }, [myAccount, selectAcc]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/statements')
+        fetch('https://bank-of-bd.herokuapp.com/statements')
             .then(res => res.json())
             .then(data => setTransactions(data))
     }, [])
@@ -57,9 +57,9 @@ const MyTransactions = () => {
                         <div className="w-full mx-auto pb-16">
                             <div className="head bg-violet-800 py-6 px-10 flex flex-col lg:flex-row gap-4 gap">
                                 <div className="searchbar grow">
-                                    <div class="form-control data-svelte-search">
+                                    <div className="form-control data-svelte-search">
                                         <svg
-                                            class="text-base-content pointer-events-none absolute mt-3 ml-3 stroke-current opacity-60 "
+                                            className="text-base-content pointer-events-none absolute mt-3 ml-3 stroke-current opacity-60 "
                                             width="25"
                                             height="25"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -77,12 +77,12 @@ const MyTransactions = () => {
                                         <input
                                             type="text"
                                             placeholder="Type to search..."
-                                            class="input px-11 placeholder-slate-300 text-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-md"
+                                            className="input px-11 placeholder-slate-300 text-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-md"
                                         />
                                     </div>
                                 </div>
                                 <div className="filteringBy-A-to-Z">
-                                    <select class="select w-full max-w-xs input px-3 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-sm">
+                                    <select className="select w-full max-w-xs input px-3 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-sm">
                                         <option disabled selected>
                                             Sort by: A-Z
                                         </option>
@@ -94,7 +94,7 @@ const MyTransactions = () => {
                                     </select>
                                 </div>
                                 <div className="allStatus">
-                                    <select class="select w-full max-w-xs px-3 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-md">
+                                    <select className="select w-full max-w-xs px-3 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-md">
                                         <option disabled selected>
                                             All Status
                                         </option>
@@ -129,8 +129,8 @@ const MyTransactions = () => {
                             }
 
                             <div className="body">
-                                <div class="overflow-x-auto w-full">
-                                    <table class="table w-full">
+                                <div className="overflow-x-auto w-full">
+                                    <table className="table w-full">
                                         {/* head */}
                                         <thead>
                                             <tr>

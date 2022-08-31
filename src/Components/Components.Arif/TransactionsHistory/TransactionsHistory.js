@@ -99,9 +99,9 @@ const TransactionsHistory = () => {
     <div className="w-4/5 mx-auto">
       <div className="head bg-violet-800 py-6 px-10 flex flex-col lg:flex-row gap-4 gap">
         <div className="searchbar grow">
-          <div class="form-control data-svelte-search">
+          <div className="form-control data-svelte-search">
             <svg
-              class="text-base-content pointer-events-none absolute mt-3 ml-3 stroke-current opacity-60 "
+              className="text-base-content pointer-events-none absolute mt-3 ml-3 stroke-current opacity-60 "
               width="25"
               height="25"
               xmlns="http://www.w3.org/2000/svg"
@@ -119,12 +119,12 @@ const TransactionsHistory = () => {
             <input
               type="text"
               placeholder="Type to search..."
-              class="input px-11 placeholder-slate-300 text-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-lg"
+              className="input px-11 placeholder-slate-300 text-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-lg"
             />
           </div>
         </div>
         <div className="filteringBy-A-to-Z">
-          <select class="select w-full max-w-xs input px-11 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-lg">
+          <select className="select w-full max-w-xs input px-11 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-lg">
             <option disabled selected>
               Sort by: A-Z
             </option>
@@ -136,7 +136,7 @@ const TransactionsHistory = () => {
           </select>
         </div>
         <div className="allStatus">
-          <select class="select w-full max-w-xs px-11 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-lg">
+          <select className="select w-full max-w-xs px-11 placeholder-white bg-violet-700 hover:border-none border-none focus:ring-0 focus:ring-offset-0 text-white text-lg">
             <option disabled selected>
               All Status
             </option>
@@ -157,8 +157,8 @@ const TransactionsHistory = () => {
         </div>
       </div>
       <div className="body">
-      <div class="overflow-x-auto w-full">
-  <table class="table w-full">
+      <div className="overflow-x-auto w-full">
+  <table className="table w-full">
   {/* head */}
     <thead>
       <tr>
@@ -175,22 +175,22 @@ const TransactionsHistory = () => {
           return(
             <tr key={id}>
         <td>
-          <div class="flex items-center space-x-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-12 h-12">
+          <div className="flex items-center space-x-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
                 <img src={image} alt="Avatar" />
               </div>
             </div>
             <div>
-              <div class="font-bold">{name}</div>
-              <div class="text-sm opacity-50">{mail}</div>
+              <div className="font-bold">{name}</div>
+              <div className="text-sm opacity-50">{mail}</div>
             </div>
           </div>
         </td>
         <td>
           <b>{time}</b>
           <br/>
-          <span class="badge badge-ghost badge-sm">{date}</span>
+          <span className="badge badge-ghost badge-sm">{date}</span>
         </td>
         <td>
         <b>{amount}</b>
@@ -198,7 +198,7 @@ const TransactionsHistory = () => {
           <span>{amountStatus}</span>
           </td>
         <th>
-          <button class="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal px-10 rounded-2xl bg-slate-100 border-inherit">{status}</button>
+          <button className="btn btn-md hover:bg-slate-200 hover:border-none normal-case text-black font-normal px-10 rounded-2xl bg-slate-100 border-inherit">{status}</button>
         </th>
       </tr>
           );

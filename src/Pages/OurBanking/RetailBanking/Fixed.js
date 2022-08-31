@@ -70,8 +70,8 @@ const Fixed = () => {
                                 <div id='itemstwo' className="accordion-collapse collapse" aria-labelledby="headingOne"
                                     data-bs-parent="#accordionExample">
                                     <div className="accordion-body py-4 px-5 flex justify-around items-center">
-                                        <div class="overflow-x-auto">
-                                            <table class="table table-zebra w-full">
+                                        <div className="overflow-x-auto">
+                                            <table className="table table-zebra w-full">
                                                 {/* <!-- head --> */}
                                                 <thead>
                                                     <tr>
