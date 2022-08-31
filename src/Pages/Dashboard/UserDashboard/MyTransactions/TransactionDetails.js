@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const TransactionDetails = ({trc}) => {
     const [icon, setIcon] = useState();
-    console.log(trc);
+    // console.log(trc);
 
     useEffect(() => {
         if(trc?.statement === 'Deposit Money'){

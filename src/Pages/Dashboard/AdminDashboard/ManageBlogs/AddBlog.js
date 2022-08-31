@@ -33,7 +33,7 @@ const AddBlog = ({refresh, setRefresh, setModal}) => {
                 const picture=result.data.url
                 const comment =[]
                 const blogData= {title,category,description,picture,date,comment}
-                console.log(blogData);
+                // console.log(blogData);
                 const url = 'http://localhost:5000/blog';
                 fetch(url,{
                     method:"POST",

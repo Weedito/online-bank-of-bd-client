@@ -11,7 +11,7 @@ const BlogsRow = ({blog,index,setRefresh,refresh}) => {
             fetch(url,{
                 method:"DELETE"
             }).then(res=>res.json()).then(result=>{
-                console.log(result);
+                // console.log(result);
                 toast.success("Successfully Delete Blog post!")
                 setRefresh(!refresh)
             })
