@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 const useMainAccount = () => {
     const [mainAcc, setMainAcc] = useState();
-    const allAccounts = () => axios.get('https://bank-of-bd.herokuapp.com/allaccounts');
+    const allAccounts = () => axios.get('http://localhost:5000/allaccounts');
 
     const { isLoading, data, refetch } = useQuery(["accounts"], allAccounts);
 

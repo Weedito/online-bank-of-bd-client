@@ -31,7 +31,7 @@ const Overview = () => {
     
 
     useEffect(() => {
-        fetch('https://bank-of-bd.herokuapp.com/statements')
+        fetch('http://localhost:5000/statements')
             .then(res => res.json())
             .then(data => setTransactions(data))
     }, [])
