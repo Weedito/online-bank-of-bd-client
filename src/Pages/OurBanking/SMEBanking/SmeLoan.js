@@ -60,7 +60,7 @@ const SmeLoan = () => {
     const applyLoan = {
 
       // Loan Information
-      totalAmountTotal: loanAmountIV,
+      totalAmountTotal: loanAmountIV,      
       interestTotal: "10%",
       loanType: payment_TypeIV,
       loanPeriodYear: loan_periodIV,

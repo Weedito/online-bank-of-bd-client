@@ -18,8 +18,8 @@ const LoanReq = () => {
 
     const { allAccounts, isLoading, error } = useSelector(state => state?.accounts);
 
-    if(isLoading){ return <h1>Loading....</h1> };
-    if(error){ return <h1>{error}</h1> };
+    if (isLoading) { return <h1>Loading....</h1> };
+    if (error) { return <h1>{error}</h1> };
 
     const handleView = () => {
 
@@ -37,22 +37,23 @@ const LoanReq = () => {
 
         // Update Balance
 
-        const URL = `http://localhost:5000/accountno/${_id}`;
+        const URL = `http://localhost:5000/account/${_id}`;
         axios.put(URL, updateBalance)
             .then(res => {
-                // console.log("Loan Approved !!!", res)
+                console.log("Loan Approved !!!", res)
             })
             .catch(error => {
-                // console.log(error)
+                console.log(error)
             })
 
         // Approved Loan status
+
         axios.put(`http://localhost:5000/loanRequests/${AccNo}`, loanUpdate)
             .then(res => {
-                // console.log("Loan Approved !!!", res)
+                console.log("status updated !!!", res)
             })
             .catch(error => {
-                // console.log(error)
+                console.log(error)
             })
     }
 
@@ -89,7 +90,7 @@ const LoanReq = () => {
                                 <td>{loan?.loanFromAcc}</td>
                                 <td>{loan?.status}</td>
                                 <td>
-                                    <button className='btn btn-primary btn-xm' onClick={()=>handleView()}>View</button>
+                                    <button className='btn btn-primary btn-xm' onClick={() => handleView()}>View</button>
                                     <button onClick={() => approveLoan(loan.loanFromAcc, loan?.totalAmountTotal)} className='btn btn-primary btn-xm' disabled={loan?.status === "Approved"} >Approve</button>
                                 </td>
                             </tr>)
