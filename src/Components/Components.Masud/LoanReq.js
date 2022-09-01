@@ -25,8 +25,8 @@ const LoanReq = () => {
 
     }
 
-    const approveLoan = (accNo, loanAmount) => {
-        const allAccountNo = allAccounts.filter(account => account.AccNo === parseInt(accNo));
+    const approveLoan = (accNo, loanAmount, id) => {
+        const allAccountNo = allAccounts.filter(account => account.AccNo === parseInt(accNo));        
         const { AccNo, balance, name, _id } = allAccountNo[0];
         const updateBalanceWithLoan = parseInt(balance) + parseInt(loanAmount);
         const updateBalance = { depositBalance: updateBalanceWithLoan };
@@ -48,7 +48,7 @@ const LoanReq = () => {
 
         // Approved Loan status
 
-        axios.put(`http://localhost:5000/loanRequests/${AccNo}`, loanUpdate)
+        axios.put(`http://localhost:5000/loanRequests/${id}`, loanUpdate)
             .then(res => {
                 console.log("status updated !!!", res)
             })
@@ -91,7 +91,7 @@ const LoanReq = () => {
                                 <td>{loan?.status}</td>
                                 <td>
                                     <button className='btn btn-primary btn-xm' onClick={() => handleView()}>View</button>
-                                    <button onClick={() => approveLoan(loan.loanFromAcc, loan?.totalAmountTotal)} className='btn btn-primary btn-xm' disabled={loan?.status === "Approved"} >Approve</button>
+                                    <button onClick={() => approveLoan(loan?.loanFromAcc, loan?.totalAmountTotal, loan?._id)} className='btn btn-primary btn-xm' disabled={loan?.status === "Approved"} >Approve</button>
                                 </td>
                             </tr>)
                         }
