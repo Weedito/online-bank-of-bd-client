@@ -1,4 +1,5 @@
 import React from 'react';
+import LoanPage from '../../../Components/Components.Rijon/LoanPage';
 import OurCards from '../../../Components/Components.Rijon/OurCards';
 import PageTitle from '../../PageTitle/PageTitle';
 import Loan from '../../Products/Loan/Loan';
@@ -39,47 +40,47 @@ const RetailBanking = () => {
 
             <section className='flex items-center justify-center w-full mx-auto my-20'>
                 <div className='w-full mx-auto'>
-                    <ul className="nav nav-tabs grid grid-cols-2 lg:grid-cols-4  mx-auto md:flex-row flex-wrap list-none border-b-0 mb-4 bg-black justify-center lg:ml-80 w-1/2 gap-4" id="tabs-tab" role="tablist">
+                    <ul class="nav nav-tabs grid grid-cols-2 lg:grid-cols-4  mx-auto md:flex-row flex-wrap list-none border-b-0 mb-4 bg-black justify-center lg:ml-80 w-1/2 gap-4" id="tabs-tab" role="tablist">
 
 
-                        <li className="nav-item" role="presentation">
-                            <a href="#tabs-home" className="" id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-home" class="" id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
                                 aria-selected="true">
-                                <div className="card hover:bg-green-600 rounded-none">
-                                    <div className="card-body">
+                                <div class="card hover:bg-green-600 rounded-none">
+                                    <div class="card-body">
                                         <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/care.png" alt="" />
                                         <p className='text-warning'>ACCOUNTS</p>
                                     </div>
                                 </div>
                             </a>
                         </li>
-                        <li className="nav-item" role="presentation">
-                            <a href="#tabs-profile" className="" id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-profile" class="" id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
                                 aria-controls="tabs-profile" aria-selected="false">
-                                <div className="card hover:bg-green-600 rounded-none">
-                                    <div className="card-body">
+                                <div class="card hover:bg-green-600 rounded-none">
+                                    <div class="card-body">
                                         <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/cash.png" alt="" />
                                         <p className='text-warning'>CARDS</p>
                                     </div>
                                 </div>
                             </a>
                         </li>
-                        <li className="nav-item" role="presentation">
-                            <a href="#tabs-messages" className="" id="tabs-messages-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages" role="tab"
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-messages" class="" id="tabs-messages-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages" role="tab"
                                 aria-controls="tabs-messages" aria-selected="false">
-                                <div className="card hover:bg-green-600 rounded-none">
-                                    <div className="card-body">
+                                <div class="card hover:bg-green-600 rounded-none">
+                                    <div class="card-body">
                                         <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/loan.png" alt="" />
                                         <p className='text-warning'>LOANS</p>
                                     </div>
                                 </div>
                             </a>
                         </li>
-                        <li className="nav-item" role="presentation">
-                            <a href="#tabs-contact" className="" id="tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-contact" class="" id="tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
                                 aria-controls="tabs-contact" aria-selected="false">
-                                <div className="card hover:bg-green-600 rounded-none">
-                                    <div className="card-body">
+                                <div class="card hover:bg-green-600 rounded-none">
+                                    <div class="card-body">
                                         <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/customer-service.png" alt="" />
                                         <p className='text-warning'>SERVICES</p>
                                     </div>
@@ -88,17 +89,18 @@ const RetailBanking = () => {
                         </li>
 
                     </ul>
-                    <div className="tab-content" id="tabs-tabContent">
-                        <div className="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
+                    <div class="tab-content" id="tabs-tabContent">
+                        <div class="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
                             <Accounts />
                         </div>
-                        <div className="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+                        <div class="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
                             <OurCards />
                         </div>
-                        <div className="tab-pane fade" id="tabs-messages" role="tabpanel" aria-labelledby="tabs-profile-tab">
-                            <Loan />
+                        <div class="tab-pane fade" id="tabs-messages" role="tabpanel" aria-labelledby="tabs-profile-tab">
+                            {/* <Loan /> */}
+                            <LoanPage />
                         </div>
-                        <div className="tab-pane fade" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
+                        <div class="tab-pane fade" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
                             <Service />
                         </div>
                     </div>
