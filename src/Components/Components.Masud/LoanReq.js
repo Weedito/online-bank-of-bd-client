@@ -14,9 +14,22 @@ const LoanReq = () => {
 
     const { reqLoan } = useSelector(state => state.reqLoans);
     const dispatch = useDispatch();
-
     const [viewLoan, setViewLoan] = useState(null);
     const [deleteLoan, setDeleteLoan] = useState(null);
+
+    let today = new Date();
+    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const timeAMPM = (date) => {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        return strTime;
+    }
+    const time = timeAMPM(today);
 
     useEffect(() => {
         dispatch(fetchAllReqLoan())
@@ -29,11 +42,11 @@ const LoanReq = () => {
     if (error) { return <h1>{error}</h1> };
 
 
-    
+
 
     const approveLoan = (accNo, loanAmount, id) => {
         const allAccountNo = allAccounts.filter(account => account.AccNo === parseInt(accNo));
-        const { AccNo, balance, name, _id } = allAccountNo[0];
+        const { AccNo, balance, name, _id, email } = allAccountNo[0];
         const updateBalanceWithLoan = parseInt(balance) + parseInt(loanAmount);
         const updateBalance = { depositBalance: updateBalanceWithLoan };
 
@@ -61,6 +74,31 @@ const LoanReq = () => {
             .catch(error => {
                 console.log(error)
             })
+
+        // Send Statement
+
+        const receiverStatementData = {
+
+            senderAccount: 777888999000,
+            statement: "Loan Approved",
+            deposit: loanAmount,
+            withdraw: 0,
+            balance: updateBalanceWithLoan,
+            date: date,
+            time: time,
+            email: email,
+            name: "Online Bank of BD",
+            image: "https://i.ibb.co/zJrtyfJ/loan.png"
+        }
+
+        // Posting Statement
+
+        axios.post('http://localhost:5000/statement', receiverStatementData)
+            .then(data => {
+                toast("Loan Notification send")
+            })
+
+
     }
 
 
@@ -97,8 +135,8 @@ const LoanReq = () => {
                                 <td>{loan?.status}</td>
                                 <td>
                                     <label htmlFor="loan-view-modal" onClick={() => setViewLoan(loan)} className="btn text-white btn-accent btn-xs">View</label>
-                                    
-                                    
+
+
                                     <button onClick={() => approveLoan(loan?.loanFromAcc, loan?.totalAmountTotal, loan?._id)} className='btn btn-primary btn-xs mx-2' disabled={loan?.status === "Approved"} >Approve</button>
 
                                     <label htmlFor="delete-loan-modal" onClick={() => setDeleteLoan(loan)} className="btn text-white btn-error btn-xs mr-2">Delete</label>
