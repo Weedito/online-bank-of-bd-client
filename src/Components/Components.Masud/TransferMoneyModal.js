@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import useMainAccount from '../Components.Nahid/Hooks/useMainAccount';
 
-
 const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }) => {
 
     const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage, actype } = transferMoney;

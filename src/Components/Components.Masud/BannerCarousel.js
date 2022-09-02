@@ -22,7 +22,7 @@ const BannerCarousel = () => {
     ];
 
     return (
-        <div className='mx-auto'>
+        <div  className='mx-auto'>
             <Slider>
                 {slides.map((slide, index) => <div key={index}>
                     <h2>{slide.title}</h2>
