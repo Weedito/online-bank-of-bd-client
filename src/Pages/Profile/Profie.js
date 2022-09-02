@@ -37,7 +37,7 @@ const Profile = () => {
                     }
 
                     // send to database
-                    fetch(`http://localhost:5000/profile/${email}`, {
+                    fetch(`https://bank-of-bd.herokuapp.com/profile/${email}`, {
                         method: 'PUT',
                         headers: {
                             "content-type": "application/json",
@@ -77,7 +77,7 @@ const Profile = () => {
                     <div className="w-full md:w-2/5 p-4 mt-20 md:mt-0 sm:p-6 lg:p-8 bg-white shadow-md">
                         <div className="">
                             <span className="text-xl font-semibold block">{user ? `${user?.displayName}'s Profile` : 'User Profile'} </span>
-                            {/* <label for="my-modal-3" class="btn modal-button">open modal</label> */}
+                            {/* <label for="my-modal-3" className="btn modal-button">open modal</label> */}
                         </div>
 
                         <span className="text-gray-600">This information is secret so be careful</span>
@@ -118,11 +118,11 @@ const Profile = () => {
             {/* <!-- The button to open modal --> */}
             
 
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-            <div class="modal">
-            <div class="modal-box relative  bg-success">
-                <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                <h3 class="text-lg font-bold">Please Update Your Profile Indormation</h3>
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+            <div className="modal-box relative  bg-success">
+                <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                <h3 className="text-lg font-bold">Please Update Your Profile Indormation</h3>
                 <form onSubmit={handleSubmit(handleUpdateProfile)} action="" className='py-3'>
                 <input {...register('displayName')} type="text" placeholder="Enter Your Name" className="input bg-slate-100 my-2 input-ghost w-full block mx-auto max-w-xs" />
                 <input {...register('email')} type="email" placeholder="Enter Your Email" value={ user ? `${user?.email}` : `${user?.email}`} className="input bg-slate-100 my-2 input-ghost w-full block mx-auto max-w-xs" />

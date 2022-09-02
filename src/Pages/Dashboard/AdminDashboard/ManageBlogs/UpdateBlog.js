@@ -39,7 +39,7 @@ const UpdateBlog = ({refresh, setRefresh}) => {
                     const description = data.description;
                     const picture=result.data.url;
                     const blogData= {title,category,description,picture,date}
-                    const url = `http://localhost:5000/blog/${id}`
+                    const url = `https://bank-of-bd.herokuapp.com/blog/${id}`
                     fetch(url,{
                         method:"PUT",
                         headers:{

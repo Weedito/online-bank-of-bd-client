@@ -56,7 +56,7 @@ const TopOverview = ({ handleSelect, frstacc }) => {
                     {
                         noticeDropDown&& 
                         <div className='absolute top-12 right-12 z-10'>
-                            <ul tabindex="12" class="dropdown-content menu p-2 shadow bg-base-100 min-h-52 flex flex-col text-start rounded-box w-72">
+                            <ul tabindex="12" className="dropdown-content menu p-2 shadow bg-base-100 min-h-52 flex flex-col text-start rounded-box w-72">
                                     {
                                         allNotice?.map(notice=>  <NoticeDropDown notice={notice} key={notice._id}/>)
                                     }

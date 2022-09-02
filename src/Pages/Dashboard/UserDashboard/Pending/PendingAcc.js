@@ -5,23 +5,23 @@ const PendingAcc = () => {
 
     return (
         <div className="-mt-16">
-            <div class="flex items-center justify-center py-12">
-        <div class="bg-white dark:bg-gray-800 border dark:border-gray-900 rounded-md flex items-center justify-center mx-4 md:w-2/3">
+            <div className="flex items-center justify-center py-12">
+        <div className="bg-white dark:bg-gray-800 border dark:border-gray-900 rounded-md flex items-center justify-center mx-4 md:w-2/3">
             
    
-            <div class="flex flex-col items-center py-16">
-            <div class="px-4 py-12 bg-white">
-      <div class="mx-auto flex justify-center">
-        <div class="relative">
+            <div className="flex flex-col items-center py-16">
+            <div className="px-4 py-12 bg-white">
+      <div className="mx-auto flex justify-center">
+        <div className="relative">
           <div
-            class="w-[160px] h-[160px] border border-green-400 rounded-full"
+            className="w-[160px] h-[160px] border border-green-400 rounded-full"
           ></div>
           <div
-            class="w-[140px] h-[140px] border border-green-400 rounded-full absolute top-2.5 right-2.5"
+            className="w-[140px] h-[140px] border border-green-400 rounded-full absolute top-2.5 right-2.5"
           ></div>
           <div>
             <svg
-              class="absolute top-[22px] right-[26px] animate-spin"
+              className="absolute top-[22px] right-[26px] animate-spin"
               width="113"
               height="113"
               viewBox="0 0 113 113"
@@ -41,8 +41,8 @@ const PendingAcc = () => {
       </div>
 
     </div>
-                <h1 class="px-4 pt-8 pb-4 text-center dark:text-white text-5xl font-bold leading-10 text-gray-800">Account Under Review!</h1>
-                <p class="px-4 pb-10 text-base leading-none dark:text-gray-200 text-center text-gray-600">Please Wait for Approve your Account.</p>
+                <h1 className="px-4 pt-8 pb-4 text-center dark:text-white text-5xl font-bold leading-10 text-gray-800">Account Under Review!</h1>
+                <p className="px-4 pb-10 text-base leading-none dark:text-gray-200 text-center text-gray-600">Please Wait for Approve your Account.</p>
                 <a href='/' className="mx-4 px-7 py-2 rounded-md text-white text-base bg-indigo-700 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-opacity-50 focus:ring-indigo-800">Go Back to Homepage</a>
             </div>
         </div>

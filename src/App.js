@@ -79,6 +79,7 @@ import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTra
 import AfterAppliedLoan from "./Pages/OurBanking/SMEBanking/AfterAppliedLoan";
 import LoanReq from "./Components/Components.Masud/LoanReq";
 import { HelmetProvider } from "react-helmet-async";
+import LoanUserRow from "./Components/Components.Masud/LoanUserRow";
 
 // Loan Pages
 
@@ -149,6 +150,37 @@ function App() {
                   <Route path="requestpayment" element={<RequestPayment />} />
                   <Route path="myfeedbacks" element={<MyFeedbacks />} />
                   <Route path="pendingacc" element={<PendingAcc />} />
+                </Route>
+                <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
+                {/* Control Panel Routes */}
+                <Route path="/cpanel" element={<RequireAuth><RequireAdmin><CPanel /></RequireAdmin></RequireAuth>}>
+                  <Route index element={<AdDashboard />} />
+                  <Route path="addashboard" element={<AdDashboard />} />
+                  <Route path="musers" element={<ManageUsers />} />
+                  <Route path="maccounts" element={<ManageAccounts />} />
+                  <Route path="paccounts" element={<PendingAccounts />} />
+                  <Route path="thistory" element={<TransactionHistory />} />
+                  <Route path="mfeedbacks" element={<ManageFeedbacks />} />
+                  <Route path="manageBlogs" element={<ManageBlogs />} />
+                  <Route path="NoticeBoard" element={<NoticeBoard />} />
+                  <Route path="loanRequest" element={<LoanReq />} />
+                </Route>
+                <Route path="/blog/:id" element={<UpdateBlog />} />
+                {/* Control Panel Routes */}
+                {/* notice route  */}
+                <Route path="/notice" element={<RequireAuth> <RequireDashboard> <RequireAccount> <AllNotice /> </RequireAccount> </RequireDashboard> </RequireAuth>} />
+                {/* User Dashboard Routes */}
+                <Route path="/dashboard" element={<RequireAuth> <RequireDashboard> <RequireAccount> <Dashboard /> </RequireAccount> </RequireDashboard> </RequireAuth>}>
+                  <Route index element={<Overview />} />
+                  <Route path="overview" element={<Overview />} />
+                  <Route path="myaccounts" element={<MyAccounts />} />
+                  <Route path="myaccounts/:id" element={<SingleAccountDetails />} />
+                  <Route path="mytransactions" element={<MyTransactions />} />
+                  <Route path="makepayment" element={<MakeAPayment />} />
+                  <Route path="requestpayment" element={<RequestPayment />} />
+                  <Route path="myfeedbacks" element={<MyFeedbacks />} />
+                  <Route path="pendingacc" element={<PendingAcc />} />
+                  <Route path="myLoan" element={<LoanUserRow />} />
                 </Route>
                 <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
 

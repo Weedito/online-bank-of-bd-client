@@ -72,7 +72,7 @@ const ApplicantPhoto = () => {
         <div className="">
             <h3 className="font-semibold text-md md:text-xl lg:text-2xl py-7 text-center">Please Give Your Image Info-</h3>
 
-            <div class="flex flex-col md:flex-row justify-center w-full items-center p-5 gap-3 mx-auto">
+            <div className="flex flex-col md:flex-row justify-center w-full items-center p-5 gap-3 mx-auto">
 
                 <div className="flex flex-col w-full md:w-3/6 items-center justify-center gap-3">
                     <div className="space-y-7 w-full md:w-4/5 py-7 px-5">
@@ -103,7 +103,7 @@ const ApplicantPhoto = () => {
                         </div>
                     </div>
                 </div>
-                <div class="divider lg:divider-horizontal px-5">OR</div>
+                <div className="divider lg:divider-horizontal px-5">OR</div>
                 <div className="flex flex-col gap-3 px-5 text-left w-full md:w-3/6 items-center justify-center mx-auto">
                     <div className="">
                         {

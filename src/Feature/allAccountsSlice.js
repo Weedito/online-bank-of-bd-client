@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAllAccounts = createAsyncThunk('allAccunts/fetchAllAccounts', async () => {    
-    const allAccounts = await axios.get('http://localhost:5000/allAccounts');
+    const allAccounts = await axios.get('https://bank-of-bd.herokuapp.com/allAccounts');
     return allAccounts.data;
 })
 

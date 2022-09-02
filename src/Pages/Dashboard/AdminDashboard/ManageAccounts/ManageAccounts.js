@@ -16,7 +16,7 @@ const ManageAccounts = () => {
     const [withdraw, setWithdraw] = useState(null);
     const [deleteAccount, setDeleteAccount] = useState(null);
 
-    const allAccounts = () => axios.get('http://localhost:5000/allaccounts');
+    const allAccounts = () => axios.get('https://bank-of-bd.herokuapp.com/allaccounts');
 
     const { isLoading, data, refetch } = useQuery(["accounts"], allAccounts);
 
@@ -42,8 +42,8 @@ const ManageAccounts = () => {
                     {
                         upvAcc &&
                         <div className="flex justify-end pb-7 px-5 w-full mx-auto">
-                            <div class="indicator">
-                                <span class="indicator-item badge badge-warning">{upvAcc?.length}</span>
+                            <div className="indicator">
+                                <span className="indicator-item badge badge-warning">{upvAcc?.length}</span>
                                 <Link className='bg-info text-white rounded px-7 py-2' to="/cpanel/paccounts">Pending Account to Approve <FontAwesomeIcon icon={faPersonArrowUpFromLine} /> </Link>
                             </div>
                         </div>

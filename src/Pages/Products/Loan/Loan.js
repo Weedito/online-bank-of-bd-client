@@ -50,8 +50,8 @@ const Loan = () => {
             <LoanPage></LoanPage>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 mx-12 gap-5'>
-                <div data-aos="zoom-in-right" data-aos-duration="1000" class="card w-96 bg-base-100 shadow-xl m-auto">
-                    <div class="card-body">
+                <div data-aos="zoom-in-right" data-aos-duration="1000" className="card w-96 bg-base-100 shadow-xl m-auto">
+                    <div className="card-body">
                         <form>
                             <div className="row g-3 align-items-center">
                                 <div className="col-auto mb-3">

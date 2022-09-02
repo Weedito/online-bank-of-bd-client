@@ -27,79 +27,79 @@ const Timeline = () => {
                         Registration <span className="text-green-700">Process</span>
                     </h2>
                 </div>
-                <div class="wrapper space-y-5">
-                    <div class="center-line">
-                        <a href="#!" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
+                <div className="wrapper space-y-5">
+                    <div className="center-line">
+                        <a href="#!" className="scroll-icon"><i className="fas fa-caret-up"></i></a>
                     </div>
-                    <div class="row row-1">
+                    <div className="row row-1">
                         <section>
-                            <i class="icon fas fa-home"></i>
-                            <div class="details">
-                                <span class="title">Go To Nearest Branch</span>
+                            <i className="icon fas fa-home"></i>
+                            <div className="details">
+                                <span className="title">Go To Nearest Branch</span>
 
                             </div>
                             <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
-                            <div class="bottom">
+                            <div className="bottom">
                                 <a href="#!">Read more</a>
                             </div>
                         </section>
                     </div>
-                    <div class="row row-2">
+                    <div className="row row-2">
                         <section>
-                            <i class="icon fas fa-star"></i>
-                            <div class="details">
-                                <span class="title">Collect Registration Form</span>
+                            <i className="icon fas fa-star"></i>
+                            <div className="details">
+                                <span className="title">Collect Registration Form</span>
                             </div>
                             <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
-                            <div class="bottom">
+                            <div className="bottom">
                                 <a href="#!">Read more</a>
                             </div>
                         </section>
                     </div>
-                    <div class="row row-1">
+                    <div className="row row-1">
                         <section>
-                            <i class="icon fas fa-rocket"></i>
-                            <div class="details">
-                                <span class="title">Fillup Form with Your Information</span>
+                            <i className="icon fas fa-rocket"></i>
+                            <div className="details">
+                                <span className="title">Fillup Form with Your Information</span>
                             </div>
                             <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
-                            <div class="bottom">
+                            <div className="bottom">
                                 <a href="#!">Read more</a>
                             </div>
                         </section>
                     </div>
-                    <div class="row row-2">
+                    <div className="row row-2">
                         <section>
-                            <i class="icon fas fa-globe"></i>
-                            <div class="details">
-                                <span class="title">Activate Your Service</span>
+                            <i className="icon fas fa-globe"></i>
+                            <div className="details">
+                                <span className="title">Activate Your Service</span>
                             </div>
                             <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
-                            <div class="bottom">
+                            <div className="bottom">
                                 <a href="#!">Read more</a>
                             </div>
                         </section>
                     </div>
-                    <div class="row row-1">
+                    <div className="row row-1">
                         <section>
-                            <i class="icon fas fa-paper-plane"></i>
-                            <div class="details">
-                                <span class="title">Your will get a confirmation Message</span>
+                            <i className="icon fas fa-paper-plane"></i>
+                            <div className="details">
+                                <span className="title">Your will get a confirmation Message</span>
                             </div>
                             <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
-                            <div class="bottom">
+                            <div className="bottom">
                                 <a href="#!">Read more</a>
                             </div>
                         </section>
                     </div>
-                    <div class="row row-2 pb-10">
+                    <div className="row row-2 pb-10">
                         <section>
-                            <i class="icon fas fa-map-marker-alt"></i>
-                            <div class="details">
-                                <span class="title">Get Your Balance Statement via SMS</span>
+                            <i className="icon fas fa-map-marker-alt"></i>
+                            <div className="details">
+                                <span className="title">Get Your Balance Statement via SMS</span>
                             </div>
                             <p>Lorem ipsum dolor sit ameters consectetur adipisicing elit. Sed qui veroes praesentium maiores, sint eos vero sapiente voluptas debitis dicta dolore.</p>
-                            <div class="bottom">
+                            <div className="bottom">
                                 <a href="#!">Read more</a>
                             </div>
                         </section>
