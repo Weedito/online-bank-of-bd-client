@@ -20,9 +20,7 @@ const LoanUserRow = () => {
     if (loading) {
         return <Loading />
     }
-
-
-
+    
     const individualLoan = reqLoan.filter(loan => loan.userEmail === user?.email);
 
     return (

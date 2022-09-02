@@ -8,6 +8,6 @@ const store = configureStore({
         accounts: allAccountsSlice,                
         reqLoans: requestLoanSlice,
     }
-})
+});
 
 export default store;

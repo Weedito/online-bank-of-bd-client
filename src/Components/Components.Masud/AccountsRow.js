@@ -2,7 +2,7 @@ import React from 'react';
 
 const AccountsRow = ({ account, setDeposit, setWithdraw, setDeleteAccount }) => {
 
-    const { name, AccNo, balance, phone, country, actype } = account;
+    const { name, AccNo, balance, phone, country, actype } = account; 
 
     return (
         <tr>

@@ -29,6 +29,6 @@ const allAccountsSlice = createSlice({
             state.allAccounts = action.payload;
         });
     }
-})
+});
 
 export default allAccountsSlice.reducer;

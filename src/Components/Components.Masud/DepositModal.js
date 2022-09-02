@@ -54,7 +54,7 @@ const DepositModal = ({ deposit, refresh, setRefresh }) => {
 
             // Deposit Statement Creator
 
-            const receiverStatementData = {
+            const receiverStatementData  = {
                 senderAccount: AccNo,
                 statement: "Deposit Money",
                 deposit: inputBalance,
