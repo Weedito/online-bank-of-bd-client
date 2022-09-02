@@ -78,6 +78,7 @@ import Profile from "./Components/Components.Arif/MyAccount/Profile";
 import MyTransactions from "./Pages/Dashboard/UserDashboard/MyTransactions/MyTransactions";
 import AfterAppliedLoan from "./Pages/OurBanking/SMEBanking/AfterAppliedLoan";
 import LoanReq from "./Components/Components.Masud/LoanReq";
+import LoanUserRow from "./Components/Components.Masud/LoanUserRow";
 
 // Loan Pages
 
@@ -147,6 +148,7 @@ function App() {
                 <Route path="requestpayment" element={<RequestPayment/>}/>
                 <Route path="myfeedbacks" element={<MyFeedbacks/>}/>
                 <Route path="pendingacc" element={<PendingAcc/>}/>
+                <Route path="myLoan" element={<LoanUserRow/>}/>
               </Route>
               <Route path="/payment/:id" element={<RequireAuth> <CardPayment /> </RequireAuth>} />
 

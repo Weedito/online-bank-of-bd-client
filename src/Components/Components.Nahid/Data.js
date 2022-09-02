@@ -371,6 +371,11 @@ export const UserSidebarData = [
         href: "myfeedbacks",
         icon: faStreetView,
     },
+    {
+        title: "Loan",
+        href: "myLoan",
+        icon: faStreetView,
+    },
 ];
 
 

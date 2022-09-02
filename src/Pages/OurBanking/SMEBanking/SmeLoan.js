@@ -33,18 +33,14 @@ const SmeLoan = () => {
       .then(res => res.json())
       .then(data => setLoanInfo(data))
   }, [])
-
-  /* const Monthly = 12;
-  const Quarterly = 4;
-  const Half_Yearly = 2;
-  const Yearly = 1; */
+  
 
   const handleLoanCalculator = e => {
     e.preventDefault();
     const loanAmount = e.target.loanAmount.value;
     setLoanAmountIV(loanAmount);
     const interestRate = e.target.interestRate.value;
-    // console.log(interestRate);
+ 
     const Payment_Type = e.target.Payment_Type.value;
     setPayment_TypeIV(Payment_Type)
     const Loan_period = e.target.Loan_period.value;
@@ -58,17 +54,18 @@ const SmeLoan = () => {
     setCalculator(calculate.toFixed())
   }
 
-  const handleBooking = e => {
+  const handleBooking = (e) => {
     e.preventDefault();
 
     const applyLoan = {
 
       // Loan Information
-      totalAmountTotal: loanAmountIV,
+      totalAmountTotal: loanAmountIV,      
       interestTotal: "10%",
       loanType: payment_TypeIV,
       loanPeriodYear: loan_periodIV,
       status: "Pending",
+      loanFromAcc: e.target.loanFromAcc.value,
 
       // User Information      
       userEmail: user.email,
@@ -76,9 +73,6 @@ const SmeLoan = () => {
       needToPayForEveryTransaction: calculator,
       phone: e.target.phone.value,
       address: e.target.address.value,
-
-
-
     }
 
     // Post Loan to the request
@@ -197,16 +191,16 @@ const SmeLoan = () => {
               </div>
 
               {
-                account && <div className="text-gray-700 flex items-center justify-center gap-2 font-semibold">
-                  <h3 className=" font-semibold">Select Your Account</h3>
-                  <div className="">
+                account && <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Select Your Account</span>
+                  </label>
+                  <select class="select select-bordered w-full max-w-xs" name="loanFromAcc">
+                    {
+                      account?.map(account => <option >{account?.AccNo}</option>)
+                    }
+                  </select>
 
-                    <select onChange={handleSelect} className="select focus:outline-none select-ghost w-full text-md md:text-xl">
-                      {
-                        account?.map(account => <option >{account?.AccNo}</option>)
-                      }
-                    </select>
-                  </div>
                 </div>
               }
 
