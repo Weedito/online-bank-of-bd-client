@@ -11,7 +11,7 @@ const PendingAccounts = () => {
     const [approveAccount, setApproveAccount] = useState(null);
     const [deleteAccount, setDeleteAccount] = useState(null);
 
-    const allAccounts = () => axios.get('https://bank-of-bd.herokuapp.com/allaccounts');
+    const allAccounts = () => axios.get('http://localhost:5000/allaccounts');
 
     const {isLoading, data , refetch} = useQuery(["accounts"], allAccounts);
   

@@ -34,7 +34,7 @@ const AddBlog = ({refresh, setRefresh, setModal}) => {
                 const comment =[]
                 const blogData= {title,category,description,picture,date,comment}
                 // console.log(blogData);
-                const url = 'https://bank-of-bd.herokuapp.com/blog';
+                const url = 'http://localhost:5000/blog';
                 fetch(url,{
                     method:"POST",
                     headers:{
