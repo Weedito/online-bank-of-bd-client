@@ -71,7 +71,6 @@ Live Site [Online Bank BD](https://online-money-bd.netlify.app/).
 * _reduxjs/toolkit_
 * _stripe/react-stripe-js_
 * _testing-library/jest-dom_
-* _testing-library/jest-dom_
 
 
 
