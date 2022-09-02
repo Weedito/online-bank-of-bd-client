@@ -37,7 +37,7 @@ const LoanReq = () => {
 
         // Update Balance
 
-        const URL = `http://localhost:5000/account/${_id}`;
+        const URL = `https://bank-of-bd.herokuapp.com/account/${_id}`;
         axios.put(URL, updateBalance)
             .then(res => {
                 console.log("Loan Approved !!!", res)
@@ -48,7 +48,7 @@ const LoanReq = () => {
 
         // Approved Loan status
 
-        axios.put(`http://localhost:5000/loanRequests/${id}`, loanUpdate)
+        axios.put(`https://bank-of-bd.herokuapp.com/loanRequests/${id}`, loanUpdate)
             .then(res => {
                 console.log("status updated !!!", res)
             })

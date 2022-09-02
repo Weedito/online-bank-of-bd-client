@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Slide } from 'react-reveal';
 import PageTitle from "../../PageTitle/PageTitle";
 
 const SMEBanking = () => {
