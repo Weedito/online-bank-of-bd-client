@@ -1,5 +1,5 @@
 import { faStumbleuponCircle } from "@fortawesome/free-brands-svg-icons";
-import { faBank, faBlog, faDashboard, faHistory, faNoteSticky, faReceipt, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBank, faBlog, faDashboard, faHistory, faNoteSticky, faPiggyBank, faReceipt, faStreetView, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 
 export const TrustedPartnersData = [
@@ -374,7 +374,7 @@ export const UserSidebarData = [
     {
         title: "Loan",
         href: "myLoan",
-        icon: faStreetView,
+        icon: faPiggyBank,
     },
 ];
 
