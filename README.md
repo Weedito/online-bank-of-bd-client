@@ -9,6 +9,7 @@ Live Site [Online Bank BD](https://online-money-bd.netlify.app/).
 * _Signin & Signup_
 * _Users Profile_
 * _Create a Bank Account using Multi Step Form_
+* _Live Image Capture_
 * _User Dashboard_
 * _Account Overview_
 * _Deposit Money_
