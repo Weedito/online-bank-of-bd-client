@@ -2,10 +2,8 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const DeleteAccountModal = ({deleteAccount, refetch}) => {
-
+    
     const {name, AccNo, balance, _id} = deleteAccount;
-
-
 
     const handleDelete = id =>{
         const url = `https://bank-of-bd.herokuapp.com/account/${id}`;
