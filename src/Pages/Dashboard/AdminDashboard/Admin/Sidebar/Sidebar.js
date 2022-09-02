@@ -16,7 +16,7 @@ const Sidebar = () => {
         </div>
         <ul className="pt-6">
           {SidebarData?.map((data, index) => (
-            <li key={index} className={`flex rounded-md p-2 cursor-pointer hover:bg-gray-300 hover:text-rose-700 hover:bg-light-white font-semibold text-white text-sm items-center gap-x-4  ${data?.gap ? "mt-9" : "mt-5"} ${index === 0 && "bg-light-white"} `} >
+            <NavLink  to={data?.href} key={index} className={`flex rounded-md p-2 cursor-pointer hover:bg-gray-300 hover:text-rose-700 hover:bg-light-white font-semibold text-white text-sm items-center gap-x-4  ${data?.gap ? "mt-9" : "mt-5"} ${index === 0 && "bg-light-white"} `} >
               <NavLink to={data?.href} className={`${open && "hidden"} text-md origin-left duration-200`}>
               <FontAwesomeIcon className='text-2xl' icon={data?.icon} />
               </NavLink>
@@ -24,7 +24,7 @@ const Sidebar = () => {
               <FontAwesomeIcon className='text-2xl' icon={data?.icon} />
                 {data?.title}
               </NavLink>
-            </li>
+            </NavLink>
           ))}
         </ul>
         <div className={`flex rounded-md p-2 my-10 cursor-pointer hover:bg-gray-300 hover:text-rose-700 hover:bg-light-white text-white text-sm items-center gap-x-4  `}>
