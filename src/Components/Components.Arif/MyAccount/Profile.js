@@ -27,6 +27,9 @@ const Profile = () => {
   let today = new Date();
   let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   const email = user?.email
+  if(user){
+    console.log(user)
+  }
   useEffect(()=>{
     fetch(`https://bank-of-bd.herokuapp.com/profile/${email}`)
     .then(res=>{
@@ -421,13 +424,15 @@ const Profile = () => {
                               />
                             </div>
                            <div className="mr-5 lg:mr-0 w-full">
-                            <button className="input text-left mt-10 w-full   border-indigo-700 bg-indigo-50  text-indigo-700">
+                              <button className={`input text-left mt-10 w-full     ${user?.emailVerified?  "border-green-500 bg-indigo-50  text-green-500":" border-indigo-700 bg-indigo-50 text-indigo-700"}`}>
                                 <FontAwesomeIcon
-                                  icon={faStopwatch}
+                                  icon={user?.emailVerified ? faCheckDouble:faStopwatch }
                                   className="mr-3"
                                 />
-                                E-mail confirmation in pending
-                              </button>
+                              {
+                                user?.emailVerified ? "Email Verified":"E-mail confirmation in pending"
+                              }
+                            </button>
                           </div>
                            </div>
                           <div className="phoneNumberField lg:flex gap-8">
