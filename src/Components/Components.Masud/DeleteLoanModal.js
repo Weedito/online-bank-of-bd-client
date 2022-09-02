@@ -1,12 +1,16 @@
+import axios from 'axios';
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const LoanViewModal = ({deleteLoan}) => { 
+const LoanViewModal = ({deleteLoan}) => {   
+    const {address, interestTotal, loanFromAcc, loanPeriodYear , loanType, needToPayForEveryTransaction, phone, status, totalAmountTotal, userEmail, _id } = deleteLoan;
 
-    /* const loan = viewLoan && viewLoan[0];
-    console.log(viewLoan)
- */
-    const {address, interestTotal, loanFromAcc, loanPeriodYear , loanType, needToPayForEveryTransaction, phone, status, totalAmountTotal, userEmail } = deleteLoan;
+    const handleDelete = id => {
+        axios.delete(`http://localhost:5000/loanRequests/${id}`)
+        .then(data => {
+            toast.warn(`Loan deleted Successfully!`);                      
+        })
+    }
 
 
 // console.log(loan?.userEmail);   
@@ -29,7 +33,7 @@ const LoanViewModal = ({deleteLoan}) => {
                         <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Address: {address}</p>
                         <p className="text-gray-600 text-xs md:text-base font-semibold mb-4"> Loan Type: {loanType} Month's</p>                        
                     </div>
-                    <button className='btn btn-error btn-md'>Yes, Delete</button>
+                    <label htmlFor="delete-loan-modal" className='btn btn-error btn-md' onClick={()=> handleDelete(_id)}>Yes, Delete</label>
                 </div>
 
             </div>                                    
