@@ -129,17 +129,17 @@ const LoanReq = () => {
 
                                 <td>{index + 1}</td>
                                 <th>{loan?.userName}</th>
-                                <td>$ {loan?.totalAmountTotal}</td>
+                                <td >$ {loan?.totalAmountTotal}</td>
                                 <td>{loan?.loanType}</td>
                                 <td>{loan?.loanFromAcc}</td>
-                                <td>{loan?.status}</td>
+                                <th className={`${loan?.status === "Approved" ? " text-xl text-primary " : " text-xl text-error "}`}>{loan?.status}</th>
                                 <td>
                                     <label htmlFor="loan-view-modal" onClick={() => setViewLoan(loan)} className="btn text-white btn-accent btn-xs">View</label>
 
 
                                     <button onClick={() => approveLoan(loan?.loanFromAcc, loan?.totalAmountTotal, loan?._id)} className='btn btn-primary btn-xs mx-2' disabled={loan?.status === "Approved"} >Approve</button>
 
-                                    <label htmlFor="delete-loan-modal" onClick={() => setDeleteLoan(loan)} className="btn text-white btn-error btn-xs mr-2">Delete</label>
+                                    <label htmlFor="delete-loan-modal" onClick={() => setDeleteLoan(loan)} disabled={loan?.status === "Approved"} className="btn text-white btn-error btn-xs mr-2">Delete</label>
                                 </td>
                             </tr>)
                         }
