@@ -30,7 +30,6 @@ Live Site [Online Bank BD](https://online-money-bd.netlify.app/).
 * _Manage Blogs_
 * _Loan Approval_
 * _Account Approval_
-* _Loan Approval_
 * _Manage Transactions_
 * _All Transaction Email Service_
 * _New User Verify Email System_
