@@ -51,7 +51,7 @@ const LoanUserRow = () => {
                                 <td>$ {loan?.totalAmountTotal}</td>
                                 <td>{loan?.loanType}</td>
                                 <td>{loan?.loanFromAcc}</td>
-                                <td>{loan?.status}</td>
+                                <th className={`${loan?.status === "Approved" ? " text-xl text-primary " : " text-xl text-error "}`}>{loan?.status}</th>
                                 <td>
                                     <div className="flex justify-between px-3 pb-1 gap-2 items-center">
                                         <label htmlFor="loan-view-modal" onClick={() => setViewLoan(loan)} className="btn text-white btn-accent btn-xs">View</label>
