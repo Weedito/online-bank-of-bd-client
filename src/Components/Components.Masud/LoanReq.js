@@ -41,23 +41,20 @@ const LoanReq = () => {
     if (isLoading) { return <h1>Loading....</h1> };
     if (error) { return <h1>{error}</h1> };
 
-
-
-
     const approveLoan = (accNo, loanAmount, id) => {
-        const allAccountNo = allAccounts.filter(account => account.AccNo === parseInt(accNo));
+        const allAccountNo = allAccounts.filter(account => account?.AccNo === parseInt(accNo));        
         const { AccNo, balance, name, _id, email } = allAccountNo[0];
+        
         const updateBalanceWithLoan = parseInt(balance) + parseInt(loanAmount);
-        const updateBalance = { depositBalance: updateBalanceWithLoan };
+        const updateBalance = { depositBalance: updateBalanceWithLoan };        
 
         const loanUpdate = {
             status: "Approved",
         }
 
         // Update Balance
-
-        const URL = `http://localhost:5000/account/${_id}`;
-        axios.put(URL, updateBalance)
+        
+        axios.put(`http://localhost:5000/account/${_id}`, updateBalance)
             .then(res => {
                 console.log("Loan Approved !!!", res)
             })
@@ -91,14 +88,30 @@ const LoanReq = () => {
             image: "https://i.ibb.co/zJrtyfJ/loan.png"
         }
 
-        // Posting Statement
+        // Posting Statement for sender
 
         axios.post('http://localhost:5000/statement', receiverStatementData)
             .then(data => {
                 toast("Loan Notification send")
             })
+        // Posting Statement for receiver
 
+        const senderStatementData = {
+            senderAccount: AccNo,
+            statement: "Loan Transfer Successfully",
+            deposit: loanAmount ? parseFloat(loanAmount) : 0,
+            withdraw: 0,
+            balance: 0,
+            date: date,
+            time: time,
+            email: "uniquecoders007@gmail.com",
+            name: name,
+            image: "https://i.ibb.co/zJrtyfJ/loan.png"
+        }
 
+        axios.post('http://localhost:5000/statement', senderStatementData)
+        .then(data => toast.success("Loan Notice send to OBB"))
+        
     }
 
 
