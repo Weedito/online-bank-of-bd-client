@@ -83,5 +83,17 @@
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.6"
-  }
+  },
+  "description": "Live Site [Online Bank BD](https://online-money-bd.netlify.app/).",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moazzemhossainnahid/online-bank-of-bd-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moazzemhossainnahid/online-bank-of-bd-client/issues"
+  },
+  "homepage": "https://github.com/moazzemhossainnahid/online-bank-of-bd-client#readme"
 }
