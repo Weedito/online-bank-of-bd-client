@@ -4,9 +4,15 @@ const UseToken = (user) => {
     const [token, setToken] = useState('');
     useEffect( () => {
         const email = user?.user?.email;
-        const currentUser = {email: email};
+        let today = new Date();
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+        const currentUser = {
+            email:  email,
+            joiningDate: date
+        }
         if(email){
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://bank-of-bd.herokuapp.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

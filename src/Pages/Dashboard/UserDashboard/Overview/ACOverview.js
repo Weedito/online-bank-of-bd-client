@@ -50,6 +50,8 @@ const data = [
 
 const ACOverview = ({currentAccount, tdDeposit, tdWithdraw}) => {
     const crAccount = currentAccount[0];
+    const mainAcc = crAccount?.AccNo === 777888999000;
+
     return (
         <div className='w-full bg-gray-300 rounded-md p-5'>
             <div className="">
@@ -59,7 +61,11 @@ const ACOverview = ({currentAccount, tdDeposit, tdWithdraw}) => {
             <div className="flex items-center justify-between py-3 gap-3">
                 <div className="">
                     <h3 className="text-md font-semibold">Balance</h3>
-                    <h3 className="flex items-center font-semibold text-gray-700 gap-2"> $ <span className="">{crAccount?.balance ? crAccount?.balance : 0.00}</span> </h3>
+                    {
+                        mainAcc ?
+                        <h3 className="flex items-center font-semibold text-gray-700 gap-2"> $ <span className="">{crAccount?.balance ? crAccount?.balance?.toFixed(2) : 0.00}</span> </h3> :
+                        <h3 className="flex items-center font-semibold text-gray-700 gap-2"> $ <span className="">{crAccount?.balance ? crAccount?.balance : 0.00}</span> </h3>
+                    }
                 </div>
                 <div className="">
                     <h3 className="text-md font-semibold">Deposit</h3>

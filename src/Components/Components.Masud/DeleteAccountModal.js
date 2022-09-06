@@ -1,20 +1,19 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const DeleteAccountModal = ({deleteAccount}) => {
-
+const DeleteAccountModal = ({deleteAccount, refetch}) => {
+    
     const {name, AccNo, balance, _id} = deleteAccount;
 
-
-
     const handleDelete = id =>{
-        const url = `http://localhost:5000/account/${id}`;
+        const url = `https://bank-of-bd.herokuapp.com/account/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
         .then(res => res.json())
         .then(data => {
-            toast.success(`${name} account has been deleted.`)            
+            toast.success(`${name} account has been deleted.`);
+            refetch();           
         })
     }
 

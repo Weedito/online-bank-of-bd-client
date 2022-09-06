@@ -7,20 +7,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'tw-elements';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './Components/Components.Tanvir/ReduxStateManagement/Store/Store';
+// import store from './Components/Components.Tanvir/ReduxStateManagement/Store/Store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-const queryClient = new QueryClient()
+import store from './app/store';
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <BrowserRouter>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <Provider store={store}>
       <QueryClientProvider client={queryClient}>
       <App />
       </QueryClientProvider>
       </Provider>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
     </BrowserRouter>
 );
 

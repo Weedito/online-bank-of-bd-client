@@ -1,3 +1,5 @@
+import { faArrowAltCircleDown, faArrowAltCircleUp, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount }) => {
@@ -17,11 +19,11 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Acc No</span>
                 {AccNo} <br />
-                <span className="text-xs bg-rose-700 text-white rounded-full">{actype}</span>
+                <span className="text-xs p-1 bg-rose-700 text-white rounded-full">{actype}</span>
             </td>
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Balance</span>
-                {balance}
+                {balance?.toFixed(0)}
             </td>
             <td className="w-full lg:w-auto p-2 text-sm text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                 <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Phone</span>
@@ -32,16 +34,13 @@ const AccountsRow = ({ account, index, setDeposit, setWithdraw, setDeleteAccount
                 {country}
             </td>
             <td className="w-full lg:w-auto text-xs p-2 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                <div className="flex justify-between px-3 pb-1 items-center">
-                    <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary btn-xs">Deposit</label>
+                <div className="flex justify-between px-1 pb-1 items-center">
+                    <label htmlFor="deposit-modal" onClick={() => setDeposit(account)} className="btn btn-primary text-white btn-xs"><FontAwesomeIcon icon={faArrowAltCircleDown} /></label>
 
-                    <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4">Withdraw</label>
+                    <label htmlFor="withdraw-modal" onClick={() => setWithdraw(account)} className="btn btn-info btn-xs mx-4"><FontAwesomeIcon icon={faArrowAltCircleUp} /></label>
+                    
+                    <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs"><FontAwesomeIcon icon={faTrashAlt} /></label>
                 </div>
-
-                <div className="flex justify-center items-center px-3 pt-1">
-                <label htmlFor="delete-account-modal" onClick={() => setDeleteAccount(account)} className="btn btn-secondary btn-xs">Delete Account</label>
-                </div>
-
             </td>
         </tr>
     );

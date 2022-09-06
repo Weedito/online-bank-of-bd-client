@@ -1,0 +1,26 @@
+.team-container{
+   position: relative;
+  z-index: 1;
+
+}
+.team-container::after{
+content: "";
+height: 300px;
+width: 100%;
+position: absolute;
+background-color: #2366B5;
+top: 0;
+left:0;
+z-index: -1;
+
+
+}
+
+.team-card:hover{
+   transform: scale(.9);
+  background-color: rgb(88, 22, 22);
+  color: white;
+}
+.team-card:hover .team-icon{
+   color: white;
+}

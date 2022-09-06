@@ -8,6 +8,7 @@ import AccountInfo from "./Steps/AccountInfo";
 import PersonalDetails from "./Steps/PersonalDetails";
 import ApplicantPhoto from "./Steps/ApplicantPhoto";
 import ApplicationPreview from "./Steps/ApplicationPreview";
+import PageTitle from "../PageTitle/PageTitle";
 // import ApplicationPreview from "./Steps/ApplicationPreview";
 
 
@@ -55,6 +56,13 @@ const CreateAccount = () => {
 
     return (
         <div className="bg-slate-100 max-w-7xl mx-auto">
+            {/* title */}
+
+            <PageTitle title="CreateAccount"></PageTitle>
+
+            {/* end */}
+
+
             <div className="h-full w-full">
                 <div className="card-body w-full">
                     <h1 className="text-primary text-2xl font-bold text-center">

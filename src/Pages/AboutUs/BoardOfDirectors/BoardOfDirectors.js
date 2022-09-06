@@ -1,9 +1,17 @@
 import React from 'react';
+import PageTitle from '../../PageTitle/PageTitle';
 
 const BoardOfDirectors = () => {
 
     return (
         <div className='bg-slate-100 max-w-7xl mx-auto'>
+
+            {/* title */}
+
+            <PageTitle title="BoardOfDirectors"></PageTitle>
+
+            {/* end */}
+
             <h3 className="text-3xl text-center font-bold py-8">Board of <span className="text-green-700">Directors</span> </h3>
             <div className="card w-96 bg-slate-100 hover:bg-base-100 shadow-xl m-auto">
                 <label htmlFor="masud">

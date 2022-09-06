@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { FaStar } from "react-icons/fa";
 import auth from '../../firebase.init';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import 'react-animated-slider/build/horizontal.css';
-import Swal from 'sweetalert2';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -19,6 +20,7 @@ import "../../Components/Components.Masud/SwiperStyle.css";
 
 // import required modules
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
+import Loading from '../../Components/Components.Nahid/Loading';
 
 
 
@@ -31,20 +33,20 @@ const colors = {
 const TrustedCFeedback = () => {
 
   const [user] = useAuthState(auth);
-
+  const feedbackRef = useRef('');
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0)
+  
+  const feedback = () => axios.get('https://bank-of-bd.herokuapp.com/feedbacks');
 
-  const [ourFeedback, setOurFeedback] = useState([]);
+  const {isLoading, data , refetch} = useQuery(["feedbacks"], feedback);
 
-  useEffect(() => {
-    fetch('http://localhost:5000/feedbacks')
-      .then(res => res.json())
-      .then(result => {
-        setOurFeedback(result)
-      })
-  }, []);
+  const ourFeedback = data?.data;
+
+  if(isLoading){
+      return <Loading/>;
+  }
 
 
   const handleClick = value => {
@@ -59,46 +61,7 @@ const TrustedCFeedback = () => {
     setHoverValue(undefined)
   }
 
-  // const url = `http://localhost:5000/feedback/:${feedbackId}`;
 
-  const handleDelete = id => {
-
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:5000/feedback/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'content-type': 'application/json'
-          }
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.deletedCount > 0) {
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-              const remaining = ourFeedback.filter(feedback => feedback._id !== id)
-              setOurFeedback(remaining)
-            }
-
-          })
-      }
-    })
-
-  }
-
-
-  const feedbackRef = useRef('');
 
   let newImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlLhGXqNvuYnsiYsH4yExdezxz3ePUS0t7dg&usqp=CAU'
 
@@ -108,7 +71,7 @@ const TrustedCFeedback = () => {
     const userName = user?.displayName;
     const email = user?.email;
     let userImg = user?.photoURL;
-    console.log(currentValue, feedback, userName, email, userImg);
+    // console.log(currentValue, feedback, userName, email, userImg);
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
@@ -117,7 +80,7 @@ const TrustedCFeedback = () => {
       userImg = newImg;
     }
 
-    console.log(ourFeedback);
+    // console.log(ourFeedback);
 
 
     const feedbackDetails = {
@@ -128,9 +91,9 @@ const TrustedCFeedback = () => {
       feedbackComment: feedback,
       date: date
     }
-    console.log(feedbackDetails)
+    // console.log(feedbackDetails)
 
-    fetch('http://localhost:5000/feedback', {
+    fetch('https://bank-of-bd.herokuapp.com/feedback', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -142,6 +105,7 @@ const TrustedCFeedback = () => {
         console.log(data);
         if (data.acknowledged) {
           toast.success('feedback submited')
+          refetch();
         }
         else {
           toast.error('Something Wrong')
@@ -152,8 +116,8 @@ const TrustedCFeedback = () => {
 
 
   return (
-    <div className=" mx-auto my-5">
-      <section className='bg-slate-300 w-full mx-auto text-gray-700'>
+    <div className=" bg-slate-100 mx-auto py-20">
+      <section className=' w-full mx-auto text-gray-700'>
         <>
           <Swiper
             effect={"coverflow"}
@@ -189,65 +153,65 @@ const TrustedCFeedback = () => {
                       {
 
                         feedback?.feedbackStarts === 1 &&
-                        <div class="rating">
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" checked/>
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
+                        <div className="rating">
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" checked/>
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
                         </div>
 
                       }
                       {
 
                         feedback?.feedbackStarts === 2 &&
-                        <div class="rating">
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" checked/>
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
+                        <div className="rating">
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" checked/>
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
                         </div>
 
                       }
                       {
 
                         feedback?.feedbackStarts === 3 &&
-                        <div class="rating">
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" checked/>
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
+                        <div className="rating">
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" checked/>
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
                         </div>
 
                       }
                       {
 
                         feedback?.feedbackStarts === 4 &&
-                        <div class="rating">
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" checked/>
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-gray-300" />
+                        <div className="rating">
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" checked/>
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-gray-300" />
                         </div>
 
                       }
                       {
 
                         feedback?.feedbackStarts === 5 &&
-                        <div class="rating">
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" />
-                          <input name="rating-1" class="mask mask-star w-4 md:w-6  bg-green-500" checked/>
+                        <div className="rating">
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" />
+                          <input name="rating-1" className="mask mask-star w-4 md:w-6  bg-green-500" checked/>
                         </div>
 
                       }
 
-                      <p className="text-xs md:text-sm">{feedback?.feedbackComment}</p>
+                      <p className="text-xs break-words md:text-sm">{feedback?.feedbackComment.length>100?`${feedback?.feedbackComment.slice(0,100)}...`:feedback?.feedbackComment}</p>
                     </SwiperSlide>
                   </div>
                 )
@@ -259,12 +223,12 @@ const TrustedCFeedback = () => {
       </section>
 
       <section>
-        <div className='text-center'><label for="my-modal-6" class="btn btn-primary text-white animate-bounce w-26 h-6 modal-button">Give Feedback</label></div>
+        <div className='text-center'><label for="my-modal-6" className="btn btn-primary text-white animate-bounce w-26 h-6 modal-button">Give Feedback</label></div>
         <div>
-          <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-          <div class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-              <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+          <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+          <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+              <label for="my-modal-6" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
               <div style={styles.container}>
                 <h2> Feedback Ratings </h2>
@@ -287,8 +251,8 @@ const TrustedCFeedback = () => {
                   })}
                 </div>
                 <textarea placeholder="What's your experience?" ref={feedbackRef} style={styles.textarea} />
-                <div class="modal-action">
-                  <label for="my-modal-6" class="btn" onClick={sendFeedback}>Submit</label>
+                <div className="modal-action">
+                  <label for="my-modal-6" className="btn" onClick={sendFeedback}>Submit</label>
                 </div>
               </div>
             </div>

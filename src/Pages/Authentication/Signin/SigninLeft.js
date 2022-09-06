@@ -1,24 +1,26 @@
 import { faFacebook, faGithub, faGoogle, } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import React, { useRef } from "react";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import UseToken from "../../../Components/Components.Nahid/Hooks/useToken";
 import Loading from "../../../Components/Components.Nahid/Loading";
 import auth from "../../../firebase.init";
+import { GiCancel } from "react-icons/gi";
 
 const SigninLeft = () => {
   const [signInWithEmailAndPassword, suser, sloading, serror] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
   const [SignInWithGithub, gituser, gitloading, giterror] = useSignInWithGithub(auth);
   const [SignInWithFacebook, fuser, floading, ferror] = useSignInWithFacebook(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
   const { register, handleSubmit, reset, errors } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
-
+  const emailRef = useRef()
   //////////
   let someErrorMessages;
   const getFirebaseErrorMessages = (firebaseMessage)=>{
@@ -42,7 +44,6 @@ const SigninLeft = () => {
 
   const [token] = UseToken(suser || guser || gituser || fuser);
 
-  let signinError;
 
   if (sloading || gloading || gitloading || floading) {
       return <Loading />
@@ -51,6 +52,7 @@ const SigninLeft = () => {
   // if (serror || gerror || giterror || ferror) {
   //     signinError = <p className="text-red-700">{serror?.message || gerror?.message || giterror?.message || ferror?.message}</p>
   // }
+
 
   if (token) {
       navigate(from, { replace: true });
@@ -79,6 +81,12 @@ const SigninLeft = () => {
 
   const handleFacebookSignin = async () => {
       await SignInWithFacebook()
+  }
+
+  const handleReset=async ()=>{
+      const email=emailRef.current.value
+      await sendPasswordResetEmail(email)
+      toast.success(`Email Sent to ${email}!`);
   }
 
 
@@ -161,7 +169,9 @@ const SigninLeft = () => {
           className="input bg-slate-100 my-2 block mx-auto input-ghost w-full max-w-xs"
         />
         <span className="text-gray-400 hover:text-accent">
-          <Link to="/forgotpassword">forgot Your Password?</Link>
+          <label for="reset-pass-modal" className="btn text-xs modal-button capitalize btn-link btn-xs p-0">
+                forgot Your Password?
+            </label>
         </span>
         {/* {signinError} */}
         <input
@@ -170,6 +180,29 @@ const SigninLeft = () => {
           value="SIGN IN"
         />
       </form>
+      <>
+        <input type="checkbox" id="reset-pass-modal" className="modal-toggle" />
+        <div className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box relative">
+            <label for="reset-pass-modal" className="absolute right-4 top-4">
+              <GiCancel className="text-2xl" />
+            </label>
+            <h3 className="font-bold text-lg">Reset Your Password</h3>
+            <div className="form-control">
+              <input
+                required
+                type="email"
+                name="rsemail"
+                placeholder="Enter Your Email Address"
+                className="input input-bordered input-icon text-base mb-1 focus:outline-none mt-4"
+              />
+            </div>
+            <div className="form-control">
+              <button onClick={handleReset} className="btn btn-neutral text-white">Reset</button>
+            </div>
+          </div>
+        </div>
+      </>
     </div>
   );
 };

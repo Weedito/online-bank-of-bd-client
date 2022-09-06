@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
 import Loading from '../../../../Components/Components.Nahid/Loading';
+import PageTitle from '../../../PageTitle/PageTitle';
 import ACOverview from './ACOverview';
 import OVCards from './OVCards';
 import TopOverview from './TopOverview';
@@ -28,8 +29,10 @@ const Overview = () => {
         setCurrentAccount(account);
     }, [myAccount, selectAcc]);
 
+
+
     useEffect(() => {
-        fetch('http://localhost:5000/statements')
+        fetch('https://bank-of-bd.herokuapp.com/statements')
             .then(res => res.json())
             .then(data => setTransactions(data))
     }, [])
@@ -78,6 +81,14 @@ const Overview = () => {
 
     return (
         <section className="w-full p-5">
+            {/* title */}
+
+            <PageTitle title="Overview"></PageTitle>
+
+            {/* end */}
+
+
+
             <TopOverview handleSelect={handleSelect} frstacc={frstacc} setSelectAcc={setSelectAcc} />
             {
                 currentAccount && <div className='flex flex-col lg:flex-row justify-center items-center gap-5 w-full mx-auto'>

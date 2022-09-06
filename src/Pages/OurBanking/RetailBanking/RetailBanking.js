@@ -1,58 +1,109 @@
-import { useEffect, useState } from "react";
-import { Slide } from 'react-reveal';
+import React from 'react';
+import LoanPage from '../../../Components/Components.Rijon/LoanPage';
+import OurCards from '../../../Components/Components.Rijon/OurCards';
+import PageTitle from '../../PageTitle/PageTitle';
+import Loan from '../../Products/Loan/Loan';
+import Accounts from './Accounts';
+import Service from './Service';
+
+
+
+
 
 const RetailBanking = () => {
 
-    const [retailBanking, setRetailBanking] = useState([]);
 
 
-    useEffect(() => {
-        fetch('http://localhost:5000/retailbanking')
-            .then(res => res.json())
-            .then(data => setRetailBanking(data))
-    }, [])
+
     return (
-        <div className=' max-w-7xl mx-auto'>
+        <div className='bg-white'>
 
-            <div className='flex flex-col md:flex-row gap-2 justify-center items-center py-20 px-2'>
-                <Slide left>
-                    <div className="text-left">
+            {/* title */}
 
-                        <h3 className="text-3xl lg:text-5xl text-green-700 font-serif font-bold mb-5">Retail Banking</h3>
-                        <p className="font-bold">ACHIEVE LIFE GOALS
-                            Make Small Savings Today To Have A BIGGER <br /> HAPPINESS TOMORROW</p>
+            <PageTitle title="RetailBanking"></PageTitle>
 
-                    </div>
-                </Slide>
-                <Slide right>
-                    <div>
-                        <img className='object-cover' src="https://i.ibb.co/6PtbvVz/retail-banner-removebg-preview.png" alt="" />
-                    </div>
-                </Slide>
-
-            </div>
+            {/* end */}
 
 
+            {/* Image div */}
+            <section>
+                <img className='w-full' src="https://www.nrbcommercialbank.com/assets/img/banking.jpg" alt="" />
+            </section>
+            <section className='py-12 my-12'>
 
-            <section className='pb-8'>
-                <div className='grid grid-cols-1 lg:grid-cols-3 pt-8 gap-5 px-8'>
 
-                    {
-                        retailBanking.map(retailBank => <div key={retailBank._id} className="card hover:bg-base-200 hover:shadow-xl">
-                            <figure className="w-2/4 m-auto">
-                                <img src={retailBank.img} alt="retail banking img" className="rounded-xl" />
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title font-bold">{retailBank.name}</h2>
-                                <p>{retailBank.description}</p>
-                                <div className="card-actions">
-                                    <button className="text-1xl px-4 py-1 text-white bg-green-700 rounded-full ">Apply Now</button>
+                <div className='text-center mt-16 mx-40'>
+                    <h2 className='text-4xl font-semibold'>Retail Banking</h2>
+                    <p className=' mt-5 font-medium text-sm text-black text-start lg:px-36'>NRBCBank offers a complete range of retail and personal banking products and services through its network across the country. Our customers can be assured of a banking service that is flexible enough to tailor-make a product suite to take care of their specific banking needs. Our objective is to offer excellent value to customers by providing knowledgeable, efficient and reliable services in a personal, helpful and responsive manner</p>
+                </div>
+            </section>
+
+            <section className='flex items-center justify-center w-full mx-auto my-20'>
+                <div className='w-full mx-auto'>
+                    <ul class="nav nav-tabs grid grid-cols-2 lg:grid-cols-4  mx-auto md:flex-row flex-wrap list-none border-b-0 mb-4 bg-black justify-center lg:ml-80 w-1/2 gap-4" id="tabs-tab" role="tablist">
+
+
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-home" class="" id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
+                                aria-selected="true">
+                                <div class="card hover:bg-green-600 rounded-none">
+                                    <div class="card-body">
+                                        <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/care.png" alt="" />
+                                        <p className='text-warning'>ACCOUNTS</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        )
-                    }
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-profile" class="" id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
+                                aria-controls="tabs-profile" aria-selected="false">
+                                <div class="card hover:bg-green-600 rounded-none">
+                                    <div class="card-body">
+                                        <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/cash.png" alt="" />
+                                        <p className='text-warning'>CARDS</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-messages" class="" id="tabs-messages-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages" role="tab"
+                                aria-controls="tabs-messages" aria-selected="false">
+                                <div class="card hover:bg-green-600 rounded-none">
+                                    <div class="card-body">
+                                        <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/loan.png" alt="" />
+                                        <p className='text-warning'>LOANS</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#tabs-contact" class="" id="tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
+                                aria-controls="tabs-contact" aria-selected="false">
+                                <div class="card hover:bg-green-600 rounded-none">
+                                    <div class="card-body">
+                                        <img className='w-16 pl-5' src="https://www.nrbcommercialbank.com//assets/img/customer-service.png" alt="" />
+                                        <p className='text-warning'>SERVICES</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
 
+                    </ul>
+                    <div class="tab-content" id="tabs-tabContent">
+                        <div class="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
+                            <Accounts />
+                        </div>
+                        <div class="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+                            <OurCards />
+                        </div>
+                        <div class="tab-pane fade" id="tabs-messages" role="tabpanel" aria-labelledby="tabs-profile-tab">
+                            {/* <Loan /> */}
+                            <LoanPage />
+                        </div>
+                        <div class="tab-pane fade" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
+                            <Service />
+                        </div>
+                    </div>
                 </div>
             </section>
 

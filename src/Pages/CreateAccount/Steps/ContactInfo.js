@@ -16,7 +16,7 @@ const ContactInfo = () => {
     return (
         <div className='flex flex-col md:flex-row justify-center w-full items-center p-5 gap-3 mx-auto'>
             <div className="flex flex-col w-full md:w-3/6 items-center justify-center gap-3">
-                <img className='object-cover p-3 w-44' src="https://i.ibb.co/TLs3WLg/Logo-Header.png" alt="" />
+                <img className='object-cover p-3 w-44' src="https://i.ibb.co/wrjf422/Untitled-1.png" alt="" />
                 <img className='object-cover p-3 w-full' src="https://i.ibb.co/mH71jkt/Register.png" alt="" />
             </div>
             <div className="text-left w-full md:w-3/6 mx-auto">

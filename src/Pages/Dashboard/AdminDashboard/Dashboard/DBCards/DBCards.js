@@ -15,14 +15,14 @@ const DBCards = () => {
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://bank-of-bd.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, []);
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/allaccounts')
+        fetch('https://bank-of-bd.herokuapp.com/allaccounts')
             .then(res => res.json())
             .then(data => setAccounts(data))
     }, [])
@@ -34,7 +34,7 @@ const DBCards = () => {
         }, 0);
 
     useEffect(() => {
-        fetch('http://localhost:5000/statements')
+        fetch('https://bank-of-bd.herokuapp.com/statements')
             .then(res => res.json())
             .then(data => setTransactions(data))
     }, [])
@@ -93,7 +93,7 @@ const DBCards = () => {
                 <div className="">
                     <div className="flex items-center justify-between bg-[#28A745] p-3 rounded-t-xl">
                         <div className="">
-                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {TotalBalance}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold py-2 text-white">$ {TotalBalance?.toFixed(0)}</h3>
                             <h3 className="text-md font-bold text-white">Our Balance</h3>
                         </div>
                         <div className="">

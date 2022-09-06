@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDI_yXRa2mThbTaKnZ3zl7Y7rWfmgbSay0",
-  authDomain: "bank-of-bd.firebaseapp.com",
-  projectId: "bank-of-bd",
-  storageBucket: "bank-of-bd.appspot.com",
-  messagingSenderId: "278437275138",
-  appId: "1:278437275138:web:43bff7bd07e79999d5291b"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

@@ -5,7 +5,7 @@ const UserDetails = ({ user, index }) => {
     const { _id, email, role } = user;
 
     const handleMakeAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://bank-of-bd.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -23,7 +23,7 @@ const UserDetails = ({ user, index }) => {
     }
 
     const handleRemoveAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/remove/${email}`, {
+        fetch(`https://bank-of-bd.herokuapp.com/user/admin/remove/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -39,7 +39,7 @@ const UserDetails = ({ user, index }) => {
     }
 
     const handleRemoveUser = (id) => {
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`https://bank-of-bd.herokuapp.com/user/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

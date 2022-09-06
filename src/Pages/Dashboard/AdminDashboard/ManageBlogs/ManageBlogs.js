@@ -3,7 +3,7 @@ import AllBlogs from './AllBlogs';
 
 const ManageBlogs = () => {
     return (
-        <div>
+        <div className='min-h-[600px] '>
             <AllBlogs/>
         </div>
     );

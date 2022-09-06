@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import DepositModal from '../../../../Components/Components.Masud/DepositModal';
 import TransferMoneyModal from '../../../../Components/Components.Masud/TransferMoneyModal';
 import WidthdrawModal from '../../../../Components/Components.Masud/WidthdrawModal';
 import useAccount from '../../../../Components/Components.Nahid/Hooks/useAccount';
+
+import PageTitle from '../../../PageTitle/PageTitle';
+
+// import useMainAccount from '../../../../Components/Components.Nahid/Hooks/useMainAccount';
+
 
 
 const MyAccounts = () => {
@@ -11,34 +18,55 @@ const MyAccounts = () => {
     const [deposit, setDeposit] = useState(null);
     const [withdraw, setWithdraw] = useState(null);
     const [transferMoney, setTransferMoney] = useState(null);
-    const { myAccount } = useAccount();
+    const { myAccount, setRefreshAccount, refreshAccount } = useAccount();
     const navigate = useNavigate();
+    // const {mainAcc} = useMainAccount();
 
+    const account = myAccount?.filter(acc => acc?.role === 'approved');
 
+    // console.log(mainAcc);
     return (
         <div className="">
+
+
+            {/* title */}
+
+            <PageTitle title="MyAccounts"></PageTitle>
+
+            {/* end */}
+
+
 
             <div className="py-7">
                 <h2 className="section-title text-center font-semibold text-2xl md:text-4xl lg:text-6xl ">
                     My <span className="text-green-700">Accounts</span>
                 </h2>
             </div>
+            <div className="py-7 flex justify-end">
+                <a href="/openaccount" className="text-right font-semibold text-xl bg-accent text-white cursor-pointer px-7 py-2 rounded"> Open Another Account  <FontAwesomeIcon icon={faArrowCircleRight} /></a>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto w-full pt-5 items-center justify-center gap-5 pb-10 ">
                 {
-                    myAccount?.map(account => {
-                        // console.log(account);
+                    account?.map(account => {
+                        const mainAcc = account?.AccNo === 777888999000;
+
                         return (
+
                             <div className=" mx-auto w-full items-center justify-center p-5 rounded-lg bg-white shadow-lg ">
 
                                 <div className="flex flex-col md:flex-row w-full items-center p-5 rounded-lg bg-white shadow-lg">
                                     <div className="w-full p-5 md:w-2/5 items-center mx-auto">
-                                        <img className=" object-cover rounded-lg" src={account?.ahimage} alt="" />
+                                        <img className=" object-cover rounded-lg" src={(account?.ahimage && account?.ahimage) || (account?.ahupimage && account?.ahupimage) || (account?.ahcpimage && account?.ahcpimage)} alt="" />
                                     </div>
                                     <div className="p-6 w-full md:w-3/5 mx-auto flex flex-col justify-start">
                                         <h5 className="text-gray-900 text-xl font-semibold mb-2">Name: <span className="text-green-700">{account?.name}</span></h5>
                                         <p className="text-gray-700 text-xs md:text-base font-semibold mb-4"><span className=" text-xs md:text-base px-3 py-1 rounded-full bg-rose-700 text-white">{account?.actype}</span></p>
                                         <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Acc No: {account?.AccNo}</p>
-                                        <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {account?.balance}</p>
+                                        {
+                                            mainAcc ?
+                                                <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {account?.balance?.toFixed(2)}</p> :
+                                                <p className="text-gray-700 text-xs md:text-base font-semibold mb-4">Balance: $ {account?.balance}</p>
+                                        }
                                         <p className="text-gray-600 text-xs">Account Created {account?.OpeningDate}</p>
                                     </div>
                                 </div>
@@ -69,13 +97,13 @@ const MyAccounts = () => {
             </div>
 
             {
-                deposit && <DepositModal deposit={deposit} ></DepositModal>
+                deposit && <DepositModal deposit={deposit} setRefreshAccount={setRefreshAccount} refreshAccount={refreshAccount} ></DepositModal>
             }
             {
-                withdraw && <WidthdrawModal withdraw={withdraw} ></WidthdrawModal>
+                withdraw && <WidthdrawModal withdraw={withdraw} setRefreshAccount={setRefreshAccount} refreshAccount={refreshAccount}  ></WidthdrawModal>
             }
             {
-                transferMoney && <TransferMoneyModal transferMoney={transferMoney} ></TransferMoneyModal>
+                transferMoney && <TransferMoneyModal transferMoney={transferMoney} setRefreshAccount={setRefreshAccount} refreshAccount={refreshAccount}  ></TransferMoneyModal>
             }
         </div>
     );

@@ -5,19 +5,22 @@ import { useForm } from "react-hook-form";
 
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import useMainAccount from '../Components.Nahid/Hooks/useMainAccount';
 
-const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
-    const { name, AccNo, balance, _id } = transferMoney;
+const TransferMoneyModal = ({ transferMoney, setRefreshAccount, refreshAccount }) => {
+
+    const { name, AccNo, balance, _id, accEmail, ahimage, ahcpimage, ahupimage, actype } = transferMoney;
     const { register, handleSubmit, reset } = useForm();
     const [transAcc, setTransAcc] = useState();
+    const {mainAcc, refetch} = useMainAccount();
+    const image = ahimage || ahcpimage || ahupimage;
 
-
-    console.log(balance);
+    //console.log(transferMoney);
 
 
     const handleAccountBlur = (e) => {
         const tccAcc = e.target.value;
-        axios.get(`http://localhost:5000/accountno?accountno=${tccAcc}`)
+        axios.get(`https://bank-of-bd.herokuapp.com/accountno?accountno=${tccAcc}`)
             .then(function (data) {
                 setTransAcc(data?.data);
             })
@@ -26,7 +29,10 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
     const previousBalance = transAcc?.balance;
     const AccName = transAcc?.name;
     const AccNumber = transAcc?.AccNo;
-    const AccEmail = transAcc?.authemail;
+    const AccEmail = transAcc?.accEmail;
+    const trAcImg = transAcc?.ahimage || transAcc?.ahupimage || transAcc?.ahcpimage ;
+    
+
 
 
     // Reciver info
@@ -39,7 +45,18 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
         let today = new Date();
 
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
+        const timeAMPM = (date) => {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'pm' : 'am';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+          }
+          
+          const time = timeAMPM(today);
 
         // Receiver 
         const transferAmount = previousBalance + parseFloat(transBalance);
@@ -50,6 +67,29 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
         const depositBalance = balance - parseFloat(transBalance);
         const updateBalance = { depositBalance };
 
+        
+        let interest;
+
+        if (actype && actype === 'Business Account') {
+            const calc = transBalance * 7 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Current Account') {
+            const calc = transBalance * 5 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Savings Account') {
+            const calc = transBalance * 3 / 100;
+            interest = calc;
+        } else if (actype && actype === 'Sohoj Account') {
+            const calc = transBalance * 2 / 100;
+            interest = calc;
+        } else {
+            const calc = transBalance * 0 / 100;
+            interest = calc;
+        }
+
+        // console.log(interest);
+
+
 
         if (AccName !== transName && AccNumber !== transAccNo) {
             return (
@@ -57,7 +97,7 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
             )
         } else if (balance < 0 || balance < transBalance) {
             return (
-                toast.error("You Dont Have Enoung Balance for Transfer")
+                toast.error("You Dont Have Enough Balance for Transfer")
             )
         } else if (transBalance < 20) {
             return (
@@ -74,7 +114,7 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
         else {
 
             // Sender
-            const url = `http://localhost:5000/account/${_id}`;
+            const url = `https://bank-of-bd.herokuapp.com/account/${_id}`;
 
             fetch(url, {
                 method: 'PUT',
@@ -86,13 +126,14 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
                 .then(res => res.json())
                 .then(data => {
                     reset();
-                    setRefresh(!refresh)
+
+                    setRefreshAccount(!refreshAccount)
                 })
 
             // Receiver        
             const addBalance = { transferAmount };
 
-            const senderUrl = `http://localhost:5000/accountno/${transferAccountNo}`;
+            const senderUrl = `https://bank-of-bd.herokuapp.com/accountno/${transferAccountNo}`;
 
             fetch(senderUrl, {
                 method: 'PUT',
@@ -105,6 +146,35 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
                 .then(data => {
                     toast.success("Transfer Money Successfully")
                     reset();
+
+                    
+                const mainAcBal = mainAcc?.balance;
+                const newMainBal = mainAcBal + interest;
+                // console.log(newMainBal);
+                // console.log(parseFloat(newMainBal));
+
+                const updateBal = { bal: newMainBal };
+
+                // console.log(mainAcc?.balance);
+                // console.log(interest);
+                const mainurl = `https://bank-of-bd.herokuapp.com/mainaccount/${mainAcc?._id}`;
+                fetch(mainurl, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(updateBal)
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        // toast.success(`${interest} Interest Add Successfull`);
+                        toast.success(`${transBalance} Transfer Successful !`)
+                        refetch();
+                        // console.log("interest added");
+                    })
+
+                    
                 })
 
             // Post Data for Statemant
@@ -116,10 +186,13 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
                 withdraw: 0,
                 balance: depositBalance,
                 date: date,
-                email: AccEmail,
+                time: time,
+                email: accEmail,
+                name: name,
+                image: image
             }
 
-            fetch('http://localhost:5000/statement', {
+            fetch('https://bank-of-bd.herokuapp.com/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -128,11 +201,10 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    toast("Statemant Created Successfully!")
+                    toast("Statemant Created Successfully!");
                 })
 
             // Receiver data
-
 
             const receiverStatementData = {
                 senderAccount: parseFloat(transAccNo),
@@ -141,11 +213,14 @@ const TransferMoneyModal = ({ transferMoney, setRefresh,refresh}) => {
                 withdraw: 0,
                 balance: transferAmount,
                 date: date,
+                time: time,
                 email: AccEmail,
+                name: AccName,
+                image: trAcImg
             }
 
 
-            fetch('http://localhost:5000/statement', {
+            fetch('https://bank-of-bd.herokuapp.com/statement', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

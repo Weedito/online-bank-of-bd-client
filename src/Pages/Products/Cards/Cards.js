@@ -1,10 +1,19 @@
 import React from 'react';
 import OurCards from '../../../Components/Components.Rijon/OurCards';
+import PageTitle from '../../PageTitle/PageTitle';
 const Cards = () => {
     return (
 
         <div>
-            <OurCards></OurCards>
+            {/* title */}
+
+            <PageTitle title="Cards"></PageTitle>
+
+            {/* end */}
+
+
+
+            <OurCards />
         </div>
     );
 };

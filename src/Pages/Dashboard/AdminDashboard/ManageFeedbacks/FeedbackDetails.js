@@ -4,7 +4,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 
 const FeedbackDetails = ({ feedback, index, refetch }) => {
-    const { _id, name, img, feedbackComment } = feedback;
+    const { _id, name, img, feedbackComment, date } = feedback;
 
     const editFeedback = (id) => {
         Swal.fire({
@@ -17,7 +17,7 @@ const FeedbackDetails = ({ feedback, index, refetch }) => {
             confirmButtonText: 'Yes, Update it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/feedback/${id}`, {
+                fetch(`https://bank-of-bd.herokuapp.com/feedback/${id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -53,7 +53,7 @@ const FeedbackDetails = ({ feedback, index, refetch }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/feedback/${id}`, {
+                fetch(`https://bank-of-bd.herokuapp.com/feedback/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'content-type': 'application/json'
@@ -90,7 +90,7 @@ const FeedbackDetails = ({ feedback, index, refetch }) => {
                     </div>
                 </div>
                 <div className="flex items-center justify-between text-gray-800">
-                    <p className="dark:text-gray-100 text-sm">March 28, 2020</p>
+                    <p className="dark:text-gray-100 text-sm">{date}</p>
                     <div className="flex items-center justify-center gap-3">
                         <div onClick={() => editFeedback(_id)} className="cursor-pointer">
                             <FontAwesomeIcon className='text-xl hover:text-green-700 hover:scale-125 ease-in-out duration-200' icon={faEdit} />
